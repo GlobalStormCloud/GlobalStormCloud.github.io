@@ -3837,10 +3837,16 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
 }
+
+@font-face {
+  font-family: eurostile;
+  src: url('../assets/fonts/eurostile_lts_td_bold.otf');
+}
 .navbar-brand {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
+  font-family: eurostile;
   font-size: var(--bs-navbar-brand-font-size);
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
@@ -3848,6 +3854,17 @@ textarea.form-control-lg {
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);
+}
+
+.navbar-logo {
+  filter: brightness(0) saturate(100%) invert(90%) sepia(94%) saturate(7461%) hue-rotate(192deg) brightness(130%) contrast(100%);
+  opacity: 0.4;
+  padding-top: var(--bs-navbar-brand-padding-y);
+  padding-bottom: var(--bs-navbar-brand-padding-y);
+  height: 60px;
+  width: 60px;
+  min-height: 100%;
+  position: relative;
 }
 
 .navbar-nav {
@@ -11035,6 +11052,10 @@ body {
   #mainNav.navbar-shrink .navbar-brand {
     color: #000;
   }
+  #mainNav.navbar-shrink .navbar-logo {
+    opacity: 1;
+    filter: none;
+  }
   #mainNav.navbar-shrink .nav-link {
     color: #000;
     padding: 1.5rem 1.5rem 1.25rem;
@@ -11076,11 +11097,11 @@ body {
   background-size: cover;
 }
 .masthead h1, .masthead .h1 {
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
+  font-family: eurostile;
+  /* font-size: 2.5rem;
   line-height: 2.5rem;
-  letter-spacing: 0.8rem;
-  background: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.8rem; */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -11101,9 +11122,9 @@ body {
     padding: 0;
   }
   .masthead h1, .masthead .h1 {
-    font-size: 6.5rem;
+    /* font-size: 6.5rem;
     line-height: 6.5rem;
-    letter-spacing: 0.8rem;
+    letter-spacing: 0.8rem; */
   }
   .masthead h2, .masthead .h2 {
     max-width: 30rem;
