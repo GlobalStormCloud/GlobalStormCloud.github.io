@@ -3857,14 +3857,16 @@ textarea.form-control-lg {
 }
 
 .navbar-logo {
-  filter: brightness(0) saturate(100%) invert(90%) sepia(94%) saturate(7461%) hue-rotate(192deg) brightness(130%) contrast(100%);
-  opacity: 0.4;
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   height: 60px;
   width: 60px;
   min-height: 100%;
   position: relative;
+}
+
+.navbar-logo-box {
+    margin: auto;
 }
 
 .navbar-nav {
@@ -11014,6 +11016,10 @@ body {
   font-weight: 700;
   padding: 0.9rem 0;
 }
+#mainNav .navbar-logo {
+    opacity: 1;
+    filter: none;
+}
 #mainNav .navbar-nav .nav-item:hover {
   color: fade(#fff, 80%);
   outline: none;
@@ -11035,6 +11041,12 @@ body {
     padding: 0.5rem 0;
     color: rgba(255, 255, 255, 0.5);
   }
+
+  #mainNav .navbar-logo {
+    filter: brightness(0) saturate(100%) invert(90%) sepia(94%) saturate(7461%) hue-rotate(192deg) brightness(130%) contrast(100%);
+    opacity: 0.4;
+  }
+
   #mainNav .nav-link {
     transition: none;
     /* padding: 2rem 1.5rem; */
