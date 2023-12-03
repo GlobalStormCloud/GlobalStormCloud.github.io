@@ -1,6 +1,6 @@
-- name: Home
+- name: menu.home
   link: /
-- name: About
+- name: menu.about
   link: /about.html
-- name: Blog
+- name: menu.Blog
   link: /blog.html

@@ -11,13 +11,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                {% for item in site.data.navigation %}
+                {% for item in site.translations[site.lang].navigation %}
                     <li class="nav-item">
                         <a {% if page.url == "item.link" %} class="nav-link" {% else %} class="nav-link" {% endif %} href="{{ item.link }}">
                             {{ item.name }}
                         </a>
                     </li>
                 {% endfor %}
+                {% if site.lang == "en" %}
+                    {% capture link1 %}{{ site.baseurl_root }}/pl{{ page.url}}{% endcapture %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ link1 }}" ><i class="flag flag-poland"></i>{% t global.polish %}</a>
+                    </li>
+                {% elsif site.lang == "pl" %}
+                    {% capture link2 %}{{ site.baseurl_root }}{{ page.url  }}{% endcapture %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ link2 }}" ><i class="flag flag-us"></i>{% t global.english %}</a>
+                    </li>
+                {% endif %}
                 <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->

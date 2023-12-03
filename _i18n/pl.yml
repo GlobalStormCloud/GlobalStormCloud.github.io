@@ -1,0 +1,14 @@
+global:
+  english: English
+  polish: Polski
+pages:
+  home: Home
+  about: O Nas
+  blog: Blog
+navigation:
+  - name: Home
+    link: /
+  - name: O Nas
+    link: /about.html
+  - name: Blog
+    link: /blog.html
