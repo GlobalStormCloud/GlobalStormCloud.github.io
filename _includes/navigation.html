@@ -12,38 +12,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 {% for item in site.translations[site.lang].navigation %}
-                    <li class="nav-item">
-                        <a {% if page.url == "item.link" %} class="nav-link" {% else %} class="nav-link" {% endif %} href="{{ item.link }}">
-                            {{ item.name }}
-                        </a>
-                    </li>
+                    {% if page.url == "item.link" %}
+                        <li class="nav-item"> 
+                            <a {% if page.url == "item.link" %} class="nav-link" {% else %} class="nav-link" {% endif %} href="{{ item.link }}">
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                            <a data-mdb-dropdown-init class="dropdown-toggle nav-link" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                                {{ item.name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                {% for subitem in item.links %}
+                                <li>
+                                    <a class="dropdown-item" href="{{ subitem.link }}">{{ subitem.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
                 {% endfor %}
-                <!-- Dropdown -->
-                <div class="dropdown">
-                    <a
-                    data-mdb-dropdown-init
-                    class="dropdown-toggle nav-link"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    aria-expanded="false"
-                    >Solutions
-                    </a>
-                    <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                    >
-                    <li>
-                        <a class="dropdown-item" href="#">Industry 4.0</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Predictive Maintenance</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Internet of Things</a>
-                    </li>
-                    </ul>
-                </div>
                 <!-- Language -->
                 {% if site.lang == "en" %}
                     {% capture link1 %}{{ site.baseurl_root }}/pl{{ page.url}}{% endcapture %}
