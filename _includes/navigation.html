@@ -12,9 +12,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 {% for item in site.translations[site.lang].navigation %}
-                    {% if page.url == "item.link" %}
+                    {% if item.link %}
                         <li class="nav-item"> 
-                            <a {% if page.url == "item.link" %} class="nav-link" {% else %} class="nav-link" {% endif %} href="{{ item.link }}">
+                            <a {% if page.url == "item.link" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{{ item.link }}">
                                 {{ item.name }}
                             </a>
                         </li>
@@ -26,8 +26,8 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 {% for subitem in item.links %}
-                                <li>
-                                    <a class="dropdown-item" href="{{ subitem.link }}">{{ subitem.name }}</a>
+                                <li class="nav-item">
+                                    <a {% if page.url == "subitem.link" %} class="dropdown-item nav-link active" {% else %} class="dropdown-item nav-link" {% endif %} href="{{ subitem.link }}">{{ subitem.name }}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
