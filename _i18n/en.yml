@@ -10,8 +10,8 @@ navigation:
     link: /
   - name: About
     link: /about.html
-  - name: Blog
-    link: /blog.html
+  - name: News
+    link: /news.html
   - name: Solutions
     links:
       - name: Industry 4.0
@@ -20,3 +20,11 @@ navigation:
         link: maitenance.html
       - name: Internet of Things
         link: iot.html
+  - name: Departments
+    links:
+      - name: RnD
+        link: rnd.html
+      - name: IoT
+        link: iot.html
+      - name: Data
+        link: data.html

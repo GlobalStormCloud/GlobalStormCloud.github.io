@@ -10,8 +10,8 @@ navigation:
     link: /
   - name: O Nas
     link: /about.html
-  - name: Blog
-    link: /blog.html
+  - name: Nowości
+    link: /news.html
   - name: Rozwiązania
     links:
       - name: Industry 4.0
