@@ -14,17 +14,25 @@ navigation:
     link: /news.html
   - name: Solutions
     links:
-      - name: Industry 4.0
-        link: industry.html
       - name: Predictive Maitenance
-        link: maitenance.html
-      - name: Internet of Things
-        link: iot.html
-  - name: Departments
+        link: /wip.html
+      - name: Industry 4.0
+        link: /wip.html
+      - name: Digital Transformation
+        link: /wip.html
+      - name: Connected Factory
+        link: /wip.html
+      - name: eMobility
+        link: /wip.html
+  - name: Consultancy
     links:
-      - name: RnD
-        link: rnd.html
-      - name: IoT
-        link: iot.html
-      - name: Data
-        link: data.html
+      - name: Public Cloud
+        link: /wip.html
+      - name: R&D
+        link: /wip.html
+      - name: Internet of Things
+        link: /wip.html
+      - name: Rapid Prototyping
+        link: /wip.html
+      - name: Data Lakes
+        link: /wip.html

@@ -1,10 +1,10 @@
 ---
 layout: post
 author: ted
-title: Sample Post 3
+title: Sample Post 3 in PL
 cover-img: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg/640px-Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg
 ---
-Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the
+PL Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the
 edible berry of several species of woody vines in the genus Actinidia.
 
 The most common cultivar group of kiwifruit is oval, about the size of

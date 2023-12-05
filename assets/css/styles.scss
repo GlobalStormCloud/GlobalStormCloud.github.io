@@ -1,5 +1,6 @@
 ---
 ---
+@import "variables";
 @font-face {
     font-family: eurostile;
     src: url('/assets/fonts/eurostile_lts_td_bold.otf');
@@ -36,10 +37,13 @@ body {
     padding-bottom: 15rem;
 }
 
+// Some Parallax effect magic is happening due to css below
+
 .section {
     transform-origin: center top;
     transform: scaleY(calc(1 - var(--scale)));
-    min-height: 100vh;
+    min-height: 80vh;
+    margin-bottom: 5vh;
 }
   
 .section > * {
@@ -62,9 +66,9 @@ margin: calc(var(--space) / 1.35) 0;
 
 .content {
 position: relative;
-margin: -80vh auto 0;
+margin: -70vh auto 0;
 padding: var(--space);
-padding-bottom: 15vh;
+//padding-bottom: 15vh;
 //max-width: 55ch;
 width: calc(100% - var(--space));
 //background: hsla(5, 15%, 5%, 0.9);
@@ -74,11 +78,15 @@ width: calc(100% - var(--space));
 margin-top: 2rem;
 }
 
+.foot {
+    height: 12vh;
+}
+
 .image-container {
 position: sticky;
 top: 0;
 width: 100vw;
-height: 100vh;
+height: 90vh;
 z-index: -2;
 margin: 0;
 }
@@ -100,26 +108,26 @@ bottom: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%);
-// background: linear-gradient(
-//   to bottom,
-//   hsla(5, 15%, 5%, 0) 0%,
-//   hsla(5, 15%, 5%, 0.013) 8.1%,
-//   hsla(5, 15%, 5%, 0.049) 15.5%,
-//   hsla(5, 15%, 5%, 0.104) 22.5%,
-//   hsla(5, 15%, 5%, 0.175) 29%,
-//   hsla(5, 15%, 5%, 0.259) 35.3%,
-//   hsla(5, 15%, 5%, 0.352) 41.2%,
-//   hsla(5, 15%, 5%, 0.45) 47.1%,
-//   hsla(5, 15%, 5%, 0.55) 52.9%,
-//   hsla(5, 15%, 5%, 0.648) 58.8%,
-//   hsla(5, 15%, 5%, 0.741) 64.7%,
-//   hsla(5, 15%, 5%, 0.825) 71%,
-//   hsla(5, 15%, 5%, 0.896) 77.5%,
-//   hsla(5, 15%, 5%, 0.951) 84.5%,
-//   hsla(5, 15%, 5%, 0.987) 91.9%,
-//   hsl(5, 15%, 5%) 100%
-// );
+// background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%);
+background: linear-gradient(
+  to bottom,
+  hsla(0, 0%, 0%, 0) 0%,
+  hsla(0, 0%, 0%, 0.013) 8.1%,
+  hsla(0, 0%, 0%, 0.049) 15.5%,
+  hsla(0, 0%, 0%, 0.104) 22.5%,
+  hsla(0, 0%, 0%, 0.175) 29%,
+  hsla(0, 0%, 0%, 0.259) 35.3%,
+  hsla(0, 0%, 0%, 0.352) 41.2%,
+  hsla(0, 0%, 0%, 0.45) 47.1%,
+  hsla(0, 0%, 0%, 0.55) 52.9%,
+  hsla(0, 0%, 0%, 0.648) 58.8%,
+  hsla(0, 0%, 0%, 0.741) 64.7%,
+  hsla(0, 0%, 0%, 0.825) 71%,
+  hsla(0, 0%, 0%, 0.896) 77.5%,
+  hsla(0, 0%, 0%, 0.951) 84.5%,
+  hsla(0, 0%, 0%, 0.987) 91.9%,
+  hsl(0, 0%, 0%,) 100%
+);
 }
 
 @keyframes fadein {
@@ -196,14 +204,14 @@ to {
 
     .dropdown-item:hover {
         --mdb-dropdown-state-color: var(--mdb-surface-color);
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.95);
     }
 
     #mainNav .dropdown-menu {
         padding-top: 0;
         padding-bottom: 0;
         border-bottom: none;
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.75);
         transition: background-color 0.3s ease-in-out;
     }
 
@@ -289,7 +297,7 @@ to {
 }
 @media (min-width: 992px) {
     .masthead {
-        height: 100vh;
+        // height: 100vh;
         padding: 0;
     }
     .masthead h1, .masthead .h1 {
@@ -411,6 +419,63 @@ to {
     color: #fff;
 }
 
+
 .footer {
-    padding: 2rem 0;
+    padding: 2rem 0 1rem 0;
+}
+
+
+//////
+/// 
+
+.wrapper {
+	width: 75%;
+	max-width: 850px;
+	margin: 4rem auto;
+	background: $white;
+	color: $color_tuatara;
+	padding: 2em;
+	border-radius: 3px;
+	box-shadow: 0 0 10px 0 rgba($color_shark,0.3);
+	//@include transition(.5s);
+	@media #{$small} {
+		width: 90%;
+		padding: 2em 0;
+	    box-shadow: none;
+	}
+}
+
+.news-container {
+	width: 36rem;
+	max-width: 550px;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: $white;
+	color: $color_shark;
+	z-index: 1;
+	border-radius: 3px;
+	box-shadow: 0 0 10px 0 rgba($color_shark,0.3);
+	// @include transition(.5s);
+	@media #{$small} {
+		width: 100%;
+	    box-shadow: none;
+	}
+	@media #{$medium} {
+		width: 80%;
+	}
+}
+
+.row {
+	margin-top: 15px;
+	text-align: center;
+	.title {
+	    margin-top: 0;
+	    margin-bottom: 5px;
+	}
+	@media #{$small} {
+		padding: 0 1em;
+	}
 }

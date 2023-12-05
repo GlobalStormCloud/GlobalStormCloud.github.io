@@ -2,37 +2,26 @@
 layout: default
 title: News
 ---
-<div class="container px-4 px-lg-5">
-  {% for post in site.posts %}
-    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-    {% if thecycle == 'even' %}
-      <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-        <div class="col-lg-6"><img class="img-fluid" src="{{ post.cover-img }}" alt="..." /></div>
-          <div class="col-lg-6">
-            <div class="bg-black text-center h-100 project">
-                <div class="d-flex h-100">
-                    <div class="project-text w-100 my-auto text-center text-lg-left">
-                        <h4 class="text-white"><a href="{{ post.url }}">{{ post.title }}</a></h4>
-                        <p class="mb-0 text-white-50">{{ post.excerpt }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    {% else %}
-      <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-        <div class="col-lg-6"><img class="img-fluid" src="{{ post.cover-img }}" alt="..." /></div>
-          <div class="col-lg-6 order-lg-first">
-              <div class="bg-black text-center h-100 project">
-                  <div class="d-flex h-100">
-                      <div class="project-text w-100 my-auto text-center text-lg-right">
-                        <h4 class="text-white"><a href="{{ post.url }}">{{ post.title }}</a></h4>
-                          <p class="mb-0 text-white-50">{{ post.excerpt }}</p>
-                      </div>
-                  </div>
+<div class="wrapper animated fadeIn">
+  <div class="news-container">
+    <div class="post-title">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="post-list">
+      {% for post in site.posts %} 
+          {% if post.project == null %}
+          <div class="list-group list-group-flush">
+            <a href="{{ site.url }}{{ post.url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ post.title }}</h5>
+                <small>{{ post.date | date_to_long_string }}</small>
               </div>
+              <p class="mb-1">{{ post.excerpt }}</p>
+              <small>Click to read more</small>
+            </a>
           </div>
-      </div>
-    {% endif %}
-  {% endfor %}
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
 </div>

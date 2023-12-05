@@ -3,6 +3,7 @@ collections:
 
 plugins:
   - jekyll-multiple-languages-plugin # https://github.com/kurtsson/jekyll-multiple-languages-plugin
+  - jekyll-gist # https://github.com/jekyll/jekyll-gist
 
 languages: ["en", "pl"]
 exclude_from_localizations: ["assets"]

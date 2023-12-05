@@ -14,9 +14,25 @@ navigation:
     link: /news.html
   - name: Rozwiązania
     links:
-      - name: Industry 4.0
-        link: industry.html
       - name: Predictive Maitenance
-        link: maitenance.html
+        link: wip.html
+      - name: Industry 4.0
+        link: wip.html
+      - name: Digital Transformation
+        link: wip.html
+      - name: Connected Factory
+        link: wip.html
+      - name: eMobility
+        link: wip.html
+  - name: Doradztwo
+    links:
+      - name: Chmura Publicna
+        link: wip.html
+      - name: R&D
+        link: wip.html
       - name: Internet of Things
-        link: iot.html
+        link: wip.html
+      - name: Szybkie Prototypowanie
+        link: wip.html
+      - name: Data Lake
+        link: wip.html
