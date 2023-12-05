@@ -1,6 +1,8 @@
 ---
 ---
 @import "variables";
+@import "vendor/magnific-popup/magnific-popup";
+
 @font-face {
     font-family: eurostile;
     src: url('/assets/fonts/eurostile_lts_td_bold.otf');
@@ -480,3 +482,53 @@ to {
 		padding: 0 1em;
 	}
 }
+
+figure {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+    img {
+        margin-bottom: 10px;
+        -webkit-border-radius : 4px;
+        -moz-border-radius : 4px;
+        border-radius : 4px;
+    }
+    &.half {
+      @media only screen and (min-width: 62.5em) {
+        img {
+          width: calc(50% - 4px);
+          float: left;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+        figcaption {
+          clear: left;
+        }
+      }
+    }
+    &.third {
+      @media only screen and (min-width: 62.5em) {
+        img {
+          width: calc(33.3% - 6px);
+          float: left;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+        figcaption {
+          clear: left;
+        }
+      }
+    }
+  }

@@ -30,13 +30,13 @@ window.addEventListener('DOMContentLoaded', event => {
     document.addEventListener('scroll', navbarShrink);
 
     // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
+    // const mainNav = document.body.querySelector('#mainNav');
+    // if (mainNav) {
+    //     new bootstrap.ScrollSpy(document.body, {
+    //         target: '#mainNav',
+    //         rootMargin: '0px 0px -40%',
+    //     });
+    // };
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -51,4 +51,26 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+});
+
+// Add lightbox class to all image links
+$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+
+$(document).ready(function() {
+	$('.image-popup').magnificPopup({
+    type: 'image',
+    tLoading: 'Loading image #%curr%...',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    },
+    image: {
+      tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
+    },
+    removalDelay: 300, // Delay in milliseconds before popup is removed
+    // Class that is added to body when popup is open. 
+    // make it unique to apply your CSS animations just to this exact popup
+    mainClass: 'mfp-fade'
+  });
 });
