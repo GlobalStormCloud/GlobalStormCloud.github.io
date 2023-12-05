@@ -1,40 +1,36 @@
 global:
   english: English
   polish: Polski
-pages:
-  home: Home
-  about: O Nas
-  blog: Blog
 navigation:
   - name: Home
-    link: /
+    link: /pl
   - name: O Nas
-    link: /about.html
+    link: /pl/about.html
   - name: Nowości
-    link: /news.html
+    link: /pl/news.html
   - name: Rozwiązania
     links:
       - name: Predictive Maitenance
-        link: wip.html
+        link: /pl/solutions/maitenance.html
       - name: Industry 4.0
-        link: wip.html
+        link: /pl/solutions/industry.html
       - name: Digital Transformation
-        link: wip.html
+        link: /pl/solutions/transformation.html
       - name: Connected Factory
-        link: wip.html
+        link: /pl/solutions/factory.html
       - name: eMobility
-        link: wip.html
+        link: /pl/solutions/mobility.html
       - name: Health & Safety Monitoring 
-        link: /wip.html
+        link: /pl/solutions/monitoring.html
   - name: Doradztwo
     links:
       - name: Chmura Publicna
-        link: wip.html
+        link: /pl/consultancy/cloud.html
       - name: R&D
-        link: wip.html
+        link: /pl/consultancy/rnd.html
       - name: Internet of Things
-        link: wip.html
+        link: /pl/consultancy/iot.html
       - name: Szybkie Prototypowanie
-        link: wip.html
+        link: /pl/consultancy/prototying.html
       - name: Data Lake
-        link: wip.html
+        link: /pl/consultancy/data.html
