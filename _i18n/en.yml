@@ -1,10 +1,6 @@
 global:
   english: English
   polish: Polski
-pages:
-  home: Home
-  about: About
-  blog: Blog
 navigation:
   - name: Home
     link: /
