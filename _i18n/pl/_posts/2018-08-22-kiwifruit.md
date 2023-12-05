@@ -2,7 +2,6 @@
 layout: post
 author: ted
 title: Sample Post 3
-summary: Some text about the news
 cover-img: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg/640px-Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg
 ---
 Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the
