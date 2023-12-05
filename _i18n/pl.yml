@@ -24,6 +24,8 @@ navigation:
         link: wip.html
       - name: eMobility
         link: wip.html
+      - name: Health & Safety Monitoring 
+        link: /wip.html
   - name: Doradztwo
     links:
       - name: Chmura Publicna
