@@ -2,26 +2,36 @@
 layout: default
 title: News
 ---
-<div class="wrapper animated fadeIn">
-  <div class="news-container">
-    <div class="post-title">
-      <h1>{{ page.title }}</h1>
-    </div>
-    <div class="post-list">
-      {% for post in site.posts %} 
-          {% if post.project == null %}
-          <div class="list-group list-group-flush">
-            <a href="{{ site.url }}{{ post.url }}" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="fw-bold">{{ post.title }}</h5>
-                <small>{{ post.date | date_to_long_string }}</small>
-              </div>
-              <p class="mb-1">{{ post.excerpt }}</p>
-              <small>Click to read more</small>
-            </a>
+<main>
+  <div class="container">
+    <div class="row gx-lg-5">
+      {% for post in site.posts %}
+        <div class="col-lg-4 col-md-12 mb-6 mb-lg-0">
+          <div class="card">
+            <!-- Image -->
+            <div class="p-2">
+              {% if post.cover-img %}
+                <img alt="..." src="{{ post.cover-img }}" class="card-img img-fluid">
+              {% else %}
+                <img alt="..." src="https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&h=400&q=80" class="card-img img-fluid">
+              {% endif %}
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <!-- Title -->
+              <h3 class="h4">{{ post.title }}</h3>
+              <!-- Subtitle -->
+              <span class="d-block text-muted text-sm font-semibold">{{ post.date | date_to_long_string }}</span>
+              <p class="mt-4 mb-6">
+                {{ post.excerpt }}
+              </p>
+              <a href="{{ site.url }}{{ post.url }}" class="btn btn-sm btn-primary">
+                Learn more
+              </a>
+            </div>
           </div>
-          {% endif %}
+        </div>
       {% endfor %}
     </div>
   </div>
-</div>
+</main>

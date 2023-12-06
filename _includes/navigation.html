@@ -1,15 +1,15 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-0" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
         <div class="navbar-logo-box ">
             <img class="navbar-logo img-fluid float-start" src="/assets/img/logo_black.png" alt="..." />
             <a class="navbar-brand" href="{{ site.translations[site.lang].navigation[0].link }}">Global Storm</a>
         </div>
         <!-- Toggle button -->
-        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>      
+        <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ms-auto">
                 {% for item in site.translations[site.lang].navigation %}
                     {% if item.link %}
@@ -20,14 +20,14 @@
                         </li>
                     {% else %}
                         <!-- Dropdown -->
-                        <div class="dropdown">
-                            <a data-mdb-dropdown-init class="dropdown-toggle nav-link" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ item.name }}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <ul class="dropdown-menu">
                                 {% for subitem in item.links %}
-                                <li class="nav-item">
-                                    <a {% if page.url == "subitem.link" %} class="dropdown-item nav-link active" {% else %} class="dropdown-item nav-link" {% endif %} href="{{ subitem.link }}">{{ subitem.name }}</a>
+                                <li>
+                                    <a {% if page.url == "subitem.link" %} class="dropdown-item active" {% else %} class="dropdown-item" {% endif %} href="{{ subitem.link }}">{{ subitem.name }}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -38,12 +38,12 @@
                 {% if site.lang == "en" %}
                     {% capture link1 %}{{ site.baseurl_root }}/pl{{ page.url}}{% endcapture %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ link1 }}" ><i class="flag flag-poland"></i>{% t global.polish %}</a>
+                        <a class="nav-link" href="{{ link1 }}" ><span class="fi fi-pl"></span> {% t global.polish %}</a>
                     </li>
                 {% elsif site.lang == "pl" %}
-                    {% capture link2 %}{{ site.baseurl_root }}{{ page.url  }}{% endcapture %}
+                    {% capture link2 %}{{ site.baseurl_root }}{{ page.url }}{% endcapture %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ link2 }}" ><i class="flag flag-us"></i>{% t global.english %}</a>
+                        <a class="nav-link" href="{{ link2 }}" ><span class="fi fi-us"></span> {% t global.english %}</a>
                     </li>
                 {% endif %}
             </ul>

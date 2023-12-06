@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include header.html %}
-    <body id="page-top" class="bg-black">
-        {% include navigation.html %}
-        <section class="section">
-            <figure class="image-container"><img src="/assets/img/bg-main.jpg" alt=""></figure>
-                <div class="content">
-                    <div class="wrapper">
-                        <h1>{{ page.title }}</h1>
-                        {{ content }}
-                    </div>
-                </div>
-        </section>
-        {% include footer.html %}
-    </body>
+  {% include header.html %}
+  <body id="page-top" class="bg-black">
+    {% include navigation.html %}
+      <section class="section">
+        <figure class="image-container"><img src="/assets/img/bg-main.jpg" alt=""></figure>
+          <div class="content">
+            <div class="title-wrapper">
+              <h1>{{ page.title }}</h1>
+              <h4>{{ page.date | date_to_string }}</h4>
+            </div>
+            <div class="content-wrapper animated fadeIn">
+              {{ content }}
+            </div>
+          </div>
+      </section>
+    {% include footer.html %}
+  </body>
 </html>
