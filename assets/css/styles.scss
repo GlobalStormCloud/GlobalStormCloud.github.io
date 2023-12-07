@@ -575,11 +575,13 @@ figure {
         font-size:22px;
         line-height:1.4;
         a { 
-            background-image: linear-gradient(180deg, transparent 89%, $primary 0);
+            text-decoration:none;
+            background-image: linear-gradient(180deg, transparent 89%, #fff 0);
             background-repeat: no-repeat;
             background-size: 0 100%;
             transition: background-size .6s ease;
             position:relative;
+            color: #fff;
             &:hover {
                 text-decoration:none;
             }
@@ -702,6 +704,8 @@ figure {
     box-shadow: 0 7px 50px 0 rgba(84,110,122,.15);
 }
 .entry-header {
+    background: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
+    color: #fff !important;
     .author-thumb {
         width:50px;
         border-radius:50%;
@@ -724,6 +728,8 @@ figure {
     }
 }
 .article-post {    
+    background: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
+    color: #fff !important;
     font-size:18px;
     p {
         margin-top:30px;
