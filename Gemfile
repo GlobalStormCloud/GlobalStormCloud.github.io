@@ -7,3 +7,4 @@ gem "jekyll"
 gem 'jekyll-multiple-languages-plugin'
 gem "jekyll-sitemap"
 gem "jekyll-gist"
+gem 'jekyll-paginate'

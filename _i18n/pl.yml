@@ -7,7 +7,7 @@ navigation:
   - name: O Nas
     link: /pl/about.html
   - name: Nowości
-    link: /pl/news.html
+    link: /pl/news
   - name: Rozwiązania
     links:
       - name: Predictive Maitenance

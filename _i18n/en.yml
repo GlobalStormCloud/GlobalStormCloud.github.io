@@ -7,7 +7,7 @@ navigation:
   - name: About
     link: /about.html
   - name: News
-    link: /news.html
+    link: /news
   - name: Solutions
     links:
       - name: Predictive Maitenance
