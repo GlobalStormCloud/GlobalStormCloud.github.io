@@ -756,3 +756,128 @@ img {
     max-width:100%;
     height:auto;
 }
+
+//responsive tweaks
+@media (min-width: 768px) {
+    .container, .container-sm, .container-md, .container-lg {
+        max-width: 80%;
+    }
+}
+@media (min-width: 1440px) {
+    .container, .container-sm, .container-md, .container-lg {
+        max-width: 1140px;
+    }
+}
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        max-width:90%;
+        padding-left:80px;
+    }
+    .blog-grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .newsletter img.newsletter-logo {
+        max-height: 50px;
+        float: left;
+    }
+}
+@media (max-width: 768px) {
+    .posttitle {
+        font-size:35px;
+    }
+    .blog-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .firstpage .blog-grid-item:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .blog-grid-item .img-thumb, 
+    .firstpage .blog-grid-item:nth-child(1) .img-thumb, 
+    .firstpage .blog-grid-item:nth-child(2) .img-thumb, 
+    .firstpage .blog-grid-item:nth-child(3) .img-thumb {
+        height:auto;
+    }
+    .newsletter {
+        span.h4 {
+            font-size: 20px;
+        }
+        .mc-field-group input[type="email"] {
+            padding: 4px 10px;
+            min-width: 200px;
+        }
+        .mc-field-group input[type="submit"] {
+            padding: 4px 10px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-icon, .sidebar, .share, .wrap-search {
+        position:relative;
+    }
+    .container {
+        padding-left:15px;
+    }
+    .site-content {
+        padding-top:0;
+    }
+    .bd-search {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s linear;
+    }
+    .wrap-search {
+        right: 25px;
+        display: flex;
+        left: unset;
+        z-index:0;
+    }
+    .share {
+        display: flex;
+        align-items:center;
+    }
+    .share ul li {
+        display:inline-block;
+        margin: 10px 15px !important;
+    }
+    
+    #menu ul {
+        padding: 80px 30px 80px 30px;
+    }
+    .related-posts {
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+}
+@media (max-width: 480px) {
+    .newsletter {
+        .mc-field-group input[type="email"] {
+            min-width:170px;
+            width: 170px;
+        }
+    }
+    .article-post, .entry-header, .comments, .rating, .authorbox { 
+        padding-left:0;
+        padding-right:0;
+    }
+    blockquote {
+        margin-left:15px;
+        font-size:18px;
+    }
+    .article-post {
+        font-size:15px;
+    }
+    .wrap-search {
+        .fa-search {
+            display:none;
+        }
+        .form-control {
+            height:35px;
+        }
+    }
+}
