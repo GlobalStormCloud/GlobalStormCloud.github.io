@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include header.html %}
-    <body id="page-top" class="bg-black">
-        {% include navigation.html %}
-        <section class="section">
-            <figure class="image-container"><img src="/assets/img/bg-main.jpg" alt=""></figure>
-                <div class="content">
-                    <div class="title-wrapper">
-                        <h1>{{ page.title }}</h1>
-                        <h4>{{ page.date | date_to_string }}</h4>
-                    </div>
-                    <div class="content-wrapper animated fadeIn">
-                        {{ content }}
-                    </div>
-                </div>
-        </section>
-        {% include footer.html %}
-    </body>
-</html>
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+---
+
+<div class="entry-header">
+    <!-- Post Title -->
+    <h1 class="posttitle">{{ page.title }}</h1>
+    <!-- Author & Date  Box -->
+    {% assign author = site.authors[page.author] %}
+    {% if page.author %}
+    <div class="d-flex align-items-center mt-4">
+        <div>
+            {% if author.avatar %}
+            <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+            {% else %}
+            <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+            {% endif %}
+        </div>            
+        <div>
+        Written by {{ author.display_name }} on 
+        <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
+        {% if page.last_modified_at %}
+        (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+        {% endif %}
+        </div>            
+    </div>
+    {% endif %}
+</div>
+
+<!-- Featured Image -->
+{% include featured-image.html %}
+
+<!-- Content -->
+<div class="article-post">
+    {{content}}
+</div>
