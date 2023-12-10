@@ -34,15 +34,19 @@ navigation:
         link: /pl/consultancy/prototyping.html
       - name: Data Lake
         link: /pl/consultancy/data.html
+about:
+  title: O Nas
+  story: Nasza Historia
+  goals: Nasze Cele
 team:
     title: "OUR AMAZING TEAM"
     text: "Lorem ipsum dolor sit amet consectetur."
     subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: team
     people:
-      - name: "Kay Garland"
-        role: "Lead Designer"
-        image: assets/img/team/500x500.jpg
+      - name: "Mohsen Shaali"
+        role: "Co-Founder"
+        image: /assets/img/team/mohsen.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -50,9 +54,9 @@ team:
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Larry Parker"
-        role: "Lead Marketer"
-        image: assets/img/team/2.jpg
+      - name: "Wojciech Żydecki"
+        role: "Co-Foudner"
+        image: /assets/img/team/wojtek.jpg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -60,9 +64,9 @@ team:
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Diana Perterson"
-        role: "Lead Developer"
-        image: assets/img/team/500x500.jpg
+      - name: "Jakub Zawiasa"
+        role: "Co-Founder"
+        image: /assets/img/team/jakub.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter

@@ -7,7 +7,7 @@ plugins:
   - jekyll-paginate
 
 languages: ["en", "pl"]
-exclude_from_localizations: ["assets"]
+exclude_from_localizations: ["assets/css", "assets/img"]
 
 # Pagination 
 paginate: 6

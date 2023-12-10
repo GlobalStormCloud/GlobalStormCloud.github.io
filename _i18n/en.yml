@@ -34,6 +34,10 @@ navigation:
         link: /consultancy/prototyping.html
       - name: Data Lakes
         link: /consultancy/data.html
+about:
+  title: About Us
+  story: Our Story
+  goals: Our Goals
 team:
     title: "OUR AMAZING TEAM"
     text: "Lorem ipsum dolor sit amet consectetur."
@@ -42,7 +46,7 @@ team:
     people:
       - name: "Mohsen Shaali"
         role: "Co-Founder"
-        image: assets/img/team/mohsen.jpeg
+        image: /assets/img/team/mohsen.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -52,7 +56,7 @@ team:
             icon: fab fa-linkedin-in
       - name: "Wojciech Żydecki"
         role: "Co-Foudner"
-        image: assets/img/team/wojtek.jpg
+        image: /assets/img/team/wojtek.jpg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -62,7 +66,7 @@ team:
             icon: fab fa-linkedin-in
       - name: "Jakub Zawiasa"
         role: "Co-Founder"
-        image: assets/img/team/jakub.jpeg
+        image: /assets/img/team/jakub.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
