@@ -8,7 +8,6 @@ $primary: $teal;
 $dark:    $black;
 $enable-rounded: false;
 
-
 @import "variables";
 @import "mixins";
 @import "syntax";
@@ -17,7 +16,6 @@ $enable-rounded: false;
 @import 'vendor/bootstrap/variables';
 @import "vendor/bootstrap/mixins";
 @import "vendor/bootstrap/bootstrap";
-
 @font-face {
     font-family: eurostile;
     src: url('/assets/fonts/eurostile_lts_td_bold.otf');
@@ -881,3 +879,22 @@ img {
         }
     }
 }
+
+// Styling for the team section
+.team-member {
+    margin-bottom: 50px;
+    text-align: center;
+    img {
+      width: 225px;
+      height: 225px;
+      border: 7px solid fade-out($black, 0.9);
+    }
+    h4 {
+      margin-top: 25px;
+      margin-bottom: 0;
+      text-transform: none;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
