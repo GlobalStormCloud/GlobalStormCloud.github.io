@@ -127,3 +127,16 @@ consultancy:
     tile5-text: Szybkie prototypowanie przyspiesza proces rozwoju, umożliwiając szybsze dostarczanie minimalnych produktów (MVP).
     tile6-title: Zaangażowanie Interesariuszy
     tile6-text: Prototypy są wartościowymi narzędziami komunikacji, które angażują interesariuszy we wczesnej fazie procesu rozwoju, dostosowując oczekiwania.
+  data:
+    tile1-title: Zaawansowana Analiza
+    tile1-text: Jeziora danych wspierają zaawansowaną analizę, w tym uczenie maszynowe i sztuczną inteligencję, dostarczając różnorodne dane do analizy.
+    tile2-title: Elastyczne Przetwarzanie Danych
+    tile2-text: Organizacje mogą przeprowadzać przetwarzanie wsadowe, analizy czasu rzeczywistego i zapytania ad-hoc na jeziorach danych, dostosowując się do różnych potrzeb analitycznych.
+    tile3-title: Zarządzanie Jakością Danych
+    tile3-text: Wdrożenie praktyk zarządzania jakością danych zapewnia, że dane w jeziorze są dokładne, niezawodne i odpowiednie do analizy.
+    tile4-title: Zarządzanie Metadanymi
+    tile4-text: Metadane w jeziorach danych dostarczają informacje o pochodzeniu, formacie i genealogii danych, wzmacniając zarządzanie danymi i zrozumienie.
+    tile5-title: Katalogowanie Danych
+    tile5-text: Narzędzia do katalogowania pomagają zorganizować i skategoryzować dane w jeziorze, ułatwiając użytkownikom odkrywanie i zrozumienie dostępnych zestawów danych.
+    tile6-title: Akcelerator Innowacji
+    tile6-text: Jeziora danych stanowią fundament innowacji, umożliwiając organizacjom eksplorowanie nowych spostrzeżeń, modeli i możliwości biznesowych.

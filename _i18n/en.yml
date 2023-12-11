@@ -127,3 +127,16 @@ consultancy:
     tile5-text: Rapid prototyping accelerates the development process, allowing for quicker delivery of minimum viable products (MVPs).
     tile6-title: Stakeholder Engagement
     tile6-text: Prototypes are valuable communication tools that engage stakeholders early in the development process, aligning expectations.
+  data:
+    tile1-title: Advanced Analytics
+    tile1-text: Data lakes support advanced analytics, including machine learning and artificial intelligence, by providing a diverse range of raw data for analysis.
+    tile2-title: Flexible Data Processing
+    tile2-text: Organizations can perform batch processing, real-time analytics, and ad-hoc querying on data lakes, catering to various analytical needs.
+    tile3-title: Data Quality Management
+    tile3-text: Implementing data quality management practices ensures that data in the lake is accurate, reliable, and fit for analysis.
+    tile4-title: Metadata Management
+    tile4-text: Metadata in data lakes provides information about the origin, format, and lineage of data, enhancing data governance and understanding.
+    tile5-title: Data Cataloging
+    tile5-text: Cataloging tools help organize and categorize data within the lake, making it easier for users to discover and understand available datasets.
+    tile6-title: Innovation Accelerator
+    tile6-text: Data lakes serve as a foundation for innovation, empowering organizations to explore new insights, business models, and opportunities.
