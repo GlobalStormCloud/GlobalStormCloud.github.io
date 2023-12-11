@@ -76,15 +76,54 @@ team:
             icon: fab fa-linkedin-in
 consultancy:
   iot:
-    tile1-title: Security
-    tile1-text: Security stuff
-    tile2-title: Cloud Conferencing Support
-    tile2-text: Setup or schedule a Webex or other video conference.
-    tile3-title: Order New Hardware
-    tile3-text: Order a new laptop, phone, or other hardware.
-    tile4-title: Meeting Help
-    tile4-text: Learn how to schedule a meeting or reserve a conference room.
-    tile5-title: Printer Help
-    tile5-text: Get help accessing a network printer or request service.
-    tile6-title: Request VPN Acces
-    tile6-text: Setup Comcast VPN on your company issued device.
+    tile1-title: Connectivity
+    tile1-text: IoT enables seamless communication between devices over the internet, fostering a globally connected ecosystem.
+    tile2-title: Connected Vehicles
+    tile2-text: IoT technologies are revolutionizing transportation with smart vehicles, traffic management, and predictive maintenance.
+    tile3-title: Industry 4.0
+    tile3-text: IoT plays a pivotal role in the fourth industrial revolution by optimizing manufacturing processes through automation and data-driven insights.
+    tile4-title: Environmental Monitoring
+    tile4-text: IoT devices aid in monitoring and managing environmental parameters, contributing to sustainability efforts.
+    tile5-title: IoT and AI Integration
+    tile5-text: The synergy between IoT and Artificial Intelligence enhances data analysis, enabling more informed decision-making.
+    tile6-title: Security
+    tile6-text: As IoT expands, addressing security concerns becomes critical to safeguarding sensitive data and preventing cyber threats.
+  cloud:
+    tile1-title: Scalability
+    tile1-text: Cloud computing provides the ability to scale resources up or down based on demand, ensuring optimal performance and cost efficiency.
+    tile2-title: Flexibility
+    tile2-text: The cloud allows users to choose from various services and deployment models, tailoring solutions to specific business needs.
+    tile3-title: Security Measures
+    tile3-text: Robust security features and protocols in the cloud protect data, ensuring confidentiality, integrity, and availability.
+    tile4-title: Resource Optimization
+    tile4-text: Efficient resource utilization is achieved through features like auto-scaling, ensuring that resources match workload requirements.
+    tile5-title: Redundancy and Reliability
+    tile5-text: Cloud providers offer redundant systems and geographically distributed data centers, enhancing system reliability.
+    tile6-title: Cost Management
+    tile6-text: Cloud computing offers a pay-as-you-go model, allowing businesses to manage costs effectively and avoid upfront infrastructure investments.
+  rnd:
+    tile1-title: Innovation Hub
+    tile1-text: Establishing an innovation hub fosters a culture of creativity and experimentation within the R&D department.
+    tile2-title: Talent Development
+    tile2-text: Investing in continuous learning and skill development ensures that the R&D team stays at the forefront of emerging technologies and methodologies.
+    tile3-title: Agile Methodology
+    tile3-text: Adopting agile methodologies accelerates the R&D process, allowing for quicker iterations and adaptability to changing requirements.
+    tile4-title: Exploratory Research
+    tile4-text: Allowing room for exploratory research encourages the discovery of novel solutions and breakthrough innovations.
+    tile5-title: Iterative Prototyping
+    tile5-text: The use of iterative prototyping allows for rapid testing and refinement of ideas, reducing development cycles.
+    tile6-title: Risk Management
+    tile6-text: Implementing robust risk management strategies ensures that R&D projects can navigate uncertainties and challenges.
+  prototyping:
+    tile1-title: Agile Development
+    tile1-text: Rapid prototyping is aligned with agile development methodologies, allowing for quick iterations and flexibility in project requirements.
+    tile2-title: Iterative Feedback Loop
+    tile2-text: The iterative nature of rapid prototyping facilitates a continuous feedback loop, allowing for real-time improvements based on user input.
+    tile3-title: User-Centric Validation
+    tile3-text: Prototypes allow for early user testing and validation, ensuring that the final product meets user needs and expectations.
+    tile4-title: Low-Fidelity Prototypes
+    tile4-text: Low-fidelity prototypes are quick to create and ideal for early-stage concept validation and brainstorming.
+    tile5-title: Time-Efficient Development
+    tile5-text: Rapid prototyping accelerates the development process, allowing for quicker delivery of minimum viable products (MVPs).
+    tile6-title: Stakeholder Engagement
+    tile6-text: Prototypes are valuable communication tools that engage stakeholders early in the development process, aligning expectations.

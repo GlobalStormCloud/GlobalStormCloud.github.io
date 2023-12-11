@@ -1,7 +1,3 @@
----
-layout: consultancy2
-title: Internet of Things
----
 Here at Global Storm we have extensive experience designing and developing IIoT (Industrial Internet of Things) solutions. We can help all industries collect vast amounts of data from anything that moves, rotates, vibrates, heats, shrinks or expands.
 
 Today's industry uses multitudes of machines from simple to very complicated ones. Most Industrial machines often come with sophisticated control and management software that can help operators with diagnosing problems and in some instances even resolve those problems automatically. 

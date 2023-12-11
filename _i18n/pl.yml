@@ -76,5 +76,54 @@ team:
             icon: fab fa-linkedin-in
 consultancy:
   iot:
-    tile1-title: Security
-    tile1-text: Security stuff
+    tile1-title: Łączność
+    tile1-text: IoT umożliwia płynną komunikację między urządzeniami przez internet, sprzyjając globalnie połączonemu ekosystemowi.
+    tile2-title: Połączone Pojazdy
+    tile2-text: Technologie IoT rewolucjonizują transport poprzez inteligentne pojazdy, zarządzanie ruchem i konserwację przewidywaną.
+    tile3-title: Przemysł 4.0
+    tile3-text: IoT odgrywa kluczową rolę w czwartej rewolucji przemysłowej poprzez optymalizację procesów produkcyjnych za pomocą automatyzacji i danych.
+    tile4-title: Monitorowanie Środowiska
+    tile4-text: Urządzenia IoT pomagają monitorować i zarządzać parametrami środowiskowymi, przyczyniając się do działań na rzecz zrównoważonego rozwoju.
+    tile5-title: Integracja IoT i Sztucznej Inteligencji
+    tile5-text: Synergia między IoT a Sztuczną Inteligencją wzmacnia analizę danych, umożliwiając bardziej świadome podejmowanie decyzji.
+    tile6-title: Bezpieczeństwo
+    tile6-text: Wraz z rozwojem IoT, konieczne staje się rozwiązanie problemów związanych z bezpieczeństwem w celu ochrony poufnych danych i zapobiegania zagrożeniom cybernetycznym.
+  cloud:
+    tile1-title: Skalowalność
+    tile1-text: Obliczenia w chmurze umożliwiają skalowanie zasobów w górę lub w dół w zależności od potrzeb, zapewniając optymalną wydajność i efektywność kosztową.
+    tile2-title: Elastyczność
+    tile2-text: Chmura pozwala użytkownikom wybierać spośród różnych usług i modeli wdrożenia, dostosowując rozwiązania do konkretnych potrzeb biznesowych.
+    tile3-title: Bezpieczeństwo
+    tile3-text: Silne funkcje i protokoły bezpieczeństwa w chmurze chronią dane, zapewniając poufność, integralność i dostępność.
+    tile4-title: Optymalizacja Zasobów
+    tile4-text: Efektywna utylizacja zasobów jest osiągana dzięki funkcjom takim jak automatyczne skalowanie, zapewniające dopasowanie zasobów do wymagań obciążenia.
+    tile5-title: Redundancja i Niezawodność
+    tile5-text: Dostawcy chmur oferują systemy redundantne i rozproszone centra danych, zwiększając niezawodność systemu.
+    tile6-title: Zarządzanie Kosztami
+    tile6-text: Obliczenia w chmurze oferują model płatności za zużycie, pozwalając firmom skutecznie zarządzać kosztami i unikać inwestycji w infrastrukturę na wstępie.
+  rnd:
+    tile1-title: Hub Innowacji
+    tile1-text: Utworzenie centrum innowacji sprzyja kulturze kreatywności i eksperymentów w ramach działu Badań i Rozwoju.
+    tile2-title: Rozwój Talentów
+    tile2-text: Inwestycja w ciągłe uczenie się i rozwijanie umiejętności zapewnia, że zespół Badań i Rozwoju pozostaje na czele nowych technologii i metodologii.
+    tile3-title: Metodologia Agile
+    tile3-text: Przyjęcie metodologii Agile przyspiesza proces Badań i Rozwoju, umożliwiając szybsze iteracje i dostosowanie do zmieniających się wymagań.
+    tile4-title: Badania Eksploracyjne
+    tile4-text: Zachęcanie do badań eksploracyjnych umożliwia odkrywanie nowatorskich rozwiązań i przełomowych innowacji.
+    tile5-title: Prototypowanie Iteracyjne
+    tile5-text: Wykorzystanie prototypowania iteracyjnego pozwala na szybkie testowanie i udoskonalanie pomysłów, skracając cykle rozwoju.
+    tile6-title: Zarządzanie Ryzykiem
+    tile6-text: Wdrożenie solidnych strategii zarządzania ryzykiem zapewnia, że projekty Badań i Rozwoju mogą radzić sobie z niepewnościami i wyzwaniami.
+  prototyping:
+    tile1-title: Metodologia Agile
+    tile1-text: Szybkie prototypowanie jest zgodne z metodykami rozwoju Agile, umożliwiając szybkie iteracje i elastyczność w zakresie wymagań projektowych.
+    tile2-title: Iteracyjny Cykl Prototypowania
+    tile2-text: Iteracyjny charakter szybkiego prototypowania ułatwia ciągły cykl sprzężenia zwrotnego, umożliwiając bieżące ulepszenia na podstawie opinii użytkowników.
+    tile3-title: Walidacja Zorientowana na Użytkownika
+    tile3-text: Prototypy pozwalają na wczesne testowanie i walidację przez użytkowników, zapewniając, że ostateczny produkt spełnia potrzeby i oczekiwania użytkowników.
+    tile4-title: Prototypy Niskiej Wierności
+    tile4-text: Prototypy o niskiej wierności są szybkie do stworzenia i idealne do weryfikacji koncepcji na wczesnym etapie.
+    tile5-title: Development Wydajny Czasowo
+    tile5-text: Szybkie prototypowanie przyspiesza proces rozwoju, umożliwiając szybsze dostarczanie minimalnych produktów (MVP).
+    tile6-title: Zaangażowanie Interesariuszy
+    tile6-text: Prototypy są wartościowymi narzędziami komunikacji, które angażują interesariuszy we wczesnej fazie procesu rozwoju, dostosowując oczekiwania.
