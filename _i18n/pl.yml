@@ -74,3 +74,7 @@ team:
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
+consultancy:
+  iot:
+    tile1-title: Security
+    tile1-text: Security stuff

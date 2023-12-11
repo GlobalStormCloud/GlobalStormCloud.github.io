@@ -74,3 +74,17 @@ team:
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
+consultancy:
+  iot:
+    tile1-title: Security
+    tile1-text: Security stuff
+    tile2-title: Cloud Conferencing Support
+    tile2-text: Setup or schedule a Webex or other video conference.
+    tile3-title: Order New Hardware
+    tile3-text: Order a new laptop, phone, or other hardware.
+    tile4-title: Meeting Help
+    tile4-text: Learn how to schedule a meeting or reserve a conference room.
+    tile5-title: Printer Help
+    tile5-text: Get help accessing a network printer or request service.
+    tile6-title: Request VPN Acces
+    tile6-text: Setup Comcast VPN on your company issued device.
