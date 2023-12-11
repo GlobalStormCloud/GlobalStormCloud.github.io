@@ -1,5 +1,5 @@
 ---
-layout: solutions
+layout: consultancy
 title: eMobility
 tiles: 
     - icon: fa-solid fa-bus

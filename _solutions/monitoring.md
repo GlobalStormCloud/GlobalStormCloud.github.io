@@ -1,4 +1,4 @@
 ---
-layout: solutions
+layout: consultancy
 title: Health & Safety Monitoring
 ---
