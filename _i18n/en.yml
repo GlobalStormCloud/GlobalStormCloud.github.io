@@ -10,15 +10,15 @@ navigation:
     link: /news
   - name: Solutions
     links:
-      - name: Predictive Maitenance
-        link: /solutions/maitenance.html
+      - name: Predictive Maintenance
+        link: /solutions/maintenance.html
       - name: Industry 4.0
         link: /solutions/industry.html
       - name: Digital Transformation
         link: /solutions/transformation.html
       - name: Connected Factory
         link: /solutions/factory.html
-      - name: eMobility
+      - name: e-Mobility
         link: /solutions/mobility.html
       - name: Health & Safety Monitoring 
         link: /solutions/monitoring.html
@@ -140,3 +140,56 @@ consultancy:
     tile5-text: Cataloging tools help organize and categorize data within the lake, making it easier for users to discover and understand available datasets.
     tile6-title: Innovation Accelerator
     tile6-text: Data lakes serve as a foundation for innovation, empowering organizations to explore new insights, business models, and opportunities.
+solutions:
+  factory:
+    tile1-title: Smart Manufacturing
+    tile1-text: Transform traditional factories into smart, connected environments that leverage advanced technologies for improved efficiency.
+    tile2-title: Internet of Things (IoT) Integration
+    tile2-text: Connect machines, devices, and sensors through the Internet of Things to enable real-time monitoring and control of manufacturing processes.
+    tile3-title: Interconnected Systems
+    tile3-text: Integrate different manufacturing systems, such as Enterprise Resource Planning (ERP) and Manufacturing Execution Systems (MES), for seamless data flow and coordination.
+    tile4-title: Automation and Robotics
+    tile4-text: Implement automation and robotics to enhance production speed, accuracy, and flexibility, reducing manual labor and human error.
+    tile5-title: Predictive Maintenance
+    tile5-text: Implement predictive maintenance using data analytics and sensors to anticipate equipment failures and reduce downtime.
+    tile6-title: Real-time Monitoring and Alerts
+    tile6-text: Implement real-time monitoring of production metrics and receive instant alerts for anomalies or issues that require attention.
+  industry:
+    tile1-title: Digital Transformation
+    tile1-text: Industry 4.0 represents the fourth industrial revolution, marked by the widespread use of digital technologies to transform traditional manufacturing processes.
+    tile2-title: Smart Automation
+    tile2-text: Implement smart automation using technologies like robotics and artificial intelligence to enhance efficiency, reduce costs, and improve overall production.
+    tile3-title: Global Connectivity
+    tile3-text: Connect manufacturing systems globally, fostering collaboration and real-time communication between different facilities and stakeholders.
+    tile4-title: Internet of Things (IoT)
+    tile4-text: IoT plays a crucial role in Industry 4.0, connecting devices and sensors to collect and exchange data for informed decision-making.
+    tile5-title: Real-time Data Analytics
+    tile5-text: Utilize real-time data analytics to gain actionable insights from large datasets, enabling data-driven decision-making in manufacturing processes.
+    tile6-title: Predictive Maintenance
+    tile6-text: Implement predictive maintenance strategies using data analytics and machine learning to anticipate equipment failures and reduce downtime.
+  maintenance:
+    tile1-title: Data Collection and Monitoring
+    tile1-text: Collect real-time data from sensors and monitoring devices attached to machinery to track performance and detect anomalies.
+    tile2-title: Condition Monitoring
+    tile2-text: Implement condition monitoring to assess the health and performance of equipment, identifying potential issues before they lead to failures.
+    tile3-title: Predictive Analytics
+    tile3-text: Utilize predictive analytics algorithms to analyze historical data and predict when equipment is likely to fail or require maintenance.
+    tile4-title: Failure Pattern Recognition
+    tile4-text: Identify patterns and trends in equipment failures to understand common issues and improve predictive maintenance models.
+    tile5-title: Machine Learning Models
+    tile5-text: Develop and deploy machine learning models to continuously improve the accuracy of predictions based on evolving data patterns.
+    tile6-title: Alerts and Notifications
+    tile6-text: Set up automated alerts and notifications to inform maintenance teams when there is a potential issue or when maintenance is recommended.
+  mobility:
+    tile1-title: Smart Fleet Management
+    tile1-text: Utilize smart fleet management systems to monitor and optimize the performance of electric public transport vehicles, including maintenance scheduling and energy efficiency.
+    tile2-title: Integrated Mobility Systems
+    tile2-text: Develop integrated mobility systems that combine electric buses, trams, and other modes for seamless public transportation services.
+    tile3-title: Passenger Information Systems
+    tile3-text: Deploy passenger information systems at transit stops and stations to provide real-time updates on electric public transport schedules and delays.
+    tile4-title: Connected Public Transport
+    tile4-text: Enable connectivity between different modes of public transport, allowing passengers to seamlessly switch between electric buses, trains, trams, and more.
+    tile5-title: Last-Mile Connectivity
+    tile5-text: Enhance last-mile connectivity by integrating electric scooters, bikes, and other micro-mobility options with public transit networks.
+    tile6-title: Dynamic Route Optimization
+    tile6-text: Implement dynamic route optimization using real-time data to adapt public transit routes based on demand and traffic conditions.

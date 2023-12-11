@@ -10,15 +10,15 @@ navigation:
     link: /pl/news
   - name: Rozwiązania
     links:
-      - name: Predictive Maitenance
-        link: /pl/solutions/maitenance.html
+      - name: Predictive Maintenance
+        link: /pl/solutions/maintenance.html
       - name: Industry 4.0
         link: /pl/solutions/industry.html
       - name: Digital Transformation
         link: /pl/solutions/transformation.html
       - name: Connected Factory
         link: /pl/solutions/factory.html
-      - name: eMobility
+      - name: e-Mobility
         link: /pl/solutions/mobility.html
       - name: Health & Safety Monitoring 
         link: /pl/solutions/monitoring.html
@@ -140,3 +140,56 @@ consultancy:
     tile5-text: Narzędzia do katalogowania pomagają zorganizować i skategoryzować dane w jeziorze, ułatwiając użytkownikom odkrywanie i zrozumienie dostępnych zestawów danych.
     tile6-title: Akcelerator Innowacji
     tile6-text: Jeziora danych stanowią fundament innowacji, umożliwiając organizacjom eksplorowanie nowych spostrzeżeń, modeli i możliwości biznesowych.
+solutions:
+  factory:
+    tile1-title: Inteligentne Produkcja
+    tile1-text: Przekształć tradycyjne fabryki w inteligentne, połączone środowiska, wykorzystując zaawansowane technologie w celu poprawy efektywności.
+    tile2-title: Integracja Internetu Rzeczy (IoT)
+    tile2-text: Połącz maszyny, urządzenia i sensory za pomocą Internetu Rzeczy, umożliwiając monitorowanie i kontrolę procesów produkcyjnych w czasie rzeczywistym.
+    tile3-title: Zintegrowane Systemy
+    tile3-text: Zintegruj różne systemy produkcyjne, takie jak Planowanie Zasobów Przedsiębiorstwa (ERP) i Systemy Wykonywania Produkcji (MES), zapewniając płynny przepływ danych i koordynację.
+    tile4-title: Automatyzacja i Robotyka
+    tile4-text: Wprowadź automatyzację i robotykę w celu poprawy szybkości, dokładności i elastyczności produkcji, redukując pracę ręczną i błędy ludzkie.
+    tile5-title: Zapowiedź Konserwacji
+    tile5-text: Wprowadź zapowiedź konserwacji za pomocą analizy danych i sensorów, aby przewidywać awarie sprzętu i minimalizować przestój.
+    tile6-title: Monitorowanie w Czasie Rzeczywistym i Powiadomienia
+    tile6-text: Wprowadź monitorowanie w czasie rzeczywistym kluczowych metryk produkcji i otrzymuj natychmiastowe powiadomienia o nieprawidłowościach lub problemach wymagających uwagi.
+  industry:
+    tile1-title: Transformacja Cyfrowa
+    tile1-text: Przemysł 4.0 reprezentuje czwartą rewolucję przemysłową, charakteryzującą się powszechnym wykorzystaniem technologii cyfrowych do transformacji tradycyjnych procesów produkcyjnych.
+    tile2-title: Inteligentna Automatyzacja
+    tile2-text: Wprowadź inteligentną automatyzację, wykorzystując technologie takie jak robotyka i sztuczna inteligencja, aby zwiększyć efektywność, obniżyć koszty i poprawić ogólną produkcję.
+    tile3-title: Globalne Połączenie
+    tile3-text: Połącz systemy produkcyjne globalnie, wspierając współpracę i komunikację w czasie rzeczywistym między różnymi obiektami i interesariuszami.
+    tile4-title: Internet Rzeczy (IoT)
+    tile4-text: IoT odgrywa kluczową rolę w Przemysłu 4.0, łącząc urządzenia i sensory w celu zbierania i wymiany danych dla podejmowania poinformowanych decyzji.
+    tile5-title: Analityka Danych w Czasie Rzeczywistym
+    tile5-text: Wykorzystaj analitykę danych w czasie rzeczywistym, aby uzyskiwać praktyczne wnioski z dużych zbiorów danych, umożliwiając podejmowanie decyzji opartych na danych w procesach produkcyjnych.
+    tile6-title: Zapowiedź Konserwacji
+    tile6-text: Wprowadź strategie zapowiedzi konserwacji za pomocą analizy danych i uczenia maszynowego, aby przewidywać awarie sprzętu i minimalizować przestój.
+  maintenance:
+    tile1-title: Zbieranie Danych i Monitorowanie
+    tile1-text: Pobieraj dane w czasie rzeczywistym z czujników i urządzeń monitorujących zamocowane do maszyn, aby śledzić ich wydajność i wykrywać anomalie.
+    tile2-title: Monitorowanie Stanu
+    tile2-text: Wprowadź monitorowanie stanu, aby ocenić zdrowie i wydajność urządzeń, identyfikując potencjalne problemy przed wystąpieniem awarii.
+    tile3-title: Analiza Przewidywania
+    tile3-text: Wykorzystuj algorytmy analizy przewidywanej do analizy historycznych danych i prognozowania momentu potencjalnej awarii lub konieczności konserwacji.
+    tile4-title: Rozpoznawanie Wzorców Awarii
+    tile4-text: Identyfikuj wzorce i tendencje w awariach urządzeń, aby zrozumieć wspólne problemy i doskonalić modele utrzymania przewidywanego.
+    tile5-title: Modele Uczenia Maszynowego
+    tile5-text: Opracowuj i wdrażaj modele uczenia maszynowego w celu ciągłego poprawiania dokładności przewidywań na podstawie ewoluujących wzorców danych.
+    tile6-title: Alerty i Powiadomienia
+    tile6-text: Skonfiguruj zautomatyzowane alerty i powiadomienia, informujące zespoły konserwacji o potencjalnych problemach lub zalecanej konserwacji.
+  mobility:
+    tile1-title: Inteligentne Zarządzanie Flotą
+    tile1-text: Wykorzystuj inteligentne systemy zarządzania flotą do monitorowania i optymalizowania wydajności elektrycznych środków transportu publicznego, w tym planowania konserwacji i efektywności energetycznej.
+    tile2-title: Zintegrowane Systemy Mobilności
+    tile2-text: Opracuj zintegrowane systemy mobilności, łącząc autobusy elektryczne, tramwaje i inne środki transportu dla płynnych usług transportu publicznego.
+    tile3-title: Systemy Informacji Pasażerskiej
+    tile3-text: Wdrożenie systemów informacji pasażerskiej na przystankach i stacjach transportu publicznego, dostarczających aktualizacje w czasie rzeczywistym dotyczące rozkładów i opóźnień elektrycznych środków transportu publicznego.
+    tile4-title: Zintegrowany Transport Publiczny
+    tile4-text: Umożliwiaj połączenia między różnymi środkami transportu publicznego, umożliwiając pasażerom swobodne przechodzenie między autobusami elektrycznymi, pociągami, tramwajami i innymi.
+    tile5-title: Połączenia Ostatniej Mili
+    tile5-text: Usprawnij połączenie ostatniej mili, integrując elektryczne hulajnogi, rowery i inne opcje mikromobilności z siecią transportu publicznego.
+    tile6-title: Dynamiczna Optymalizacja Tras
+    tile6-text: Wprowadź dynamiczną optymalizację tras za pomocą danych w czasie rzeczywistym, dostosowując trasy transportu publicznego w oparciu o popyt i warunki ruchu.
