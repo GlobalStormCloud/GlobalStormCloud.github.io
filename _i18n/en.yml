@@ -1,0 +1,194 @@
+global:
+  english: English
+  polish: Polski
+navigation:
+  - name: Home
+    link: /
+  - name: About
+    link: /about.html
+  - name: News
+    link: /news
+  - name: Solutions
+    links:
+      - name: Predictive Maintenance
+        link: /solutions/maintenance.html
+      - name: Industry 4.0
+        link: /solutions/industry.html
+      # - name: Digital Transformation
+      #   link: /solutions/transformation.html
+      - name: Connected Factory
+        link: /solutions/factory.html
+      - name: e-Mobility
+        link: /solutions/mobility.html
+      # - name: Health & Safety Monitoring 
+      #   link: /solutions/monitoring.html
+  - name: Consultancy
+    links:
+      - name: Public Cloud
+        link: /consultancy/cloud.html
+      - name: R&D
+        link: /consultancy/rnd.html
+      - name: Internet of Things
+        link: /consultancy/iot.html
+      - name: Rapid Prototyping
+        link: /consultancy/prototyping.html
+      - name: Data Lakes
+        link: /consultancy/data.html
+about:
+  title: About Us
+  story: Our Story
+  goals: Our Goals
+team:
+    title: "Our Team"
+    text: "Lorem ipsum dolor sit amet consectetur."
+    subtext: Meet the driving force behind Global Storm—our co-founders, visionaries uniting expertise in public cloud and industrial IoT. With a shared passion for innovation, they've forged a collaborative culture that empowers the team. Committed to continuous learning, they ensure Global Storm remains at the forefront of technology. These leaders prioritize a positive work-life balance, recognizing that the heart of the company is its people—empowered, inspired, and shaping the future.
+    section: team
+    people:
+      - name: "Mohsen Shaali"
+        role: "Co-Founder"
+        image: /assets/img/team/mohsen.jpg
+        bio: A shepherd and a technology enthusiast with over 20 years experience working on a variety of software and hardware projects. He is specially interested in the field IoT and IIoT and naturally in keeping sheep!
+        social:
+          - url: https://github.com/mohsenie
+            icon: fab fa-github
+          - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
+            icon: fab fa-linkedin-in
+      - name: "Wojciech Żydecki"
+        role: "Co-Foudner"
+        image: /assets/img/team/wojtek.jpg
+        bio: Cloud Solutions Architect, sailor and tech enthusiast, that worked on various projects in various fields. His interests lie in various parts of IoT and Home Automation.
+        social:
+          - url: https://wojtek.cloud/
+            icon: fa-solid fa-globe
+          - url: https://github.com/FliesWithWind
+            icon: fab fa-github
+          - url: https://www.linkedin.com/in/wojciech-zydecki/
+            icon: fab fa-linkedin-in
+consultancy:
+  iot:
+    title: Internet of Things
+    tile1-title: Connectivity
+    tile1-text: IoT enables seamless communication between devices over the internet, fostering a globally connected ecosystem.
+    tile2-title: Connected Vehicles
+    tile2-text: IoT technologies are revolutionizing transportation with smart vehicles, traffic management, and predictive maintenance.
+    tile3-title: Industry 4.0
+    tile3-text: IoT plays a pivotal role in the fourth industrial revolution by optimizing manufacturing processes through automation and data-driven insights.
+    tile4-title: Environmental Monitoring
+    tile4-text: IoT devices aid in monitoring and managing environmental parameters, contributing to sustainability efforts.
+    tile5-title: IoT and AI Integration
+    tile5-text: The synergy between IoT and Artificial Intelligence enhances data analysis, enabling more informed decision-making.
+    tile6-title: Security
+    tile6-text: As IoT expands, addressing security concerns becomes critical to safeguarding sensitive data and preventing cyber threats.
+  cloud:
+    title: Public Cloud
+    tile1-title: Scalability
+    tile1-text: Cloud computing provides the ability to scale resources up or down based on demand, ensuring optimal performance and cost efficiency.
+    tile2-title: Flexibility
+    tile2-text: The cloud allows users to choose from various services and deployment models, tailoring solutions to specific business needs.
+    tile3-title: Security Measures
+    tile3-text: Robust security features and protocols in the cloud protect data, ensuring confidentiality, integrity, and availability.
+    tile4-title: Resource Optimization
+    tile4-text: Efficient resource utilization is achieved through features like auto-scaling, ensuring that resources match workload requirements.
+    tile5-title: Redundancy and Reliability
+    tile5-text: Cloud providers offer redundant systems and geographically distributed data centers, enhancing system reliability.
+    tile6-title: Cost Management
+    tile6-text: Cloud computing offers a pay-as-you-go model, allowing businesses to manage costs effectively and avoid upfront infrastructure investments.
+  rnd:
+    title: Research & Development
+    tile1-title: Innovation Hub
+    tile1-text: Establishing an innovation hub fosters a culture of creativity and experimentation within the R&D department.
+    tile2-title: Talent Development
+    tile2-text: Investing in continuous learning and skill development ensures that the R&D team stays at the forefront of emerging technologies and methodologies.
+    tile3-title: Agile Methodology
+    tile3-text: Adopting agile methodologies accelerates the R&D process, allowing for quicker iterations and adaptability to changing requirements.
+    tile4-title: Exploratory Research
+    tile4-text: Allowing room for exploratory research encourages the discovery of novel solutions and breakthrough innovations.
+    tile5-title: Iterative Prototyping
+    tile5-text: The use of iterative prototyping allows for rapid testing and refinement of ideas, reducing development cycles.
+    tile6-title: Risk Management
+    tile6-text: Implementing robust risk management strategies ensures that R&D projects can navigate uncertainties and challenges.
+  prototyping:
+    title: Rapid Prototyping
+    tile1-title: Agile Development
+    tile1-text: Rapid prototyping is aligned with agile development methodologies, allowing for quick iterations and flexibility in project requirements.
+    tile2-title: Iterative Feedback Loop
+    tile2-text: The iterative nature of rapid prototyping facilitates a continuous feedback loop, allowing for real-time improvements based on user input.
+    tile3-title: User-Centric Validation
+    tile3-text: Prototypes allow for early user testing and validation, ensuring that the final product meets user needs and expectations.
+    tile4-title: Low-Fidelity Prototypes
+    tile4-text: Low-fidelity prototypes are quick to create and ideal for early-stage concept validation and brainstorming.
+    tile5-title: Time-Efficient Development
+    tile5-text: Rapid prototyping accelerates the development process, allowing for quicker delivery of minimum viable products (MVPs).
+    tile6-title: Stakeholder Engagement
+    tile6-text: Prototypes are valuable communication tools that engage stakeholders early in the development process, aligning expectations.
+  data:
+    title: Data Lake
+    tile1-title: Advanced Analytics
+    tile1-text: Data lakes support advanced analytics, including machine learning and artificial intelligence, by providing a diverse range of raw data for analysis.
+    tile2-title: Flexible Data Processing
+    tile2-text: Organizations can perform batch processing, real-time analytics, and ad-hoc querying on data lakes, catering to various analytical needs.
+    tile3-title: Data Quality Management
+    tile3-text: Implementing data quality management practices ensures that data in the lake is accurate, reliable, and fit for analysis.
+    tile4-title: Metadata Management
+    tile4-text: Metadata in data lakes provides information about the origin, format, and lineage of data, enhancing data governance and understanding.
+    tile5-title: Data Cataloging
+    tile5-text: Cataloging tools help organize and categorize data within the lake, making it easier for users to discover and understand available datasets.
+    tile6-title: Innovation Accelerator
+    tile6-text: Data lakes serve as a foundation for innovation, empowering organizations to explore new insights, business models, and opportunities.
+solutions:
+  factory:
+    title: Connected Factory
+    tile1-title: Smart Manufacturing
+    tile1-text: Transform traditional factories into smart, connected environments that leverage advanced technologies for improved efficiency.
+    tile2-title: Internet of Things (IoT) Integration
+    tile2-text: Connect machines, devices, and sensors through the Internet of Things to enable real-time monitoring and control of manufacturing processes.
+    tile3-title: Interconnected Systems
+    tile3-text: Integrate different manufacturing systems, such as Enterprise Resource Planning (ERP) and Manufacturing Execution Systems (MES), for seamless data flow and coordination.
+    tile4-title: Automation and Robotics
+    tile4-text: Implement automation and robotics to enhance production speed, accuracy, and flexibility, reducing manual labor and human error.
+    tile5-title: Predictive Maintenance
+    tile5-text: Implement predictive maintenance using data analytics and sensors to anticipate equipment failures and reduce downtime.
+    tile6-title: Real-time Monitoring and Alerts
+    tile6-text: Implement real-time monitoring of production metrics and receive instant alerts for anomalies or issues that require attention.
+  industry:
+    title: Industry 4.0
+    tile1-title: Digital Transformation
+    tile1-text: Industry 4.0 represents the fourth industrial revolution, marked by the widespread use of digital technologies to transform traditional manufacturing processes.
+    tile2-title: Smart Automation
+    tile2-text: Implement smart automation using technologies like robotics and artificial intelligence to enhance efficiency, reduce costs, and improve overall production.
+    tile3-title: Global Connectivity
+    tile3-text: Connect manufacturing systems globally, fostering collaboration and real-time communication between different facilities and stakeholders.
+    tile4-title: Internet of Things (IoT)
+    tile4-text: IoT plays a crucial role in Industry 4.0, connecting devices and sensors to collect and exchange data for informed decision-making.
+    tile5-title: Real-time Data Analytics
+    tile5-text: Utilize real-time data analytics to gain actionable insights from large datasets, enabling data-driven decision-making in manufacturing processes.
+    tile6-title: Predictive Maintenance
+    tile6-text: Implement predictive maintenance strategies using data analytics and machine learning to anticipate equipment failures and reduce downtime.
+  maintenance:
+    title: Predictive Maintenance
+    tile1-title: Data Collection and Monitoring
+    tile1-text: Collect real-time data from sensors and monitoring devices attached to machinery to track performance and detect anomalies.
+    tile2-title: Condition Monitoring
+    tile2-text: Implement condition monitoring to assess the health and performance of equipment, identifying potential issues before they lead to failures.
+    tile3-title: Predictive Analytics
+    tile3-text: Utilize predictive analytics algorithms to analyze historical data and predict when equipment is likely to fail or require maintenance.
+    tile4-title: Failure Pattern Recognition
+    tile4-text: Identify patterns and trends in equipment failures to understand common issues and improve predictive maintenance models.
+    tile5-title: Machine Learning Models
+    tile5-text: Develop and deploy machine learning models to continuously improve the accuracy of predictions based on evolving data patterns.
+    tile6-title: Alerts and Notifications
+    tile6-text: Set up automated alerts and notifications to inform maintenance teams when there is a potential issue or when maintenance is recommended.
+  mobility:
+    title: e-Mobility
+    tile1-title: Smart Fleet Management
+    tile1-text: Utilize smart fleet management systems to monitor and optimize the performance of electric public transport vehicles, including maintenance scheduling and energy efficiency.
+    tile2-title: Integrated Mobility Systems
+    tile2-text: Develop integrated mobility systems that combine electric buses, trams, and other modes for seamless public transportation services.
+    tile3-title: Passenger Information Systems
+    tile3-text: Deploy passenger information systems at transit stops and stations to provide real-time updates on electric public transport schedules and delays.
+    tile4-title: Connected Public Transport
+    tile4-text: Enable connectivity between different modes of public transport, allowing passengers to seamlessly switch between electric buses, trains, trams, and more.
+    tile5-title: Last-Mile Connectivity
+    tile5-text: Enhance last-mile connectivity by integrating electric scooters, bikes, and other micro-mobility options with public transit networks.
+    tile6-title: Dynamic Route Optimization
+    tile6-text: Implement dynamic route optimization using real-time data to adapt public transit routes based on demand and traffic conditions.
