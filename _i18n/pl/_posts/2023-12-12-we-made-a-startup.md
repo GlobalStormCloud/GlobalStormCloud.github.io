@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "So we've made a startup"
-image: assets/img/news/the-beginning.jpg
+image: /assets/img/news/the-beginning.jpg
 ---
 
 Jesteśmy startupem aktywnym w obszarze Internetu Rzeczy (IoT) z wielkimi ambicjami, mającymi na celu pomóc naszym klientom osiągnąć cele związane z przemysłem 4.0 i cyfrową transformacją. Jesteśmy ekspertami w pomaganiu klientom w odbieraniu, przechowywaniu i analizowaniu petabajtów danych IoT w czasie rzeczywistym z dowolnej maszyny konsumenckiej lub przemysłowej. Nie tylko pomagamy klientom zbierać i przechowywać dane, ale również pomagamy im zrozumieć ich znaczenie.
