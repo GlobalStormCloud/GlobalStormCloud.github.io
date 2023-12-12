@@ -1,4 +1,4 @@
-Global Storm stands as a beacon of innovation in the industrial Internet of Things (IoT), conceived by three industry veterans amidst the turbulence of a storm. Committed to spearheading IoT innovation, the startup envisions revolutionizing global industrial landscapes with scalable and adaptable solutions, prioritizing trust through robust security measures.
+Global Storm stands as a beacon of innovation in the industrial Internet of Things (IoT), conceived by industry veterans amidst the turbulence of a storm. Committed to spearheading IoT innovation, the startup envisions revolutionizing global industrial landscapes with scalable and adaptable solutions, prioritizing trust through robust security measures.
 
 Advocating for interoperability standards, data-driven excellence, and sustainable practices, Global Storm actively engages with the wider IoT community. Fostering an innovation culture and ensuring compliance with evolving industry regulations, the company aims to contribute to the broader IoT ecosystem while staying ahead of industry trends.
 

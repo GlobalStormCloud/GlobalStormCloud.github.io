@@ -41,38 +41,28 @@ about:
 team:
     title: "OUR AMAZING TEAM"
     text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
+    subtext: Poznajcie siłę napędową Global Storm – naszych współzałożycieli, wizjonerów, którzy łączą swoją wiedzę z obszarów publicznego chmury i przemysłowego Internetu Rzeczy. Z pasją do innowacji stworzyli kulturę współpracy, inspirując zespół. Zaangażowani w ciągłe doskonalenie, dbają o to, aby Global Storm utrzymywało się na czele technologii. Ci liderzy cenią równowagę między pracą a życiem prywatnym, zdając sobie sprawę, że sercem firmy są ludzie – silni, zainspirowani, kształtujący przyszłość.
     section: team
     people:
       - name: "Mohsen Shaali"
         role: "Co-Founder"
-        image: /assets/img/team/mohsen.jpeg
+        image: /assets/img/team/mohsen.jpg
+        bio: Pasterz i entuzjasta technologii z ponad 20-letnim doświadczeniem w pracy nad różnorodnymi projektami oprogramowania i sprzętu. Szczególnie interesuje się obszarem Internetu Rzeczy (IoT) i Przemysłowego Internetu Rzeczy (IIoT) oraz naturalnie – utrzymaniem stad owiec!
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
+          - url: https://github.com/mohsenie
+            icon: fab fa-github
+          - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
             icon: fab fa-linkedin-in
       - name: "Wojciech Żydecki"
         role: "Co-Foudner"
         image: /assets/img/team/wojtek.jpg
+        bio: Architekt Rozwiązań Chmurowych, żeglarz i entuzjasta technologii, który pracował nad różnorodnymi projektami w różnych dziedzinach. Jego zainteresowania obejmują różne obszary Internetu Rzeczy (IoT) i Automatyzacji Domowej.
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Jakub Zawiasa"
-        role: "Co-Founder"
-        image: /assets/img/team/jakub.jpeg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
+          - url: https://wojtek.cloud/
+            icon: fa-solid fa-globe
+          - url: https://github.com/FliesWithWind
+            icon: fab fa-github
+          - url: https://www.linkedin.com/in/wojciech-zydecki/
             icon: fab fa-linkedin-in
 consultancy:
   iot:
