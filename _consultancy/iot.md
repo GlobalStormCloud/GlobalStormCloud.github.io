@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Internet of Things
+title: consultancy.iot.title
 tiles: 
     - icon: fa-solid fa-circle-nodes
       title: consultancy.iot.tile1-title

@@ -14,14 +14,14 @@ navigation:
         link: /solutions/maintenance.html
       - name: Industry 4.0
         link: /solutions/industry.html
-      - name: Digital Transformation
-        link: /solutions/transformation.html
+      # - name: Digital Transformation
+      #   link: /solutions/transformation.html
       - name: Connected Factory
         link: /solutions/factory.html
       - name: e-Mobility
         link: /solutions/mobility.html
-      - name: Health & Safety Monitoring 
-        link: /solutions/monitoring.html
+      # - name: Health & Safety Monitoring 
+      #   link: /solutions/monitoring.html
   - name: Consultancy
     links:
       - name: Public Cloud
@@ -76,6 +76,7 @@ team:
             icon: fab fa-linkedin-in
 consultancy:
   iot:
+    title: Internet of Things
     tile1-title: Connectivity
     tile1-text: IoT enables seamless communication between devices over the internet, fostering a globally connected ecosystem.
     tile2-title: Connected Vehicles
@@ -89,6 +90,7 @@ consultancy:
     tile6-title: Security
     tile6-text: As IoT expands, addressing security concerns becomes critical to safeguarding sensitive data and preventing cyber threats.
   cloud:
+    title: Public Cloud
     tile1-title: Scalability
     tile1-text: Cloud computing provides the ability to scale resources up or down based on demand, ensuring optimal performance and cost efficiency.
     tile2-title: Flexibility
@@ -102,6 +104,7 @@ consultancy:
     tile6-title: Cost Management
     tile6-text: Cloud computing offers a pay-as-you-go model, allowing businesses to manage costs effectively and avoid upfront infrastructure investments.
   rnd:
+    title: Research & Development
     tile1-title: Innovation Hub
     tile1-text: Establishing an innovation hub fosters a culture of creativity and experimentation within the R&D department.
     tile2-title: Talent Development
@@ -115,6 +118,7 @@ consultancy:
     tile6-title: Risk Management
     tile6-text: Implementing robust risk management strategies ensures that R&D projects can navigate uncertainties and challenges.
   prototyping:
+    title: Rapid Prototyping
     tile1-title: Agile Development
     tile1-text: Rapid prototyping is aligned with agile development methodologies, allowing for quick iterations and flexibility in project requirements.
     tile2-title: Iterative Feedback Loop
@@ -128,6 +132,7 @@ consultancy:
     tile6-title: Stakeholder Engagement
     tile6-text: Prototypes are valuable communication tools that engage stakeholders early in the development process, aligning expectations.
   data:
+    title: Data Lake
     tile1-title: Advanced Analytics
     tile1-text: Data lakes support advanced analytics, including machine learning and artificial intelligence, by providing a diverse range of raw data for analysis.
     tile2-title: Flexible Data Processing
@@ -142,6 +147,7 @@ consultancy:
     tile6-text: Data lakes serve as a foundation for innovation, empowering organizations to explore new insights, business models, and opportunities.
 solutions:
   factory:
+    title: Connected Factory
     tile1-title: Smart Manufacturing
     tile1-text: Transform traditional factories into smart, connected environments that leverage advanced technologies for improved efficiency.
     tile2-title: Internet of Things (IoT) Integration
@@ -155,6 +161,7 @@ solutions:
     tile6-title: Real-time Monitoring and Alerts
     tile6-text: Implement real-time monitoring of production metrics and receive instant alerts for anomalies or issues that require attention.
   industry:
+    title: Industry 4.0
     tile1-title: Digital Transformation
     tile1-text: Industry 4.0 represents the fourth industrial revolution, marked by the widespread use of digital technologies to transform traditional manufacturing processes.
     tile2-title: Smart Automation
@@ -168,6 +175,7 @@ solutions:
     tile6-title: Predictive Maintenance
     tile6-text: Implement predictive maintenance strategies using data analytics and machine learning to anticipate equipment failures and reduce downtime.
   maintenance:
+    title: Predictive Maintenance
     tile1-title: Data Collection and Monitoring
     tile1-text: Collect real-time data from sensors and monitoring devices attached to machinery to track performance and detect anomalies.
     tile2-title: Condition Monitoring
@@ -181,6 +189,7 @@ solutions:
     tile6-title: Alerts and Notifications
     tile6-text: Set up automated alerts and notifications to inform maintenance teams when there is a potential issue or when maintenance is recommended.
   mobility:
+    title: e-Mobility
     tile1-title: Smart Fleet Management
     tile1-text: Utilize smart fleet management systems to monitor and optimize the performance of electric public transport vehicles, including maintenance scheduling and energy efficiency.
     tile2-title: Integrated Mobility Systems

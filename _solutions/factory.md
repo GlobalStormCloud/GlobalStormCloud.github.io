@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Connected Factory
+title: solutions.factory.title
 tiles: 
     - icon: fa-solid fa-server
       title: solutions.factory.tile1-title

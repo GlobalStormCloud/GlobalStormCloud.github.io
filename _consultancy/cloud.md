@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Public Cloud
+title: consultancy.cloud.title
 tiles: 
     - icon: fa-solid fa-cloud
       title: consultancy.cloud.tile1-title

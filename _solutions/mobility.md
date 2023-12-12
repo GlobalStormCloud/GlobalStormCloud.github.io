@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: eMobility
+title: solutions.mobility.title
 tiles: 
     - icon: fa-solid fa-bus
       title: solutions.mobility.tile1-title

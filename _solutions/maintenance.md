@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Predictive Maintenance
+title: solutions.maintenance.title
 tiles: 
     - icon: fa-solid fa-chart-column
       title: solutions.maintenance.tile1-title

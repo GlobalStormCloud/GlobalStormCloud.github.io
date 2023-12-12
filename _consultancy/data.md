@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Data Lake
+title: consultancy.data.title
 tiles: 
     - icon: fa-solid fa-brain
       title: consultancy.data.tile1-title

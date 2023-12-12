@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Research & Development
+title: consultancy.rnd.title
 tiles: 
     - icon: fa-solid fa-vial
       title: consultancy.rnd.tile1-title

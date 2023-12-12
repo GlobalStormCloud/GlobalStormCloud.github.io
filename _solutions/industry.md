@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Industry 4.0
+title: solutions.industry.title
 tiles: 
     - icon: fa-solid fa-industry
       title: solutions.industry.tile1-title

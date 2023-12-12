@@ -1,6 +1,6 @@
 ---
 layout: consultancy
-title: Rapid Prototyping
+title: consultancy.prototyping.title
 tiles: 
     - icon: fa-solid fa-rocket
       title: consultancy.prototyping.tile1-title

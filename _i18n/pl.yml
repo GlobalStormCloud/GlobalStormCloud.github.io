@@ -10,18 +10,18 @@ navigation:
     link: /pl/news
   - name: Rozwiązania
     links:
-      - name: Predictive Maintenance
+      - name: Zapowiedź Konserwacji
         link: /pl/solutions/maintenance.html
-      - name: Industry 4.0
+      - name: Przemysł 4.0
         link: /pl/solutions/industry.html
-      - name: Digital Transformation
-        link: /pl/solutions/transformation.html
-      - name: Connected Factory
+      # - name: Digital Transformation
+      #   link: /pl/solutions/transformation.html
+      - name: Połączona Fabryka
         link: /pl/solutions/factory.html
       - name: e-Mobility
         link: /pl/solutions/mobility.html
-      - name: Health & Safety Monitoring 
-        link: /pl/solutions/monitoring.html
+      # - name: Health & Safety Monitoring 
+      #   link: /pl/solutions/monitoring.html
   - name: Doradztwo
     links:
       - name: Chmura Publicna
@@ -76,6 +76,7 @@ team:
             icon: fab fa-linkedin-in
 consultancy:
   iot:
+    title: Internet of Things
     tile1-title: Łączność
     tile1-text: IoT umożliwia płynną komunikację między urządzeniami przez internet, sprzyjając globalnie połączonemu ekosystemowi.
     tile2-title: Połączone Pojazdy
@@ -89,6 +90,7 @@ consultancy:
     tile6-title: Bezpieczeństwo
     tile6-text: Wraz z rozwojem IoT, konieczne staje się rozwiązanie problemów związanych z bezpieczeństwem w celu ochrony poufnych danych i zapobiegania zagrożeniom cybernetycznym.
   cloud:
+    title: Chmura Publiczna
     tile1-title: Skalowalność
     tile1-text: Obliczenia w chmurze umożliwiają skalowanie zasobów w górę lub w dół w zależności od potrzeb, zapewniając optymalną wydajność i efektywność kosztową.
     tile2-title: Elastyczność
@@ -102,6 +104,7 @@ consultancy:
     tile6-title: Zarządzanie Kosztami
     tile6-text: Obliczenia w chmurze oferują model płatności za zużycie, pozwalając firmom skutecznie zarządzać kosztami i unikać inwestycji w infrastrukturę na wstępie.
   rnd:
+    title: Badania i Rozwój
     tile1-title: Hub Innowacji
     tile1-text: Utworzenie centrum innowacji sprzyja kulturze kreatywności i eksperymentów w ramach działu Badań i Rozwoju.
     tile2-title: Rozwój Talentów
@@ -115,6 +118,7 @@ consultancy:
     tile6-title: Zarządzanie Ryzykiem
     tile6-text: Wdrożenie solidnych strategii zarządzania ryzykiem zapewnia, że projekty Badań i Rozwoju mogą radzić sobie z niepewnościami i wyzwaniami.
   prototyping:
+    title: Szybkie Prototypowanie
     tile1-title: Metodologia Agile
     tile1-text: Szybkie prototypowanie jest zgodne z metodykami rozwoju Agile, umożliwiając szybkie iteracje i elastyczność w zakresie wymagań projektowych.
     tile2-title: Iteracyjny Cykl Prototypowania
@@ -128,6 +132,7 @@ consultancy:
     tile6-title: Zaangażowanie Interesariuszy
     tile6-text: Prototypy są wartościowymi narzędziami komunikacji, które angażują interesariuszy we wczesnej fazie procesu rozwoju, dostosowując oczekiwania.
   data:
+    title: Jezioro Danych
     tile1-title: Zaawansowana Analiza
     tile1-text: Jeziora danych wspierają zaawansowaną analizę, w tym uczenie maszynowe i sztuczną inteligencję, dostarczając różnorodne dane do analizy.
     tile2-title: Elastyczne Przetwarzanie Danych
@@ -142,6 +147,7 @@ consultancy:
     tile6-text: Jeziora danych stanowią fundament innowacji, umożliwiając organizacjom eksplorowanie nowych spostrzeżeń, modeli i możliwości biznesowych.
 solutions:
   factory:
+    title: Połączona Fabryka
     tile1-title: Inteligentne Produkcja
     tile1-text: Przekształć tradycyjne fabryki w inteligentne, połączone środowiska, wykorzystując zaawansowane technologie w celu poprawy efektywności.
     tile2-title: Integracja Internetu Rzeczy (IoT)
@@ -155,6 +161,7 @@ solutions:
     tile6-title: Monitorowanie w Czasie Rzeczywistym i Powiadomienia
     tile6-text: Wprowadź monitorowanie w czasie rzeczywistym kluczowych metryk produkcji i otrzymuj natychmiastowe powiadomienia o nieprawidłowościach lub problemach wymagających uwagi.
   industry:
+    title: Przemysł 4.0
     tile1-title: Transformacja Cyfrowa
     tile1-text: Przemysł 4.0 reprezentuje czwartą rewolucję przemysłową, charakteryzującą się powszechnym wykorzystaniem technologii cyfrowych do transformacji tradycyjnych procesów produkcyjnych.
     tile2-title: Inteligentna Automatyzacja
@@ -168,6 +175,7 @@ solutions:
     tile6-title: Zapowiedź Konserwacji
     tile6-text: Wprowadź strategie zapowiedzi konserwacji za pomocą analizy danych i uczenia maszynowego, aby przewidywać awarie sprzętu i minimalizować przestój.
   maintenance:
+    title: Zapowiedź Konserwacji
     tile1-title: Zbieranie Danych i Monitorowanie
     tile1-text: Pobieraj dane w czasie rzeczywistym z czujników i urządzeń monitorujących zamocowane do maszyn, aby śledzić ich wydajność i wykrywać anomalie.
     tile2-title: Monitorowanie Stanu
@@ -181,6 +189,7 @@ solutions:
     tile6-title: Alerty i Powiadomienia
     tile6-text: Skonfiguruj zautomatyzowane alerty i powiadomienia, informujące zespoły konserwacji o potencjalnych problemach lub zalecanej konserwacji.
   mobility:
+    title: e-Mobility
     tile1-title: Inteligentne Zarządzanie Flotą
     tile1-text: Wykorzystuj inteligentne systemy zarządzania flotą do monitorowania i optymalizowania wydajności elektrycznych środków transportu publicznego, w tym planowania konserwacji i efektywności energetycznej.
     tile2-title: Zintegrowane Systemy Mobilności
