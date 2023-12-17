@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "So we've made a startup"
+title:  "A więc, założyliśmy startup"
 image: assets/img/news/the-beginning.jpg
 ---
 
