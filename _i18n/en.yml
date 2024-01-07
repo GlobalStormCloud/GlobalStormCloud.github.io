@@ -49,6 +49,8 @@ team:
         image: /assets/img/team/mohsen.jpg
         bio: A shepherd and a technology enthusiast with over 20 years experience working on a variety of software and hardware projects. He is specially interested in the field IoT and IIoT and naturally in keeping sheep!
         social:
+          - url: mailto:m.shaali@globalstorm.cloud
+            icon: fa-solid fa-envelope
           - url: https://github.com/mohsenie
             icon: fab fa-github
           - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
@@ -58,6 +60,8 @@ team:
         image: /assets/img/team/wojtek.jpg
         bio: Cloud Solutions Architect, sailor and tech enthusiast, that worked on various projects in various fields. His interests lie in various parts of IoT and Home Automation.
         social:
+          - url: mailto:w.zydecki@globalstorm.cloud
+            icon: fa-solid fa-envelope
           - url: https://wojtek.cloud/
             icon: fa-solid fa-globe
           - url: https://github.com/FliesWithWind
