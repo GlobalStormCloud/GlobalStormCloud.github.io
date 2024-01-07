@@ -49,6 +49,8 @@ team:
         image: /assets/img/team/mohsen.jpg
         bio: Pasterz i entuzjasta technologii z ponad 20-letnim doświadczeniem w pracy nad różnorodnymi projektami oprogramowania i sprzętu. Szczególnie interesuje się obszarem Internetu Rzeczy (IoT) i Przemysłowego Internetu Rzeczy (IIoT) oraz naturalnie – utrzymaniem stad owiec!
         social:
+          - url: mailto:m.shaali@globalstorm.cloud
+            icon: fa-solid fa-envelope
           - url: https://github.com/mohsenie
             icon: fab fa-github
           - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
@@ -58,6 +60,8 @@ team:
         image: /assets/img/team/wojtek.jpg
         bio: Architekt Rozwiązań Chmurowych, żeglarz i entuzjasta technologii, który pracował nad różnorodnymi projektami w różnych dziedzinach. Jego zainteresowania obejmują różne obszary Internetu Rzeczy (IoT) i Automatyzacji Domowej.
         social:
+          - url: mailto:w.zydecki@globalstorm.cloud
+            icon: fa-solid fa-envelope
           - url: https://wojtek.cloud/
             icon: fa-solid fa-globe
           - url: https://github.com/FliesWithWind
