@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" rel="stylesheet"  />
     <!-- Core theme CSS -->
     <link href="/assets/css/styles.css" rel="stylesheet" />
-    {% if site.google_analytics and jekyll.environment == 'production' %}
-        {% include analytics.html %}
-    {% endif %}
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.css">
+    {% include cookie-consent.html %}
 </head>
