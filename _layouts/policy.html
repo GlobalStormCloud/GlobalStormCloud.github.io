@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include header.html %}
+    <body id="page-top" class="bg-black">
+        {% include navigation.html %}
+        <section class="section">
+            <figure class="image-container"><img src="/assets/img/bg-main.jpg" alt=""></figure>
+                <div class="content">
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-xm-12">
+                                    <div class="card mb-4 box-shadow text-bg-dark mb-3">
+                                        {{ content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        {% include footer.html %}
+    </body>
+</html>

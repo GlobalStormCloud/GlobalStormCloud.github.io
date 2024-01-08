@@ -1,6 +1,8 @@
 global:
   english: English
   polish: Polski
+privacy: Privacy Policy
+privacy-link: /privacy.html
 navigation:
   - name: Home
     link: /
