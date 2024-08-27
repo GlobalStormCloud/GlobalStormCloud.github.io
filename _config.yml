@@ -1,24 +1,50 @@
-collections:
-  authors:
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that.
+# This file is *NOT* reloaded automatically when you use 'bundle exec jekyll serve'.
+# If you change this file, please restart the server process.
+
+# Site settings
+# are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+theme: jekyll-agency
+
+url    : "/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+
+title      : Global Storm
+email      : contact@globalstorm.cloud #this is also the email contact forms will go to
+description: "Site description"
+author     : Global Storm
+logo:     #optional, defaults to site title
+  path: /assets/img/logo_white.png
+  height: 60 #height in px, defaults to 52px
+about:
+  image: /assets/img/logo_with_text.png
 
 plugins:
   - jekyll-multiple-languages-plugin # https://github.com/kurtsson/jekyll-multiple-languages-plugin
   - jekyll-gist # https://github.com/jekyll/jekyll-gist
-  - jekyll-paginate
 
 languages: ["en", "pl"]
 exclude_from_localizations: ["assets/css", "assets/img"]
 
-# Pagination 
-paginate: 6
-paginate_path: /news/page:num/
-
-collections:
-  consultancy:
-    output: true
-
-  solutions:
-    output: true
+#TEST
+locale: "en-US" # See available languages in _data/sitetext.yml
 
 # Google Analytics
 google_analytics: G-M2N1SW21M1
+
+collections:
+  portfolio:
+    output: true
+
+markdown: kramdown
+
+# Uncomment following line to use Formspree form ID based URL instead of email based URL
+# Details: https://help.formspree.io/hc/en-us/articles/360017735154-How-to-prevent-spam
+# formspree_form_path: "f/a_form_id"

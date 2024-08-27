@@ -1,0 +1,82 @@
+// Styling for the masthead
+header.masthead {
+  // position: relative;
+  text-align: center;
+  align-items: center;
+  color: white;
+  background-image: url("#{$header-image}");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  .intro-text {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    .intro-lead-in {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px black;
+      font-family: eurostile;
+    }
+    .intro-heading {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px black;
+      font-weight: 700;
+      @include heading-font;
+      p {
+        max-width: 300px;
+      }
+    }
+  }
+}
+.header.masthead::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.013) 8.1%, hsla(0, 0%, 0%, 0.049) 15.5%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.175) 29%, hsla(0, 0%, 0%, 0.259) 35.3%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.45) 47.1%, hsla(0, 0%, 0%, 0.55) 52.9%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.741) 64.7%, hsla(0, 0%, 0%, 0.825) 71%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.951) 84.5%, hsla(0, 0%, 0%, 0.987) 91.9%, hsl(0, 0%, 0%) 100%);
+}
+@media (min-width: 768px) {
+  header.masthead {
+    padding-bottom: 30%;
+    .intro-text {
+      padding-top: 250px;
+      padding-bottom: 200px;
+      .intro-lead-in {
+        font-size: 5rem;
+        font-weight: 700;
+        line-height: 5rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px black;
+        font-family: eurostile;
+      }
+      .intro-heading {
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 2px black;
+        font-weight: 700;
+        @include heading-font;
+        p {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+  .header.masthead::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.013) 8.1%, hsla(0, 0%, 0%, 0.049) 15.5%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.175) 29%, hsla(0, 0%, 0%, 0.259) 35.3%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.45) 47.1%, hsla(0, 0%, 0%, 0.55) 52.9%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.741) 64.7%, hsla(0, 0%, 0%, 0.825) 71%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.951) 84.5%, hsla(0, 0%, 0%, 0.987) 91.9%, hsl(0, 0%, 0%) 100%);
+  }
+}

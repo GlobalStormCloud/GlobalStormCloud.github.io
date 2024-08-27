@@ -1,200 +1,168 @@
 global:
   english: English
   polish: Polski
+
 privacy: Polityka Prywatności
 privacy-link: /pl/privacy.html
+
 navigation:
-  - name: Home
-    link: /pl
-  - name: O Nas
-    link: /pl/about.html
-  - name: Nowości
-    link: /pl/news
-  - name: Rozwiązania
-    links:
-      - name: Zapowiedź Konserwacji
-        link: /pl/solutions/maintenance.html
-      - name: Przemysł 4.0
-        link: /pl/solutions/industry.html
-      # - name: Digital Transformation
-      #   link: /pl/solutions/transformation.html
-      - name: Połączona Fabryka
-        link: /pl/solutions/factory.html
-      - name: e-Mobility
-        link: /pl/solutions/mobility.html
-      # - name: Health & Safety Monitoring 
-      #   link: /pl/solutions/monitoring.html
-  - name: Doradztwo
-    links:
-      - name: Chmura Publicna
-        link: /pl/consultancy/cloud.html
-      - name: R&D
-        link: /pl/consultancy/rnd.html
-      - name: Internet of Things
-        link: /pl/consultancy/iot.html
-      - name: Szybkie Prototypowanie
-        link: /pl/consultancy/prototyping.html
-      - name: Data Lake
-        link: /pl/consultancy/data.html
-about:
-  title: O Nas
-  story: Nasza Historia
-  goals: Nasze Cele
-team:
-    title: "OUR AMAZING TEAM"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Poznajcie siłę napędową Global Storm – naszych współzałożycieli, wizjonerów, którzy łączą swoją wiedzę z obszarów publicznego chmury i przemysłowego Internetu Rzeczy. Z pasją do innowacji stworzyli kulturę współpracy, inspirując zespół. Zaangażowani w ciągłe doskonalenie, dbają o to, aby Global Storm utrzymywało się na czele technologii. Ci liderzy cenią równowagę między pracą a życiem prywatnym, zdając sobie sprawę, że sercem firmy są ludzie – silni, zainspirowani, kształtujący przyszłość.
+  - title: "Usługi"
+    section: services
+  - title: "Produkty"
+    section: portfolio
+  - title: "O Nas"
+    section: about
+  - title: "Zespół"
     section: team
-    people:
-      - name: "Mohsen Shaali"
-        role: "Co-Founder"
-        image: /assets/img/team/mohsen.jpg
-        bio: Pasterz i entuzjasta technologii z ponad 20-letnim doświadczeniem w pracy nad różnorodnymi projektami oprogramowania i sprzętu. Szczególnie interesuje się obszarem Internetu Rzeczy (IoT) i Przemysłowego Internetu Rzeczy (IIoT) oraz naturalnie – utrzymaniem stad owiec!
-        social:
-          - url: mailto:m.shaali@globalstorm.cloud
-            icon: fa-solid fa-envelope
-          - url: https://github.com/mohsenie
-            icon: fab fa-github
-          - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
-            icon: fab fa-linkedin-in
-      - name: "Wojciech Żydecki"
-        role: "Co-Foudner"
-        image: /assets/img/team/wojtek.jpg
-        bio: Architekt Rozwiązań Chmurowych, żeglarz i entuzjasta technologii, który pracował nad różnorodnymi projektami w różnych dziedzinach. Jego zainteresowania obejmują różne obszary Internetu Rzeczy (IoT) i Automatyzacji Domowej.
-        social:
-          - url: mailto:w.zydecki@globalstorm.cloud
-            icon: fa-solid fa-envelope
-          - url: https://wojtek.cloud/
-            icon: fa-solid fa-globe
-          - url: https://github.com/FliesWithWind
-            icon: fab fa-github
-          - url: https://www.linkedin.com/in/wojciech-zydecki/
-            icon: fab fa-linkedin-in
-consultancy:
-  iot:
-    title: Internet of Things
-    tile1-title: Łączność
-    tile1-text: IoT umożliwia płynną komunikację między urządzeniami przez internet, sprzyjając globalnie połączonemu ekosystemowi.
-    tile2-title: Połączone Pojazdy
-    tile2-text: Technologie IoT rewolucjonizują transport poprzez inteligentne pojazdy, zarządzanie ruchem i konserwację przewidywaną.
-    tile3-title: Przemysł 4.0
-    tile3-text: IoT odgrywa kluczową rolę w czwartej rewolucji przemysłowej poprzez optymalizację procesów produkcyjnych za pomocą automatyzacji i danych.
-    tile4-title: Monitorowanie Środowiska
-    tile4-text: Urządzenia IoT pomagają monitorować i zarządzać parametrami środowiskowymi, przyczyniając się do działań na rzecz zrównoważonego rozwoju.
-    tile5-title: Integracja IoT i Sztucznej Inteligencji
-    tile5-text: Synergia między IoT a Sztuczną Inteligencją wzmacnia analizę danych, umożliwiając bardziej świadome podejmowanie decyzji.
-    tile6-title: Bezpieczeństwo
-    tile6-text: Wraz z rozwojem IoT, konieczne staje się rozwiązanie problemów związanych z bezpieczeństwem w celu ochrony poufnych danych i zapobiegania zagrożeniom cybernetycznym.
-  cloud:
-    title: Chmura Publiczna
-    tile1-title: Skalowalność
-    tile1-text: Obliczenia w chmurze umożliwiają skalowanie zasobów w górę lub w dół w zależności od potrzeb, zapewniając optymalną wydajność i efektywność kosztową.
-    tile2-title: Elastyczność
-    tile2-text: Chmura pozwala użytkownikom wybierać spośród różnych usług i modeli wdrożenia, dostosowując rozwiązania do konkretnych potrzeb biznesowych.
-    tile3-title: Bezpieczeństwo
-    tile3-text: Silne funkcje i protokoły bezpieczeństwa w chmurze chronią dane, zapewniając poufność, integralność i dostępność.
-    tile4-title: Optymalizacja Zasobów
-    tile4-text: Efektywna utylizacja zasobów jest osiągana dzięki funkcjom takim jak automatyczne skalowanie, zapewniające dopasowanie zasobów do wymagań obciążenia.
-    tile5-title: Redundancja i Niezawodność
-    tile5-text: Dostawcy chmur oferują systemy redundantne i rozproszone centra danych, zwiększając niezawodność systemu.
-    tile6-title: Zarządzanie Kosztami
-    tile6-text: Obliczenia w chmurze oferują model płatności za zużycie, pozwalając firmom skutecznie zarządzać kosztami i unikać inwestycji w infrastrukturę na wstępie.
-  rnd:
-    title: Badania i Rozwój
-    tile1-title: Hub Innowacji
-    tile1-text: Utworzenie centrum innowacji sprzyja kulturze kreatywności i eksperymentów w ramach działu Badań i Rozwoju.
-    tile2-title: Rozwój Talentów
-    tile2-text: Inwestycja w ciągłe uczenie się i rozwijanie umiejętności zapewnia, że zespół Badań i Rozwoju pozostaje na czele nowych technologii i metodologii.
-    tile3-title: Metodologia Agile
-    tile3-text: Przyjęcie metodologii Agile przyspiesza proces Badań i Rozwoju, umożliwiając szybsze iteracje i dostosowanie do zmieniających się wymagań.
-    tile4-title: Badania Eksploracyjne
-    tile4-text: Zachęcanie do badań eksploracyjnych umożliwia odkrywanie nowatorskich rozwiązań i przełomowych innowacji.
-    tile5-title: Prototypowanie Iteracyjne
-    tile5-text: Wykorzystanie prototypowania iteracyjnego pozwala na szybkie testowanie i udoskonalanie pomysłów, skracając cykle rozwoju.
-    tile6-title: Zarządzanie Ryzykiem
-    tile6-text: Wdrożenie solidnych strategii zarządzania ryzykiem zapewnia, że projekty Badań i Rozwoju mogą radzić sobie z niepewnościami i wyzwaniami.
-  prototyping:
-    title: Szybkie Prototypowanie
-    tile1-title: Metodologia Agile
-    tile1-text: Szybkie prototypowanie jest zgodne z metodykami rozwoju Agile, umożliwiając szybkie iteracje i elastyczność w zakresie wymagań projektowych.
-    tile2-title: Iteracyjny Cykl Prototypowania
-    tile2-text: Iteracyjny charakter szybkiego prototypowania ułatwia ciągły cykl sprzężenia zwrotnego, umożliwiając bieżące ulepszenia na podstawie opinii użytkowników.
-    tile3-title: Walidacja Zorientowana na Użytkownika
-    tile3-text: Prototypy pozwalają na wczesne testowanie i walidację przez użytkowników, zapewniając, że ostateczny produkt spełnia potrzeby i oczekiwania użytkowników.
-    tile4-title: Prototypy Niskiej Wierności
-    tile4-text: Prototypy o niskiej wierności są szybkie do stworzenia i idealne do weryfikacji koncepcji na wczesnym etapie.
-    tile5-title: Development Wydajny Czasowo
-    tile5-text: Szybkie prototypowanie przyspiesza proces rozwoju, umożliwiając szybsze dostarczanie minimalnych produktów (MVP).
-    tile6-title: Zaangażowanie Interesariuszy
-    tile6-text: Prototypy są wartościowymi narzędziami komunikacji, które angażują interesariuszy we wczesnej fazie procesu rozwoju, dostosowując oczekiwania.
-  data:
-    title: Jezioro Danych
-    tile1-title: Zaawansowana Analiza
-    tile1-text: Jeziora danych wspierają zaawansowaną analizę, w tym uczenie maszynowe i sztuczną inteligencję, dostarczając różnorodne dane do analizy.
-    tile2-title: Elastyczne Przetwarzanie Danych
-    tile2-text: Organizacje mogą przeprowadzać przetwarzanie wsadowe, analizy czasu rzeczywistego i zapytania ad-hoc na jeziorach danych, dostosowując się do różnych potrzeb analitycznych.
-    tile3-title: Zarządzanie Jakością Danych
-    tile3-text: Wdrożenie praktyk zarządzania jakością danych zapewnia, że dane w jeziorze są dokładne, niezawodne i odpowiednie do analizy.
-    tile4-title: Zarządzanie Metadanymi
-    tile4-text: Metadane w jeziorach danych dostarczają informacje o pochodzeniu, formacie i genealogii danych, wzmacniając zarządzanie danymi i zrozumienie.
-    tile5-title: Katalogowanie Danych
-    tile5-text: Narzędzia do katalogowania pomagają zorganizować i skategoryzować dane w jeziorze, ułatwiając użytkownikom odkrywanie i zrozumienie dostępnych zestawów danych.
-    tile6-title: Akcelerator Innowacji
-    tile6-text: Jeziora danych stanowią fundament innowacji, umożliwiając organizacjom eksplorowanie nowych spostrzeżeń, modeli i możliwości biznesowych.
-solutions:
-  factory:
-    title: Połączona Fabryka
-    tile1-title: Inteligentne Produkcja
-    tile1-text: Przekształć tradycyjne fabryki w inteligentne, połączone środowiska, wykorzystując zaawansowane technologie w celu poprawy efektywności.
-    tile2-title: Integracja Internetu Rzeczy (IoT)
-    tile2-text: Połącz maszyny, urządzenia i sensory za pomocą Internetu Rzeczy, umożliwiając monitorowanie i kontrolę procesów produkcyjnych w czasie rzeczywistym.
-    tile3-title: Zintegrowane Systemy
-    tile3-text: Zintegruj różne systemy produkcyjne, takie jak Planowanie Zasobów Przedsiębiorstwa (ERP) i Systemy Wykonywania Produkcji (MES), zapewniając płynny przepływ danych i koordynację.
-    tile4-title: Automatyzacja i Robotyka
-    tile4-text: Wprowadź automatyzację i robotykę w celu poprawy szybkości, dokładności i elastyczności produkcji, redukując pracę ręczną i błędy ludzkie.
-    tile5-title: Zapowiedź Konserwacji
-    tile5-text: Wprowadź zapowiedź konserwacji za pomocą analizy danych i sensorów, aby przewidywać awarie sprzętu i minimalizować przestój.
-    tile6-title: Monitorowanie w Czasie Rzeczywistym i Powiadomienia
-    tile6-text: Wprowadź monitorowanie w czasie rzeczywistym kluczowych metryk produkcji i otrzymuj natychmiastowe powiadomienia o nieprawidłowościach lub problemach wymagających uwagi.
-  industry:
-    title: Przemysł 4.0
-    tile1-title: Transformacja Cyfrowa
-    tile1-text: Przemysł 4.0 reprezentuje czwartą rewolucję przemysłową, charakteryzującą się powszechnym wykorzystaniem technologii cyfrowych do transformacji tradycyjnych procesów produkcyjnych.
-    tile2-title: Inteligentna Automatyzacja
-    tile2-text: Wprowadź inteligentną automatyzację, wykorzystując technologie takie jak robotyka i sztuczna inteligencja, aby zwiększyć efektywność, obniżyć koszty i poprawić ogólną produkcję.
-    tile3-title: Globalne Połączenie
-    tile3-text: Połącz systemy produkcyjne globalnie, wspierając współpracę i komunikację w czasie rzeczywistym między różnymi obiektami i interesariuszami.
-    tile4-title: Internet Rzeczy (IoT)
-    tile4-text: IoT odgrywa kluczową rolę w Przemysłu 4.0, łącząc urządzenia i sensory w celu zbierania i wymiany danych dla podejmowania poinformowanych decyzji.
-    tile5-title: Analityka Danych w Czasie Rzeczywistym
-    tile5-text: Wykorzystaj analitykę danych w czasie rzeczywistym, aby uzyskiwać praktyczne wnioski z dużych zbiorów danych, umożliwiając podejmowanie decyzji opartych na danych w procesach produkcyjnych.
-    tile6-title: Zapowiedź Konserwacji
-    tile6-text: Wprowadź strategie zapowiedzi konserwacji za pomocą analizy danych i uczenia maszynowego, aby przewidywać awarie sprzętu i minimalizować przestój.
-  maintenance:
-    title: Zapowiedź Konserwacji
-    tile1-title: Zbieranie Danych i Monitorowanie
-    tile1-text: Pobieraj dane w czasie rzeczywistym z czujników i urządzeń monitorujących zamocowane do maszyn, aby śledzić ich wydajność i wykrywać anomalie.
-    tile2-title: Monitorowanie Stanu
-    tile2-text: Wprowadź monitorowanie stanu, aby ocenić zdrowie i wydajność urządzeń, identyfikując potencjalne problemy przed wystąpieniem awarii.
-    tile3-title: Analiza Przewidywania
-    tile3-text: Wykorzystuj algorytmy analizy przewidywanej do analizy historycznych danych i prognozowania momentu potencjalnej awarii lub konieczności konserwacji.
-    tile4-title: Rozpoznawanie Wzorców Awarii
-    tile4-text: Identyfikuj wzorce i tendencje w awariach urządzeń, aby zrozumieć wspólne problemy i doskonalić modele utrzymania przewidywanego.
-    tile5-title: Modele Uczenia Maszynowego
-    tile5-text: Opracowuj i wdrażaj modele uczenia maszynowego w celu ciągłego poprawiania dokładności przewidywań na podstawie ewoluujących wzorców danych.
-    tile6-title: Alerty i Powiadomienia
-    tile6-text: Skonfiguruj zautomatyzowane alerty i powiadomienia, informujące zespoły konserwacji o potencjalnych problemach lub zalecanej konserwacji.
-  mobility:
-    title: e-Mobility
-    tile1-title: Inteligentne Zarządzanie Flotą
-    tile1-text: Wykorzystuj inteligentne systemy zarządzania flotą do monitorowania i optymalizowania wydajności elektrycznych środków transportu publicznego, w tym planowania konserwacji i efektywności energetycznej.
-    tile2-title: Zintegrowane Systemy Mobilności
-    tile2-text: Opracuj zintegrowane systemy mobilności, łącząc autobusy elektryczne, tramwaje i inne środki transportu dla płynnych usług transportu publicznego.
-    tile3-title: Systemy Informacji Pasażerskiej
-    tile3-text: Wdrożenie systemów informacji pasażerskiej na przystankach i stacjach transportu publicznego, dostarczających aktualizacje w czasie rzeczywistym dotyczące rozkładów i opóźnień elektrycznych środków transportu publicznego.
-    tile4-title: Zintegrowany Transport Publiczny
-    tile4-text: Umożliwiaj połączenia między różnymi środkami transportu publicznego, umożliwiając pasażerom swobodne przechodzenie między autobusami elektrycznymi, pociągami, tramwajami i innymi.
-    tile5-title: Połączenia Ostatniej Mili
-    tile5-text: Usprawnij połączenie ostatniej mili, integrując elektryczne hulajnogi, rowery i inne opcje mikromobilności z siecią transportu publicznego.
-    tile6-title: Dynamiczna Optymalizacja Tras
-    tile6-text: Wprowadź dynamiczną optymalizację tras za pomocą danych w czasie rzeczywistym, dostosowując trasy transportu publicznego w oparciu o popyt i warunki ruchu.
+  - title: "Kontakt"
+    section: contact
+
+header:
+  title: Global Storm
+  text: Twój zaufany partner w rozwiązaniach industrialnych, chmurowych & IoT.
+  button: Dowiedz się wiecej! 
+  buttonlink: "#services"
+services:
+  title: "Services"
+  text: "Lorem ipsum"
+  section: services
+  list:
+    - title: "Rozwiązania IoT"
+      desc: "Projektowanie i development rozwiązań Internet of Things"
+      icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
+    - title: "Hardware IoT"
+      desc: "Projektowanie i produkcja sprzętu dla Internet of Things"
+      icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
+    - title: "Rozwiązania Chmurowe"
+      desc: "Projektowanie i development chmurowych rozwiązań w AWS Cloud"
+      icon: fa-solid fa-cloud
+    - title: "Szybkie Prototypowanie"
+      desc: "Szybki proces projektowania i produkcji prototypów"
+      icon: fa-solid fa-truck-fast
+    - title: "Niestandardowy Hardware"
+      desc: "Projektowanie i produkcja sprzętu dostosowanego do potrzeb klienta"
+      icon: fa-solid fa-plug
+    - title: "Doradztwo IT"
+      desc: "Wsparcie i doradztwo w szerokopojętym IT"
+      icon: fa-solid fa-computer
+
+portfolio:
+  title: "Produkty i Rozwiązania"
+  text: "Nasze przykładowe produkty i rozwiązania"
+  section: portfolio
+  close: "Zamknij"
+
+# timeline:
+#   title: "Timeline"
+#   text: "Lorem ipsum timeline"
+#   section: timeline
+#   # left is the default
+#   #start_align: "left"
+#   events:
+#     - title: "Our Humble Beginnings"
+#       year: "2009-2011"
+#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+#       image: assets/img/timeline/1.jpg
+#       alt:
+#     - title: "An Agency is Born"
+#       year: "March 2011"
+#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+#       image: assets/img/timeline/2.jpg
+#       alt:
+#     - title: "Jekyll Theme is created"
+#       year: "2019"
+#       desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
+#       image: assets/img/timeline/3.jpg
+#       alt: image alt text
+#     - title: "Title"
+#       year: "2009-2011"
+#       desc: "Your description here, **Markdown** is fully supported."
+#       image: assets/img/timeline/4.jpg
+#       alt:
+#       # you can enforce the alignment
+#       align: right
+#   end: "Be Part <br> of Our <br> Story!"
+
+about:
+  title: "O Nas"
+  text: "Startup zbudowany wokół ludzi i umiejęcności."
+  body: "Global Storm wyłania się jako migająca latarnia morska innowacji w przemyśle Internetu Rzeczy (IoT), stworzona przez weteranów branżowych pośród sztormu. Zobowiązany do przodowania w innowacjach IoT, startup planuje rewolucję w światowym krajobrazie przemysłowym, oferując skalowalne i elastyczne rozwiązania, priorytetowo traktując zaufanie poprzez solidne środki bezpieczeństwa. Popierając standardy interoperacyjności, doskonałość opartą na danych i praktyki zrównoważone, Global Storm aktywnie uczestniczy w szerszej społeczności IoT. Kształtując kulturę innowacji i dbając o zgodność z ewoluującymi regulacjami branżowymi, firma ma na celu przyczynianie się do szerszego ekosystemu IoT, jednocześnie pozostając krokiem przed trendami branżowymi. Z naciskiem na klienta, Global Storm dąży do budowania trwałych relacji, ciągle udoskonalając rozwiązania na podstawie rzeczywistych opinii i zapewniając niezachwiane wsparcie. Zakorzeniona w zobowiązaniu do zrównoważonej stabilności finansowej, firma jest gotowa zakłócić i przekształcić krajobraz przemysłowego IoT za pomocą wizjonerskiego i transformatywnego podejścia."
+  section: about
+
+# clients:
+#   section: clients
+#   max-height: 100px
+#   horizontal-scrolling: "" #"yes/no"
+#   list:
+#     - title: "envato"
+#       url: https://github.com/raviriley/agency-jekyll-theme
+#       logo: assets/img/clients/envato.jpg
+#     - title: "designmodo"
+#       url: https://github.com/raviriley/agency-jekyll-theme
+#       logo: assets/img/clients/designmodo.jpg
+#     - title: "themeforest"
+#       url: https://github.com/raviriley/agency-jekyll-theme
+#       logo: assets/img/clients/themeforest.jpg
+#     - title: "Creative Market"
+#       url: https://github.com/raviriley/agency-jekyll-theme
+#       logo: assets/img/clients/creative-market.jpg
+
+team:
+  title: "Nasz Zespół"
+  text: Poznajcie siłę napędową Global Storm - naszych współzałożycieli, wizjonerów, którzy łączą swoją wiedzę z obszarów publicznego chmury i przemysłowego IoT.
+  subtext: Z pasją do innowacji stworzyli kulturę współpracy, inspirując zespół. Zaangażowani w ciągłe doskonalenie, dbają o to, aby Global Storm utrzymywało się na czele technologii. Ci liderzy cenią równowagę między pracą a życiem prywatnym, zdając sobie sprawę, że sercem firmy są ludzie – silni, zainspirowani, kształtujący przyszłość.
+  section: team
+  people:
+    - name: "Mohsen Shaali"
+      role: "Co-founder"
+      image: assets/img/team/mohsen.jpg
+      social:
+        - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
+          icon: fa-brands fa-linkedin
+        - url: https://github.com/mohsenie
+          icon: fa-brands fa-github
+    - name: "Wojciech Żydecki"
+      role: "Co-founder"
+      image: assets/img/team/wojtek.jpg
+      social:
+        - url: https://www.linkedin.com/in/wojciech-zydecki/
+          icon: fa-brands fa-linkedin
+        - url: https://github.com/FliesWithWind
+          icon: fa-brands fa-github
+        - url: https://wojtek.cloud/
+          icon: fa-solid fa-globe
+    - name: "Jakub Zawiasa"
+      role: "Co-founder"
+      image: assets/img/team/kuba.jpg
+      social:
+        - url: https://www.linkedin.com/in/jakub-zawiasa-722b65201/
+          icon: fa-brands fa-linkedin
+        - url: https://github.com/JHinge
+          icon: fa-brands fa-github
+
+contact:
+  title: "Kontakt"
+  text: "Skontaktuj się z nami, a zrobimy co w naszej mocy by rozwiązać Twój problem!"
+  section: contact
+  name: "Imię*"
+  name-validation: "Twoje imię"
+  email: "Email*"
+  email-validation: "Twój adres e-mail"
+  phone: "Numer Telefonu"
+  phone-validation: "Twój numer telefonu"
+  message: "Wiadomość*"
+  message-validation: "Wpisz treść wiadomości"
+  subject: "Contact Form Submission"
+  submit: "Wyślij wiadomość"
+  success: "Dziękujemy za kontakt! Wkrótce się odezwiemy!"
+  failure: "Przepraszamy, serwer nie odpowiada. Spróbuj ponownie później!"
+
+footer:
+  legal: "Privacy Policy"
+  social:
+    - url: https://x.com/GlobalStormIoT
+      icon: "fab fa-twitter"
+    - url: https://www.linkedin.com/company/global-storm
+      icon: "fab fa-linkedin-in"
+    - url: https://github.com/GlobalStormCloud
+      icon: "fab fa-github"
