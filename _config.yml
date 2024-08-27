@@ -23,6 +23,8 @@ author     : Global Storm
 logo:     #optional, defaults to site title
   path: /assets/img/logo_white.png
   height: 60 #height in px, defaults to 52px
+about:
+  image: /assets/img/logo_with_text.png
 
 plugins:
   - jekyll-multiple-languages-plugin # https://github.com/kurtsson/jekyll-multiple-languages-plugin

@@ -24,6 +24,9 @@ section#contact {
     border-color: $primary;
     box-shadow: none;
   }
+  h3 {
+    color: $white;
+  }
   ::-webkit-input-placeholder {
     font-weight: 700;
     color: $gray-400;
