@@ -142,7 +142,7 @@ team:
 
 contact:
   title: "Contact Us"
-  text: "Contact us and we will do you best to help you solve your problem!"
+  text: "Contact us and we will do our best to help you solve your problem!"
   section: contact
   name: "Name*"
   name-validation: "Please enter your name."
