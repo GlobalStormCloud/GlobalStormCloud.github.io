@@ -154,6 +154,8 @@ contact:
   message-validation: "Please enter a message."
   subject: "Contact Form Submission"
   submit: "Send Message"
+  success: "Thanks for contacting us! We will get back to you soon!"
+  failure: "Sorry, it seems that mail server is not responding. Please try again later!"
 
 footer:
   legal: "Privacy Policy"
