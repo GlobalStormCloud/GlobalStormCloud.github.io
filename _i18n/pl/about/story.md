@@ -1,5 +1,0 @@
-Pewnej burzowej nocy kilku przyjaciół i doświadczonych kolegów znalazło się schronionych w małej kawiarni, gdy błyskawice przebiegały po niebie, a grzmoty rozbrzmiewały w mieście. Kiedy za oknem szalała burza, rozmawiali z zapałem o wspólnej wizji rewolucjonizowania branży technologicznej. Dzięki doświadczeniu w chmurze publicznej, przemyśle Internetu Rzeczy i różnych dziedzinach, marzyli o stworzeniu firmy, która byłaby siłą samej natury.
-
-Zainspirowani burzowym otoczeniem nadali swojej przedsięwziętej nazwę "Global Storm". Nazwa symbolizowała potęgę, jaką wyobrażali sobie, że ich startup będzie posiadał w zmiennym krajobrazie technicznym. Burza na zewnątrz odzwierciedlała energię i pasję, które kiełkowały w ich sercach, popychając ich do tego odważnego przedsięwzięcia.
-
-Zjednoczeni przyjaźnią i wspólnym bogactwem doświadczeń, przetrwali wyzwania, jakie pojawiły się na ich drodze. Burzowa noc służyła jako metafora dla przeszkód, z jakimi musieli się zmierzyć we wczesnych dniach startupu: niepewność, ryzyko i konieczność elastyczności.
