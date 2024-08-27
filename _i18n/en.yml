@@ -161,7 +161,7 @@ footer:
   legal: "Privacy Policy"
   social:
     - url: https://x.com/GlobalStormIoT
-      icon: "fab fa-twitter"
+      icon: "fab fa-x-twitter"
     - url: https://www.linkedin.com/company/global-storm
       icon: "fab fa-linkedin-in"
     - url: https://github.com/GlobalStormCloud
