@@ -57,7 +57,7 @@
               <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
                 type="submit">{{ site.translations[site.lang].contact.submit | default: "Send Message" }}</button>
             </div>
-            
+
             <fieldset class="honeypot-field">
               <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
               <input id="honeypot" type="text" name="honeypot" value="" />
@@ -69,5 +69,6 @@
       </div>
     </div>
   </div>
+  {% include footer.html %}
 </section>
 <!-- End Contact -->
