@@ -1,9 +1,7 @@
 <head>
-  {% if site.analytics.google %}
   <!-- Cookie Consent -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.css">
+  <link href="{{ "assets/css/cookieconsent.css" | relative_url }}" rel="stylesheet" />
   {% include cookie-consent.html %}
-  {% endif %}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,8 +33,7 @@
   <!-- Custom styles for this theme -->
   <link href="{{ "assets/css/agency.css" | relative_url }}" rel="stylesheet" />
 
-  <!-- Cookie Consent -->
-  <link href="{{ "assets/css/cookieconsent.css" | relative_url }}" rel="stylesheet" />
+  
 
   <!-- Page container change top padding when nav shrinks -->
   {% if page.layout == "page" %}
