@@ -37,7 +37,7 @@ exclude_from_localizations: ["assets/css", "assets/img"]
 locale: "en-US" # See available languages in _data/sitetext.yml
 
 # Google Analytics
-google_analytics: G-M2N1SW21M1
+google_analytics: 00000000
 
 collections:
   portfolio:
