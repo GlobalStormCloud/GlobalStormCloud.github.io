@@ -158,7 +158,7 @@ contact:
   failure: "Przepraszamy, serwer nie odpowiada. Spróbuj ponownie później!"
 
 footer:
-  legal: "Privacy Policy"
+  legal: "Polityka prywatności"
   social:
     - url: https://x.com/GlobalStormIoT
       icon: "fab fa-x-twitter"

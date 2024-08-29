@@ -55,7 +55,7 @@
                 </div>
               </div>
               <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
-                type="submit"></button>
+                type="submit">{{ site.translations[site.lang].contact.submit | default: "Send Message" }}</button>
             </div>
 
             <fieldset class="honeypot-field">
@@ -69,6 +69,5 @@
       </div>
     </div>
   </div>
-  {% include footer.html %}
 </section>
 <!-- End Contact -->
