@@ -24,7 +24,7 @@ header:
   buttonlink: "#services"
 services:
   title: "Services"
-  text: "Lorem ipsum"
+  text: "We can help you with the following"
   section: services
   list:
     - title: "IoT Solutions"
@@ -37,7 +37,7 @@ services:
       desc: "AWS Cloud Solutions Design & Development"
       icon: fa-solid fa-cloud
     - title: "Rapid Prototyping"
-      desc: "Your description here, full **Markdown** support"
+      desc: "Rapidly develop your idea"
       icon: fa-solid fa-truck-fast
     - title: "Custom Hardware"
       desc: "Custom Hardware Design & Manufacturing"
