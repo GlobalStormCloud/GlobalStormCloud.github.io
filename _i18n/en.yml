@@ -48,7 +48,7 @@ services:
 
 portfolio:
   title: "Products"
-  text: "Examples of our offerings and projects"
+  text: "Unlocking the Power of Edge Intelligence for Connected Mobility"
   section: portfolio
   close: "Close"
 

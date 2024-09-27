@@ -48,7 +48,7 @@ services:
 
 portfolio:
   title: "Produkty i Rozwiązania"
-  text: "Nasze przykładowe produkty i rozwiązania"
+  text: "Wykorzystanie Potencjału Inteligencji Krawędziowej dla Połączonej Mobilności"
   section: portfolio
   close: "Zamknij"
 
