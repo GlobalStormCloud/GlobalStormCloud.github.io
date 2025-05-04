@@ -6,9 +6,9 @@ privacy: Polityka Prywatności
 privacy-link: /pl/privacy.html
 
 navigation:
-  - title: "Usługi"
-    section: services
-  - title: "Produkty"
+  - title: "Edge"
+    section: edge-device
+  - title: "Hardware"
     section: portfolio
   - title: "O Nas"
     section: about
@@ -19,32 +19,62 @@ navigation:
 
 header:
   title: Global Storm
-  text: Twój zaufany partner w rozwiązaniach industrialnych, chmurowych & IoT.
+  text: Inteligencja na brzegu.
   button: Dowiedz się wiecej! 
-  buttonlink: "#services"
-services:
-  title: "Services"
-  text: "Lorem ipsum"
-  section: services
+  buttonlink: "#edge-device"
+
+# services:
+#   title: "Services"
+#   text: "Lorem ipsum"
+#   section: services
+#   list:
+#     - title: "Rozwiązania IoT"
+#       desc: "Projektowanie i development rozwiązań Internet of Things"
+#       icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
+#     - title: "Hardware IoT"
+#       desc: "Projektowanie i produkcja sprzętu dla Internet of Things"
+#       icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
+#     - title: "Rozwiązania Chmurowe"
+#       desc: "Projektowanie i development chmurowych rozwiązań w AWS Cloud"
+#       icon: fa-solid fa-cloud
+#     - title: "Szybkie Prototypowanie"
+#       desc: "Szybki proces projektowania i produkcji prototypów"
+#       icon: fa-solid fa-truck-fast
+#     - title: "Niestandardowy Hardware"
+#       desc: "Projektowanie i produkcja sprzętu dostosowanego do potrzeb klienta"
+#       icon: fa-solid fa-plug
+#     - title: "Doradztwo IT"
+#       desc: "Wsparcie i doradztwo w szerokopojętym IT"
+#       icon: fa-solid fa-computer
+
+edge_device:
+  section: edge-device
+  title: "Szybciej, bezpieczniej i mądrzej — na brzegu sieci"
+  text: "Wykorzystuj dane w czasie rzeczywistym tam, gdzie powstają — od fabryk po floty — redukując opóźnienia i zwiększając kontrolę bez zależności od chmury."
+  diagram_caption: "Zobacz swój przepływ danych — lokalna inteligencja, łączność z chmurą i wszystko pomiędzy."
+  cta: "Poznaj platformę GSE"
   list:
-    - title: "Rozwiązania IoT"
-      desc: "Projektowanie i development rozwiązań Internet of Things"
-      icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
-    - title: "Hardware IoT"
-      desc: "Projektowanie i produkcja sprzętu dla Internet of Things"
-      icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
-    - title: "Rozwiązania Chmurowe"
-      desc: "Projektowanie i development chmurowych rozwiązań w AWS Cloud"
-      icon: fa-solid fa-cloud
-    - title: "Szybkie Prototypowanie"
-      desc: "Szybki proces projektowania i produkcji prototypów"
-      icon: fa-solid fa-truck-fast
-    - title: "Niestandardowy Hardware"
-      desc: "Projektowanie i produkcja sprzętu dostosowanego do potrzeb klienta"
-      icon: fa-solid fa-plug
-    - title: "Doradztwo IT"
-      desc: "Wsparcie i doradztwo w szerokopojętym IT"
-      icon: fa-solid fa-computer
+    - icon: "fas fa-industry"
+      title: "Automatyzacja przemysłowa"
+      desc: "Reaguj błyskawicznie na dane z maszyn, minimalizując przestoje i optymalizując produkcję."
+    - icon: "fas fa-truck-moving"
+      title: "Monitorowanie flot i pojazdów"
+      desc: "Analizuj dane z pojazdów w czasie rzeczywistym, nawet w trudno dostępnych lokalizacjach."
+    - icon: "fas fa-microchip"
+      title: "IoT i czujniki zdalne"
+      desc: "Skalowalne obliczenia brzegowe — energooszczędne, bezpieczne i zawsze połączone."
+    - icon: "fas fa-bus"
+      title: "Transport publiczny"
+      desc: "Zoptymalizuj mobilność publiczną dzięki lokalnej analizie danych w czasie rzeczywistym."
+    - icon: "fas fa-city"
+      title: "Inteligentne miasta"
+      desc: "Popraw bezpieczeństwo i efektywność miejskiej infrastruktury poprzez zdecentralizowane przetwarzanie danych."
+    - icon: "fas fa-shield-alt"
+      title: "Bezpieczeństwo i zgodność"
+      desc: "Chroń dane na brzegu sieci dzięki szyfrowaniu, bezpiecznemu uruchamianiu i zgodnej komunikacji z chmurą."
+
+
+
 
 portfolio:
   title: "Produkty i Rozwiązania"
@@ -84,10 +114,15 @@ portfolio:
 #   end: "Be Part <br> of Our <br> Story!"
 
 about:
-  title: "O Nas"
-  text: "Startup zbudowany wokół ludzi i umiejęcności."
-  body: "Global Storm wyłania się jako migająca latarnia morska innowacji w przemyśle Internetu Rzeczy (IoT), stworzona przez weteranów branżowych pośród sztormu. Zobowiązany do przodowania w innowacjach IoT, startup planuje rewolucję w światowym krajobrazie przemysłowym, oferując skalowalne i elastyczne rozwiązania, priorytetowo traktując zaufanie poprzez solidne środki bezpieczeństwa. Popierając standardy interoperacyjności, doskonałość opartą na danych i praktyki zrównoważone, Global Storm aktywnie uczestniczy w szerszej społeczności IoT. Kształtując kulturę innowacji i dbając o zgodność z ewoluującymi regulacjami branżowymi, firma ma na celu przyczynianie się do szerszego ekosystemu IoT, jednocześnie pozostając krokiem przed trendami branżowymi. Z naciskiem na klienta, Global Storm dąży do budowania trwałych relacji, ciągle udoskonalając rozwiązania na podstawie rzeczywistych opinii i zapewniając niezachwiane wsparcie. Zakorzeniona w zobowiązaniu do zrównoważonej stabilności finansowej, firma jest gotowa zakłócić i przekształcić krajobraz przemysłowego IoT za pomocą wizjonerskiego i transformatywnego podejścia."
-  section: about
+  section: "o-nas"
+  title: "Nowa definicja inteligencji na brzegu sieci"
+  text: "Tworzymy urządzenia, które przenoszą moc obliczeniową chmury do rzeczywistego świata."
+  image: /assets/img/edge-network.png
+  body: >
+    Global Storm Cloud to firma deep-tech oferująca platformy obliczeniowe na brzegu sieci, zoptymalizowane pod kątem wydajności, bezpieczeństwa i skalowalności.
+    Nasz zespół łączy kompetencje w zakresie systemów wbudowanych, IoT i rozwiązań chmurowych, aby przesuwać granice inteligencji w kierunku urządzeń końcowych — tam, gdzie jest najbardziej potrzebna.
+
+
 
 # clients:
 #   section: clients
@@ -109,53 +144,60 @@ about:
 
 team:
   title: "Nasz Zespół"
-  text: Poznajcie siłę napędową Global Storm - naszych współzałożycieli, wizjonerów, którzy łączą swoją wiedzę z obszarów publicznego chmury i przemysłowego IoT.
-  subtext: Z pasją do innowacji stworzyli kulturę współpracy, inspirując zespół. Zaangażowani w ciągłe doskonalenie, dbają o to, aby Global Storm utrzymywało się na czele technologii. Ci liderzy cenią równowagę między pracą a życiem prywatnym, zdając sobie sprawę, że sercem firmy są ludzie – silni, zainspirowani, kształtujący przyszłość.
-  section: team
+  text: "Inżynierowie, konstruktorzy i twórcy rozwiązujący rzeczywiste problemy obliczeniowe na brzegu sieci."
+  subtext: "Wspólnie projektujemy platformy, które przesuwają inteligencję bliżej rzeczywistości fizycznej."
+
   people:
-    - name: "Mohsen Shaali"
-      role: "Co-founder"
-      image: assets/img/team/mohsen.jpg
+    - name: "Wojtek"
+      role: "Współzałożyciel & Architekt Rozwiązań"
+      bio: "Odpowiada za integrację systemów i strategię wdrożeń brzegowych w środowiskach przemysłowych i miejskich."
+      image: "/assets/img/team/wojtek.jpg"
       social:
-        - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/mohsenie
-          icon: fa-brands fa-github
-    - name: "Wojciech Żydecki"
-      role: "Co-founder"
-      image: assets/img/team/wojtek.jpg
+        - icon: "fab fa-linkedin-in"
+          url: "https://linkedin.com/in/wojtek"
+
+    - name: "Mohsen"
+      role: "Współzałożyciel & Kierownik ds. Sprzętu"
+      bio: "Projektuje niezawodne i skalowalne platformy wbudowane do wymagających zastosowań brzegowych."
+      image: "/assets/img/team/mohsen.jpg"
       social:
-        - url: https://www.linkedin.com/in/wojciech-zydecki/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/FliesWithWind
-          icon: fa-brands fa-github
-        - url: https://wojtek.cloud/
-          icon: fa-solid fa-globe
-    - name: "Jakub Zawiasa"
-      role: "Co-founder"
-      image: assets/img/team/kuba.jpg
+        - icon: "fab fa-linkedin-in"
+          url: "https://linkedin.com/in/mohsen"
+
+    - name: "Kuba"
+      role: "Współzałożyciel & Ekspert ds. AI"
+      bio: "Wdraża systemy uczenia maszynowego i analizy obrazu na energooszczędnych urządzeniach brzegowych."
+      image: "/assets/img/team/kuba.jpg"
       social:
-        - url: https://www.linkedin.com/in/jakub-zawiasa-722b65201/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/JHinge
-          icon: fa-brands fa-github
+        - icon: "fab fa-linkedin-in"
+          url: "https://www.linkedin.com/in/jakub-zawiasa-722b65201/"
+
+
 
 contact:
-  title: "Kontakt"
-  text: "Skontaktuj się z nami, a zrobimy co w naszej mocy by rozwiązać Twój problem!"
-  section: contact
-  name: "Imię*"
-  name-validation: "Twoje imię"
-  email: "Email*"
-  email-validation: "Twój adres e-mail"
-  phone: "Numer Telefonu"
-  phone-validation: "Twój numer telefonu"
-  message: "Wiadomość*"
-  message-validation: "Wpisz treść wiadomości"
-  subject: "Contact Form Submission"
+  section: "kontakt"
+  title: "Skontaktuj się z nami"
+  text: "Chętnie porozmawiamy. Skontaktuj się z nami w sprawie produktów, współpracy lub innych zapytań."
+
+  name: "Twoje imię i nazwisko *"
+  name-validation: "Proszę podać swoje imię."
+
+  email: "Twój e-mail *"
+  email-validation: "Proszę podać poprawny adres e-mail."
+
+  phone: "Telefon (opcjonalnie)"
+  phone-validation: "Proszę podać numer telefonu."
+
+  message: "Twoja wiadomość *"
+  message-validation: "Proszę wpisać wiadomość."
+
+  subject: "Wiadomość z formularza kontaktowego"
+
   submit: "Wyślij wiadomość"
-  success: "Dziękujemy za kontakt! Wkrótce się odezwiemy!"
-  failure: "Przepraszamy, serwer nie odpowiada. Spróbuj ponownie później!"
+
+  success: "Dziękujemy za kontakt! Odezwiemy się wkrótce."
+  failure: "Coś poszło nie tak. Spróbuj ponownie później."
+
 
 footer:
   legal: "Polityka prywatności"

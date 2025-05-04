@@ -6,9 +6,9 @@ privacy: Privacy Policy
 privacy-link: /privacy.html
 
 navigation:
-  - title: "Services"
-    section: services
-  - title: "Products"
+  - title: "Edge"
+    section: edge-device
+  - title: "Hardware"
     section: portfolio
   - title: "About"
     section: about
@@ -19,32 +19,62 @@ navigation:
 
 header:
   title: Global Storm
-  text: Your trusted partner for cutting-edge Industrial, Cloud & IoT Solutions.
+  text: Intelligence at the edge.
   button: Find out more! 
-  buttonlink: "#services"
-services:
-  title: "Services"
-  text: "We can help you with the following"
-  section: services
+  buttonlink: "#edge-device"
+
+
+edge_device:
+  section: edge-device
+  title: "Smarter, Safer, Faster — Right at the Edge"
+  text: "Harness real-time data where it happens — from factories to fleets — reducing latency and boosting control without cloud dependency."
+  diagram_caption: "Visualize your data pipeline — local intelligence, cloud connectivity, and everything in between."
+  cta: "Discover the GSE Platform"
   list:
-    - title: "IoT Solutions"
-      desc: "Internet of Things Solutions Design & Development"
-      icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
-    - title: "IoT Hardware"
-      desc: "Internet of Things Hardware Design & Development"
-      icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
-    - title: "Cloud Solutions"
-      desc: "AWS Cloud Solutions Design & Development"
-      icon: fa-solid fa-cloud
-    - title: "Rapid Prototyping"
-      desc: "Rapidly develop your idea"
-      icon: fa-solid fa-truck-fast
-    - title: "Custom Hardware"
-      desc: "Custom Hardware Design & Manufacturing"
-      icon: fa-solid fa-plug
-    - title: "IT Consulting"
-      desc: "Custom Hardware Design & Manufacturing"
-      icon: fa-solid fa-computer
+    - icon: "fas fa-industry"
+      title: "Industrial Automation"
+      desc: "Instantly respond to machine data for minimized downtime and optimized production."
+    - icon: "fas fa-truck-moving"
+      title: "Fleet & Vehicle Monitoring"
+      desc: "Analyze movement and performance in real time, even in remote areas."
+    - icon: "fas fa-microchip"
+      title: "IoT & Remote Sensors"
+      desc: "Scalable edge computing for devices everywhere — low power, high efficiency."
+    - icon: "fas fa-bus"
+      title: "Public Transport Systems"
+      desc: "Deliver adaptive public mobility with hyper-local intelligence."
+    - icon: "fas fa-city"
+      title: "Connected Smart Cities"
+      desc: "Enhance safety and sustainability with decentralized data processing."
+    - icon: "fas fa-shield-alt"
+      title: "Edge Security & Compliance"
+      desc: "Keep data secure and compliant from device to cloud with robust edge protocols."
+
+
+
+# services:
+#   title: "Services"
+#   text: "We can help you with the following"
+#   section: services
+#   list:
+#     - title: "IoT Solutions"
+#       desc: "Internet of Things Solutions Design & Development"
+#       icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
+#     - title: "IoT Hardware"
+#       desc: "Internet of Things Hardware Design & Development"
+#       icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
+#     - title: "Cloud Solutions"
+#       desc: "AWS Cloud Solutions Design & Development"
+#       icon: fa-solid fa-cloud
+#     - title: "Rapid Prototyping"
+#       desc: "Rapidly develop your idea"
+#       icon: fa-solid fa-truck-fast
+#     - title: "Custom Hardware"
+#       desc: "Custom Hardware Design & Manufacturing"
+#       icon: fa-solid fa-plug
+#     - title: "IT Consulting"
+#       desc: "Custom Hardware Design & Manufacturing"
+#       icon: fa-solid fa-computer
 
 portfolio:
   title: "Products"
@@ -84,10 +114,14 @@ portfolio:
 #   end: "Be Part <br> of Our <br> Story!"
 
 about:
-  title: "About Us"
-  text: "Startup build around people and skills rather than single product."
-  body: "Global Storm stands as a beacon of innovation in the industrial Internet of Things (IoT), conceived by industry veterans amidst the turbulence of a storm. Committed to spearheading IoT innovation, the startup envisions revolutionizing global industrial landscapes with scalable and adaptable solutions, prioritizing trust through robust security measures. Advocating for interoperability standards, data-driven excellence, and sustainable practices, Global Storm actively engages with the wider IoT community. Fostering an innovation culture and ensuring compliance with evolving industry regulations, the company aims to contribute to the broader IoT ecosystem while staying ahead of industry trends. With a customer-centric focus, Global Storm seeks to build lasting relationships by continuously iterating solutions based on real-world input and providing unwavering support. Rooted in a commitment to financial sustainability, the company is poised to disrupt and transform the industrial IoT landscape with a visionary and transformative approach."
-  section: about
+  section: "about"
+  title: "Redefining Edge Intelligence"
+  text: "We build devices that bring cloud-level compute to the real world."
+  image: /assets/img/edge-network.png
+  body: >
+    Global Storm Cloud is a deep-tech startup delivering edge computing platforms optimized for performance, security, and scalability.
+    Our team combines expertise in embedded systems, IoT, and cloud-native development to push intelligence to the edge — wherever it's needed most.
+
 
 # clients:
 #   section: clients
@@ -108,54 +142,60 @@ about:
 #       logo: assets/img/clients/creative-market.jpg
 
 team:
-  title: "OUR AMAZING TEAM"
-  text: Meet the driving force behind Global Storm—our co-founders, visionaries uniting expertise in public cloud and industrial IoT.
-  subtext: With a shared passion for innovation, they've forged a collaborative culture that empowers the team. Committed to continuous learning, they ensure Global Storm remains at the forefront of technology. These leaders prioritize a positive work-life balance, recognizing that the heart of the company is its people—empowered, inspired, and shaping the future.
-  section: team
+  title: "Our Team"
+  text: "Engineers, builders, and creators solving real-world edge problems."
+  subtext: "Together, we design platforms to push intelligence closer to the physical world."
+
   people:
-    - name: "Mohsen Shaali"
-      role: "Co-founder"
-      image: assets/img/team/mohsen.jpg
+    - name: "Wojtek"
+      role: "Co-Founder & Solution Architect"
+      bio: "Leads systems integration and edge deployment strategy across industrial and urban environments."
+      image: "/assets/img/team/wojtek.jpg"
       social:
-        - url: https://www.linkedin.com/in/mohsen-shaali-91031268/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/mohsenie
-          icon: fa-brands fa-github
-    - name: "Wojciech Żydecki"
-      role: "Co-founder"
-      image: assets/img/team/wojtek.jpg
+        - icon: "fab fa-linkedin-in"
+          url: "https://linkedin.com/in/wojtek"
+
+    - name: "Mohsen"
+      role: "Co-Founder & Hardware Lead"
+      bio: "Designs reliable, scalable embedded platforms for demanding edge applications."
+      image: "/assets/img/team/mohsen.jpg"
       social:
-        - url: https://www.linkedin.com/in/wojciech-zydecki/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/FliesWithWind
-          icon: fa-brands fa-github
-        - url: https://wojtek.cloud/
-          icon: fa-solid fa-globe
-    - name: "Jakub Zawiasa"
-      role: "Co-founder"
-      image: assets/img/team/kuba.jpg
+        - icon: "fab fa-linkedin-in"
+          url: "https://linkedin.com/in/mohsen"
+
+    - name: "Kuba"
+      role: "Co-Founder & AI Expert"
+      bio: "Applies machine learning and vision systems to low-power, high-efficiency edge devices."
+      image: "/assets/img/team/kuba.jpg"
       social:
-        - url: https://www.linkedin.com/in/jakub-zawiasa-722b65201/
-          icon: fa-brands fa-linkedin
-        - url: https://github.com/JHinge
-          icon: fa-brands fa-github
+        - icon: "fab fa-linkedin-in"
+          url: "https://www.linkedin.com/in/jakub-zawiasa-722b65201/"
+
 
 contact:
-  title: "Contact Us"
-  text: "Contact us and we will do our best to help you solve your problem!"
-  section: contact
-  name: "Name*"
+  section: "contact"
+  title: "Get in Touch"
+  text: "We’d love to hear from you. Reach out for product questions, partnerships, or general inquiries."
+
+  name: "Your Name *"
   name-validation: "Please enter your name."
-  email: "Email*"
-  email-validation: "Please enter your email address."
-  phone: "Phone Number"
+
+  email: "Your Email *"
+  email-validation: "Please enter a valid email address."
+
+  phone: "Phone (optional)"
   phone-validation: "Please enter your phone number."
-  message: "Message*"
+
+  message: "Your Message *"
   message-validation: "Please enter a message."
+
   subject: "Contact Form Submission"
+
   submit: "Send Message"
-  success: "Thanks for contacting us! We will get back to you soon!"
-  failure: "Sorry, it seems that mail server is not responding. Please try again later!"
+
+  success: "Thanks for contacting us! We'll respond shortly."
+  failure: "Sorry, something went wrong. Please try again later."
+
 
 footer:
   legal: "Privacy Policy"
@@ -166,8 +206,3 @@ footer:
       icon: "fab fa-linkedin-in"
     - url: https://github.com/GlobalStormCloud
       icon: "fab fa-github"
-
-
-
-
-
