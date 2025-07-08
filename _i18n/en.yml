@@ -163,15 +163,6 @@ team:
         - icon: "fab fa-linkedin-in"
           url: "https://linkedin.com/in/mohsen"
 
-    - name: "Kuba"
-      role: "Co-Founder & AI Expert"
-      bio: "Applies machine learning and vision systems to low-power, high-efficiency edge devices."
-      image: "/assets/img/team/kuba.jpg"
-      social:
-        - icon: "fab fa-linkedin-in"
-          url: "https://www.linkedin.com/in/jakub-zawiasa-722b65201/"
-
-
 contact:
   section: "contact"
   title: "Get in Touch"

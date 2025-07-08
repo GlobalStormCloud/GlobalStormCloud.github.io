@@ -164,16 +164,6 @@ team:
         - icon: "fab fa-linkedin-in"
           url: "https://linkedin.com/in/mohsen"
 
-    - name: "Kuba"
-      role: "Współzałożyciel & Ekspert ds. AI"
-      bio: "Wdraża systemy uczenia maszynowego i analizy obrazu na energooszczędnych urządzeniach brzegowych."
-      image: "/assets/img/team/kuba.jpg"
-      social:
-        - icon: "fab fa-linkedin-in"
-          url: "https://www.linkedin.com/in/jakub-zawiasa-722b65201/"
-
-
-
 contact:
   section: "kontakt"
   title: "Skontaktuj się z nami"
