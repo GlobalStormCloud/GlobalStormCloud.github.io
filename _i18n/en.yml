@@ -153,7 +153,7 @@ team:
       image: "/assets/img/team/wojtek.jpg"
       social:
         - icon: "fab fa-linkedin-in"
-          url: "https://linkedin.com/in/wojtek"
+          url: "https://www.linkedin.com/in/wojciech-zydecki"
 
     - name: "Mohsen"
       role: "Co-Founder & Hardware Lead"
@@ -161,7 +161,7 @@ team:
       image: "/assets/img/team/mohsen.jpg"
       social:
         - icon: "fab fa-linkedin-in"
-          url: "https://linkedin.com/in/mohsen"
+          url: "https://www.linkedin.com/in/mohsen-shaali-91031268"
 
 contact:
   section: "contact"
