@@ -4,6 +4,13 @@
   .portfolio-item {
     right: 0;
     margin: 0 0 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
     .portfolio-link {
       position: relative;
       display: block;

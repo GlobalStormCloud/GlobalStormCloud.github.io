@@ -14,24 +14,26 @@ header.masthead {
     padding-top: 150px;
     padding-bottom: 100px;
     .intro-lead-in {
-      font-size: 50px;
+      font-size: 80px;
       font-weight: 700;
-      line-height: 50px;
+      line-height: 80px;
       margin-bottom: 25px;
       text-shadow: 1px 1px 2px black;
       font-family: eurostile;
     }
-    .intro-heading {
-      font-size: 16px;
-      line-height: 16px;
-      margin-bottom: 25px;
-      text-shadow: 1px 1px 2px black;
-      font-weight: 700;
-      @include heading-font;
-      p {
-        max-width: 300px;
+        .intro-heading {
+        font-size: 32px;
+        line-height: 40px;
+        margin: 25px;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+        font-weight: 700;
+        color: #f0f0f0;
+        @include heading-font;
+        p {
+          max-width: 600px;
+          margin: 0 auto;
+        }
       }
-    }
   }
 }
 .header.masthead::after {
@@ -50,22 +52,24 @@ header.masthead {
       padding-top: 250px;
       padding-bottom: 200px;
       .intro-lead-in {
-        font-size: 5rem;
+        font-size: 7rem;
         font-weight: 700;
-        line-height: 5rem;
+        line-height: 7rem;
         margin-bottom: 30px;
         text-shadow: 1px 1px 2px black;
         font-family: eurostile;
       }
       .intro-heading {
-        font-size: 1.7rem;
-        line-height: 1.7rem;
-        margin-bottom: 25px;
-        text-shadow: 1px 1px 2px black;
+        font-size: 3.4rem;
+        line-height: 4rem;
+        margin: 25px;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
         font-weight: 700;
+        color: #f0f0f0;
         @include heading-font;
         p {
           max-width: 600px;
+          margin: 0 auto;
         }
       }
     }
@@ -78,5 +82,21 @@ header.masthead {
     width: 100%;
     height: 100%;
     background-color: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.013) 8.1%, hsla(0, 0%, 0%, 0.049) 15.5%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.175) 29%, hsla(0, 0%, 0%, 0.259) 35.3%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.45) 47.1%, hsla(0, 0%, 0%, 0.55) 52.9%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.741) 64.7%, hsla(0, 0%, 0%, 0.825) 71%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.951) 84.5%, hsla(0, 0%, 0%, 0.987) 91.9%, hsl(0, 0%, 0%) 100%);
+  }
+}
+
+// Custom button styling for hero section
+header.masthead .btn-primary {
+  background-color: #00d4ff;
+  border-color: #00d4ff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #00b8e6;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+    transform: translateY(-2px);
   }
 }

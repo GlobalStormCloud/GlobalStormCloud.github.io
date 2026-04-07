@@ -12,7 +12,7 @@
             <div class="modal-body text-center">
               <h2 class="text-uppercase">{{ project.title }}</h2>
               <p class="item-intro text-muted">{{ project.subtitle }}</p>
-              <img class="img-fluid rounded mb-4 shadow" src="{{ project.main_image | relative_url }}" alt="{{ project.alt_text | default: project.title }}">
+              <img class="img-fluid rounded mb-4 shadow" src="{{ project.main_image | relative_url }}" alt="{{ project.alt_text | default: project.title }}" loading="lazy">
               <div class="text-start">
                 {{ project.content }}
               </div>

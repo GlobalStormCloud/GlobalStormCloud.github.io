@@ -18,9 +18,9 @@ navigation:
     section: contact
 
 header:
-  title: Global Storm
+  title:
   text: Inteligencja na brzegu.
-  button: Dowiedz się wiecej! 
+  button: Dowiedz się wiecej!
   buttonlink: "#edge-device"
 
 # services:
@@ -56,22 +56,22 @@ edge_device:
   list:
     - icon: "fas fa-industry"
       title: "Automatyzacja przemysłowa"
-      desc: "Reaguj błyskawicznie na dane z maszyn, minimalizując przestoje i optymalizując produkcję."
+      desc: "Minimalizuj przestoje i optymalizuj produkcję dzięki danym z maszyn w czasie rzeczywistym."
     - icon: "fas fa-truck-moving"
       title: "Monitorowanie flot i pojazdów"
       desc: "Analizuj dane z pojazdów w czasie rzeczywistym, nawet w trudno dostępnych lokalizacjach."
     - icon: "fas fa-microchip"
       title: "IoT i czujniki zdalne"
-      desc: "Skalowalne obliczenia brzegowe — energooszczędne, bezpieczne i zawsze połączone."
+      desc: "Skalowalne obliczenia brzegowe — energooszczędne i zawsze połączone."
     - icon: "fas fa-bus"
       title: "Transport publiczny"
-      desc: "Zoptymalizuj mobilność publiczną dzięki lokalnej analizie danych w czasie rzeczywistym."
+      desc: "Zoptymalizuj mobilność publiczną dzięki analizie danych w czasie rzeczywistym."
     - icon: "fas fa-city"
       title: "Inteligentne miasta"
-      desc: "Popraw bezpieczeństwo i efektywność miejskiej infrastruktury poprzez zdecentralizowane przetwarzanie danych."
+      desc: "Popraw bezpieczeństwo dzięki zdecentralizowanemu przetwarzaniu danych."
     - icon: "fas fa-shield-alt"
       title: "Bezpieczeństwo i zgodność"
-      desc: "Chroń dane na brzegu sieci dzięki szyfrowaniu, bezpiecznemu uruchamianiu i zgodnej komunikacji z chmurą."
+      desc: "Szyfruj dane i utrzymuj zgodność od urządzenia do chmury."
 
 
 

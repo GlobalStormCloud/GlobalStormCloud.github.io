@@ -4,7 +4,64 @@ section#contact {
   background-image: url("#{$contact-image}");
   background-repeat: no-repeat;
   background-position: center;
-  height: calc(100vh - 150px); //fit the footer after contact
+  height: calc(100vh - 150px);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(18, 28, 43, 0.85);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-primary {
+    background-color: #00d4ff;
+    border-color: #00d4ff;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 40px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #00b8e6;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+      transform: translateY(-2px);
+    }
+  }
+
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      background-color: #fff;
+    }
+
+    &:hover:not(:focus) {
+      border-color: #adb5bd;
+    }
+
+    &::placeholder {
+      color: #868e96;
+      font-weight: 500;
+    }
+  }
   .section-heading {
     color: $white;
   }

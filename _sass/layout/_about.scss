@@ -7,6 +7,19 @@
     width: 35vh;
     height: 100%;
     padding-bottom: 50px;
+    .img-fluid {
+      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+      transition: filter 0.3s ease;
+
+      &:hover {
+        filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.5));
+      }
+    }
+  }
+  .text-muted {
+    max-width: 800px;
+    line-height: 1.8;
+    margin: 0 auto;
   }
   // h4 {
   //   margin-top: 25px;

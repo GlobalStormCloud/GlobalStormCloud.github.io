@@ -18,9 +18,9 @@ navigation:
     section: contact
 
 header:
-  title: Global Storm
+  title:
   text: Intelligence at the edge.
-  button: Find out more! 
+  button: Find out more!
   buttonlink: "#edge-device"
 
 
