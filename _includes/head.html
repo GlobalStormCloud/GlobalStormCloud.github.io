@@ -3,15 +3,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ site.author }}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://cdnjs.cloudflare.com; font-src 'self' https://api.fontshare.com https://cdnjs.cloudflare.com; img-src 'self' data: blob:; media-src 'self' blob:; frame-ancestors-src 'none';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
   <title>{% if page.title %}{{ page.title | append: " | " | append: site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1,2,3,4,5,6,7&f[]=satoshi@1,2,3,4,5,6,7,8,9&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1,2,3,4,5,6,7&f[]=satoshi@1,2,3,4,5,6,7,8,9&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1,2,3,4,5,6,7&f[]=satoshi@1,2,3,4,5,6,7,8,9&display=swap" rel="stylesheet">
+  </noscript>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 
@@ -28,4 +33,15 @@
   {% endif %}
 
   <link rel="icon" href="{{ "/assets/img/favicon.ico" | relative_url }}" type="image/x-icon">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Global Storm",
+    "url": "{{ site.url }}{{ site.baseurl }}",
+    "description": "{{ site.description }}",
+    "email": "{{ site.email }}"
+  }
+  </script>
 </head>

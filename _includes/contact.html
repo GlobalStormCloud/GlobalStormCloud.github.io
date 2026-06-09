@@ -10,21 +10,25 @@
         action="https://script.google.com/macros/s/AKfycbwYfg6kxvduAZ4vsNsrymGteEi8uPcexuvDI9Sfq_7yFCpSn7LOj5LLO0dlY1pHDk4cTQ/exec">
         <div class="contact__fields">
           <div class="contact__field">
+            <label for="name">{{ site.translations[site.lang].contact.name }}</label>
             <input name="name" id="name" type="text"
               placeholder="{{ site.translations[site.lang].contact.name }}"
               required aria-label="{{ site.translations[site.lang].contact.name }}">
           </div>
           <div class="contact__field">
+            <label for="email">{{ site.translations[site.lang].contact.email }}</label>
             <input name="email" id="email" type="email"
               placeholder="{{ site.translations[site.lang].contact.email }}"
               required aria-label="{{ site.translations[site.lang].contact.email }}">
           </div>
           <div class="contact__field">
+            <label for="phone">{{ site.translations[site.lang].contact.phone }}</label>
             <input name="phone" id="phone" type="tel"
               placeholder="{{ site.translations[site.lang].contact.phone }}"
               aria-label="{{ site.translations[site.lang].contact.phone }}">
           </div>
           <div class="contact__field contact__field--full">
+            <label for="message">{{ site.translations[site.lang].contact.message }}</label>
             <textarea name="message" id="message" rows="5"
               placeholder="{{ site.translations[site.lang].contact.message }}"
               required aria-label="{{ site.translations[site.lang].contact.message }}"></textarea>

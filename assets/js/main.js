@@ -90,11 +90,9 @@
     })();
 
      /* ── Product Modal ── */
-     function fixHtmlPaths(html) {
-       var base = (typeof site_baseurl === 'undefined') ? '' : site_baseurl;
-       if (!base) return html;
-       return html.replace(/(src|href)="(\/assets\/[^"]+)"/g, 'src="' + base + '$2"');
-     }
+       function fixHtmlPaths(html) {
+         return html;
+       }
 
      (function initProductModal() {
        const modal = document.getElementById('product-modal');
@@ -117,11 +115,7 @@
            modalSubtitle.textContent = subtitle;
 
             if (mainImage) {
-              var imgSrc = mainImage;
-              if (mainImage.startsWith('assets/')) {
-                imgSrc = '/' + mainImage;
-              }
-              modalImage.src = imgSrc;
+              modalImage.src = mainImage;
              modalImage.alt = title;
              modalImage.style.display = 'block';
            } else {
@@ -130,7 +124,10 @@
            }
 
             var html = description;
-           modalDescription.innerHTML = html;
+            if (html) {
+              html = fixHtmlPaths(html);
+            }
+            modalDescription.innerHTML = html;
 
           modal.classList.add('modal-overlay--open');
           modal.setAttribute('aria-hidden', 'false');

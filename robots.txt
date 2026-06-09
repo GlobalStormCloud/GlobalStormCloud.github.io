@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /legal/
+Disallow: /404/
+
+Sitemap: https://globalstorm.cloud/sitemap.xml

@@ -9,15 +9,15 @@
       {% for project in site.posts %}
       {% assign preview = project.preview %}
        <script type="application/json" class="product-content" data-index="{{ forloop.index0 }}">{{ project.content }}</script>
-       <div class="products__card reveal" data-delay="{{ forloop.index0 | times: 100 }}"
-            data-title="{{ preview.title }}"
-            data-subtitle="{{ preview.subtitle }}"
-            data-thumbnail="{{ preview.thumbnail }}"
-            data-main-image="{{ project.main_image }}"
-            data-index="{{ forloop.index0 }}"
-            onclick="openProduct(this)">
-        <div class="products__image">
-          <img src="{{ preview.thumbnail | relative_url }}" alt="{{ preview.title }}" loading="lazy" width="600" height="400">
+          <div class="products__card reveal" data-delay="{{ forloop.index0 | times: 100 }}"
+             data-title="{{ preview.title }}"
+             data-subtitle="{{ preview.subtitle }}"
+             data-thumbnail="{{ preview.thumbnail | prepend: '/' | replace: '//', '/' }}"
+             data-main-image="{{ project.main_image | prepend: '/' | replace: '//', '/' }}"
+             data-index="{{ forloop.index0 }}"
+             onclick="openProduct(this)">
+         <div class="products__image">
+           <img src="{{ preview.thumbnail | prepend: '/' | replace: '//', '/' }}" alt="{{ preview.title }}" loading="lazy" width="600" height="400">
           <div class="products__overlay">
             <span class="products__cta">{{ site.translations[site.lang].portfolio.learn_more }}</span>
           </div>
