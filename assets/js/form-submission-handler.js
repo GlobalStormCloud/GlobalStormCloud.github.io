@@ -52,7 +52,7 @@
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
     event.preventDefault();           // we are submitting via xhr below
-    var form = event.target;
+    var form = event.currentTarget;
     var formData = getFormData(form);
     var data = formData.data;
 
@@ -66,34 +66,43 @@
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     // xhr.withCredentials = true;
-    var formSpinner = form.querySelector("#spinner");
     var formButton = form.querySelector("#sendMessageButton");
-    if (formSpinner) {
-      formSpinner.style.display = "block";
-    }
     if (formButton) {
-      formButton.style.display = "none";
+      formButton.classList.add("loading");
     }
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onerror = function() {
+      var formButton = form.querySelector("#sendMessageButton");
       var formFailure = form.querySelector("#form_failure");
+      if (formButton) {
+        formButton.classList.remove("loading");
+      }
       if (formFailure) {
         formFailure.style.display = "block";
       }
     };
     xhr.onreadystatechange = function() {
-        var formSpinner = form.querySelector("#spinner");
+        var formButton = form.querySelector("#sendMessageButton");
         var formSuccess = form.querySelector("#form_success");
-        if (formSpinner) {
-          formSpinner.style.display = "none";
-        }
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          if (formSuccess) {
-            formSuccess.style.display = "block";
+        var formFailure = form.querySelector("#form_failure");
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            if (formButton) {
+              formButton.style.display = "none";
+            }
+            if (formSuccess) {
+              formSuccess.style.display = "block";
+            }
+          } else {
+            if (formButton) {
+              formButton.classList.remove("loading");
+            }
+            if (formFailure) {
+              formFailure.style.display = "block";
+            }
           }
+          document.getElementById('contactForm').reset();
         }
-        //clear all fields
-        $('#contactForm').trigger("reset");
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
