@@ -27,9 +27,12 @@ hero:
 edge_device:
   section: edge-device
   tag: Edge Computing
-  title: "Smarter, Safer, Faster — Right at the Edge"
-  text: "Harness real-time data where it happens — from factories to fleets — reducing latency and boosting control without cloud dependency."
+  title: "Security-First Edge Platforms"
+  text: "Global Storm edge devices are engineered for the harshest environments — military-grade hardening, tamper-resistant enclosures, and end-to-end encrypted pipelines that keep your data safe from device to cloud. Smarter, safer, faster — right at the edge."
   list:
+    - icon: "fas fa-shield-alt"
+      title: "Security-First"
+      desc: "Military-grade hardening and end-to-end encryption from device to cloud — tamper-resistant enclosures and zero-trust connectivity."
     - icon: "fas fa-industry"
       title: "Industrial Automation"
       desc: "Instantly respond to machine data for minimized downtime and optimized production."
@@ -45,15 +48,12 @@ edge_device:
     - icon: "fas fa-city"
       title: "Connected Smart Cities"
       desc: "Enhance safety and sustainability with decentralized data processing."
-    - icon: "fas fa-shield-alt"
-      title: "Edge Security & Compliance"
-      desc: "Keep data secure and compliant from device to cloud with robust edge protocols."
 
 portfolio:
   section: products
   tag: Products
-  title: "Our Hardware"
-  text: "Edge computing platforms purpose-built for the real world."
+  title: "Rugged Edge Platforms"
+  text: "Purpose-built hardware that ships security, resilience, and real-time capability to environments where failure is not an option."
   learn_more: "Learn More"
   close: "Close"
   empty: "Products coming soon."

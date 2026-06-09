@@ -27,8 +27,8 @@ hero:
 edge_device:
   section: edge-device
   tag: Edge Computing
-  title: "Szybciej, bezpieczniej i mądrzej — na brzegu sieci"
-  text: "Wykorzystuj dane w czasie rzeczywistym tam, gdzie powstają — od fabryk po floty — redukując opóźnienia i zwiększając kontrolę bez zależności od chmury."
+  title: "Platformy Edge z bezpieczeństwem na pierwszy planie"
+  text: "Urządzenia edge Global Storm są zaprojektowane do pracy w najbardziej wymagających warunkach — wojskowe utwardzenie, odpornae na manipulację obudowy i szyfrowany przepływ danych od urządzenia po chmurę. Szybciej, bezpieczniej, mądrzej — na brzegu sieci."
   list:
     - icon: "fas fa-industry"
       title: "Automatyzacja przemysłowa"
@@ -52,8 +52,8 @@ edge_device:
 portfolio:
   section: products
   tag: Produkty
-  title: "Nasze Rozwiązania"
-  text: "Platformy obliczeniowe klasy edge zaprojektowane do rzeczywistych zastosowań."
+  title: "Wytrzymałe platformy edge"
+  text: "Sprzęt specjalnie zaprojektowany, dostarczający bezpieczeństwo, odporność i moce obliczeniowe w środowiskach, w których awaria nie wchodzi w grę."
   learn_more: "Dowiedz się więcej"
   close: "Zamknij"
   empty: "Produkty wkrótce."
