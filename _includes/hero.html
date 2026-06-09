@@ -1,0 +1,23 @@
+<section class="hero" id="hero">
+  <div class="hero__video-wrapper" aria-hidden="true">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="{{ "/assets/img/bg-main.jpg" | relative_url }}">
+      <source src="{{ "/assets/global-storm-hero.mp4" | relative_url }}" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <div class="hero__text">
+      <h1 class="hero__title reveal-text">{{ site.translations[site.lang].hero.title }}</h1>
+      <p class="hero__subtitle reveal-text" data-delay="200">{{ site.translations[site.lang].hero.subtitle }}</p>
+      <p class="hero__desc reveal-text" data-delay="400">{{ site.translations[site.lang].hero.description }}</p>
+      <div class="hero__actions reveal-text" data-delay="600">
+        <a href="#{{ site.translations[site.lang].edge_device.section }}" class="btn btn-primary">{{ site.translations[site.lang].hero.cta }}</a>
+        <a href="#{{ site.translations[site.lang].portfolio.section }}" class="btn btn-ghost">{{ site.translations[site.lang].hero.secondary_cta }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span></span>
+  </div>
+</section>

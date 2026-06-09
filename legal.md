@@ -1,39 +1,34 @@
 ---
 layout: page
 title: Privacy Policy
-background: grey
 ---
 
-<div class="col-lg-12 text-center">
-	<h2 class="section-heading text-uppercase">Privacy Policy</h2>
-</div>
+<h1>Privacy Policy</h1>
 
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit {{ site.title }} (the “Site”).
+<p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit {{ site.title }} (the "Site").</p>
 
-**PERSONAL INFORMATION WE COLLECT**
+<h2>Personal Information We Collect</h2>
 
-{% if site.analytics.google %}
+{% if site.google_analytics %}
 
-Automatically Collected (Google Analytics):
+<p>When you visit the Site, we automatically receive information about your device from your browser, such as your IP address. As you browse the Site, we also collect information about how you interact with the Site. We refer to this automatically-collected information as "Device Information".</p>
 
-When you visit the Site, we automatically receive information about your device from your browser, such as your IP address. As you browse the Site, we also collect information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.
+<p>We collect Device Information using cookies. "Cookies" are data files that are placed on your device. For more information about cookies and how to disable them, visit <a href="http://www.allaboutcookies.org">http://www.allaboutcookies.org</a>.</p>
 
-We collect Device Information using cookies. “Cookies” are data files that are placed on your device. For more information about cookies and how to disable them, visit http://www.allaboutcookies.org.
+<p>We do this using Google Analytics: <a href="https://www.google.com/intl/en/policies/privacy/">https://www.google.com/intl/en/policies/privacy/</a>.</p>
 
-We do this using Google Analytics: <https://www.google.com/intl/en/policies/privacy/>.
-
-You can opt-out of Google Analytics here: <https://tools.google.com/dlpage/gaoptout>.
+<p>You can opt-out of Google Analytics here: <a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>.</p>
 
 {% else %}
 
-We do not collect any data about you or use any cookies.
+<p>We do not collect any data about you or use any cookies.</p>
 
 {% endif %}
 
-**CHANGES**
+<h2>Changes</h2>
 
-We may update this privacy policy from time to time for personal, operational, legal, or regulatory reasons.
+<p>We may update this privacy policy from time to time for personal, operational, legal, or regulatory reasons.</p>
 
-**CONTACT US**
+<h2>Contact Us</h2>
 
-For more information about our privacy practices or if you have questions, please contact us by email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+<p>For more information about our privacy practices or if you have questions, please contact us by email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>

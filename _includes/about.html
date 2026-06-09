@@ -1,47 +1,17 @@
-<!-- About -->
-{% if site.lang and site.lang != "" and site.lang != nil %}
-<section class="page-section about" id="{{ site.translations[site.lang].about.section | default: "about" }}">
+<section class="section about" id="{{ site.translations[site.lang].about.section }}">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-        <img class="img-fluid" src="{{ site.translations[site.lang].about.image | relative_url }}" alt="About image" loading="lazy">
+    <div class="about__grid">
+      <div class="about__visual reveal">
+        <img src="{{ site.translations[site.lang].about.image | relative_url }}" alt="{{ site.translations[site.lang].about.title }}" loading="lazy" width="600" height="400">
       </div>
-      <div class="col-lg-6 text-center text-lg-start">
-        <h2 class="section-heading text-uppercase">
-          {{ site.translations[site.lang].about.title | default: "About Us" }}
-        </h2>
-        <h3 class="section-subheading text-muted">
-          {{ site.translations[site.lang].about.text | default: "" }}
-        </h3>
-        <div class="text-muted mt-3">
+      <div class="about__content reveal" data-delay="200">
+        <span class="section__tag">{{ site.translations[site.lang].about.tag }}</span>
+        <h2 class="section__title">{{ site.translations[site.lang].about.title }}</h2>
+        <p class="about__lead">{{ site.translations[site.lang].about.text }}</p>
+        <div class="about__body">
           {{ site.translations[site.lang].about.body | markdownify }}
         </div>
-        <a href="#team" class="btn btn-outline-primary mt-4">Meet the Team</a>
       </div>
     </div>
   </div>
 </section>
-{% else %}
-<section class="page-section about" id="{{ site.data.sitetext.about.section | default: "about" }}">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-        <img class="img-fluid" src="{{ site.data.sitetext.about.image | relative_url }}" alt="About image" loading="lazy">
-      </div>
-      <div class="col-lg-6 text-center text-lg-start">
-        <h2 class="section-heading text-uppercase">
-          {{ site.data.sitetext.about.title | default: "About Us" }}
-        </h2>
-        <h3 class="section-subheading text-muted">
-          {{ site.data.sitetext.about.text | default: "" }}
-        </h3>
-        <div class="text-muted mt-3">
-          {{ site.data.sitetext.about.body | markdownify }}
-        </div>
-        <a href="#team" class="btn btn-outline-primary mt-4">Meet the Team</a>
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
-<!-- End About -->

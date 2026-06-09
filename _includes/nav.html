@@ -1,71 +1,33 @@
-<!-- Navigation -->
-<nav
-  class="navbar navbar-expand-lg navbar-dark fixed-top"
-  id="mainNav"
-  style="background-color: #212529"
->
-  <div class="container">
-    <a class="navbar-brand js-scroll-trigger d-flex align-items-center" href="{{ site.baseurl }}/#">
-      {%- if site.logo -%}
-      <img
-        height="{{ site.logo.height | default: 52 }}"
-        src="{{ site.logo.path }}"
-      /> 
-      {{ site.title }}
-      {%- else -%} {{ site.title }} {%- endif -%}
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#hero">
+      <img src="{{ "/assets/img/logo_with_text_white.png" | relative_url }}" alt="Global Storm">
     </a>
-    <button
-      class="navbar-toggler navbar-toggler-right"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      Menu<i class="fas fa-bars"></i>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav text-uppercase ms-auto">
-      {% if site.lang and site.lang != "" and site.lang != nil %}
-        {%- for link in site.translations[site.lang].navigation -%}
-        <li class="nav-item">
-          {%- if link.url -%}
-          <a class="nav-link js-scroll-trigger" href="{{ link.url }}"
-            >{{ link.title }}</a
-          >
-          {%- elsif link.section -%}
-          <a
-            class="nav-link js-scroll-trigger"
-            href="{{ site.baseurl }}/#{{ link.section }}"
-            >{{ link.title }}</a
-          >
-          {%- else -%}
-          <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
-          {%- endif -%}
-        </li>
-        {%- endfor -%}
-      {% else %}
-        {%- for link in site.data.navigation.nav -%}
-        <li class="nav-item">
-          {%- if link.url -%}
-          <a class="nav-link js-scroll-trigger" href="{{ link.url }}"
-            >{{ link.title }}</a
-          >
-          {%- elsif link.section -%}
-          <a
-            class="nav-link js-scroll-trigger"
-            href="{{ site.baseurl }}/#{{ link.section }}"
-            >{{ link.title }}</a
-          >
-          {%- else -%}
-          <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
-          {%- endif -%}
-        </li>
-        {%- endfor -%}
-      {% endif %}
-      </ul>
-    </div>
+    <ul class="nav__links" role="menubar">
+      {% assign nav_data = site.translations[site.lang].navigation %}
+      {% for link in nav_data %}
+      <li role="none">
+        {% if link.section %}
+        <a class="nav-link" href="#{{ link.section }}" role="menuitem">{{ link.title }}</a>
+        {% elsif link.url %}
+        <a class="nav-link" href="{{ link.url }}" role="menuitem">{{ link.title }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+      <li class="nav__lang">
+        {% if site.lang == "en" %}
+        <a href="{{ site.baseurl_root }}/pl{{ page.url | replace:'index.html','' }}" aria-label="Przełącz na Polski">
+          <span class="lang-label">PL</span>
+        </a>
+        {% elsif site.lang == "pl" %}
+        <a href="{{ site.baseurl_root }}{{ page.url | replace:'index.html','' }}" aria-label="Switch to English">
+          <span class="lang-label">EN</span>
+        </a>
+        {% endif %}
+      </li>
+    </ul>
   </div>
 </nav>
-<!-- End Navigation -->

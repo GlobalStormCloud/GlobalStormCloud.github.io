@@ -3,13 +3,13 @@ global:
   polish: Polski
 
 privacy: Polityka Prywatności
-privacy-link: /pl/privacy.html
+privacy_link: /pl/legal
 
 navigation:
   - title: "Edge"
     section: edge-device
-  - title: "Hardware"
-    section: portfolio
+  - title: "Produkty"
+    section: products
   - title: "O Nas"
     section: about
   - title: "Zespół"
@@ -17,42 +17,18 @@ navigation:
   - title: "Kontakt"
     section: contact
 
-header:
+hero:
   title: Global Storm
-  text: Inteligencja na brzegu.
-  button: Dowiedz się wiecej! 
-  buttonlink: "#edge-device"
-
-# services:
-#   title: "Services"
-#   text: "Lorem ipsum"
-#   section: services
-#   list:
-#     - title: "Rozwiązania IoT"
-#       desc: "Projektowanie i development rozwiązań Internet of Things"
-#       icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
-#     - title: "Hardware IoT"
-#       desc: "Projektowanie i produkcja sprzętu dla Internet of Things"
-#       icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
-#     - title: "Rozwiązania Chmurowe"
-#       desc: "Projektowanie i development chmurowych rozwiązań w AWS Cloud"
-#       icon: fa-solid fa-cloud
-#     - title: "Szybkie Prototypowanie"
-#       desc: "Szybki proces projektowania i produkcji prototypów"
-#       icon: fa-solid fa-truck-fast
-#     - title: "Niestandardowy Hardware"
-#       desc: "Projektowanie i produkcja sprzętu dostosowanego do potrzeb klienta"
-#       icon: fa-solid fa-plug
-#     - title: "Doradztwo IT"
-#       desc: "Wsparcie i doradztwo w szerokopojętym IT"
-#       icon: fa-solid fa-computer
+  subtitle: Inteligencja na brzegu sieci.
+  description: Platformy obliczeniowe klasy edge dla przemysłu IoT, monitorowania flot, inteligentnych miast i przetwarzania danych w czasie rzeczywistym.
+  cta: Poznaj Technologię
+  secondary_cta: Zobacz Produkty
 
 edge_device:
   section: edge-device
+  tag: Edge Computing
   title: "Szybciej, bezpieczniej i mądrzej — na brzegu sieci"
   text: "Wykorzystuj dane w czasie rzeczywistym tam, gdzie powstają — od fabryk po floty — redukując opóźnienia i zwiększając kontrolę bez zależności od chmury."
-  diagram_caption: "Zobacz swój przepływ danych — lokalna inteligencja, łączność z chmurą i wszystko pomiędzy."
-  cta: "Poznaj platformę GSE"
   list:
     - icon: "fas fa-industry"
       title: "Automatyzacja przemysłowa"
@@ -73,80 +49,31 @@ edge_device:
       title: "Bezpieczeństwo i zgodność"
       desc: "Chroń dane na brzegu sieci dzięki szyfrowaniu, bezpiecznemu uruchamianiu i zgodnej komunikacji z chmurą."
 
-
-
-
 portfolio:
-  title: "Produkty i Rozwiązania"
-  text: "Wykorzystanie Potencjału Inteligencji Krawędziowej dla Połączonej Mobilności"
-  section: portfolio
+  section: products
+  tag: Produkty
+  title: "Nasze Rozwiązania"
+  text: "Platformy obliczeniowe klasy edge zaprojektowane do rzeczywistych zastosowań."
+  learn_more: "Dowiedz się więcej"
   close: "Zamknij"
-
-# timeline:
-#   title: "Timeline"
-#   text: "Lorem ipsum timeline"
-#   section: timeline
-#   # left is the default
-#   #start_align: "left"
-#   events:
-#     - title: "Our Humble Beginnings"
-#       year: "2009-2011"
-#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-#       image: assets/img/timeline/1.jpg
-#       alt:
-#     - title: "An Agency is Born"
-#       year: "March 2011"
-#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-#       image: assets/img/timeline/2.jpg
-#       alt:
-#     - title: "Jekyll Theme is created"
-#       year: "2019"
-#       desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
-#       image: assets/img/timeline/3.jpg
-#       alt: image alt text
-#     - title: "Title"
-#       year: "2009-2011"
-#       desc: "Your description here, **Markdown** is fully supported."
-#       image: assets/img/timeline/4.jpg
-#       alt:
-#       # you can enforce the alignment
-#       align: right
-#   end: "Be Part <br> of Our <br> Story!"
+  empty: "Produkty wkrótce."
 
 about:
-  section: "o-nas"
+  section: about
+  tag: O Nas
   title: "Nowa definicja inteligencji na brzegu sieci"
   text: "Tworzymy urządzenia, które przenoszą moc obliczeniową chmury do rzeczywistego świata."
-  image: /assets/img/edge-network.png
+  image: /assets/img/about-graphic.svg
   body: >
     Global Storm Cloud to firma deep-tech oferująca platformy obliczeniowe na brzegu sieci, zoptymalizowane pod kątem wydajności, bezpieczeństwa i skalowalności.
     Nasz zespół łączy kompetencje w zakresie systemów wbudowanych, IoT i rozwiązań chmurowych, aby przesuwać granice inteligencji w kierunku urządzeń końcowych — tam, gdzie jest najbardziej potrzebna.
 
-
-
-# clients:
-#   section: clients
-#   max-height: 100px
-#   horizontal-scrolling: "" #"yes/no"
-#   list:
-#     - title: "envato"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/envato.jpg
-#     - title: "designmodo"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/designmodo.jpg
-#     - title: "themeforest"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/themeforest.jpg
-#     - title: "Creative Market"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/creative-market.jpg
-
 team:
+  section: team
+  tag: Zespół
   title: "Nasz Zespół"
   text: "Inżynierowie, konstruktorzy i twórcy rozwiązujący rzeczywiste problemy obliczeniowe na brzegu sieci."
   subtext: "Wspólnie projektujemy platformy, które przesuwają inteligencję bliżej rzeczywistości fizycznej."
-
   people:
     - name: "Wojtek"
       role: "Współzałożyciel & Architekt Rozwiązań"
@@ -155,7 +82,6 @@ team:
       social:
         - icon: "fab fa-linkedin-in"
           url: "https://www.linkedin.com/in/wojciech-zydecki"
-
     - name: "Mohsen"
       role: "Współzałożyciel & Kierownik ds. Sprzętu"
       bio: "Projektuje niezawodne i skalowalne platformy wbudowane do wymagających zastosowań brzegowych."
@@ -165,32 +91,27 @@ team:
           url: "https://www.linkedin.com/in/mohsen-shaali-91031268"
 
 contact:
-  section: "kontakt"
+  section: contact
+  tag: Kontakt
   title: "Skontaktuj się z nami"
   text: "Chętnie porozmawiamy. Skontaktuj się z nami w sprawie produktów, współpracy lub innych zapytań."
-
   name: "Twoje imię i nazwisko *"
   name-validation: "Proszę podać swoje imię."
-
   email: "Twój e-mail *"
   email-validation: "Proszę podać poprawny adres e-mail."
-
   phone: "Telefon (opcjonalnie)"
   phone-validation: "Proszę podać numer telefonu."
-
   message: "Twoja wiadomość *"
   message-validation: "Proszę wpisać wiadomość."
-
   subject: "Wiadomość z formularza kontaktowego"
-
   submit: "Wyślij wiadomość"
-
   success: "Dziękujemy za kontakt! Odezwiemy się wkrótce."
   failure: "Coś poszło nie tak. Spróbuj ponownie później."
 
-
 footer:
+  tagline: "Platformy obliczeniowe klasy edge dla realnego świata."
   legal: "Polityka prywatności"
+  rights: "Wszelkie prawa zastrzeżone."
   social:
     - url: https://x.com/GlobalStormIoT
       icon: "fab fa-x-twitter"

@@ -3,13 +3,13 @@ global:
   polish: Polski
 
 privacy: Privacy Policy
-privacy-link: /privacy.html
+privacy_link: /legal
 
 navigation:
   - title: "Edge"
     section: edge-device
-  - title: "Hardware"
-    section: portfolio
+  - title: "Products"
+    section: products
   - title: "About"
     section: about
   - title: "Team"
@@ -17,19 +17,18 @@ navigation:
   - title: "Contact"
     section: contact
 
-header:
+hero:
   title: Global Storm
-  text: Intelligence at the edge.
-  button: Find out more! 
-  buttonlink: "#edge-device"
-
+  subtitle: Intelligence at the Edge.
+  description: Edge computing platforms for industrial IoT, fleet monitoring, smart cities, and real-time data processing at the source.
+  cta: Explore Technology
+  secondary_cta: View Products
 
 edge_device:
   section: edge-device
+  tag: Edge Computing
   title: "Smarter, Safer, Faster — Right at the Edge"
   text: "Harness real-time data where it happens — from factories to fleets — reducing latency and boosting control without cloud dependency."
-  diagram_caption: "Visualize your data pipeline — local intelligence, cloud connectivity, and everything in between."
-  cta: "Discover the GSE Platform"
   list:
     - icon: "fas fa-industry"
       title: "Industrial Automation"
@@ -50,102 +49,31 @@ edge_device:
       title: "Edge Security & Compliance"
       desc: "Keep data secure and compliant from device to cloud with robust edge protocols."
 
-
-
-# services:
-#   title: "Services"
-#   text: "We can help you with the following"
-#   section: services
-#   list:
-#     - title: "IoT Solutions"
-#       desc: "Internet of Things Solutions Design & Development"
-#       icon: fa-solid fa-tower-broadcast #find more at https://fontawesome.com/icons
-#     - title: "IoT Hardware"
-#       desc: "Internet of Things Hardware Design & Development"
-#       icon: fa-solid fa-microchip #find more at https://fontawesome.com/icons
-#     - title: "Cloud Solutions"
-#       desc: "AWS Cloud Solutions Design & Development"
-#       icon: fa-solid fa-cloud
-#     - title: "Rapid Prototyping"
-#       desc: "Rapidly develop your idea"
-#       icon: fa-solid fa-truck-fast
-#     - title: "Custom Hardware"
-#       desc: "Custom Hardware Design & Manufacturing"
-#       icon: fa-solid fa-plug
-#     - title: "IT Consulting"
-#       desc: "Custom Hardware Design & Manufacturing"
-#       icon: fa-solid fa-computer
-
 portfolio:
-  title: "Products"
-  text: "Unlocking the Power of Edge Intelligence for Connected Mobility"
-  section: portfolio
+  section: products
+  tag: Products
+  title: "Our Hardware"
+  text: "Edge computing platforms purpose-built for the real world."
+  learn_more: "Learn More"
   close: "Close"
-
-# timeline:
-#   title: "Timeline"
-#   text: "Lorem ipsum timeline"
-#   section: timeline
-#   # left is the default
-#   #start_align: "left"
-#   events:
-#     - title: "Our Humble Beginnings"
-#       year: "2009-2011"
-#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-#       image: assets/img/timeline/1.jpg
-#       alt:
-#     - title: "An Agency is Born"
-#       year: "March 2011"
-#       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-#       image: assets/img/timeline/2.jpg
-#       alt:
-#     - title: "Jekyll Theme is created"
-#       year: "2019"
-#       desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
-#       image: assets/img/timeline/3.jpg
-#       alt: image alt text
-#     - title: "Title"
-#       year: "2009-2011"
-#       desc: "Your description here, **Markdown** is fully supported."
-#       image: assets/img/timeline/4.jpg
-#       alt:
-#       # you can enforce the alignment
-#       align: right
-#   end: "Be Part <br> of Our <br> Story!"
+  empty: "Products coming soon."
 
 about:
-  section: "about"
+  section: about
+  tag: About
   title: "Redefining Edge Intelligence"
-  text: "We build devices that bring cloud-level compute to the real world."
-  image: /assets/img/edge-network.png
+  text: "We build devices that bring cloud-level compute to the physical world."
+  image: /assets/img/about-graphic.svg
   body: >
     Global Storm Cloud is a deep-tech startup delivering edge computing platforms optimized for performance, security, and scalability.
     Our team combines expertise in embedded systems, IoT, and cloud-native development to push intelligence to the edge — wherever it's needed most.
 
-
-# clients:
-#   section: clients
-#   max-height: 100px
-#   horizontal-scrolling: "" #"yes/no"
-#   list:
-#     - title: "envato"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/envato.jpg
-#     - title: "designmodo"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/designmodo.jpg
-#     - title: "themeforest"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/themeforest.jpg
-#     - title: "Creative Market"
-#       url: https://github.com/raviriley/agency-jekyll-theme
-#       logo: assets/img/clients/creative-market.jpg
-
 team:
+  section: team
+  tag: Team
   title: "Our Team"
   text: "Engineers, builders, and creators solving real-world edge problems."
   subtext: "Together, we design platforms to push intelligence closer to the physical world."
-
   people:
     - name: "Wojtek"
       role: "Co-Founder & Solution Architect"
@@ -154,7 +82,6 @@ team:
       social:
         - icon: "fab fa-linkedin-in"
           url: "https://www.linkedin.com/in/wojciech-zydecki"
-
     - name: "Mohsen"
       role: "Co-Founder & Hardware Lead"
       bio: "Designs reliable, scalable embedded platforms for demanding edge applications."
@@ -164,32 +91,27 @@ team:
           url: "https://www.linkedin.com/in/mohsen-shaali-91031268"
 
 contact:
-  section: "contact"
+  section: contact
+  tag: Contact
   title: "Get in Touch"
-  text: "We’d love to hear from you. Reach out for product questions, partnerships, or general inquiries."
-
+  text: "We'd love to hear from you. Reach out for product questions, partnerships, or general inquiries."
   name: "Your Name *"
   name-validation: "Please enter your name."
-
   email: "Your Email *"
   email-validation: "Please enter a valid email address."
-
   phone: "Phone (optional)"
   phone-validation: "Please enter your phone number."
-
   message: "Your Message *"
   message-validation: "Please enter a message."
-
   subject: "Contact Form Submission"
-
   submit: "Send Message"
-
   success: "Thanks for contacting us! We'll respond shortly."
   failure: "Sorry, something went wrong. Please try again later."
 
-
 footer:
+  tagline: "Edge computing platforms for the real world."
   legal: "Privacy Policy"
+  rights: "All rights reserved."
   social:
     - url: https://x.com/GlobalStormIoT
       icon: "fab fa-x-twitter"

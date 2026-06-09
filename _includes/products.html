@@ -1,0 +1,56 @@
+<section class="section products" id="{{ site.translations[site.lang].portfolio.section }}">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__tag">{{ site.translations[site.lang].portfolio.tag }}</span>
+      <h2 class="section__title">{{ site.translations[site.lang].portfolio.title }}</h2>
+      <p class="section__subtitle">{{ site.translations[site.lang].portfolio.text }}</p>
+    </div>
+    <div class="products__grid">
+      {% for project in site.posts %}
+      {% assign preview = project.preview %}
+       <script type="application/json" class="product-content" data-index="{{ forloop.index0 }}">{{ project.content }}</script>
+       <div class="products__card reveal" data-delay="{{ forloop.index0 | times: 100 }}"
+            data-title="{{ preview.title }}"
+            data-subtitle="{{ preview.subtitle }}"
+            data-thumbnail="{{ preview.thumbnail }}"
+            data-main-image="{{ project.main_image }}"
+            data-index="{{ forloop.index0 }}"
+            onclick="openProduct(this)">
+        <div class="products__image">
+          <img src="{{ preview.thumbnail | relative_url }}" alt="{{ preview.title }}" loading="lazy" width="600" height="400">
+          <div class="products__overlay">
+            <span class="products__cta">{{ site.translations[site.lang].portfolio.learn_more }}</span>
+          </div>
+        </div>
+        <div class="products__info">
+          <h3 class="products__name">{{ preview.title }}</h3>
+          <p class="products__subtitle">{{ preview.subtitle }}</p>
+        </div>
+      </div>
+      {% else %}
+      <div class="products__empty">
+        <p>{{ site.translations[site.lang].portfolio.empty | default: "Products coming soon." }}</p>
+      </div>
+      {% endfor %}
+
+    <!-- Product Modal -->
+    <script>var site_baseurl = "{{ site.baseurl }}";</script>
+    <div id="product-modal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close" onclick="closeProduct()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="modal-body">
+          <img id="modal-image" class="modal-main-image" src="" alt="" loading="lazy" width="800" height="500">
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-subtitle" class="modal-subtitle"></p>
+          <div id="modal-description" class="modal-description"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

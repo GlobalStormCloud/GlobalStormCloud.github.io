@@ -1,94 +1,29 @@
-<!-- Footer -->
-<footer class="footer" id="footer" style="background-color: white">
+<footer class="footer">
   <div class="container">
-    {% if site.lang and site.lang != "" and site.lang != nil %}
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <span class="copyright"
-          >Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }}</span
-        >
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="nav__logo" href="#hero">
+          <img src="{{ "/assets/img/logo_with_text_white.png" | relative_url }}" alt="Global Storm">
+        </a>
+        <p class="footer__tagline">{{ site.translations[site.lang].footer.tagline }}</p>
       </div>
-      <!-- Social Media -->
-      <div class="col-md-4">
-        <ul class="list-inline social-buttons">
+      <div class="footer__social">
+        <ul>
           {% for link in site.translations[site.lang].footer.social %}
-          <li class="list-inline-item">
-            {% if link.url %}
-            <a href="{{ link.url }}">
-              {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+          <li>
+            <a href="{{ link.url }}" target="_blank" rel="noopener" aria-label="{{ link.icon | replace: 'fab fa-', '' }}">
+              <i class="{{ link.icon }}"></i>
             </a>
-            {% endif %}
           </li>
           {% endfor %}
         </ul>
       </div>
-      <!-- Legal -->
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li class="list-inline-item">
-            <a href="legal"
-              >{{ site.translations[site.lang].footer.legal | default:
-              "Privacy Policy" }}</a
-            >
-          </li>
-          <!-- Cookies -->
-          <li class="list-inline-item">
-            <a href="#" data-cc="show-preferencesModal"
-              >{{ site.translations[site.lang].footer.cookies | default:
-              "Cookies" }}</a
-            >
-          </li>
-        </ul>
+      <div class="footer__legal">
+        <a href="{{ site.translations[site.lang].privacy_link | default: '/legal' }}">{{ site.translations[site.lang].footer.legal }}</a>
       </div>
     </div>
-    {% else %}
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <span class="copyright"
-          >Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }}</span
-        >
-      </div>
-      <!-- Social Media -->
-      <div class="col-md-4">
-        <ul class="list-inline social-buttons">
-          {% for link in site.data.sitetext.footer.social %}
-          <li class="list-inline-item">
-            {% if link.url %}
-            <a href="{{ link.url }}">
-              {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
-            </a>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <!-- Legal -->
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li class="list-inline-item">
-            <a href="legal"
-              >{{ site.data.sitetext.footer.legal | default:
-              "Privacy Policy" }}</a
-            >
-          </li>
-        </ul>
-      </div>
+    <div class="footer__copyright">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. {{ site.translations[site.lang].footer.rights }}</p>
     </div>
-    {% endif %}
   </div>
 </footer>
-{% if page.layout == "page" %}
-<script>
-  fixPageShort();
-  function fixPageShort() {
-    if (window.innerHeight > document.body.offsetHeight) {
-      document.getElementById("footer").style.position = "fixed";
-      document.getElementById("footer").style.bottom = 0;
-      document.getElementById("footer").style.right = 0;
-      document.getElementById("footer").style.left = 0;
-      document.getElementById("footer").style.width = "100%";
-    }
-  }
-</script>
-{% endif %}
-<!-- End Footer -->
