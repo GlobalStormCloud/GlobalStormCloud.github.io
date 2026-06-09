@@ -98,30 +98,38 @@
        const modal = document.getElementById('product-modal');
        const overlay = document.getElementById('product-modal');
 
-        window.openProduct = function (card) {
-          const title = card.dataset.title || '';
-          const subtitle = card.dataset.subtitle || '';
-          const mainImage = card.dataset.mainImage || card.dataset.thumbnail || '';
-           const idx = card.dataset.index;
-           const scriptEl = document.querySelector(`.product-content[data-index="${idx}"]`);
-           const description = scriptEl ? scriptEl.textContent : '';
+         window.openProduct = function (card) {
+           const title = card.dataset.title || '';
+           const subtitle = card.dataset.subtitle || '';
+           const mainImage = card.dataset.mainImage || card.dataset.thumbnail || '';
+           const videoSrc = card.dataset.video || '';
+            const idx = card.dataset.index;
+            const scriptEl = document.querySelector(`.product-content[data-index="${idx}"]`);
+            const description = scriptEl ? scriptEl.textContent : '';
 
-           const modalTitle = document.getElementById('modal-title');
-           const modalSubtitle = document.getElementById('modal-subtitle');
-           const modalImage = document.getElementById('modal-image');
-           const modalDescription = document.getElementById('modal-description');
+            const modalTitle = document.getElementById('modal-title');
+            const modalSubtitle = document.getElementById('modal-subtitle');
+            const modalImage = document.getElementById('modal-image');
+            const modalVideo = document.getElementById('modal-video');
+            const modalDescription = document.getElementById('modal-description');
 
-           modalTitle.textContent = title;
-           modalSubtitle.textContent = subtitle;
+            modalTitle.textContent = title;
+            modalSubtitle.textContent = subtitle;
 
-            if (mainImage) {
+            if (videoSrc) {
+              modalImage.style.display = 'none';
+              modalVideo.querySelector('source').src = videoSrc;
+              modalVideo.load();
+              modalVideo.style.display = 'block';
+            } else if (mainImage) {
+              modalVideo.style.display = 'none';
               modalImage.src = mainImage;
-             modalImage.alt = title;
-             modalImage.style.display = 'block';
-           } else {
-             modalImage.src = '';
-             modalImage.style.display = 'none';
-           }
+              modalImage.alt = title;
+              modalImage.style.display = 'block';
+            } else {
+              modalImage.style.display = 'none';
+              modalVideo.style.display = 'none';
+            }
 
             var html = description;
             if (html) {
@@ -129,16 +137,20 @@
             }
             modalDescription.innerHTML = html;
 
-          modal.classList.add('modal-overlay--open');
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        };
+           modal.classList.add('modal-overlay--open');
+           modal.setAttribute('aria-hidden', 'false');
+           document.body.style.overflow = 'hidden';
+         };
 
-       window.closeProduct = function () {
-         modal.classList.remove('modal-overlay--open');
-         modal.setAttribute('aria-hidden', 'true');
-         document.body.style.overflow = '';
-       };
+         window.closeProduct = function () {
+           const modalVideo = document.getElementById('modal-video');
+           modalVideo.pause();
+           modalVideo.currentTime = 0;
+           modalVideo.style.display = 'none';
+          modal.classList.remove('modal-overlay--open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        };
 
        // Close on overlay click (but not on modal content click)
        modal.addEventListener('click', function (e) {
@@ -155,7 +167,7 @@
        });
      })();
 
-     /* ── Smooth Scroll for Anchor Links ── */
+      /* ── Smooth Scroll for Anchor Links ── */
     (function initSmoothScroll() {
       document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {

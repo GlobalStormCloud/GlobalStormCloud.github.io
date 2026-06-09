@@ -5,16 +5,37 @@
       <h2 class="section__title">{{ site.translations[site.lang].edge_device.title }}</h2>
       <p class="section__subtitle">{{ site.translations[site.lang].edge_device.text }}</p>
     </div>
-    <div class="edge__grid">
-      {% for item in site.translations[site.lang].edge_device.list %}
-      <div class="edge__card reveal" data-delay="{{ forloop.index0 | times: 100 }}">
-        <div class="edge__icon">
-          <i class="{{ item.icon }}"></i>
-        </div>
-        <h3 class="edge__card-title">{{ item.title }}</h3>
-        <p class="edge__card-desc">{{ item.desc }}</p>
+    <!-- Featured: full-width lead -->
+    <div class="edge__lead reveal" data-delay="0">
+      {% assign featured = site.translations[site.lang].edge_device.list[0] %}
+      <span class="edge__lead-tag">{{ site.translations[site.lang].edge_device.tag }}</span>
+      <h3 class="edge__lead-title"><i class="{{ featured.icon }} edge__icon--lead"></i> {{ featured.title }}</h3>
+      <p class="edge__lead-desc">{{ featured.desc }}</p>
+    </div>
+
+    <!-- Remaining 5: 2-column asymmetric list -->
+    <div class="edge__usecases">
+      {% assign items = site.translations[site.lang].edge_device.list %}
+      <div class="edge__usecase reveal" data-delay="100">
+        <h4 class="edge__usecase-title"><i class="{{ items[1].icon }}"></i> {{ items[1].title }}</h4>
+        <p class="edge__usecase-desc">{{ items[1].desc }}</p>
       </div>
-      {% endfor %}
+      <div class="edge__usecase reveal" data-delay="150">
+        <h4 class="edge__usecase-title"><i class="{{ items[2].icon }}"></i> {{ items[2].title }}</h4>
+        <p class="edge__usecase-desc">{{ items[2].desc }}</p>
+      </div>
+      <div class="edge__usecase reveal" data-delay="200">
+        <h4 class="edge__usecase-title"><i class="{{ items[3].icon }}"></i> {{ items[3].title }}</h4>
+        <p class="edge__usecase-desc">{{ items[3].desc }}</p>
+      </div>
+      <div class="edge__usecase reveal" data-delay="250">
+        <h4 class="edge__usecase-title"><i class="{{ items[4].icon }}"></i> {{ items[4].title }}</h4>
+        <p class="edge__usecase-desc">{{ items[4].desc }}</p>
+      </div>
+      <div class="edge__usecase reveal" data-delay="300">
+        <h4 class="edge__usecase-title"><i class="{{ items[5].icon }}"></i> {{ items[5].title }}</h4>
+        <p class="edge__usecase-desc">{{ items[5].desc }}</p>
+      </div>
     </div>
   </div>
 </section>

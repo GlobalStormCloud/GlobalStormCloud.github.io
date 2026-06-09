@@ -20,40 +20,41 @@ navigation:
 hero:
   title: Global Storm
   subtitle: Intelligence at the Edge.
-  description: Edge computing platforms for industrial IoT, fleet monitoring, smart cities, and real-time data processing at the source.
+  description: Rugged edge intelligence for environments where connectivity fails. Sub-10ms latency processing for industrial IoT, smart cities, and critical infrastructure.
   cta: Explore Technology
   secondary_cta: View Products
 
 edge_device:
   section: edge-device
-  tag: Edge Computing
-  title: "Security-First Edge Platforms"
-  text: "Global Storm edge devices are engineered for the harshest environments — military-grade hardening, tamper-resistant enclosures, and end-to-end encrypted pipelines that keep your data safe from device to cloud. Smarter, safer, faster — right at the edge."
+  tag: What We Build
+  title: "Intelligence, On-Site"
+  text: "Most edge hardware ships data to the cloud to think. Ours thinks on-site — in milliseconds, without connectivity, in any environment."
   list:
     - icon: "fas fa-shield-alt"
       title: "Security-First"
       desc: "Military-grade hardening and end-to-end encryption from device to cloud — tamper-resistant enclosures and zero-trust connectivity."
     - icon: "fas fa-industry"
       title: "Industrial Automation"
-      desc: "Instantly respond to machine data for minimized downtime and optimized production."
+      desc: "Instantly respond to machine data — <5ms response latency, fully on-device."
     - icon: "fas fa-truck-moving"
       title: "Fleet & Vehicle Monitoring"
-      desc: "Analyze movement and performance in real time, even in remote areas."
+      desc: "Analyze movement and performance in real time — live telemetry across 1,000+ nodes."
     - icon: "fas fa-microchip"
       title: "IoT & Remote Sensors"
-      desc: "Scalable edge computing for devices everywhere — low power, high efficiency."
+      desc: "Scalable edge computing for disconnected environments — operates at -40°C to 85°C, zero cloud dependency."
     - icon: "fas fa-bus"
       title: "Public Transport Systems"
-      desc: "Deliver adaptive public mobility with hyper-local intelligence."
+      desc: "Deliver adaptive public mobility with hyper-local intelligence — 99.9% uptime in field-deployed environments."
     - icon: "fas fa-city"
       title: "Connected Smart Cities"
-      desc: "Enhance safety and sustainability with decentralized data processing."
+      desc: "Enhance safety and sustainability — decentralized processing across city-scale sensor networks."
 
 portfolio:
   section: products
   tag: Products
-  title: "Rugged Edge Platforms"
-  text: "Purpose-built hardware that ships security, resilience, and real-time capability to environments where failure is not an option."
+  title: "The Edge Operating System"
+  text: "Purpose-built software for decentralized compute, optimized for secure, low-bandwidth environments."
+  hardware_label: "Supported Reference Hardware"
   learn_more: "Learn More"
   close: "Close"
   empty: "Products coming soon."
@@ -63,10 +64,9 @@ about:
   tag: About
   title: "Redefining Edge Intelligence"
   text: "We build devices that bring cloud-level compute to the physical world."
-  image: /assets/img/about-graphic.svg
   body: >
-    Global Storm Cloud is a deep-tech startup delivering edge computing platforms optimized for performance, security, and scalability.
-    Our team combines expertise in embedded systems, IoT, and cloud-native development to push intelligence to the edge — wherever it's needed most.
+    We build devices that pull cloud-level compute down to the physical world.
+    Global Storm engineers rugged platforms that operate in the harshest environments, combining embedded systems and cloud-native development to push intelligence to the absolute edge.
 
 team:
   section: team

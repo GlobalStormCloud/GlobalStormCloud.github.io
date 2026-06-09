@@ -20,40 +20,41 @@ navigation:
 hero:
   title: Global Storm
   subtitle: Inteligencja na brzegu sieci.
-  description: Platformy obliczeniowe klasy edge dla przemysłu IoT, monitorowania flot, inteligentnych miast i przetwarzania danych w czasie rzeczywistym.
+  description: Odporna inteligencja na brzegu sieci dla środowisk, gdzie łączność płazi. Przetwarzanie z opóźnieniem poniższym niż 10 ms dla przemysłowego IoT, inteligentnych miast i kluczowej infrastruktury.
   cta: Poznaj Technologię
   secondary_cta: Zobacz Produkty
 
 edge_device:
   section: edge-device
-  tag: Edge Computing
-  title: "Platformy Edge z bezpieczeństwem na pierwszy planie"
-  text: "Urządzenia edge Global Storm są zaprojektowane do pracy w najbardziej wymagających warunkach — wojskowe utwardzenie, odpornae na manipulację obudowy i szyfrowany przepływ danych od urządzenia po chmurę. Szybciej, bezpieczniej, mądrzej — na brzegu sieci."
+  tag: Co Budujemy
+  title: "Inteligencja na miejscu"
+  text: "Większość sprzętu edge wysyła dane do chmury do przetworzenia. Nasz sprzęt myśli lokalnie — w milisekundach, bez łączności, w dowolnym środowisku."
   list:
     - icon: "fas fa-industry"
       title: "Automatyzacja przemysłowa"
-      desc: "Reaguj błyskawicznie na dane z maszyn, minimalizując przestoje i optymalizując produkcję."
+      desc: "Reaguj błyskawicznie na dane z maszyn — <5ms opóźnienia, w pełni na urządzeniu."
     - icon: "fas fa-truck-moving"
       title: "Monitorowanie flot i pojazdów"
-      desc: "Analizuj dane z pojazdów w czasie rzeczywistym, nawet w trudno dostępnych lokalizacjach."
+      desc: "Analizuj dane z pojazdów w czasie rzeczywistym — telematyka na żywo dla 1,000+ węzłów."
     - icon: "fas fa-microchip"
       title: "IoT i czujniki zdalne"
-      desc: "Skalowalne obliczenia brzegowe — energooszczędne, bezpieczne i zawsze połączone."
+      desc: "Skalowalne obliczenia dla odłączonych środowisk — działa w zakresie -40°C do 85°C, bez zależności od chmury."
     - icon: "fas fa-bus"
       title: "Transport publiczny"
-      desc: "Zoptymalizuj mobilność publiczną dzięki lokalnej analizie danych w czasie rzeczywistym."
+      desc: "Zoptymalizuj mobilność publiczną z lokalną inteligencją — 99.9% dostępności w środowiskach terenowych."
     - icon: "fas fa-city"
       title: "Inteligentne miasta"
-      desc: "Popraw bezpieczeństwo i efektywność miejskiej infrastruktury poprzez zdecentralizowane przetwarzanie danych."
+      desc: "Podnieś bezpieczeństwo i efektywność — zdecentralizowane przetwarzanie w miejskich sieciach sensorowych."
     - icon: "fas fa-shield-alt"
       title: "Bezpieczeństwo i zgodność"
-      desc: "Chroń dane na brzegu sieci dzięki szyfrowaniu, bezpiecznemu uruchamianiu i zgodnej komunikacji z chmurą."
+      desc: "Chroń dane na brzegu sieci — AES-256 szyfrowanie, zero-trust, zgodność FIPS 140-3."
 
 portfolio:
   section: products
   tag: Produkty
-  title: "Wytrzymałe platformy edge"
-  text: "Sprzęt specjalnie zaprojektowany, dostarczający bezpieczeństwo, odporność i moce obliczeniowe w środowiskach, w których awaria nie wchodzi w grę."
+  title: "System operacyjny dla edge computing"
+  text: "Oprogramowanie stworzone z myślą o zdecentralizowanych obliczeniach, zoptymalizowane dla bezpiecznych środowisk o niskim pasmie."
+  hardware_label: "Obsługiwany sprzęt odniesieniowy"
   learn_more: "Dowiedz się więcej"
   close: "Zamknij"
   empty: "Produkty wkrótce."
@@ -63,10 +64,9 @@ about:
   tag: O Nas
   title: "Nowa definicja inteligencji na brzegu sieci"
   text: "Tworzymy urządzenia, które przenoszą moc obliczeniową chmury do rzeczywistego świata."
-  image: /assets/img/about-graphic.svg
   body: >
-    Global Storm Cloud to firma deep-tech oferująca platformy obliczeniowe na brzegu sieci, zoptymalizowane pod kątem wydajności, bezpieczeństwa i skalowalności.
-    Nasz zespół łączy kompetencje w zakresie systemów wbudowanych, IoT i rozwiązań chmurowych, aby przesuwać granice inteligencji w kierunku urządzeń końcowych — tam, gdzie jest najbardziej potrzebna.
+    Tworzymy urządzenia, które przenoszą moc obliczeniową chmury do rzeczywistego świata.
+    Global Storm projektuje odporne platformy, które działają w najtrudniejszych warunkach, łącząc systemy wbudowane z rozwiązaniami chmurowymi, aby przesuwać granice inteligencji na sam brzeg sieci.
 
 team:
   section: team

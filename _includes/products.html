@@ -8,24 +8,44 @@
     <div class="products__grid">
       {% for project in site.posts %}
       {% assign preview = project.preview %}
+       {% assign feat = forloop.first %}
+       {% unless feat %}
+          {% if forloop.index0 == 1 %}
+         <div class="products__hardware-label">
+           <h3 class="products__hw-title">{{ site.translations[site.lang].portfolio.hardware_label }}</h3>
+         </div>
+         {% endif %}
+       {% endunless %}
        <script type="application/json" class="product-content" data-index="{{ forloop.index0 }}">{{ project.content }}</script>
-          <div class="products__card reveal" data-delay="{{ forloop.index0 | times: 100 }}"
+          <div class="products__card reveal {% if feat %}products__card--featured{% endif %}" data-delay="{{ forloop.index0 | times: 100 }}"
              data-title="{{ preview.title }}"
              data-subtitle="{{ preview.subtitle }}"
              data-thumbnail="{{ preview.thumbnail | prepend: '/' | replace: '//', '/' }}"
-             data-main-image="{{ project.main_image | prepend: '/' | replace: '//', '/' }}"
-             data-index="{{ forloop.index0 }}"
+              data-main-image="{{ project.main_image | prepend: '/' | replace: '//', '/' }}"
+              {% if project.video_url %}data-video="{{ project.video_url | prepend: '/' | replace: '//', '/' }}"{% endif %}
+              data-index="{{ forloop.index0 }}"
              onclick="openProduct(this)">
+         {% if feat %}
+          <div class="products__image">
+            <video class="products__image-video" autoplay loop muted playsinline preload="auto" poster="{{ preview.poster | default: preview.thumbnail | prepend: '/' | replace: '//', '/' }}">
+              <source src="{{ project.video_url | prepend: '/' | replace: '//', '/' }}" type="video/mp4">
+            </video>
+            <div class="products__overlay">
+              <span class="products__cta">{{ site.translations[site.lang].portfolio.learn_more }}</span>
+            </div>
+          </div>
+        {% else %}
          <div class="products__image">
            <img src="{{ preview.thumbnail | prepend: '/' | replace: '//', '/' }}" alt="{{ preview.title }}" loading="lazy" width="600" height="400">
           <div class="products__overlay">
             <span class="products__cta">{{ site.translations[site.lang].portfolio.learn_more }}</span>
           </div>
         </div>
-        <div class="products__info">
-          <h3 class="products__name">{{ preview.title }}</h3>
-          <p class="products__subtitle">{{ preview.subtitle }}</p>
-        </div>
+       {% endif %}
+       <div class="products__info">
+         <h3 class="products__name">{{ preview.title }}</h3>
+         <p class="products__subtitle">{{ preview.subtitle }}</p>
+       </div>
       </div>
       {% else %}
       <div class="products__empty">
@@ -43,8 +63,11 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <div class="modal-body">
-          <img id="modal-image" class="modal-main-image" src="" alt="" loading="lazy" width="800" height="500">
+         <div class="modal-body">
+           <img id="modal-image" class="modal-main-image" src="" alt="" loading="lazy" width="800" height="500" style="display:none">
+           <video id="modal-video" class="modal-main-video" controls playsinline preload="metadata" style="display:none">
+             <source src="" type="video/mp4">
+           </video>
           <h3 id="modal-title" class="modal-title"></h3>
           <p id="modal-subtitle" class="modal-subtitle"></p>
           <div id="modal-description" class="modal-description"></div>
