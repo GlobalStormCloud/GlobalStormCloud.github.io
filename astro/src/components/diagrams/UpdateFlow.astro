@@ -1,0 +1,79 @@
+---
+// Diagram 2 — OS update with A/B slots and automatic fallback.
+// Source: user manual §1 key principles (A/B updates, automatic rollback), §2.2 (EFI
+// bootloader selects between two OS slots and falls back if a new OS fails to boot),
+// §15 day-2 (OS updates OTA by Global Storm only; app data never touched), glossary
+// "A/B update".
+import type { Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const d = site[locale].diagrams;
+const u = d.update;
+---
+<figure class="dg" aria-labelledby={`dg-upd-${locale}`}>
+  <figcaption class="sr-only" id={`dg-upd-${locale}`}>{u.title}. {u.desc}</figcaption>
+  <ol role="list" class="flow">
+    {u.steps.map((s) => (
+      <li class="step">
+        <span class="mono step__k">{s.k}</span>
+        <span class="step__name">{s.name}</span>
+        <span class="mono step__meta">{s.meta}</span>
+      </li>
+    ))}
+    <li class="decide">
+      <span class="decide__q">{u.decision}</span>
+      <ul role="list" class="out">
+        <li class="out__row">
+          <span class="mono out__tag">{u.yes}</span>
+          <span class="out__box">{u.yesOut}</span>
+        </li>
+        <li class="out__row out__row--key">
+          <span class="mono out__tag">{u.no}</span>
+          <span class="out__box"><span class="beacon" aria-hidden="true"></span>{u.noOut}</span>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <p class="data mono">{u.dataNote}</p>
+  <p class="mono dg__note">{d.note}</p>
+</figure>
+
+<style>
+  .dg { color: var(--ink); }
+  .flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.55fr); gap: 0 36px; align-items: stretch; }
+  .step, .decide { position: relative; }
+  .step { border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; }
+  .step::after, .decide::before { content: ""; position: absolute; top: 50%; right: -30px; width: 24px; height: 1px; background: var(--ink); }
+  .step::before { content: ""; position: absolute; top: calc(50% - 4px); right: -31px; width: 0; height: 0; border-left: 6px solid var(--ink); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; z-index: 1; }
+  .decide::before { display: none; }
+  .step__k { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font-size: 12px; }
+  .step__name { font-family: var(--f-display); font-stretch: 112%; font-weight: 620; font-size: 17px; line-height: 1.25; margin-top: 4px; }
+  .step__meta { color: var(--steel); font-size: 13px; }
+  .decide { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 22px; }
+  .decide__q { width: 88px; height: 88px; display: grid; place-items: center; text-align: center; font-family: var(--f-display); font-stretch: 112%; font-weight: 620; font-size: 15px; position: relative; }
+  .decide__q::before { content: ""; position: absolute; inset: 14px; border: 1.5px solid var(--ink); transform: rotate(45deg); border-radius: 2px; background: var(--paper); z-index: -1; }
+  .decide__q { isolation: isolate; }
+  .out { display: grid; grid-auto-rows: 1fr; gap: 12px; position: relative; }
+  /* Branch: stub from the diamond tip, then a vertical bar that splits to the two outcomes. */
+  .out::before { content: ""; position: absolute; left: -24px; top: 50%; width: 3px; height: 1px; background: var(--ink); }
+  .out__row { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 10px; position: relative; }
+  .out__row::before { content: ""; position: absolute; left: -22px; width: 1px; background: var(--ink); }
+  .out__row:first-child::before { top: 50%; bottom: -6px; }
+  .out__row:last-child::before { top: -6px; bottom: 50%; }
+  .out__tag { color: var(--steel); font-size: 12px; position: relative; }
+  .out__tag::after { content: ""; position: absolute; left: -22px; top: 50%; width: 18px; height: 1px; background: var(--ink); }
+  .out__box { display: flex; align-items: center; gap: 10px; border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); padding: 12px 14px; font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .out__row--key .out__box { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .data { margin-top: 24px; padding: 12px 16px; border: 1px dashed var(--steel); border-radius: var(--r-2); color: var(--steel); font-size: 13px; background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgba(198, 203, 209, 0.45) 7px 8px); }
+  .dg__note { margin-top: 14px; color: var(--steel); font-size: 12px; }
+  @media (max-width: 1000px) {
+    .flow { grid-template-columns: minmax(0, 1fr); gap: 30px 0; }
+    .step::after { top: auto; bottom: -25px; right: auto; left: 30px; width: 1px; height: 20px; }
+    .step::before { top: auto; bottom: -27px; right: auto; left: 26.5px; border-left: 4.5px solid transparent; border-right: 4.5px solid transparent; border-top: 6px solid var(--ink); border-bottom: 0; }
+    .decide { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
+    .out__tag::after { left: -14px; width: 10px; }
+    .out__row::before { left: -14px; }
+    .out::before { left: -16px; width: 3px; }
+  }
+</style>

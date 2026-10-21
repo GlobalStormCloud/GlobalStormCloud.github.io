@@ -1,0 +1,45 @@
+---
+import ArrowText from '../ArrowText.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const t = c.teasers.pricing;
+const p = c.pricing;
+const [sup, cus] = p.profiles;
+---
+<section class="band seam" aria-labelledby="pt-h">
+  <div class="wrap pt">
+    <div>
+      <p class="index">{s.sections.pricing}</p>
+      <h2 id="pt-h">{t.title}</h2>
+      <p class="lead pt__lead">{t.desc}</p>
+      <a class="link-arrow" href={localizePath('/pricing', locale)}><ArrowText text={t.link} /></a>
+    </div>
+    <dl class="plate pt__plate num">
+      <dt>{s.teaser.trial}</dt><dd><b>{p.trialPrice}</b><span>{p.trialUnit}</span></dd>
+      <dt>{p.paidTrialName}</dt><dd><b>{p.paidTrialPrice}</b><span>{p.paidTrialUnit}</span></dd>
+      <dt>{s.teaser.supported}</dt><dd><b>{sup.rows[0].own}</b><span>{s.pricing.perDevice} · {s.teaser.minimum} {sup.minValue}</span></dd>
+      <dt>{s.teaser.custom}</dt><dd><b>{cus.rows[0].own}</b><span>{s.pricing.perDevice} · {s.teaser.minimum} {cus.minValue}</span></dd>
+      <dt>{s.teaser.terms}</dt><dd class="pt__terms">{p.terms}</dd>
+    </dl>
+  </div>
+</section>
+<style>
+  .pt { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 32px 56px; align-items: center; }
+  .pt h2 { margin-top: 18px; max-width: 12em; }
+  .pt__lead { margin: 18px 0 26px; }
+  .pt__plate { display: grid; grid-template-columns: minmax(150px, auto) 1fr; }
+  .pt__plate b { font-family: var(--f-display); font-stretch: 118%; font-weight: 640; font-size: 26px; letter-spacing: -0.01em; line-height: 1.1; }
+  .pt__plate dd { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .pt__plate dd span { color: var(--steel); font-size: 13px; }
+  .pt__plate dt { display: flex; align-items: center; padding-block: 14px; }
+  .pt__plate dd { padding-block: 14px; }
+  .pt__terms { color: var(--steel); }
+  .pt__plate > :nth-child(-n + 2) { border-top: 0; }
+  @media (max-width: 600px) { .pt__plate > :nth-child(2) { border-top: 0; } .pt__plate > dt:first-child { border-top: 0; } }
+  @media (max-width: 860px) { .pt { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 600px) { .pt__plate { grid-template-columns: minmax(0, 1fr); } }
+</style>

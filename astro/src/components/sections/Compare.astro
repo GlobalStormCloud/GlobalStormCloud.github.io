@@ -1,0 +1,58 @@
+---
+import ArrowText from '../ArrowText.astro';
+import type { Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const k = c.compare;
+const yes = locale === 'pl' ? 'tak' : 'yes';
+const no = locale === 'pl' ? 'nie' : 'no';
+---
+<section class="band wrap" id="compare" aria-labelledby="cmp-h">
+  <div class="head">
+    <div>
+      <p class="index">{s.sections.compare}</p>
+      <h2 id="cmp-h">{k.title}</h2>
+    </div>
+    <p class="lead">{k.desc}</p>
+  </div>
+  <p class="mono hint"><ArrowText text={k.scrollHint} /></p>
+  <div class="tbl-wrap reveal" tabindex="0" role="region" aria-label={k.eyebrow}>
+    <table class="tbl tbl--stack cmp">
+      <thead>
+        <tr><td></td>{k.columns.map((col, i) => <th scope="col" class:list={{ ours: i === 0 }}>{col}</th>)}</tr>
+      </thead>
+      <tbody>
+        {k.rows.map((r) => (
+          <tr>
+            <th scope="row" class="axis">{r.axis}</th>
+            {r.cells.map((cell, i) => (
+              <td class:list={['long', { ours: i === 0 }]} data-label={k.columns[i]}>
+                <span class:list={['mk', `mk--${cell.mark}`]}><span class="sr-only">{cell.mark === 'yes' ? yes : no}: </span><i aria-hidden="true"></i>{cell.text}</span>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="caption note">{k.note}</p>
+</section>
+<style>
+  .hint { color: var(--steel-deep); margin-bottom: 10px; display: none; }
+  .cmp { min-width: 880px; }
+  .cmp thead th { font-size: 12px; }
+  .cmp th.axis { font-family: var(--f-body); font-stretch: 100%; text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 600; color: var(--ink); width: 22%; vertical-align: top; padding-top: 14px; }
+  .cmp td { font-size: 15px; line-height: 1.5; color: var(--steel); }
+  .cmp .ours { background: var(--ink); color: var(--paper); border-bottom-color: var(--graphite-2); }
+  .cmp thead .ours { color: var(--paper); }
+  .mk { display: inline-flex; gap: 10px; align-items: baseline; }
+  .mk i { flex: none; width: 9px; height: 6.5px; border-radius: 50%; transform: translateY(-1px); }
+  .mk--yes i { background: currentColor; }
+  .mk--no i { border: 1px solid currentColor; }
+  .note { max-width: 60em; }
+  /* No sideways-scroll hint any more: below 900 px the rows stack as cards (global .tbl--stack). */
+  @media (max-width: 900px) { .cmp { min-width: 0; } .cmp td.ours { margin-top: 6px; padding: 10px 12px; border-radius: var(--r-1); } }
+</style>

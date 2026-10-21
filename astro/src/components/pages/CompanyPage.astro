@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHead from '../sections/PageHead.astro';
+import Team from '../sections/Team.astro';
+import ContactForm from '../sections/ContactForm.astro';
+import Registry from '../sections/Registry.astro';
+import Faq from '../sections/Faq.astro';
+import type { Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const c = content[locale];
+const m = site[locale].meta.company;
+---
+<Layout title={m.title} description={m.desc} locale={locale} path="/company">
+  <PageHead eyebrow={c.team.eyebrow} title={c.team.title} desc={c.team.desc} />
+  <Team c={c} locale={locale} />
+  <Registry c={c} locale={locale} />
+  <Faq c={c} locale={locale} />
+  <ContactForm c={c} locale={locale} />
+</Layout>

@@ -1,0 +1,59 @@
+/* ============================================================
+   DESIGN TOKENS — "Anodised" (Palette A)
+   Base from the product: black anodised aluminium, grey studio
+   seamless, white laser etch. One accent: signal amber, used as a
+   lamp (≤ 5% of a screen), never as text on light surfaces.
+   Contrast ratios are WCAG 2.x, measured.
+   ============================================================ */
+:root {
+  /* Neutrals */
+  --ink: #0d0f12;        /* text on light — 17.42:1 on paper, 19.19:1 on white */
+  --graphite: #1a1e24;   /* dark band — paper text 15.18:1 */
+  --graphite-2: #252b33; /* raised dark — mist text 5.64:1 */
+  --steel: #4a5561;      /* secondary text on light — 6.90:1 paper, 6.17:1 seam */
+  --mist: #9aa4af;       /* secondary text on dark — 7.59:1 ink, 6.62:1 graphite */
+  --steel-deep: #3d4752; /* mono captions + small secondary text on light — 8.58:1 paper, 9.45:1 white, 7.68:1 seam */
+  --mist-lt: #b3bcc6;    /* mono captions + small secondary text on dark — 9.99:1 ink, 8.70:1 graphite, 7.42:1 graphite-2 */
+  --alloy: #c6cbd1;      /* hairlines on light — decorative only, never text */
+  --seam: #e7e8e4;       /* secondary light surface */
+  --paper: #f4f4f1;      /* page */
+  --white: #ffffff;      /* cards / plates */
+  --rule-dark: rgba(244, 244, 241, 0.14); /* hairlines on dark */
+
+  /* Accent — signal amber */
+  --amber: #f5a300;      /* fill + lamp; ink on amber 9.25:1; amber on ink 9.25:1 */
+  --amber-deep: #8f5d00; /* amber as TEXT on light only — 5.10:1 paper */
+  --amber-halo: rgba(245, 163, 0, 0.2);
+
+  /* Functional status (console only — never decorative) */
+  --ok: #2f9e6a;   /* on dark graphite 5.0:1 as dot+label pair */
+  --warn: #f5a300;
+  --info: #9aa4af;
+
+  /* Type */
+  --f-display: "Saira", "Inter", system-ui, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Machined geometry — 2 px fillet on controls, 4 px on plates. No pills. */
+  --r-1: 2px;
+  --r-2: 4px;
+
+  /* Layout */
+  --max: 1312px;
+  --gut: clamp(20px, 4.5vw, 64px);
+  --band-y: clamp(72px, 9vw, 128px);
+  --nav-h: 76px;
+  --rail-h: 0px;         /* height of the sticky page rail on pages that have one (set in global.css) */
+
+  /* Motion — calm, nothing bounces */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 220ms;
+
+  /* Logo module E = eye height = 0.326 × mark height (measured on the
+     supplied vector: eye 1.372 : 1, 44.8 % of mark width, centred). */
+  --eye-ratio: 1.372;
+}
+
+/* The nav is 64 px tall on phones: anything sticky below it (page rail) and scroll-padding read it from :root. */
+@media (max-width: 600px) { :root { --nav-h: 64px; } }

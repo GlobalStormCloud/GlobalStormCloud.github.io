@@ -1,0 +1,28 @@
+---
+// Header brand: the Global Storm lockup (links to the marketing site) + the documentation title (links to the docs home).
+// Same single-colour lockup vector as the website (currentColor, ink on paper).
+import lockup from '../assets/lockup.svg?raw';
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+const svg = lockup.replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+---
+<div class="brand sl-flex">
+	<a class="brand__logo" href="/" aria-label="Global Storm — home" set:html={svg} />
+	<span class="brand__sep" aria-hidden="true"></span>
+	<a class="site-title" href={siteTitleHref} translate="no">{siteTitle}</a>
+</div>
+
+<style>
+	@layer starlight.core {
+		.brand { align-items: center; gap: 1rem; min-width: 0; }
+		.brand__logo { display: inline-flex; flex: none; height: 1.75rem; color: var(--sl-color-white); }
+		.brand__logo :global(svg) { height: 100%; width: auto; }
+		.brand__sep { flex: none; width: 1px; height: 1.5rem; background: var(--sl-color-gray-5); }
+		.site-title { color: var(--sl-color-white); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+		/* Phones: lockup over title, so both the site link and the docs home stay in the 76 px bar. */
+		@media (max-width: 40rem) {
+			.brand { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+			.brand__sep { display: none; }
+			.brand__logo { height: 1.25rem; }
+		}
+	}
+</style>

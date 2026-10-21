@@ -1,0 +1,67 @@
+---
+import ArrowText from '../ArrowText.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+import PillarIcon from './PillarIcon.astro';
+interface Props { c: Content; locale: Locale; full?: boolean; }
+const { c, locale, full = false } = Astro.props;
+const s = site[locale];
+const p = c.platform;
+// Home shows the first sentence of each pillar; Platform shows the full migrated text.
+const first = (t: string) => { const m = t.match(/^.+?[.!?](?=\s|$)/); return m ? m[0] : t; };
+---
+<section class:list={['band wrap', { 'pillars-band--full': full }]} id="platform" aria-labelledby={full ? undefined : 'pillars-h'} aria-label={full ? p.eyebrow : undefined}>
+  {full && <h2 class="sr-only">{p.eyebrow}</h2>}
+  {!full && (
+    <div class="head">
+      <div>
+        <p class="index">{s.sections.pillars.replace(/^\d+ \/ /, '')}</p>
+        <h2 id="pillars-h">{p.title}</h2>
+      </div>
+      <p class="lead">{p.desc}</p>
+    </div>
+  )}
+  <ol role="list" class:list={['pillars', { 'pillars--full': full }]}>
+    {p.items.map((it, i) => (
+      <li class="pillar reveal">
+        <PillarIcon i={i} class="pillar__icon" />
+        <p class="mono pillar__n">{String(i + 1).padStart(2, '0')} · {it.label}</p>
+        <h3>{it.title}</h3>
+        <p class="pillar__d">{full ? it.desc : first(it.desc)}</p>
+      </li>
+    ))}
+  </ol>
+  {full ? <p class="note muted">{p.note}</p> : <p class="more"><a class="link-arrow" href={localizePath('/platform', locale)}><ArrowText text={s.pillarsMore} /></a></p>}
+  <slot />
+</section>
+<style>
+  .pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .pillars--full { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillar { padding: 24px 28px 28px 0; }
+  /* PillarIcon is a child component, so its root does not carry this file's scope hash —
+     the size rule must be :global or it silently never applies (icons stretched to ~230px). */
+  .pillar :global(.pillar__icon) { width: 48px; height: 48px; margin-bottom: 16px; color: var(--ink); }
+  .pillar + .pillar { border-left: 1px solid var(--alloy); padding-left: 28px; }
+  .pillars--full .pillar:nth-child(3) { border-left: 0; padding-left: 0; }
+  .pillars--full .pillar:nth-child(n + 3) { border-top: 1px solid var(--alloy); }
+  .pillar__n { color: var(--steel); text-transform: uppercase; letter-spacing: 0.06em; }
+  .pillar h3 { margin: 10px 0 10px; }
+  .pillar__d { color: var(--steel); font-size: 16px; }
+  .pillars-band--full { padding-top: 0; }
+  .note { margin-top: 32px; max-width: 48em; font-size: 15px; }
+  .more { margin-top: 32px; }
+  /* 2×2 layout: odd cards are the left column (flush, no rule), even cards the right column (rule + inset).
+     Written with .pillars + :nth-child(odd/even) so it out-ranks the base `.pillar + .pillar` rule. */
+  @media (max-width: 1100px) {
+    .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pillars .pillar:nth-child(odd) { border-left: 0; padding-left: 0; }
+    .pillars .pillar:nth-child(even) { border-left: 1px solid var(--alloy); padding-left: 28px; }
+    .pillars .pillar:nth-child(n + 3) { border-top: 1px solid var(--alloy); }
+  }
+  @media (max-width: 640px) {
+    .pillars, .pillars--full { grid-template-columns: minmax(0, 1fr); }
+    .pillars .pillar, .pillars .pillar:nth-child(odd), .pillars .pillar:nth-child(even) { padding: 22px 0; border-left: 0; }
+    .pillars .pillar + .pillar { border-top: 1px solid var(--alloy); }
+  }
+</style>

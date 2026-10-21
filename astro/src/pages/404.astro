@@ -1,0 +1,17 @@
+---
+import ArrowText from '../components/ArrowText.astro';
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+const s = site.en.notFound;
+---
+<Layout title={s.title} description={s.desc} locale="en" path="/404" noindex>
+  <section class="wrap nf">
+    <p class="index">404</p>
+    <h1>{s.title}</h1>
+    <p class="lead">{s.desc}</p>
+    <p><a class="link-arrow" href="/"><ArrowText text={s.home} /></a></p>
+  </section>
+</Layout>
+<style>
+  .nf { padding-block: 96px 128px; display: grid; gap: 22px; justify-items: start; }
+</style>

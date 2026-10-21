@@ -1,0 +1,254 @@
+---
+import Arrow from '../Arrow.astro';
+import Logo from '../Logo.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const h = c.hero;
+const b = s.boot;
+const fromPrice = c.pricing.profiles[0].rows[0].own; // Launch band, supported, own telemetry
+// Full recording (still linked as the download fallback): /media/hurricaneos-boot.webm.
+// The hero plays two real, trimmed cuts of it, chained in the browser (no seeking):
+//   boot clip = source 3.00 s -> 11.16 s  (the first 3 s are skipped)
+//   loop clip = source 11.16 s -> 13.16 s (the real settled-console tail, played on repeat)
+const fullSrc = '/media/hurricaneos-boot.webm';
+const bootSrc = '/media/hurricaneos-boot-hero.webm';
+const loopSrc = '/media/hurricaneos-boot-hero-loop.webm';
+const poster = '/media/hurricaneos-boot-poster.jpg';
+---
+<section class="hero wrap" aria-labelledby="hero-h">
+  <div class="hero__copy">
+    <p class="eyebrow legend"><span class="beacon" aria-hidden="true"></span>{h.eyebrow}</p>
+    <h1 id="hero-h" class="display">{h.title} <span class:list={[{ nb: locale === 'en' }]}>{h.titleAccent}</span></h1>
+    <p class="lead">{h.desc}</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href={localizePath('/company', locale) + '#contact'}>{h.cta}<Arrow /></a>
+      <a class="btn btn--ghost" href={localizePath('/pricing', locale)}>{h.secondary}</a>
+    </div>
+    <p class="mono hero__price">{s.hero.fromPrice.replace('{price}', fromPrice)}</p>
+    <p class="hero__partner"><span class="hero__partner-lbl mono">{c.trust.partnerLabel}</span><span class="hero__partner-name">{c.trust.partnerName}</span></p>
+  </div>
+
+  <figure class="hero__fig">
+    <div class="console-frame bracketed">
+    <div class="console" data-boot-hero>
+      <div class="console__bar">
+        <span class="console__mark"><Logo variant="mark" /></span>
+        <span class="mono console__label">{b.frameLabel}</span>
+        <span class="console__lamp mono"><span class="beacon beacon--sm" aria-hidden="true"></span>{s.hero.lamp}</span>
+      </div>
+
+      <div class="console__screen">
+        {/* Poster-first LCP: a real <img>, eager + high priority, is what first-paints and it
+             stays in the DOM underneath (it is the accessible description of the console).
+             The two videos are decorative, layered on top at opacity 0 and revealed by the
+             script only once a real frame is painted. No controls, aria-hidden, no pointer events. */}
+        <img
+          class="console__poster"
+          src={poster}
+          width="830" height="324"
+          alt={s.hero.posterAlt}
+          fetchpriority="high"
+          decoding="async"
+        />
+        <video
+          class="console__video"
+          muted
+          playsinline
+          preload="none"
+          width="830" height="324"
+          aria-hidden="true"
+          tabindex="-1"
+          disablepictureinpicture
+          disableRemotePlayback
+          data-boot-video="boot"
+        >
+          <source src={bootSrc} type="video/webm" />
+          <p class="console__fallback">{b.fallback} <a href={fullSrc} tabindex="-1">{b.fallbackLink}</a></p>
+        </video>
+        <video
+          class="console__video"
+          muted
+          loop
+          playsinline
+          preload="none"
+          width="830" height="324"
+          aria-hidden="true"
+          tabindex="-1"
+          disablepictureinpicture
+          disableRemotePlayback
+          data-boot-video="loop"
+        >
+          <source src={loopSrc} type="video/webm" />
+        </video>
+      </div>
+
+      <div class="console__meta mono">
+        <span class="console__flow">{s.hero.metaFlow}</span>
+        <span class="console__sep" aria-hidden="true">·</span>
+        <span>{s.hero.metaReal}</span>
+        <span class="console__sep" aria-hidden="true">·</span>
+        <span>{s.hero.metaVm}</span>
+      </div>
+    </div>
+      <span class="br br--tl"></span><span class="br br--tr"></span><span class="br br--bl"></span><span class="br br--br"></span>
+    </div>
+    <figcaption class="console__cap mono">{s.hero.consoleCap}</figcaption>
+  </figure>
+</section>
+
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 32px 48px; align-items: start; padding-block: clamp(32px, 5vw, 72px) clamp(40px, 6vw, 80px); }
+  .hero h1 { margin: 26px 0 26px; font-size: clamp(36px, 1.6rem + 2.6vw, 60px); }
+  .nb { white-space: nowrap; }
+  .hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+  .hero__price { margin-top: 22px; color: var(--steel); }
+  .hero__partner { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--alloy); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  .hero__partner-lbl { color: var(--steel); }
+  /* Same treatment as the PwC row on Company: Inter 600, 17 px, no tracking. */
+  .hero__partner-name { font-family: var(--f-body); font-weight: 600; font-size: 17px; letter-spacing: 0; line-height: 1.3; color: var(--ink); }
+  .hero__fig { margin: 0; }
+
+  /* ---- Boot console: the product, framed in Anodised chrome ---- */
+  .console-frame { padding: 14px; }
+  .console { border: 1px solid var(--graphite); border-radius: var(--r-2); background: #000; overflow: hidden; color: var(--paper); box-shadow: 0 30px 50px -24px rgba(13, 15, 18, 0.5); }
+  .console__bar { display: flex; align-items: center; gap: 12px; padding: 11px 15px; background: var(--graphite); border-bottom: 1px solid var(--rule-dark); }
+  .console__mark { height: 15px; color: var(--paper); }
+  .console__mark :global(.logo) { height: 15px; }
+  .console__label { color: var(--mist); font-size: 13px; }
+  .console__lamp { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; color: var(--mist); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .console__screen { position: relative; aspect-ratio: 830 / 324; background: #000; }
+  .console__poster, .console__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* Decorative videos sit above the poster, invisible until a real frame is painted. */
+  /* inset by 2px (the poster's black margin shows through): the video's painted area stays strictly
+     smaller than the poster's, so the eager poster <img> remains the LCP element once the video is live. */
+  .console__video { inset: 2px; width: calc(100% - 4px); height: calc(100% - 4px); opacity: 0; pointer-events: none; background: #000; }
+  .console__video.is-live { opacity: 1; }
+  .console__fallback { padding: 20px; color: var(--paper); }
+
+  .console__meta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding: 11px 15px; background: var(--graphite); border-top: 1px solid var(--rule-dark); color: var(--mist); font-size: 12px; }
+  .console__flow { color: var(--paper); }
+  .console__sep { color: var(--rule-dark); }
+
+  .console__cap { text-align: left; color: var(--steel); line-height: 1.7; margin-top: 14px; font-size: 13px; max-width: 52ch; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 28px; }
+    .nb { white-space: normal; }
+    /* 600-860 px: the two buttons sit side by side in a block capped at 420 px; at 600 px and below they stack full width. */
+    .hero__ctas { flex-wrap: nowrap; max-width: 420px; }
+    .hero__ctas .btn { flex: 1 1 0; justify-content: center; min-height: 52px; }
+    .console__cap { text-align: left; }
+    .console-frame { padding: 10px; }
+  }
+  @media (max-width: 600px) {
+    .hero__ctas { flex-direction: column; align-items: stretch; max-width: none; }
+    .console__meta { gap: 4px 14px; }
+    .console__sep { display: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var root = document.querySelector('[data-boot-hero]');
+    if (!root) return;
+    var boot = root.querySelector('[data-boot-video="boot"]');
+    var loop = root.querySelector('[data-boot-video="loop"]');
+    if (!boot || !loop) return;
+
+    var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    var reduce = function () { return !!(mq && mq.matches); };
+    if (reduce()) return; // reduced motion: nothing is fetched or played; the poster stays
+
+    // phase: 'idle' -> 'boot' (clip 1, plays once) -> 'loop' (clip 2, repeats). No seeking anywhere.
+    var phase = 'idle', inView = false, armed = false, dead = false;
+
+    // Reveal a video only after one of its real frames has been presented.
+    function whenPainted(v, cb) {
+      var done = false;
+      function go() { if (!done) { done = true; cb(); } }
+      if (v.requestVideoFrameCallback) v.requestVideoFrameCallback(go);
+      v.addEventListener('playing', function () { setTimeout(go, 120); }, { once: true });
+    }
+    function play(v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () { /* autoplay refused: the poster simply stays */ });
+    }
+    function fail() { dead = true; boot.classList.remove('is-live'); loop.classList.remove('is-live'); }
+
+    function startBoot() {
+      phase = 'boot';
+      whenPainted(boot, function () { if (!dead && phase === 'boot') boot.classList.add('is-live'); });
+      play(boot);
+    }
+    function playLoop() {
+      whenPainted(loop, function () {
+        if (dead) return;
+        loop.classList.add('is-live');    // loop is painted on top first,
+        boot.classList.remove('is-live'); // then the boot clip is released: no flash
+      });
+      play(loop);
+    }
+    function startLoop() {
+      if (phase === 'loop') return;
+      phase = 'loop';
+      if (inView) playLoop(); // off-screen: resume() starts it when the console returns
+    }
+
+    boot.addEventListener('ended', startLoop);
+    // Safety net for a throttled/backgrounded tab where 'ended' was missed.
+    boot.addEventListener('timeupdate', function () {
+      if (phase === 'boot' && boot.duration && boot.currentTime >= boot.duration - 0.02) startLoop();
+    });
+    boot.addEventListener('error', fail);
+    loop.addEventListener('error', fail);
+    boot.addEventListener('stalled', function () { /* network hiccup: browser resumes by itself */ });
+
+    function resume() {
+      if (dead || reduce() || !armed || !inView) return;
+      if (phase === 'idle') startBoot();
+      else if (phase === 'boot' && boot.paused && !boot.ended) play(boot);
+      else if (phase === 'boot' && boot.ended) startLoop();
+      else if (phase === 'loop' && loop.paused) { if (loop.classList.contains('is-live')) play(loop); else playLoop(); }
+    }
+    function pause() {
+      if (phase === 'boot' && !boot.paused) boot.pause();
+      if (phase === 'loop' && !loop.paused) loop.pause();
+    }
+
+    // Start after the page has loaded and the poster (LCP) is painted; prefetch the small loop clip.
+    function arm() {
+      if (armed) return;
+      armed = true;
+      loop.preload = 'auto';
+      loop.load();
+      resume();
+    }
+    function afterLoad() {
+      var go = function () { arm(); };
+      if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 1500 }); else setTimeout(go, 200);
+    }
+    if (document.readyState === 'complete') afterLoad(); else window.addEventListener('load', afterLoad, { once: true });
+
+    // Only run while the console is on screen; also recover when the tab returns from the background.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        if (inView) resume(); else pause();
+      }, { threshold: [0, 0.25] }).observe(root);
+    } else { inView = true; }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) return;
+      if (inView || !('IntersectionObserver' in window)) resume();
+    });
+
+    // Visitor switches reduced-motion on mid-session: stop, return to the static poster.
+    if (mq && mq.addEventListener) mq.addEventListener('change', function () {
+      if (reduce()) { pause(); fail(); }
+    });
+  })();
+</script>

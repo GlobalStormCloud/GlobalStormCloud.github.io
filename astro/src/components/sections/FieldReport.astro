@@ -1,0 +1,62 @@
+---
+import type { Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const f = c.field;
+---
+<section class="band dark" id="field" aria-labelledby="field-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="index">{s.sections.field}</p>
+        <h2 id="field-h">{f.title}</h2>
+      </div>
+      <p class="lead">{f.narrative[0]}</p>
+    </div>
+    <div class="media">
+      <figure class="photo main">
+        <img src="/img/field/underway-1600.webp" srcset="/img/field/underway-900.webp 900w, /img/field/underway-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 62vw" width="1600" height="900" loading="lazy" decoding="async" alt={s.field.shipAlt} />
+        <figcaption class="tag"><span class="beacon" aria-hidden="true"></span>{s.field.tag}</figcaption>
+      </figure>
+      <div class="side">
+        <figure class="photo side__ph">
+          <img src="/img/field/engine-room-900.webp" width="900" height="1195" loading="lazy" decoding="async" alt={s.field.engineAlt} />
+        </figure>
+        <p class="quote"><b>{s.field.quoteLead}</b> {f.narrative[2].replace(/^[^.]+\.\s*/, '')}</p>
+      </div>
+    </div>
+    <div class="lower">
+      <p class="lower__p">{f.narrative[1]}</p>
+      <div class="plate">
+        <div class="plate__hdr">
+          <span class="mono unit">{s.field.unit}</span>
+          <span class="mono unit"><span class="beacon beacon--sm" aria-hidden="true"></span>{s.field.inService}</span>
+        </div>
+        <dl>{f.spec.map((sp) => (<><dt>{sp.label}</dt><dd>{sp.value}</dd></>))}</dl>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .media { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px; }
+  #field .photo img { filter: saturate(0.9) contrast(1.02); }
+  #field .photo { box-shadow: inset 0 0 0 1px var(--rule-dark); }
+  .photo.main { aspect-ratio: 16 / 10; }
+  .side { display: grid; grid-template-rows: auto 1fr; gap: 24px; }
+  .side__ph { aspect-ratio: 4 / 3; }
+  .side__ph img { object-position: 50% 100%; } /* portrait source in a 4:3 slot: show the unit + engine, not the hose run */
+  .quote { border-top: 1px solid var(--rule-dark); padding-top: 22px; color: var(--mist); font-size: 16px; line-height: 1.65; }
+  .quote b { color: var(--paper); font-weight: 600; }
+  .lower { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; margin-top: 56px; align-items: start; }
+  .lower__p { color: var(--mist); font-size: 17px; line-height: 1.7; max-width: 30em; }
+  .unit { display: inline-flex; align-items: center; gap: 10px; color: var(--mist); text-transform: uppercase; letter-spacing: 0.06em; }
+  @media (max-width: 860px) {
+    .media, .lower { grid-template-columns: minmax(0, 1fr); }
+    .photo.main { aspect-ratio: 4 / 3; }
+    .side { grid-template-rows: auto; }
+    .lower { margin-top: 36px; }
+  }
+</style>

@@ -1,0 +1,89 @@
+---
+import ArrowText from '../ArrowText.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; full?: boolean; }
+const { c, locale, full = false } = Astro.props;
+const s = site[locale];
+const h = c.hardware;
+const sup = c.pricing.profiles[0];
+---
+<section class="band wrap" id="hardware" aria-labelledby="hw-h">
+  <div class="head">
+    <div>
+      <p class="index">{full ? s.sections.hardware : s.sections.hardware.replace(/^\d+ \/ /, '')}</p>
+      <h2 id="hw-h">{h.title}</h2>
+    </div>
+    <p class="lead">{h.desc}</p>
+  </div>
+  <div class:list={['hw', { 'hw--full': full }]}>
+    <ol role="list" class="routes">
+      {h.routes.map((r, i) => (
+        <li class:list={['route reveal', { 'route--ours': i === 2 }]}>
+          <p class="mono route__n">{String(i + 1).padStart(2, '0')} · {r.label}</p>
+          <h3>{r.title}</h3>
+          {full && <p class="route__d muted">{r.desc}</p>}
+          <p class="mono route__ex">{r.examples}</p>
+        </li>
+      ))}
+    </ol>
+    <figure class="hw__fig">
+      {full ? (
+        <>
+          {[0].map((n) => (
+            <figure class="photo hw__ph">
+              <img src={`/img/product/gse3-miro4715-900.webp`} srcset={`/img/product/gse3-miro4715-900.webp 900w, /img/product/gse3-miro4715-1600.webp 1600w`} sizes="(max-width: 860px) 92vw, 40vw" width="1600" height="1066" loading="lazy" decoding="async" alt={s.hardware.photoAlts[n]} />
+              {n === 0 && <figcaption class="tag">{s.hardware.photoTag}</figcaption>}
+            </figure>
+          ))}
+          <figcaption class="caption">{s.hardware.photoCaption}</figcaption>
+        </>
+      ) : (
+        <div class="plate hw__rec">
+          <div class="plate__hdr">
+            <span class="mono unit"><span class="beacon beacon--sm" aria-hidden="true"></span>{s.hardware.recHeader} · {h.routes[0].label}</span>
+          </div>
+          <dl>
+            {s.hardware.recRows.map((r) => (<><dt>{r.label}</dt><dd>{r.value}</dd></>))}
+            <dt>{s.hardware.recProfile}</dt><dd>{s.teaser.supported} {sup.rows[0].own} {s.pricing.perDevice} · {s.teaser.minimum} {sup.minValue}</dd>
+          </dl>
+          <p class="hw__recnote mono">{s.hardware.recNote}</p>
+        </div>
+      )}
+    </figure>
+  </div>
+  {full && (
+    <section class="onb" aria-labelledby="onb-h">
+      <h3 id="onb-h" class="h3">{h.onboarding.title}</h3>
+      <dl class="onb__list">
+        <div class="onb__row"><dt class="legend">{h.onboarding.requirementsLabel}</dt><dd>{h.onboarding.requirements}</dd></div>
+        <div class="onb__row"><dt class="legend">{h.onboarding.startLabel}</dt><dd>{h.onboarding.start}</dd></div>
+      </dl>
+      <p class="onb__note muted">{h.onboarding.note}</p>
+    </section>
+  )}
+  {!full && <p class="more"><a class="link-arrow" href={localizePath('/platform', locale) + '#hardware'}><ArrowText text={s.hardware.moreLink} /></a></p>}
+</section>
+<style>
+  .hw { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: start; }
+  .routes { border-top: 1px solid var(--ink); }
+  .route { padding: 22px 0 24px; border-bottom: 1px solid var(--alloy); display: grid; gap: 10px; }
+  .route__n { color: var(--steel); text-transform: uppercase; letter-spacing: 0.06em; }
+  .route__d { font-size: 16px; max-width: 40em; }
+  .route__ex { color: var(--steel); }
+  .hw__fig { margin: 0; display: grid; gap: 16px; }
+  .hw__ph { aspect-ratio: 3 / 2; background: var(--seam); margin: 0; }
+  /* Platform: the GSE-3 photos illustrate route 03 (bespoke), so they sit level with it, not with route 01. */
+  .hw--full .hw__fig { align-self: end; }
+  .hw__rec .unit { display: inline-flex; align-items: center; gap: 10px; color: var(--steel); text-transform: uppercase; letter-spacing: 0.06em; }
+  .hw__recnote { padding: 14px 18px 16px; border-top: 1px solid var(--alloy); color: var(--steel); line-height: 1.6; }
+  .onb { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--ink); }
+  .onb__list { margin-top: 18px; border-top: 1px solid var(--alloy); }
+  .onb__row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 8px 32px; padding: 16px 0; border-bottom: 1px solid var(--alloy); }
+  .onb__row dt { color: var(--steel); }
+  .onb__row dd { margin: 0; max-width: 52em; }
+  .onb__note { margin-top: 16px; max-width: 52em; font-size: 15px; }
+  .more { margin-top: 32px; }
+  @media (max-width: 860px) { .hw { grid-template-columns: minmax(0, 1fr); } .onb__row { grid-template-columns: minmax(0, 1fr); } }
+</style>

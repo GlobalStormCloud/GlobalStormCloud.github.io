@@ -1,0 +1,90 @@
+# Build and deploy the Astro marketing site AND the documentation (/docs/) to GitHub Pages
+# as ONE artifact.
+#
+# STATUS: committed on rebuild/astro-2026 but INERT until this branch is merged to main —
+# it triggers only on a push to main (or a manual run), and the deploy job refuses to run
+# from any other ref. Merging to main is the live deploy.
+#
+# CUTOVER NOTE (read before merging): .github/workflows/jekyll.yml ALSO triggers on a push to
+# main and deploys to the same Pages site (same "pages" concurrency group). Left untouched on
+# purpose. If both stay enabled, the two deployments queue and whichever finishes last wins, so
+# the merge commit must also retire the old workflow (delete jekyll.yml, or change its trigger
+# to workflow_dispatch). Do that in the same change that merges this branch.
+#
+# Build = `npm run build:site` in astro/: astro build -> docs-src build -> dist/docs/ merge, plus
+# dist/sitemap.xml. Node 22 because the docs project (Astro 7) needs >= 22.12.
+#
+# Action pins are commit SHAs. upload-pages-artifact is held at v3 deliberately: v3 keeps dotfiles,
+# which dist/.well-known/security.txt needs; v4 drops hidden files.
+name: Deploy Astro site and docs to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: the workflow default is read-only. The build job (which runs npm install
+# scripts) holds only contents: read; pages: write + id-token: write are granted to the deploy
+# job alone.
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            astro/package-lock.json
+            docs-src/package-lock.json
+      - name: Install site dependencies
+        run: npm ci
+        working-directory: astro
+      - name: Install docs dependencies
+        run: npm ci
+        working-directory: docs-src
+      - name: Type-check (astro check must report 0 errors)
+        run: npm run check
+        working-directory: astro
+      - name: Build site + docs
+        run: npm run build:site
+        working-directory: astro
+      - name: Guard — the artifact must contain the pages every link depends on
+        run: |
+          for f in index.html pl/index.html docs/index.html 404.html robots.txt sitemap.xml sitemap-index.xml .well-known/security.txt; do
+            test -s "dist/$f" || { echo "missing dist/$f"; exit 1; }
+          done
+          node scripts/guard-artifact.mjs dist
+        working-directory: astro
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: astro/dist
+
+  deploy:
+    # Never deploy from a feature branch, even on a manual run (a manual run elsewhere is a build check only).
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

@@ -1,0 +1,35 @@
+---
+import Arrow from '../Arrow.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; title?: string; desc?: string; eyebrow?: string; secondary?: boolean; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const cl = c.teasers.closing;
+const title = Astro.props.title ?? cl.title;
+const desc = Astro.props.desc ?? cl.desc;
+const eyebrow = Astro.props.eyebrow ?? s.sections.cta;
+const secondary = Astro.props.secondary ?? true;
+---
+<section class="band dark cta" aria-labelledby="cta-h">
+  <div class="wrap cta__in">
+    <div>
+      <p class="index"><span class="beacon beacon--sm" aria-hidden="true"></span>{eyebrow}</p>
+      <h2 id="cta-h">{title}</h2>
+    </div>
+    <div class="cta__side">
+      <p class="lead">{desc}</p>
+      <div class="cta__btns">
+        <a class="btn btn--primary" href={localizePath('/company', locale) + '#contact'}>{c.hero.cta}<Arrow /></a>
+        {secondary && <a class="btn btn--ghost" href={localizePath('/pricing', locale)}>{c.hero.secondary}</a>}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .cta__in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 32px 48px; align-items: end; }
+  .cta h2 { margin-top: 18px; }
+  .cta__btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+  @media (max-width: 860px) { .cta__in { grid-template-columns: minmax(0, 1fr); } }
+</style>

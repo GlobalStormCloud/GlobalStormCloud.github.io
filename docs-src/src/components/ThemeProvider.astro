@@ -1,0 +1,9 @@
+---
+// Replaces Starlight's theme provider: the docs are always the light Anodised theme (paper / ink / amber),
+// matching globalstorm.cloud. No stored or system dark preference is read, no picker is rendered.
+// Kept inline so there is no flash of a different theme.
+---
+<script is:inline>
+	document.documentElement.dataset.theme = 'light';
+	window.StarlightThemeProvider = { updatePickers() {} };
+</script>

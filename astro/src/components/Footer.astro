@@ -1,0 +1,89 @@
+---
+import Logo from './Logo.astro';
+import { strings, localizePath, type Locale } from '../i18n/ui';
+import { content } from '../data/content';
+import { company } from '../data/company';
+import { site as siteData } from '../data/site';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = strings[locale];
+const f = content[locale].footer;
+const sl = siteData[locale];
+const pl = locale === 'pl';
+const year = new Date().getFullYear();
+const platformLinks = [
+  { label: 'HurricaneOS', path: '/platform' },
+  { label: pl ? 'Architektura' : 'Architecture', path: '/platform#architecture' },
+  { label: pl ? 'Sprzęt' : 'Hardware', path: '/platform#hardware' },
+  { label: pl ? 'Cennik' : 'Pricing', path: '/pricing' },
+];
+const companyLinks = [
+  { label: pl ? 'Zespół' : 'Team', path: '/company' },
+  { label: pl ? 'Zgodność' : 'Compliance', path: '/compliance' },
+  { label: pl ? 'Kontakt' : 'Contact', path: '/company#contact' },
+  { label: f.privacy, path: '/legal' },
+];
+---
+<footer class="foot dark flat">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a href={localizePath('/', locale)} class="foot__logo" aria-label="Global Storm"><Logo variant="lockup" /></a>
+        <p class="foot__desc">{f.desc}</p>
+        <p class="foot__eu mono"><span class="beacon beacon--sm" aria-hidden="true"></span>{f.euHosted}</p>
+      </div>
+      <nav class="foot__cols" aria-label={pl ? 'Stopka' : 'Footer'}>
+        <div>
+          <p class="legend foot__h">{f.colPlatform}</p>
+          <ul role="list">
+            {platformLinks.map((l) => <li><a href={localizePath(l.path, locale)}>{l.label}</a></li>)}
+            <li><a href="/docs/">{sl.footerLinks.docs}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="legend foot__h">{f.colCompany}</p>
+          <ul role="list">
+            {companyLinks.map((l) => <li><a href={localizePath(l.path, locale)}>{l.label}</a></li>)}
+            <li><a href={localizePath('/status', locale)}>{sl.footerLinks.status}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="legend foot__h">{f.colConnect}</p>
+          <ul role="list">
+            <li><a href="https://www.linkedin.com/company/global-storm" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:contact@globalstorm.cloud">contact@globalstorm.cloud</a></li>
+            <li><a href={localizePath('/company', locale) + '#contact'}>{t.navCta}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="foot__base mono">
+      <p class="foot__entity">{company.name} · {f.place} · {f.krsLabel} {company.krs} · <a href={`mailto:${company.email}`}>{company.email}</a> · <a href={localizePath('/company', locale) + '#registry'}>{f.detailsLabel}</a></p>
+      <p>© {year} Global Storm sp. z o.o.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .foot { padding-block: 72px 32px; }
+  .foot__top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px 32px; padding-bottom: 48px; border-bottom: 1px solid var(--rule-dark); }
+  .foot__logo { display: inline-flex; color: var(--paper); min-height: 44px; align-items: center; }
+  .foot__logo :global(.logo) { height: 34px; }
+  .foot__desc { margin-top: 20px; color: var(--mist); max-width: 30em; font-size: 15px; }
+  .foot__eu { margin-top: 20px; display: flex; align-items: center; gap: 10px; color: var(--paper); }
+  .foot__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .foot__h { color: var(--mist); margin-bottom: 12px; }
+  .foot__cols li a { display: inline-flex; align-items: center; min-height: 36px; color: var(--paper); text-decoration: none; font-size: 15px; overflow-wrap: anywhere; }
+  .foot__cols li a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 24px; color: var(--mist); }
+  .foot__entity a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+  /* Three link columns stay side by side until 640 px, so none is orphaned on a tablet. Below that the
+     third column (Connect) spans the full row instead of sitting alone in half of one. */
+  @media (max-width: 860px) { .foot__top { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) {
+    .foot__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .foot__cols > div:nth-child(3) { grid-column: 1 / -1; }
+  }
+  @media (max-width: 420px) { .foot__cols { grid-template-columns: minmax(0, 1fr); } }
+</style>

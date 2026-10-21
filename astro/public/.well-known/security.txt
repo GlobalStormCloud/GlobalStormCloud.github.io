@@ -1,0 +1,7 @@
+# Global Storm sp. z o.o. — security contact (RFC 9116)
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:contact@globalstorm.cloud
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: en, pl
+Canonical: https://globalstorm.cloud/.well-known/security.txt

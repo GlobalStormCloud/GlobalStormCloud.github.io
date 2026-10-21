@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHead from '../sections/PageHead.astro';
+import BootFeature from '../sections/BootFeature.astro';
+import Pillars from '../sections/Pillars.astro';
+import DiagramSection from '../sections/DiagramSection.astro';
+import Console from '../sections/Console.astro';
+import Hardware from '../sections/Hardware.astro';
+import Compare from '../sections/Compare.astro';
+import CtaBand from '../sections/CtaBand.astro';
+import InlineCta from '../sections/InlineCta.astro';
+import PageRail from '../PageRail.astro';
+import { platformRail } from '../../data/rail';
+import type { Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const c = content[locale];
+const m = site[locale].meta.platform;
+---
+<Layout title={m.title} description={m.desc} locale={locale} path="/platform">
+  <PageHead eyebrow={c.platform.eyebrow} title={c.platform.title} desc={c.platform.desc} beacon />
+  <PageRail locale={locale} items={platformRail(locale)} cta={c.hero.cta} />
+  <Pillars c={c} locale={locale} full><InlineCta c={c} locale={locale} /></Pillars>
+  <BootFeature locale={locale} />
+  <DiagramSection c={c} locale={locale} kind="anatomy" />
+  <DiagramSection c={c} locale={locale} kind="update" />
+  <DiagramSection c={c} locale={locale} kind="pipeline" />
+  <Console c={c} locale={locale} />
+  <Hardware c={c} locale={locale} full />
+  <Compare c={c} locale={locale} />
+  <CtaBand c={c} locale={locale} />
+</Layout>

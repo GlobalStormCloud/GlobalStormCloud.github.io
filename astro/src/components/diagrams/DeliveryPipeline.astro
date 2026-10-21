@@ -1,0 +1,76 @@
+---
+// Diagram 3 — git push to running container, across the three parties.
+// Source: user manual §1 end-to-end flow, §10 pushing code (multi-arch Intel + ARM,
+// private registry, never public), §14 security scan (per service, by severity),
+// §12 deploying a build (manual, succeeded builds only, CPU variant per device,
+// not installed → installing → running, 1 device or 10,000), §2.2 mutual TLS.
+import type { Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const d = site[locale].diagrams;
+const p = d.pipeline;
+// lane index per node: 0 team, 1 cloud, 2 fleet
+const lane = [0, 1, 1, 1, 0, 2, 2];
+// Seven narrow cards: a long Polish compound must break at a real syllable hyphen, never mid-syllable.
+// Soft hyphens are invisible unless the word has to break (whitespace-only change, wording untouched).
+const soft = (t: string) => t.replace(/wieloarchitekturowy/g, 'wielo\u00ADarchitekturowy');
+const groups = [
+  { lane: 0, from: 0, to: 0 },
+  { lane: 1, from: 1, to: 3 },
+  { lane: 0, from: 4, to: 4 },
+  { lane: 2, from: 5, to: 6 },
+];
+---
+<figure class="dg" aria-labelledby={`dg-pipe-${locale}`}>
+  <figcaption class="sr-only" id={`dg-pipe-${locale}`}>{p.title}. {p.desc}</figcaption>
+  <div class="lanes" aria-hidden="true">
+    {groups.map((g) => (
+      <span class:list={['lane', `lane--${g.lane}`]} style={`grid-column:${g.from + 1} / ${g.to + 2}`}><span class="legend">{p.lanes[g.lane]}</span></span>
+    ))}
+  </div>
+  <ol role="list" class="track">
+    {p.nodes.map((n, i) => (
+      <li class:list={['n', `n--lane${lane[i]}`, { 'n--gate': i === 4, 'n--mtls': i === 5 }]}>
+        <span class="sr-only">{p.lanes[lane[i]]}: </span>
+        <span class="mono n__k">{String(i + 1).padStart(2, '0')} · {n.k}</span>
+        <span class="n__name">{soft(n.name)}</span>
+        <span class="mono n__meta">{n.meta}</span>
+        {i === 4 && <span class="mono n__gate"><span class="beacon beacon--sm" aria-hidden="true"></span>{p.gate}</span>}
+        {i === 5 && <span class="mono n__mtls">{p.mtls}</span>}
+      </li>
+    ))}
+  </ol>
+  <p class="back mono"><svg viewBox="0 0 40 10" aria-hidden="true"><path d="M40 5H4M9 1 4 5l5 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>{p.back}</p>
+  <p class="mono dg__note">{d.note}</p>
+</figure>
+
+<style>
+  .dg { color: var(--ink); }
+  .lanes, .track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0 20px; }
+  .lanes { margin-bottom: 12px; }
+  .lane { border-top: 1px solid var(--ink); padding-top: 8px; color: var(--steel); }
+  .lane .legend { font-size: 12px; }
+  .n { position: relative; border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 6px; min-height: 100%; }
+  .n:not(:last-child)::after { content: ""; position: absolute; top: 34px; right: -17px; width: 14px; height: 1px; background: var(--ink); }
+  .n:not(:last-child)::before { content: ""; position: absolute; top: 30.5px; right: -20px; border-left: 6px solid var(--ink); border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+  .n--lane1 { background: var(--seam); }
+  .n__k { color: var(--steel); font-size: 12px; }
+  .n__name { font-family: var(--f-display); font-stretch: 110%; font-weight: 620; font-size: 15.5px; line-height: 1.25; overflow-wrap: break-word; hyphens: manual; }
+  .n__meta { color: var(--steel); font-size: 12px; line-height: 1.45; }
+  .n--gate { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .n--gate .n__k, .n--gate .n__meta { color: var(--mist); }
+  .n__gate { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 8px; color: var(--amber); font-size: 12px; }
+  .n__mtls { margin-top: auto; padding-top: 8px; color: var(--steel); font-size: 12px; border-top: 1px dashed var(--alloy); }
+  .back { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 10px 14px; border: 1px solid var(--alloy); border-radius: var(--r-2); color: var(--steel); font-size: 13px; background: var(--white); }
+  .back svg { width: 40px; height: 10px; flex: none; }
+  .dg__note { margin-top: 14px; color: var(--steel); font-size: 12px; }
+  @media (max-width: 1100px) {
+    .lanes { display: none; }
+    .track { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .n::after { top: auto !important; right: auto !important; left: 26px; bottom: -23px; width: 1px !important; height: 18px !important; }
+    .n::before { top: auto !important; right: auto !important; left: 22.5px; bottom: -26px; border-left: 4.5px solid transparent !important; border-right: 4.5px solid transparent; border-top: 6px solid var(--ink); border-bottom: 0 !important; }
+    .n .sr-only { position: static !important; width: auto; height: auto; margin: 0; clip: auto; overflow: visible; white-space: normal; font-family: var(--f-display); font-stretch: 125%; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); }
+    .n--gate .sr-only { color: var(--mist) !important; }
+  }
+</style>

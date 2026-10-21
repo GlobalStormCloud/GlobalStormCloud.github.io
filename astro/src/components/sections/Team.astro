@@ -1,0 +1,56 @@
+---
+import type { Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+import Arrow from '../Arrow.astro';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const t = c.team;
+// The partner row leads the company record. The copy in content.ts stays untouched: the row is found by its
+// value ("PwC — …") and split at the dash so the name gets display type and the description stays as written.
+const isPartner = (v: string) => v.startsWith('PwC');
+const facts = [...t.facts].sort((a, b) => Number(isPartner(b.value)) - Number(isPartner(a.value)));
+// Existing team portraits, used unchanged (256 × 256 source files, shown at ≤ 160 CSS px).
+const photos: Record<string, string> = { Wojtek: '/img/team/wojtek.jpg', Mohsen: '/img/team/mohsen.jpg' };
+---
+<section class="wrap team" aria-labelledby="facts-h">
+  <div class="team__grid">
+    <div class="plate facts">
+      <div class="plate__hdr"><h2 id="facts-h" class="legend">{s.sections.facts}</h2><span class="beacon beacon--sm" aria-hidden="true"></span></div>
+      <dl>{facts.map((f) => isPartner(f.value) ? (<><dt>{f.label}</dt><dd class="partner"><b>PwC</b><span>{f.value.replace(/^PwC\s*—\s*/, '')}</span></dd></>) : (<><dt>{f.label}</dt><dd>{f.value}</dd></>))}</dl>
+    </div>
+    <div class="people">
+      <h2 class="legend people__h">{s.sections.people}</h2>
+      <ul role="list" class="people__list">
+        {t.people.map((p) => (
+          <li class="person">
+            <img src={photos[p.name]} width="256" height="256" alt={p.name} loading="lazy" decoding="async" />
+            <div>
+              <h3>{p.name}</h3>
+              <p class="mono person__role">{p.role}</p>
+              <p class="muted person__bio">{p.bio}</p>
+              <a class="person__in" href={p.linkedin} rel="noopener"><span class="sr-only">{s.people.linkedin} {p.name}</span><span aria-hidden="true">LinkedIn</span><Arrow dir="up-right" /></a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+<style>
+  .partner { display: flex; flex-direction: column; gap: 4px; }
+  /* Plain text, body face — a name, not a lockup (the PwC mark is not used). */
+  .partner b { font-family: var(--f-body); font-weight: 600; font-size: 17px; letter-spacing: 0; line-height: 1.3; color: var(--ink); }
+  .partner span { color: var(--steel); }
+  .team { padding-bottom: var(--band-y); }
+  .team__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 32px 48px; align-items: start; }
+  .people__h { color: var(--steel); padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
+  .person { display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--alloy); }
+  .person img { width: 136px; height: 136px; object-fit: cover; border-radius: var(--r-2); }
+  .person__role { color: var(--steel); margin-top: 6px; }
+  .person__bio { margin-top: 10px; font-size: 16px; }
+  .person__in { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 600; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 860px) { .team__grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 420px) { .person { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; } .person img { width: 96px; height: 96px; } }
+</style>

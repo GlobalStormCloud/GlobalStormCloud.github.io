@@ -1,0 +1,24 @@
+---
+// The supplied Global Storm vectors (src/assets/logo/source/*), SVGO-optimised to a
+// single fill="currentColor" so the colour comes from CSS: ink on light, paper on dark.
+// Monochrome only — never pass a brand/accent colour here.
+import lockupSvg from '../assets/logo/lockup.svg?raw';
+import markSvg from '../assets/logo/mark.svg?raw';
+
+interface Props {
+  variant?: 'lockup' | 'mark';
+  /** Accessible name; omit (decorative) when the parent link already has one. */
+  label?: string;
+  class?: string;
+}
+const { variant = 'lockup', label, class: cls = '' } = Astro.props;
+const raw = variant === 'mark' ? markSvg : lockupSvg;
+const a11y = label ? `role="img" aria-label="${label.replace(/"/g, '&quot;')}"` : 'aria-hidden="true" focusable="false"';
+const svg = raw.replace('<svg ', `<svg ${a11y} `);
+---
+<span class:list={['logo', `logo--${variant}`, cls]} set:html={svg} />
+
+<style>
+  .logo { display: inline-block; line-height: 0; color: inherit; }
+  .logo :global(svg) { height: 100%; width: auto; }
+</style>

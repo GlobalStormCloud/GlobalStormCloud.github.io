@@ -1,0 +1,165 @@
+---
+import Arrow from '../Arrow.astro';
+import PageRail from '../PageRail.astro';
+import InlineCta from './InlineCta.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { complianceContent } from '../../data/compliance';
+import { engCopy, SECURITY_EMAIL } from '../../data/engineering-copy';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const d = complianceContent[locale];
+const v = engCopy[locale].vuln;
+const kind: Record<string, string> = { Provided: 'p', Zapewnione: 'p', Supported: 's', Wspierane: 's', Yours: 'y', 'Po Twojej stronie': 'y' };
+const c = content[locale];
+const toc = d.sections.map((s, i) => ({ id: `sec-${i + 1}`, heading: s.heading }));
+const railItems = [
+  { id: 'glance', label: d.glanceTitle },
+  ...toc.map((t) => ({ id: t.id, label: t.heading })),
+  { id: 'report', label: v.toc },
+];
+
+// ---- Structure only, never wording ----------------------------------------------------------------------------
+// Everything below re-shapes strings that already exist in data/compliance.ts into scannable markup. No word is
+// added, removed or reordered; the only characters not rendered are the " — " separators that the layout itself
+// (term | description) now expresses.
+// (1) A paragraph that introduces 3+ "<b>Label</b> — text" items ("We use three honest labels: …") becomes a lead-in
+//     plus a labelled key, using the same chips as the table below it.
+const KEY = /(?=<b>[^<]+<\/b> — )/;
+const asKey = (p: string) => {
+  if ((p.match(/<b>[^<]+<\/b> — /g) ?? []).length < 3) return null;
+  const [lead, ...rest] = p.split(KEY);
+  const items = rest.map((r) => { const m = r.match(/^<b>([^<]+)<\/b> — ([\s\S]*)$/); return m ? { k: m[1], v: m[2].trim() } : null; }).filter(Boolean) as { k: string; v: string }[];
+  return { lead: lead.trim(), items };
+};
+// (2) A list item that starts "<b>Label</b> — text" is a labelled row: label column | text column.
+const asRow = (li: string) => { const m = li.match(/^<b>([^<]+)<\/b> — ([\s\S]*)$/); return m ? { k: m[1], v: m[2] } : null; };
+// (3) The repeated opening of the "what we will not claim" list gets a bold lead-in (same words, bold).
+const LEAD = locale === 'pl' ? /^(Nie twierdzimy)/ : /^(We do not claim)/;
+const withLead = (li: string) => li.replace(LEAD, '<b>$1</b>');
+---
+<div class="wrap cmp">
+  <PageRail locale={locale} items={railItems} cta={c.hero.cta} layout="side" note={d.reviewed} />
+  <div class="cmp__body">
+    <p class="cmp__intro">{d.intro}</p>
+
+    <section id="glance" class="cmp__sec">
+      <h2 class="h3">{d.glanceTitle}</h2>
+      <div class="tbl-wrap" tabindex="0" role="region" aria-label={d.glanceTitle}>
+        <table class="tbl tbl--stack glance">
+          <thead><tr>{d.glanceCols.map((col) => <th scope="col">{col}</th>)}</tr></thead>
+          <tbody>{d.glance.map((r) => (<tr><th scope="row">{r[0]}</th><td class="long" data-label={d.glanceCols[1]}>{r[1]}</td><td class="long mono" data-label={d.glanceCols[2]}>{r[2]}</td></tr>))}</tbody>
+        </table>
+      </div>
+      <p class="caveat"><span class="beacon" aria-hidden="true"></span><span>{d.caveat}</span></p>
+    </section>
+
+    {d.sections.map((sec, i) => (
+      <Fragment>
+      <section id={`sec-${i + 1}`} class="cmp__sec">
+        <p class="index">{String(i + 1).padStart(2, '0')}</p>
+        <h2 class="h2s">{sec.heading}</h2>
+        <div class="prose">{sec.paras.map((p) => {
+          const key = asKey(p);
+          if (key) return (
+            <div class="key">
+              <p>{key.lead}</p>
+              <dl class="key__list">{key.items.map((it) => (<div><dt><span class:list={['lbl', `lbl--${kind[it.k] ?? 's'}`]}>{it.k}</span></dt><dd>{it.v}</dd></div>))}</dl>
+            </div>
+          );
+          return <p class:list={{ 'has-lead': p.startsWith('<b>') }} set:html={p} />;
+        })}</div>
+        {sec.table && (
+          <div class="tbl-wrap" tabindex="0" role="region" aria-label={sec.heading}>
+            <table class="tbl tbl--stack art21">
+              <thead><tr>{sec.table.cols.map((col) => <th scope="col">{col}</th>)}</tr></thead>
+              <tbody>{sec.table.rows.map((r) => (
+                <tr>
+                  <th scope="row">{r[0]}</th>
+                  <td class="chip" data-label={sec.table!.cols[1]}><span class:list={['lbl', `lbl--${kind[r[1]] ?? 's'}`]}>{r[1]}</span></td>
+                  <td class="long" data-label={sec.table!.cols[2]}>{r[2]}</td>
+                </tr>
+              ))}</tbody>
+            </table>
+          </div>
+        )}
+        {sec.list && <ul role="list" class="list">{sec.list.map((li) => {
+          const row = asRow(li);
+          return row
+            ? <li class="list__row"><b class="list__k">{row.k}</b><span class="list__v" set:html={row.v} /></li>
+            : <li set:html={withLead(li)} />;
+        })}</ul>}
+      </section>
+      {sec.table && <InlineCta c={c} locale={locale} />}
+      </Fragment>
+    ))}
+
+    <section id="report" class="cmp__sec" aria-labelledby="report-h">
+      <p class="index">{String(d.sections.length + 1).padStart(2, '0')}</p>
+      <h2 id="report-h" class="h2s">{v.title}</h2>
+      <div class="prose">
+        <p>{v.lead.split(SECURITY_EMAIL)[0]}<a href={`mailto:${SECURITY_EMAIL}`}>{SECURITY_EMAIL}</a>{v.lead.split(SECURITY_EMAIL)[1]}</p>
+        <p>{v.disclosure}</p>
+        <p class="mono">{v.machine} <a href="/.well-known/security.txt">/.well-known/security.txt</a></p>
+      </div>
+    </section>
+
+    <div class="cmp__cta card">
+      <h2 class="h3">{d.ctaTitle}</h2>
+      <p class="muted">{d.ctaDesc}</p>
+      <a class="btn btn--primary" href={localizePath('/company', locale) + '#contact'}>{d.cta}<Arrow /></a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cmp { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 32px 56px; padding-bottom: var(--band-y); align-items: start; }
+  .cmp__intro { font-size: 20px; line-height: 1.55; max-width: 38em; }
+  .cmp__sec { margin-top: 56px; }
+  .cmp__sec h2 { margin: 14px 0 18px; }
+  .h2s { font-family: var(--f-display); font-stretch: 114%; font-weight: 630; font-size: clamp(24px, 1.2rem + 0.9vw, 34px); line-height: 1.12; }
+  #glance h2 { margin-top: 0; }
+  .prose { color: var(--steel); }
+  .prose :global(b) { color: var(--ink); font-weight: 600; }
+  .prose a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  /* Summary first: the opening paragraph of every section reads as the lead, the rest as detail. */
+  .prose > p:first-child, .prose > .key:first-child > p { color: var(--ink); font-size: 18px; line-height: 1.55; }
+  /* A paragraph that already opens with a bold label ("What binds you, and when.") gets that label on its own line. */
+  .prose p.has-lead > :global(b:first-child) { display: block; margin-bottom: 4px; font-family: var(--f-display); font-stretch: 112%; font-weight: 640; font-size: 18px; letter-spacing: -0.004em; }
+  /* Labelled key (Provided / Supported / Yours): the same chips as the table, one row each. */
+  .key { margin-top: 1em; padding: 18px 20px 6px; border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); }
+  .key > p { color: var(--ink); font-weight: 600; }
+  .key + p { margin-top: 1em; }
+  .key__list { margin: 12px 0 0; }
+  .key__list > div { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 4px 20px; align-items: baseline; padding: 13px 0; border-top: 1px solid var(--alloy); }
+  .key__list dt, .key__list dd { margin: 0; }
+  .key__list dd { color: var(--steel); font-size: 16px; line-height: 1.55; }
+  .glance th[scope='row'], .art21 th[scope='row'] { font: 600 15px/1.45 var(--f-body); text-transform: none; letter-spacing: 0; color: var(--ink); vertical-align: top; }
+  .glance td, .art21 td { font-size: 15px; line-height: 1.55; color: var(--steel); }
+  .glance td.mono { font-size: 15px; }
+  .art21 { min-width: 640px; }
+  .art21 th[scope='row'] { width: 30%; }
+  .tbl-wrap { margin-top: 20px; }
+  .lbl { display: inline-block; padding: 3px 8px; border-radius: var(--r-1); border: 1px solid var(--ink); font: 500 13px var(--f-mono); color: var(--ink); white-space: nowrap; }
+  .lbl--p { background: var(--ink); color: var(--paper); }
+  .lbl--y { border-style: dashed; color: var(--steel); border-color: var(--steel); }
+  .caveat { display: flex; gap: 14px; align-items: baseline; margin-top: 20px; padding: 16px 18px; border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); font-size: 15px; color: var(--steel); }
+  .list { margin-top: 18px; border-top: 1px solid var(--alloy); }
+  .list li { padding: 12px 0 12px 22px; border-bottom: 1px solid var(--alloy); position: relative; color: var(--steel); font-size: 16px; }
+  .list li::before { content: ""; position: absolute; left: 0; top: 1.2em; width: 9px; height: 6.5px; border-radius: 50%; background: var(--ink); }
+  .list li :global(b) { color: var(--ink); }
+  /* Labelled rows ("Network protection — RED 3.3(d). …"): label column | text column, no bullet. */
+  .list li.list__row { display: grid; grid-template-columns: minmax(9em, 13em) minmax(0, 1fr); gap: 4px 28px; padding-left: 0; }
+  .list li.list__row::before { display: none; }
+  .list__k { color: var(--ink); font-family: var(--f-display); font-stretch: 112%; font-weight: 630; font-size: 17px; line-height: 1.3; }
+  .cmp__cta { margin-top: 64px; display: grid; gap: 14px; justify-items: start; }
+  @media (max-width: 1040px) {
+    .cmp { display: block; }
+    .cmp__body { margin-top: 28px; }
+  }
+  @media (max-width: 900px) { .art21 { min-width: 0; } }
+  @media (max-width: 640px) {
+    .key__list > div, .list li.list__row { grid-template-columns: minmax(0, 1fr); }
+    .key { padding-inline: 16px; }
+  }
+</style>

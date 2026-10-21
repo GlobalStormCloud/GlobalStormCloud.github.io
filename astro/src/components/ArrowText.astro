@@ -1,0 +1,14 @@
+---
+/*
+  Renders a data string that carries a typographic arrow ("Label →" / "← Label") as the label
+  plus the shared <Arrow>, so the glyph never depends on the label font's metrics.
+  The wording is untouched; only the glyph is swapped for the SVG.
+*/
+import Arrow from './Arrow.astro';
+interface Props { text: string }
+const { text } = Astro.props;
+const lead = /^\s*←\s*/.test(text);
+const trail = /\s*→\s*$/.test(text);
+const label = text.replace(/^\s*←\s*/, '').replace(/\s*→\s*$/, '');
+---
+{lead && <Arrow dir="left" />}{label}{trail && <Arrow dir="right" />}

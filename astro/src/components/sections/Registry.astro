@@ -1,0 +1,18 @@
+---
+// The full Art. 206 §1 KSH entry, in one place. The footer carries only name, seat and KRS and links here.
+import type { Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+interface Props { c: Content; locale: Locale; }
+const { c } = Astro.props;
+const r = c.registry;
+---
+<section class="wrap registry" id="registry" aria-labelledby="registry-h">
+  <div class="plate">
+    <div class="plate__hdr"><h2 id="registry-h" class="legend">{r.title}</h2></div>
+    <dl>{r.rows.map((row) => (<><dt>{row.label}</dt><dd>{row.value}</dd></>))}</dl>
+  </div>
+</section>
+<style>
+  .registry { padding-bottom: var(--band-y); scroll-margin-top: 88px; }
+  .registry dd { overflow-wrap: anywhere; }
+</style>

@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHead from '../sections/PageHead.astro';
+import ComplianceBody from '../sections/ComplianceBody.astro';
+import type { Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const cm = content[locale].compliance;
+const m = site[locale].meta.compliance;
+---
+<Layout title={m.title} description={m.desc} locale={locale} path="/compliance">
+  <PageHead eyebrow={cm.eyebrow} title={cm.title} />
+  <ComplianceBody locale={locale} />
+</Layout>

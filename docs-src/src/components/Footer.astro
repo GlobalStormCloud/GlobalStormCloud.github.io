@@ -1,0 +1,23 @@
+---
+// Starlight's own footer (edit link, last updated, previous / next) + the legal basics line that every page of
+// globalstorm.cloud carries, /docs included: entity, seat, KRS, contact e-mail and a link to the full registry entry.
+// The values mirror astro/src/data/company.ts on the website branch (the single source there). This project
+// also lives on feat/tech-docs-starlight, where that file does not exist, so they are written out here:
+// change them in both places. The docs are English only.
+import Default from '@astrojs/starlight/components/Footer.astro';
+const company = { name: 'Global Storm sp. z o.o.', place: 'Warsaw, Poland', krs: '0001067072', email: 'contact@globalstorm.cloud' };
+---
+<Default><slot /></Default>
+<p class="legal-line">{company.name} · {company.place} · KRS {company.krs} · <a href={`mailto:${company.email}`}>{company.email}</a> · <a href="/company/#registry">Company details</a></p>
+
+<style>
+	@layer starlight.core {
+		.legal-line {
+			margin-block-start: 2.5rem; padding-block-start: 1.25rem; border-block-start: 1px solid var(--sl-color-gray-5);
+			font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: var(--sl-text-xs); line-height: 1.7; color: var(--sl-color-gray-3);
+			overflow-wrap: anywhere;
+		}
+		.legal-line a { color: var(--sl-color-white); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+		.legal-line a:hover { text-decoration-thickness: 2px; }
+	}
+</style>

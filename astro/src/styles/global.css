@@ -1,0 +1,237 @@
+/* ============================================================
+   GLOBAL — Anodised base layer + shared primitives and motifs.
+   Motifs (all traced to the mark or the product, see
+   BRAND-FOUNDATION): beacon (the lit eye), eye reticle, blade
+   brackets, spec plate, machined 2/4 px geometry.
+   ============================================================ */
+@import "./tokens.css";
+@import "./fonts.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  color-scheme: light;
+  background: var(--paper);
+  scroll-padding-top: calc(var(--nav-h) + var(--rail-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+/* Pages with a sticky page rail (components/PageRail.astro): the bar layout keeps its 48 px strip at every width, the
+   side layout (Compliance) only once it has collapsed to the compact control. Anchors land below nav + rail. */
+html:has(.rail--bar) { --rail-h: 48px; }
+@media (max-width: 1040px) { html:has(.rail--side) { --rail-h: 48px; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+a { color: inherit; }
+p a, li a, td a, dd a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+p a:hover, li a:hover, td a:hover, dd a:hover { text-decoration-thickness: 2px; }
+button { font: inherit; color: inherit; }
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+:focus-visible { outline: 2px solid var(--amber-deep); outline-offset: 3px; border-radius: 1px; }
+.dark :focus-visible, .on-dark:focus-visible { outline-color: var(--amber); }
+::selection { background: var(--amber); color: var(--ink); }
+
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- Layout ---------- */
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gut)); margin-inline: auto; padding-inline: var(--gut); }
+.band { padding-block: var(--band-y); }
+.band--tight { padding-block: calc(var(--band-y) * 0.6); }
+.band:not(.dark):not(.seam) + .band:not(.dark):not(.seam) { padding-top: 0; }
+/* A plain wrap section (pricing, company registry) that is followed by a light band: the band already pads its top,
+   so the section drops its own bottom padding — otherwise the rhythm doubles (256 px of dead space at 1440). */
+:is(.pricing, .registry):has(+ .band:not(.dark):not(.seam)) { padding-bottom: 0; }
+.seam { background: var(--seam); }
+.dark { background: linear-gradient(180deg, var(--ink) 0%, var(--graphite) 100%); color: var(--paper); }
+.dark.flat { background: var(--ink); }
+.grid-12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; }
+.rule { border: 0; border-top: 1px solid var(--alloy); }
+.dark .rule { border-color: var(--rule-dark); }
+
+/* ---------- Type ---------- */
+.display, h1, h2, h3 { font-family: var(--f-display); font-weight: 640; letter-spacing: -0.012em; text-wrap: balance; }
+p, li, dd, figcaption, blockquote { text-wrap: pretty; } /* no one-word last lines */
+h1, .display { font-stretch: 118%; font-size: clamp(36px, 2.2rem + 2.4vw, 64px); line-height: 1.03; }
+h2, .h2 { font-family: var(--f-display); font-stretch: 116%; font-weight: 630; font-size: clamp(30px, 1.5rem + 1.7vw, 48px); line-height: 1.07; letter-spacing: -0.01em; }
+h3, .h3 { font-family: var(--f-display); font-stretch: 112%; font-weight: 620; font-size: clamp(20px, 1.05rem + 0.45vw, 24px); line-height: 1.2; letter-spacing: -0.004em; }
+@media (max-width: 600px) { h1, .display { font-stretch: 106%; } h2, .h2 { font-stretch: 106%; } }
+@media (max-width: 420px) { h1, .display { font-size: 32px; font-stretch: 102%; } h2, .h2 { font-size: 28px; font-stretch: 102%; } }
+h1, h2, h3, .display { overflow-wrap: break-word; }
+.lead { font-size: clamp(17px, 1rem + 0.25vw, 20px); line-height: 1.55; color: var(--steel); max-width: 36em; }
+.dark .lead { color: var(--mist); }
+.muted { color: var(--steel); }
+.dark .muted { color: var(--mist); }
+.legend {
+  font-family: var(--f-display); font-stretch: 125%; font-weight: 600;
+  font-size: 12px; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.mono { font-family: var(--f-mono); font-size: 14px; letter-spacing: 0.01em; }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { display: flex; align-items: center; gap: 12px; color: var(--steel); }
+.dark .eyebrow { color: var(--mist); }
+.index { display: flex; align-items: center; gap: 18px; color: var(--steel-deep); font-family: var(--f-mono); font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+.index::after { content: ""; flex: 0 0 64px; height: 1px; background: var(--alloy); }
+.dark .index { color: var(--mist-lt); }
+.dark .index::after { background: var(--rule-dark); }
+.prose p + p { margin-top: 1em; }
+.prose { max-width: 40em; }
+
+/* ---------- Section head ---------- */
+.head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px 32px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+.head h2 { margin-top: 18px; max-width: 14em; }
+.head--stack { grid-template-columns: minmax(0, 1fr); align-items: start; }
+.head--stack .lead { margin-top: 4px; }
+/* Polish runs ~15-20 % longer: give the heading column half the row so a section title stays at <= 3 lines. */
+@media (min-width: 861px) { :lang(pl) .head:not(.head--stack) { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); } }
+@media (max-width: 860px) { .head { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Beacon: the logo's eye, lit amber. Max 2 per viewport. ---------- */
+.beacon { display: inline-block; flex: none; width: 11px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 3px var(--amber-halo); vertical-align: middle; }
+.beacon--sm { width: 7px; height: 5px; box-shadow: none; }
+.beacon--ink { background: var(--ink); box-shadow: none; }
+
+/* ---------- Buttons — machined, 2 px fillet ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px; border-radius: var(--r-1); border: 1px solid transparent;
+  font: 600 15px/1 var(--f-body); letter-spacing: 0.005em; text-decoration: none; cursor: pointer;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.btn--primary { background: var(--amber); color: var(--ink); }
+.btn--primary:hover { background: #ffb21a; }
+.btn--ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.dark .btn--ghost { border-color: rgba(244, 244, 241, 0.55); color: var(--paper); }
+.dark .btn--ghost:hover { background: var(--paper); color: var(--ink); }
+.btn--sm { min-height: 40px; padding: 0 16px; font-size: 14px; }
+/* Arrow (components/Arrow.astro): Lucide arrow, currentColor. Sized from the label's font-size so it
+   scales with every button / link: 1.25em box -> ink (14/24 of the box) = 0.73em ~ the label's cap height.
+   Stroke 2.25/24 -> ~1.8 px at 19 px, matching the weight of a 600-weight label stem. The vertical nudge
+   (--arr-dy) puts the ink centre on the cap-height centre rather than the em-box centre. */
+.arr { flex: none; display: block; width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; transform: translateY(var(--arr-dy, 0)); }
+.btn { --arr-dy: 0em; }
+.link-arrow { --arr-dy: -0.06em; }
+.person__in { --arr-dy: -0.05em; }
+.back a { --arr-dy: -0.07em; }
+@media (prefers-reduced-motion: no-preference) {
+  .arr--right, .arr--left { transition: transform var(--dur) var(--ease); }
+  .btn:hover .arr--right, .link-arrow:hover .arr--right { transform: translate(3px, var(--arr-dy, 0)); }
+  .link-arrow:hover .arr--left { transform: translate(-3px, var(--arr-dy, 0)); }
+}
+.link-arrow { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.link-arrow:hover { border-bottom-width: 2px; padding-bottom: 1px; }
+
+/* ---------- Blade brackets — four quarter-sweeps framing one subject ---------- */
+.bracketed { position: relative; }
+.bracketed > .br { position: absolute; width: 28px; height: 28px; border: 0 solid var(--ink); pointer-events: none; }
+.br--tl { top: 0; left: 0; border-top-width: 1.5px !important; border-left-width: 1.5px !important; border-top-left-radius: 28px 20px; }
+.br--tr { top: 0; right: 0; border-top-width: 1.5px !important; border-right-width: 1.5px !important; border-top-right-radius: 28px 20px; }
+.br--bl { bottom: 0; left: 0; border-bottom-width: 1.5px !important; border-left-width: 1.5px !important; border-bottom-left-radius: 28px 20px; }
+.br--br { bottom: 0; right: 0; border-bottom-width: 1.5px !important; border-right-width: 1.5px !important; border-bottom-right-radius: 28px 20px; }
+.dark .bracketed > .br { border-color: var(--paper); }
+
+/* ---------- Spec plate — the rating plate on an industrial enclosure ---------- */
+.plate { border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); }
+.plate__hdr { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--alloy); }
+.plate dl { display: grid; grid-template-columns: minmax(120px, auto) 1fr; }
+.plate dt, .plate dd { padding: 12px 18px; border-top: 1px solid var(--alloy); }
+.plate dl > :nth-child(-n + 2) { border-top: 0; }
+.plate dt { font-family: var(--f-display); font-stretch: 125%; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); padding-top: 15px; }
+.plate dd { font: 400 14px/1.5 var(--f-mono); }
+.dark .plate { background: transparent; border-color: var(--rule-dark); }
+.dark .plate__hdr, .dark .plate dt, .dark .plate dd { border-color: var(--rule-dark); }
+.dark .plate dt { color: var(--mist); }
+@media (max-width: 600px) {
+  .plate dl { grid-template-columns: minmax(0, 1fr); }
+  .plate dt { padding-bottom: 2px; border-top: 1px solid var(--alloy); }
+  .plate dd { border-top: 0; padding-top: 4px; }
+  .dark .plate dt { border-top-color: var(--rule-dark); }
+  .plate dl > :nth-child(2) { border-top: 0; }
+}
+
+/* ---------- Tables ---------- */
+/* Scroll cue (CSS only): soft edge shadows that show on a side only while there is more to scroll that way.
+   Cover gradients (background-attachment: local) hide the shadow once the content reaches that edge.
+   --tw / --tws are the wrapper colour and the shadow colour; the dark variant is set below. */
+.tbl-wrap {
+  --tw: var(--white); --tws: rgba(13, 15, 18, 0.2);
+  position: relative; border: 1px solid var(--alloy); border-radius: var(--r-2); overflow-x: auto;
+  background-color: var(--tw);
+  background-image:
+    linear-gradient(to right, var(--tw) 30%, transparent),
+    linear-gradient(to left, var(--tw) 30%, transparent),
+    radial-gradient(farthest-side at 0 50%, var(--tws), transparent),
+    radial-gradient(farthest-side at 100% 50%, var(--tws), transparent);
+  background-position: left center, right center, left center, right center;
+  background-size: 36px 100%, 36px 100%, 14px 100%, 14px 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+.tbl-wrap:focus-visible { outline-offset: 2px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 16px; }
+.tbl caption { text-align: left; padding: 16px 18px; border-bottom: 1px solid var(--alloy); }
+.tbl th { font-family: var(--f-display); font-stretch: 125%; font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel-deep); text-align: left; padding: 12px 18px; border-bottom: 1px solid var(--alloy); vertical-align: bottom; }
+.tbl td { padding: 13px 18px; border-bottom: 1px solid var(--alloy); vertical-align: top; }
+.tbl tbody tr:last-child td, .tbl tbody tr:last-child th { border-bottom: 0; }
+.tbl .r { text-align: right; }
+.tbl--mono td { font: 400 15px/1.5 var(--f-mono); }
+.dark .tbl-wrap { --tw: #14171c; --tws: rgba(244, 244, 241, 0.2); border-color: var(--rule-dark); }
+.dark .tbl th, .dark .tbl td, .dark .tbl caption { border-color: var(--rule-dark); }
+.dark .tbl th { color: var(--mist-lt); }
+
+/* Stacked rows (.tbl--stack, <= 900 px): every row becomes a card. The header row stays in the DOM (visually hidden) and
+   each cell prints its column name from data-label, so nothing scrolls sideways and nothing is cut off.
+     th[scope=row] / first plain cell = card title; td[data-label] = "Label ........ value" line;
+     td.long = label above, free text below;  td.chip = label + status chip on one line. */
+@media (max-width: 900px) {
+  .tbl--stack, .tbl--stack tbody, .tbl--stack tfoot, .tbl--stack tr, .tbl--stack th, .tbl--stack td { display: block; }
+  .tbl--stack { min-width: 0; }
+  .tbl--stack caption { display: block; width: 100%; }
+  .tbl--stack thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tbl--stack tbody tr, .tbl--stack tfoot tr { padding: 14px 16px; border-bottom: 1px solid var(--alloy); }
+  .tbl--stack tbody tr:last-child { border-bottom: 0; }
+  .tbl--stack th, .tbl--stack td, .tbl--stack tbody th, .tbl--stack tbody td { padding: 0; border: 0; }
+  .tbl--stack tbody th[scope='row'], .tbl--stack tbody td:not([data-label]) { margin-bottom: 6px; font: 600 16px/1.4 var(--f-body); letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .tbl--stack td[data-label] { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 2px 16px; padding: 7px 0; text-align: right; border-top: 1px dashed var(--alloy); }
+  .tbl--stack td[data-label]::before { content: attr(data-label); flex: none; margin-right: auto; max-width: 52%; text-align: left; font: 600 12px/1.4 var(--f-display); font-stretch: 118%; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel-deep); }
+  .tbl--stack td.long { display: block; text-align: left; }
+  .tbl--stack td.long::before { display: block; max-width: none; margin-bottom: 3px; }
+  .tbl--stack td.chip { border-top: 0; padding-top: 0; }
+  .tbl--stack td.chip { flex-wrap: wrap; }
+  .tbl--stack .lbl { white-space: normal; text-align: right; }
+  .tbl--stack td.r { white-space: nowrap; }
+  .tbl--stack tfoot tr { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; background: color-mix(in srgb, var(--seam) 60%, transparent); }
+  .tbl--stack tfoot th, .tbl--stack tfoot td { display: block; padding: 0; border: 0; }
+  .tbl--stack tfoot th[colspan] { text-align: left; }
+  .dark .tbl--stack td[data-label]::before { color: var(--mist-lt); }
+  .dark .tbl--stack td[data-label] { border-top-color: var(--rule-dark); }
+}
+
+/* ---------- Cards ---------- */
+.card { border: 1px solid var(--alloy); border-radius: var(--r-2); background: var(--white); padding: 28px; }
+.dark .card { background: rgba(244, 244, 241, 0.03); border-color: var(--rule-dark); }
+
+/* ---------- Photos ---------- */
+.photo { position: relative; border-radius: var(--r-2); overflow: hidden; background: var(--graphite); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo figcaption.tag { position: absolute; left: 16px; bottom: 16px; display: flex; gap: 10px; align-items: center; padding: 7px 12px; background: rgba(13, 15, 18, 0.78); border-radius: var(--r-1); color: var(--paper); font: 400 13px var(--f-mono); }
+.caption { margin-top: 12px; color: var(--steel-deep); font: 400 14px/1.6 var(--f-mono); }
+.dark .caption { color: var(--mist-lt); }
+
+/* ---------- Reveal (progressive; reduced-motion = no motion) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 240ms var(--ease), transform 240ms var(--ease); }
+  .js .reveal.is-in { opacity: 1; transform: none; }
+}
+
+/* ---------- Skip link ---------- */
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--paper); padding: 10px 16px; border-radius: var(--r-1); font-weight: 600; text-decoration: none; }
+.skip-link:focus { top: 12px; }

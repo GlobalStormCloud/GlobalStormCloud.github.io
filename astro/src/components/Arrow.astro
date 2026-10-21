@@ -1,0 +1,19 @@
+---
+/*
+  Shared trailing/leading arrow for every button and text link.
+  Lucide arrow-right / arrow-left / arrow-up-right (lucide-static 1.59.0, ISC — same vendored set and
+  licence as the pillar icons, see PillarIcon.astro). Inline SVG, currentColor, decorative.
+
+  Size, stroke and optical alignment live in ONE place: the `.arr` rule in styles/global.css
+  (em-based, so it follows each label's font size).
+*/
+import right from '../assets/icons/lucide/arrow-right.svg?raw';
+import left from '../assets/icons/lucide/arrow-left.svg?raw';
+import upRight from '../assets/icons/lucide/arrow-up-right.svg?raw';
+
+interface Props { dir?: 'right' | 'left' | 'up-right' }
+const { dir = 'right' } = Astro.props;
+const SOURCES = { right, left, 'up-right': upRight };
+const inner = SOURCES[dir].replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').trim();
+---
+<svg class={`arr arr--${dir}`} viewBox="0 0 24 24" aria-hidden="true" focusable="false" set:html={inner} />

@@ -1,0 +1,270 @@
+/*
+ * HurricaneOS Documentation theme — "Anodised", the same system as globalstorm.cloud.
+ * Light only: paper #f4f4f1 page, ink #0d0f12 text, steel #4a5561 secondary text, alloy #c6cbd1 hairlines,
+ * white plates, 2 px fillets on controls / 4 px on plates, one accent — signal amber #f5a300 (fill and lamp;
+ * as text only amber-deep #8f5d00, 5.1:1 on paper). Saira (display), Inter (body), IBM Plex Mono (readout),
+ * all self-hosted. Code blocks stay ink panels, like the site's boot console. No gradients, no purple, no blue.
+ * The tokens below are the site's (astro/src/styles/tokens.css) mapped onto Starlight's --sl-* properties.
+ */
+
+/*
+ * Self-hosted fonts (SIL OFL 1.1; licence texts beside the files in public/fonts/).
+ * Saira = display/headings, Inter = body/UI, IBM Plex Mono = code. latin + latin-ext subsets
+ * (ext is trimmed to the Polish letters). No Fontshare / Google Fonts: no third-party request.
+ */
+@font-face{font-family:"Saira";font-style:normal;font-weight:400 700;font-stretch:100% 125%;font-display:swap;src:url("/docs/fonts/saira-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Saira";font-style:normal;font-weight:400 700;font-stretch:100% 125%;font-display:swap;src:url("/docs/fonts/saira-var-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("/docs/fonts/inter-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("/docs/fonts/inter-var-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("/docs/fonts/plexmono-400-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+2215}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("/docs/fonts/plexmono-400-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("/docs/fonts/plexmono-500-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+2215}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("/docs/fonts/plexmono-500-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+
+/* ------------------------------------------------------------------ tokens */
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'] {
+	color-scheme: light;
+
+	--ink: #0d0f12;
+	--graphite: #1a1e24;
+	--steel: #4a5561;
+	--alloy: #c6cbd1;
+	--seam: #e7e8e4;
+	--paper: #f4f4f1;
+	--amber: #f5a300;
+	--amber-deep: #8f5d00;
+
+	--sl-font: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--sl-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--sl-border-radius: 2px;
+	--sl-border-radius-lg: 4px;
+
+	/* Greys, light direction: white = darkest text … black = page. */
+	--sl-color-white: #0d0f12;
+	--sl-color-gray-1: #1a1e24;
+	--sl-color-gray-2: #252b33;
+	--sl-color-gray-3: #4a5561;
+	--sl-color-gray-4: #5c6672;
+	--sl-color-gray-5: #c6cbd1;
+	--sl-color-gray-6: #e7e8e4;
+	--sl-color-gray-7: #efefec;
+	--sl-color-black: #f4f4f1;
+
+	/* Accent = amber. accent-high is the only amber used as TEXT (amber-deep, AA on paper and on white). */
+	--sl-color-accent-low: #f6e7c4;
+	--sl-color-accent: #f5a300;
+	--sl-color-accent-high: #8f5d00;
+
+	--sl-color-text: #0d0f12;
+	--sl-color-text-accent: #8f5d00;
+	--sl-color-text-invert: #0d0f12;
+	--sl-color-bg: #f4f4f1;
+	--sl-color-bg-nav: #f4f4f1;
+	--sl-color-bg-sidebar: #f4f4f1;
+	--sl-color-bg-inline-code: #e7e8e4;
+	--sl-color-bg-accent: #f5a300;
+	--sl-color-hairline: #c6cbd1;
+	--sl-color-hairline-light: #c6cbd1;
+	--sl-color-hairline-shade: #c6cbd1;
+	--sl-color-backdrop-overlay: rgba(13, 15, 18, 0.55);
+
+	--sl-shadow-sm: none;
+	--sl-shadow-md: none;
+	--sl-shadow-lg: 0 24px 40px -32px rgba(13, 15, 18, 0.5);
+
+	/* Functional colours only used by asides / badges; kept neutral + amber. */
+	--sl-color-blue: #0d0f12;
+	--sl-color-blue-low: #e7e8e4;
+	--sl-color-blue-high: #0d0f12;
+	--sl-color-purple: #4a5561;
+	--sl-color-purple-low: #e7e8e4;
+	--sl-color-purple-high: #1a1e24;
+	--sl-color-orange: #f5a300;
+	--sl-color-orange-low: #f6e7c4;
+	--sl-color-orange-high: #8f5d00;
+	--sl-color-red: #8f5d00;
+	--sl-color-red-low: #f6e7c4;
+	--sl-color-red-high: #8f5d00;
+	--sl-color-green: #4a5561;
+	--sl-color-green-low: #e7e8e4;
+	--sl-color-green-high: #1a1e24;
+
+	/* Layout: the site's 76 px bar and generous column. */
+	--sl-nav-height: 4.75rem;
+	--sl-nav-pad-x: clamp(1.25rem, 4.5vw, 4rem);
+	--sl-nav-pad-y: 0.75rem;
+	--sl-sidebar-width: 17.5rem;
+	--sl-content-width: 46rem;
+	--sl-content-pad-x: clamp(1.25rem, 3vw, 2.5rem);
+	--sl-line-height: 1.65;
+	--sl-text-h1: clamp(2rem, 1.55rem + 1.7vw, 2.875rem);
+	--sl-text-h2: clamp(1.625rem, 1.4rem + 0.9vw, 2.125rem);
+	--sl-text-h3: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+	--sl-text-h4: 1.125rem;
+}
+
+body { background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--amber); color: var(--ink); }
+
+/* Focus: 2 px amber-deep ring, 3 px offset (amber on dark panels) — the site's ring. */
+:focus-visible { outline: 2px solid var(--amber-deep); outline-offset: 3px; border-radius: 1px; }
+.expressive-code :focus-visible, dialog[open] :focus-visible { outline-color: var(--amber); }
+.skip-link { background: var(--amber) !important; color: var(--ink) !important; border: 1px solid var(--ink); border-radius: 2px; }
+
+/* ----------------------------------------------------------------- headings */
+h1, h2, h3, h4, .sl-markdown-content h1, .sl-markdown-content h2, .sl-markdown-content h3, .sl-markdown-content h4 {
+	font-family: 'Saira', 'Inter', sans-serif;
+	color: var(--ink);
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+}
+h1 { font-stretch: 118%; font-weight: 640; line-height: 1.05; }
+.sl-markdown-content h2 { font-stretch: 116%; font-weight: 630; line-height: 1.1; }
+.sl-markdown-content h3 { font-stretch: 112%; font-weight: 620; line-height: 1.2; }
+.sl-markdown-content h4 { font-stretch: 108%; font-weight: 600; line-height: 1.25; }
+@media (max-width: 600px) { h1, .sl-markdown-content h2 { font-stretch: 106%; } }
+
+/* ------------------------------------------------------------------- header */
+header.header, .page > header { background: var(--paper); border-bottom: 1px solid var(--alloy); }
+.header { font-family: 'Saira', 'Inter', sans-serif; }
+.site-title { font-family: 'Saira', 'Inter', sans-serif; font-stretch: 125%; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.site-title:hover { color: var(--steel); }
+@media (max-width: 40rem) { .site-title { font-size: 0.6875rem; letter-spacing: 0.1em; font-stretch: 112%; } }
+
+site-search button[data-open-modal] {
+	border: 1px solid var(--alloy); border-radius: 2px; background: #fff; color: var(--steel); box-shadow: none; min-height: 2.5rem;
+}
+site-search button[data-open-modal]:hover { border-color: var(--ink); color: var(--ink); }
+site-search kbd { font-family: 'IBM Plex Mono', monospace; background: var(--seam); border: 1px solid var(--alloy); border-radius: 2px; color: var(--steel); }
+dialog { border-radius: 4px; border: 1px solid var(--alloy); background: var(--paper); }
+
+/* Mobile menu button: the site's bordered 2 px control, not Starlight's round filled one. */
+.sl-menu-button {
+	border: 1px solid var(--ink); border-radius: 2px; background: var(--paper); color: var(--ink); box-shadow: none;
+	width: 2.75rem; height: 2.75rem; top: calc((var(--sl-nav-height) - 2.75rem) / 2); padding: 0; align-items: center; justify-content: center;
+}
+.sl-menu-button:has(~ :popover-open) { background: var(--ink); color: var(--paper); }
+
+/* Nothing lives in the header's right group any more (no theme picker, no language picker, no social links). */
+.right-group { display: none !important; }
+
+/* ------------------------------------------------------------------ sidebar */
+.sidebar-pane { background: var(--paper); border-inline-end: 1px solid var(--alloy); }
+.sidebar-content summary { padding-block: 0.5rem; }
+.sidebar-content .large {
+	font-family: 'Saira', 'Inter', sans-serif; font-stretch: 125%; font-weight: 600; font-size: 0.75rem;
+	letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel);
+}
+.sidebar-content ul ul { border-inline-start: 1px solid var(--alloy); }
+.sidebar-content a { font-size: 0.9375rem; line-height: 1.35; color: var(--ink); border-radius: 2px; }
+.sidebar-content a:hover { background: var(--seam); color: var(--ink); }
+.sidebar-content a[aria-current='page'] {
+	display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+	background: #fff; color: var(--ink); font-weight: 600; box-shadow: inset 0 0 0 1px var(--alloy);
+}
+/* The lit eye marks the current page, as in the site's menu. */
+.sidebar-content a[aria-current='page']::after { content: ''; flex: none; width: 7px; height: 5px; border-radius: 50%; background: var(--amber); }
+.sidebar-content svg { color: var(--steel); }
+
+/* -------------------------------------------------------------- right rail */
+starlight-toc nav > h2, .right-sidebar-panel h2 {
+	font-family: 'Saira', 'Inter', sans-serif; font-stretch: 125%; font-weight: 600; font-size: 0.75rem;
+	letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel);
+}
+starlight-toc a { color: var(--steel); font-size: 0.875rem; }
+starlight-toc a:hover { color: var(--ink); }
+starlight-toc a[aria-current='true'] { color: var(--ink); font-weight: 600; }
+.right-sidebar { border-inline-start: 1px solid var(--alloy); }
+mobile-starlight-toc nav { background: var(--paper); border-bottom: 1px solid var(--alloy); }
+
+/* -------------------------------------------------------------------- prose */
+.sl-markdown-content { text-align: left; }
+.sl-markdown-content p, .sl-markdown-content li { color: var(--ink); }
+.sl-markdown-content a:not(:where(.not-content *)) {
+	color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.sl-markdown-content a:not(:where(.not-content *)):hover { color: var(--ink); text-decoration-thickness: 2px; }
+.sl-markdown-content :is(h2, h3, h4) a { text-decoration: none; }
+.sl-markdown-content ::marker { color: var(--steel); }
+.sl-markdown-content hr { border-color: var(--alloy); }
+.sl-markdown-content strong { font-weight: 650; }
+.sl-markdown-content :not(pre) > code {
+	background: var(--seam); border: 1px solid var(--alloy); border-radius: 2px; color: var(--ink);
+	font-family: 'IBM Plex Mono', monospace; font-size: 0.875em; padding: 0.1em 0.35em;
+}
+.sl-markdown-content blockquote { border-inline-start: 3px solid var(--ink); color: var(--steel); }
+
+/* ------------------------------------------------------------------- tables */
+.sl-markdown-content table:not(:where(.not-content *)) {
+	border: 1px solid var(--alloy); border-radius: 4px; background: #fff; font-size: 0.9375rem; border-collapse: separate; border-spacing: 0;
+}
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+	padding: 0.7rem 1rem; border: 0; border-bottom: 1px solid var(--alloy); color: var(--ink); vertical-align: top;
+}
+.sl-markdown-content tr:last-child :is(th, td):not(:where(.not-content *)) { border-bottom: 0; }
+.sl-markdown-content thead th:not(:where(.not-content *)) {
+	background: transparent; border-bottom: 1px solid var(--ink);
+	font-family: 'Saira', 'Inter', sans-serif; font-stretch: 125%; font-weight: 600; font-size: 0.75rem;
+	letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel);
+}
+
+/* ------------------------------------------------------------- code blocks */
+.expressive-code { margin-block: 1.25rem; }
+.expressive-code figure.frame { border-radius: 4px; box-shadow: none; }
+.expressive-code .copy button { color: var(--amber); }
+/* Syntax colours: the site's console palette instead of the highlighter's green / blue / purple.
+   Text paper, keys and commands a touch heavier, values lit amber (as the lamp), comments mist.
+   (Token colours arrive as inline custom properties, hence the attribute selectors.) */
+.expressive-code code span[style*='#E1E4E8' i] { color: #f4f4f1 !important; }
+.expressive-code code span[style*='#85E89D' i], .expressive-code code span[style*='#B392F0' i] { color: #f4f4f1 !important; font-weight: 500; }
+.expressive-code code span[style*='#9ECBFF' i], .expressive-code code span[style*='#79B8FF' i] { color: #f5a300 !important; }
+.expressive-code code span[style*='#848B93' i] { color: #9aa4af !important; }
+
+/* ------------------------------------------------------------------- asides */
+.starlight-aside {
+	background: #fff; color: var(--ink); border: 1px solid var(--alloy); border-inline-start: 3px solid var(--sl-color-asides-border, var(--ink));
+	border-radius: 4px; padding: 1rem 1.125rem;
+}
+.starlight-aside__title {
+	font-family: 'Saira', 'Inter', sans-serif; font-stretch: 125%; font-weight: 600; font-size: 0.75rem;
+	letter-spacing: 0.14em; text-transform: uppercase; color: var(--sl-color-asides-text-accent, var(--ink));
+}
+.starlight-aside__content { color: var(--ink); }
+.starlight-aside--note { --sl-color-asides-text-accent: #1a1e24; --sl-color-asides-border: #1a1e24; }
+.starlight-aside--tip { --sl-color-asides-text-accent: #4a5561; --sl-color-asides-border: #4a5561; }
+.starlight-aside--caution { --sl-color-asides-text-accent: #8f5d00; --sl-color-asides-border: #f5a300; }
+.starlight-aside--danger { --sl-color-asides-text-accent: #8f5d00; --sl-color-asides-border: #8f5d00; }
+
+/* ------------------------------------------------------------ cards & links */
+.sl-markdown-content .card {
+	--sl-card-border: var(--alloy); --sl-card-bg: var(--seam);
+	background: #fff; border: 1px solid var(--alloy); border-radius: 4px; box-shadow: none;
+}
+.sl-markdown-content .card .title { font-family: 'Saira', 'Inter', sans-serif; font-stretch: 112%; font-weight: 620; color: var(--ink); }
+.sl-markdown-content .card .icon { color: var(--ink); border-radius: 2px; border-color: var(--alloy); background: var(--seam); }
+.sl-markdown-content .card .body { color: var(--steel); }
+
+.sl-link-card { background: #fff; border: 1px solid var(--alloy); border-radius: 4px; box-shadow: none; transition: border-color 0.22s; }
+.sl-link-card:hover { border-color: var(--ink); background: #fff; }
+.sl-link-card a, .sl-markdown-content .sl-link-card a:not(:where(.not-content *)) { text-decoration: none; color: var(--ink); }
+.sl-link-card .title { font-family: 'Saira', 'Inter', sans-serif; font-stretch: 112%; font-weight: 620; color: var(--ink); }
+.sl-link-card .description { color: var(--steel); }
+/* Same Lucide arrow-right as every site button (mask, currentColor): replaces Starlight's built-in glyph. */
+.sl-link-card svg.icon { display: none; }
+.sl-link-card::after {
+	content: ''; grid-column: 2; grid-row: 1; align-self: center; width: 1.25rem; height: 1.25rem; background: var(--ink);
+	-webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14'/><path d='m12 5 7 7-7 7'/></svg>") center / contain no-repeat;
+	mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14'/><path d='m12 5 7 7-7 7'/></svg>") center / contain no-repeat;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.sl-link-card::after { transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1); }
+	.sl-link-card:hover::after { transform: translateX(3px); }
+}
+
+/* ------------------------------------------------------------ small details */
+.sl-markdown-content .sl-anchor-link { min-width: 1.5rem; min-height: 1.5rem; }
+.pagination-links a:focus-visible { outline-offset: 3px; }
+footer { color: var(--steel); }

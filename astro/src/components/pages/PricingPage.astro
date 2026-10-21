@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHead from '../sections/PageHead.astro';
+import Pricing from '../sections/Pricing.astro';
+import Faq from '../sections/Faq.astro';
+import CtaBand from '../sections/CtaBand.astro';
+import PageRail from '../PageRail.astro';
+import { pricingRail } from '../../data/rail';
+import type { Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const c = content[locale];
+const p = c.pricing;
+const m = site[locale].meta.pricing;
+---
+<Layout title={m.title} description={m.desc} locale={locale} path="/pricing">
+  <PageHead eyebrow={p.eyebrow} title={p.title} desc={p.desc} terms={p.terms} />
+  <PageRail locale={locale} items={pricingRail(locale)} cta={c.hero.cta} />
+  <Pricing c={c} locale={locale} />
+  {/* The three buying questions (active device, trial, telemetry) sit next to the prices they explain. */}
+  <Faq c={c} locale={locale} pick={[0, 1, 2]} />
+  <CtaBand c={c} locale={locale} title={p.ctaTitle} desc={p.ctaNote} secondary={false} />
+</Layout>

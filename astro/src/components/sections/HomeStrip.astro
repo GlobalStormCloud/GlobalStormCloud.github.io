@@ -1,0 +1,28 @@
+---
+// Proof strip directly under the hero. The boot video that used to sit here (BootVideo
+// variant="accent") was removed when the hero became the boot console — showing the same
+// recording twice, stacked, was redundant. The strip now stands alone as a row of
+// hard proof points, and the full "watch it boot" console lives on the Platform page.
+import type { Content } from '../../data/content';
+interface Props { c: Content; locale: Locale; }
+import type { Locale } from '../../i18n/ui';
+const { c } = Astro.props;
+// Keep "CRA-ready" and the vessel name intact across line breaks (U+2011 non-breaking hyphen, U+00A0 no-break space).
+const keep = (t: string) => t.replace('CRA-ready', 'CRA\u2011ready').replace('Kapitan Głowacki', 'Kapitan\u00a0Głowacki');
+---
+<section class="strip wrap" aria-label="At a glance">
+  <ul role="list" class="proof mono">
+    {c.trust.items.map((t) => <li>{keep(t)}</li>)}
+  </ul>
+</section>
+<style>
+  .strip { padding-bottom: 0; }
+  .proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--alloy); border-bottom: 1px solid var(--alloy); }
+  .proof li { padding: 18px 24px 18px 0; color: var(--steel); }
+  .proof li + li { padding-left: 24px; border-left: 1px solid var(--alloy); }
+  @media (max-width: 860px) {
+    .proof { grid-template-columns: minmax(0, 1fr); }
+    .proof li, .proof li + li { padding: 14px 0; border-left: 0; }
+    .proof li + li { border-top: 1px solid var(--alloy); }
+  }
+</style>

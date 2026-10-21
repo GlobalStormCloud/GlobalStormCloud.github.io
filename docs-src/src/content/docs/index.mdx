@@ -1,0 +1,51 @@
+---
+title: HurricaneOS Documentation
+description: How to run devices on HurricaneOS and ship your application to them — for operators who manage the fleet and developers who push code.
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This documentation explains how to run devices on HurricaneOS and how to ship
+your application to them: flashing a device, booting and provisioning it,
+connecting a Git repository, pushing code, and deploying a build to one device
+or your whole fleet.
+
+It is written for two audiences.
+
+<CardGrid>
+	<Card title="Operators" icon="setting">
+		People who prepare hardware and manage the device fleet — flashing
+		disks, bulk provisioning, first boot, monitoring, and day-2 operations.
+	</Card>
+	<Card title="Developers" icon="laptop">
+		People who write the application and push code — connecting a Git
+		repository, authoring docker-compose services, building, and deploying.
+	</Card>
+</CardGrid>
+
+Where a step is operator-only or developer-only, it is marked.
+
+## Start here
+
+<CardGrid>
+	<LinkCard
+		title="How the system works"
+		description="The end-to-end flow from Git push to a running container, and the principles behind it."
+		href="/docs/overview/how-it-works/"
+	/>
+	<LinkCard
+		title="Prerequisites & hardware"
+		description="What you need before preparing a device."
+		href="/docs/operators/prerequisites/"
+	/>
+	<LinkCard
+		title="Writing your application"
+		description="Author the docker-compose services that run on your fleet."
+		href="/docs/developers/writing-your-application/"
+	/>
+	<LinkCard
+		title="Reference & glossary"
+		description="Troubleshooting and the terms used across this manual."
+		href="/docs/reference/glossary/"
+	/>
+</CardGrid>

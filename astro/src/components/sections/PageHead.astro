@@ -1,0 +1,23 @@
+---
+interface Props { eyebrow: string; title: string; desc?: string; terms?: string; beacon?: boolean; }
+const { eyebrow, title, desc, terms, beacon = false } = Astro.props;
+---
+<section class="ph wrap">
+  <div class="ph__main">
+    <p class="eyebrow legend">{beacon && <span class="beacon" aria-hidden="true"></span>}{eyebrow}</p>
+    <h1>{title}</h1>
+  </div>
+  {(desc || terms) && (
+    <div class="ph__side">
+      {desc && <p class="lead">{desc}</p>}
+      {terms && <p class="mono ph__terms">{terms}</p>}
+      <slot />
+    </div>
+  )}
+</section>
+<style>
+  .ph { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 48px; align-items: end; padding-block: clamp(48px, 7vw, 96px) clamp(36px, 4vw, 56px); }
+  .ph h1 { margin-top: 22px; }
+  .ph__terms { margin-top: 14px; color: var(--steel-deep); }
+  @media (max-width: 860px) { .ph { grid-template-columns: minmax(0, 1fr); } }
+</style>

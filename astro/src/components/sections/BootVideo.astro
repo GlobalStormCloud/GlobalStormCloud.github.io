@@ -1,0 +1,81 @@
+---
+// The HurricaneOS boot recording (one self-hosted copy: /media/hurricaneos-boot.webm,
+// 830×324 VP8, 13.7 s, ~285 KB). Poster = the legible final frame (login banner).
+// Hygiene: muted + playsinline + preload="none" (nothing downloads until play),
+// native controls, text fallback. 'feature' plays when scrolled into view unless the
+// visitor prefers reduced motion; 'accent' never autoplays — click to play only.
+import Logo from '../Logo.astro';
+import type { Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; variant?: 'feature' | 'accent'; }
+const { locale, variant = 'feature' } = Astro.props;
+const b = site[locale].boot;
+const hh = site[locale].hero;
+const src = '/media/hurricaneos-boot.webm';
+const poster = '/media/hurricaneos-boot-poster.jpg';
+---
+<div class:list={['console', `console--${variant}`]}>
+  <div class="console__bar">
+    <span class="console__mark"><Logo variant="mark" /></span>
+    <span class="mono console__label">{variant === 'accent' ? b.homeCaption : b.frameLabel}</span>
+    <span class="console__lamp mono"><span class="beacon beacon--sm" aria-hidden="true"></span>{hh.lamp}</span>
+  </div>
+  <video
+    class="console__video"
+    muted
+    playsinline
+    preload="none"
+    controls
+    width="830"
+    height="324"
+    poster={poster}
+    aria-label={b.playLabel}
+    data-autoplay-inview={variant === 'feature' ? 'true' : undefined}
+  >
+    <source src={src} type="video/webm" />
+    <track kind="captions" src="/media/hurricaneos-boot.en.vtt" srclang="en" label="Console (silent — no spoken audio)" default />
+    <p class="console__fallback">{b.fallback} <a href={src}>{b.fallbackLink}</a></p>
+  </video>
+  <div class="console__meta mono">
+    <span class="console__flow">{hh.metaFlow}</span>
+    <span class="console__sep" aria-hidden="true">·</span>
+    <span>{hh.metaUnedited}</span>
+    <span class="console__sep" aria-hidden="true">·</span>
+    <span>{hh.metaVm}</span>
+  </div>
+</div>
+
+<style>
+  .console { border: 1px solid var(--rule-dark); border-radius: var(--r-2); background: #000; overflow: hidden; color: var(--paper); }
+  .console__bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--graphite); border-bottom: 1px solid var(--rule-dark); }
+  .console__mark { height: 16px; color: var(--paper); }
+  .console__mark :global(.logo) { height: 16px; }
+  .console__label { color: var(--mist); font-size: 13px; }
+  .console__lamp { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; color: var(--mist); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .console__video { width: 100%; aspect-ratio: 830 / 324; background: #000; }
+  .console__fallback { padding: 20px; color: var(--paper); }
+  .console__meta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding: 11px 15px; background: var(--graphite); border-top: 1px solid var(--rule-dark); color: var(--mist); font-size: 12px; }
+  .console__flow { color: var(--paper); }
+  .console__sep { color: var(--rule-dark); }
+  @media (max-width: 600px) { .console__meta { gap: 4px 14px; } .console__sep { display: none; } }
+</style>
+
+<script is:inline>
+  (function () {
+    var vids = document.querySelectorAll('video[data-autoplay-inview]');
+    if (!vids.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return; // stays on poster; controls let the visitor play it
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+          if (v.dataset.played) return; // play once; never loops
+          v.dataset.played = '1';
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else if (!v.paused) { v.pause(); }
+      });
+    }, { threshold: [0, 0.6] });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+</script>

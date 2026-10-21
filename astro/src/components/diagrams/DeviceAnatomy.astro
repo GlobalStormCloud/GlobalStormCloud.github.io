@@ -1,0 +1,109 @@
+---
+// Diagram 1 — what is on a HurricaneOS device.
+// Source: user manual §1 (how-it-works: secure by default), §2.1–2.3 (partitions, TPM 2.0,
+// storage, disk expansion), §6 (first boot: key generated inside the TPM, never leaves),
+// §9 (x-hurricane.capabilities, deny-by-default).
+import type { Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; dark?: boolean; }
+const { locale, dark = false } = Astro.props;
+const d = site[locale].diagrams;
+const a = d.anatomy;
+const weights = [1, 2.2, 2.2, 3.4];
+---
+<figure class:list={['dg', { 'dg--dark': dark }]} aria-labelledby={`dg-anat-${locale}`}>
+  <figcaption class="sr-only" id={`dg-anat-${locale}`}>{a.title}. {a.desc}</figcaption>
+
+  <div class="node node--cloud">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10.5a3.5 3.5 0 0 0 .6-6.95A5.5 5.5 0 0 0 7.4 9.2 4.5 4.5 0 0 0 7 18Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+    <span class="node__name">{a.link.name}</span>
+  </div>
+  <div class="link" aria-hidden="false">
+    <svg class="link__line" viewBox="0 0 12 64" preserveAspectRatio="none" aria-hidden="true"><path d="M6 0v64M2 6l4-6 4 6M2 58l4 6 4-6" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+    <span class="mono link__label">{a.link.meta}</span>
+  </div>
+
+  <div class="device">
+    <p class="legend device__legend">{locale === 'pl' ? 'Urządzenie edge' : 'Edge device'}</p>
+
+    <div class="node node--runtime">
+      <span class="node__name">{a.runtime.name}</span>
+      <ul role="list" class="mono runtime">{a.runtime.items.map((i) => <li>{i}</li>)}</ul>
+    </div>
+
+    <div class="node node--tpm">
+      <svg class="chip" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="14" y="14" width="36" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="24" y="24" width="16" height="16" rx="1" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.4">{[20, 28, 36, 44].map((p) => (<><line x1={p} y1="6" x2={p} y2="14"/><line x1={p} y1="50" x2={p} y2="58"/><line x1="6" y1={p} x2="14" y2={p}/><line x1="50" y1={p} x2="58" y2={p}/></>))}</g>
+      </svg>
+      <span class="node__name">{a.tpm.name}</span>
+      <span class="node__role">{a.tpm.role}</span>
+      <span class="mono node__meta">{a.tpm.meta}</span>
+    </div>
+
+    <div class="disk">
+      <p class="mono disk__label">{a.disk}</p>
+      <ol role="list" class="bar">
+        {a.parts.map((p, i) => (
+          <li class:list={['seg', `seg--${i}`]} style={`--w:${weights[i]}`}>
+            <span class="seg__name">{p.name}{i === 1 && <span class="beacon beacon--sm" aria-hidden="true"></span>}</span>
+            <span class="seg__role">{p.role}</span>
+            <span class="mono seg__meta">{p.meta}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="mono disk__grow"><svg viewBox="0 0 40 10" aria-hidden="true"><path d="M0 5h36M31 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Data — {a.growsNote}</p>
+    </div>
+  </div>
+  <p class="mono dg__note">{d.note}</p>
+</figure>
+
+<style>
+  .dg { --line: var(--alloy); --fg: var(--ink); --sub: var(--steel); --bg: var(--white); color: var(--fg); }
+  .dg--dark { --line: var(--rule-dark); --fg: var(--paper); --sub: var(--mist); --bg: rgba(244, 244, 241, 0.03); }
+  .node { border: 1px solid var(--line); border-radius: var(--r-2); background: var(--bg); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+  .node__name { font-family: var(--f-display); font-stretch: 112%; font-weight: 620; font-size: 17px; line-height: 1.25; }
+  .node__role { color: var(--sub); font-size: 14px; }
+  .node__meta { color: var(--sub); font-size: 13px; }
+  .ico { width: 22px; height: 22px; color: var(--sub); }
+  .node--cloud { flex-direction: row; align-items: center; gap: 12px; width: fit-content; margin-inline: auto; padding: 14px 22px; }
+  .link { position: relative; display: flex; align-items: center; justify-content: center; height: 64px; color: var(--sub); }
+  .link__line { width: 12px; height: 64px; flex: none; }
+  .link__label { position: absolute; left: calc(50% + 18px); top: 50%; transform: translateY(-50%); font-size: 13px; white-space: nowrap; }
+  .device { position: relative; border: 1px solid var(--fg); border-radius: var(--r-2); padding: 44px 24px 24px; display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); gap: 20px; }
+  .device__legend { position: absolute; top: 14px; left: 24px; color: var(--sub); }
+  .node--runtime { grid-column: 1; }
+  .runtime { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin-top: 10px; color: var(--sub); font-size: 13px; }
+  .runtime li { padding-left: 14px; position: relative; }
+  .runtime li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 1px; background: currentColor; }
+  .node--tpm { grid-column: 2; grid-row: 1 / span 2; align-items: flex-start; justify-content: flex-start; }
+  .chip { width: 56px; height: 56px; margin-bottom: 10px; }
+  .disk { grid-column: 1; }
+  .disk__label { color: var(--sub); font-size: 13px; margin-bottom: 8px; }
+  .bar { display: flex; border: 1px solid var(--fg); border-radius: var(--r-2); overflow: hidden; }
+  .seg { flex: var(--w) 1 0; min-width: 0; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; border-left: 1px solid var(--line); background: var(--bg); }
+  .seg:first-child { border-left: 0; }
+  .seg__name { display: flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-weight: 500; font-size: 14px; }
+  .seg__role { font-size: 14px; line-height: 1.35; }
+  .seg__meta { color: var(--sub); font-size: 12px; line-height: 1.4; }
+  .seg--1 { background: var(--fg); color: var(--paper); }
+  .dg--dark .seg--1 { color: var(--ink); }
+  .seg--1 .seg__meta { color: inherit; opacity: 0.85; }
+  .seg--3 { background-image: repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, var(--line) 60%, transparent) 7px 8px); }
+  .disk__grow { display: flex; align-items: center; gap: 10px; margin-top: 10px; color: var(--sub); font-size: 13px; justify-content: flex-end; }
+  .disk__grow svg { width: 40px; height: 10px; flex: none; }
+  .dg__note { margin-top: 14px; color: var(--sub); font-size: 12px; }
+  @media (max-width: 860px) {
+    .device { grid-template-columns: minmax(0, 1fr); padding: 44px 16px 16px; }
+    .node--tpm, .disk, .node--runtime { grid-column: 1; grid-row: auto; }
+    .node--tpm { display: grid; grid-template-columns: 56px 1fr; column-gap: 14px; align-items: center; }
+    .node--tpm .chip { grid-row: 1 / span 3; margin: 0; }
+    .bar { flex-direction: column; }
+    .seg { border-left: 0; border-top: 1px solid var(--line); }
+    .seg:first-child { border-top: 0; }
+    .disk__grow { justify-content: flex-start; }
+    .runtime { grid-template-columns: minmax(0, 1fr); }
+    .link__label { white-space: normal; max-width: 13em; }
+  }
+</style>

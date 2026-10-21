@@ -1,0 +1,43 @@
+---
+import ArrowText from '../ArrowText.astro';
+import DeviceAnatomy from '../diagrams/DeviceAnatomy.astro';
+import UpdateFlow from '../diagrams/UpdateFlow.astro';
+import DeliveryPipeline from '../diagrams/DeliveryPipeline.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; kind: 'anatomy' | 'anatomy-teaser' | 'update' | 'pipeline'; }
+const { c, locale, kind } = Astro.props;
+const s = site[locale];
+const d = s.diagrams;
+const id = kind === 'pipeline' ? 'pipeline' : kind === 'update' ? 'updates' : 'architecture';
+const index = kind === 'pipeline' ? s.sections.pipeline : kind === 'update' ? s.sections.update : s.sections.architecture;
+const title = kind === 'pipeline' ? d.pipeline.title : kind === 'update' ? d.update.title : d.anatomy.title;
+const desc = kind === 'pipeline' ? d.pipeline.desc : kind === 'update' ? d.update.desc : (kind === 'anatomy' ? c.architecture.desc : d.anatomy.desc);
+---
+<section class:list={['band wrap', { 'band--seamtop': kind === 'update' }]} id={id} aria-labelledby={`${id}-h`}>
+  <div class="head">
+    <div>
+      <p class="index">{kind === 'anatomy-teaser' ? s.sections.architecture.replace(/^\d+ \/ /, '') : index}</p>
+      <h2 id={`${id}-h`}>{title}</h2>
+    </div>
+    <p class="lead">{desc}</p>
+  </div>
+  <div class="reveal">
+    {(kind === 'anatomy' || kind === 'anatomy-teaser') && <DeviceAnatomy locale={locale} />}
+    {kind === 'update' && <UpdateFlow locale={locale} />}
+    {kind === 'pipeline' && <DeliveryPipeline locale={locale} />}
+  </div>
+  {kind === 'anatomy' && (
+    <dl class="notes">
+      {c.architecture.notes.map((n) => (<div><dt class="h3">{n.term}</dt><dd class="muted">{n.text}</dd></div>))}
+    </dl>
+  )}
+  {kind === 'anatomy-teaser' && <p class="more"><a class="link-arrow" href={localizePath('/platform', locale) + '#architecture'}><ArrowText text={c.teasers.architecture.link} /></a></p>}
+</section>
+<style>
+  .notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 32px; margin-top: 48px; border-top: 1px solid var(--alloy); padding-top: 28px; }
+  .notes dd { margin-top: 10px; font-size: 16px; }
+  .more { margin-top: 32px; }
+  @media (max-width: 860px) { .notes { grid-template-columns: minmax(0, 1fr); } }
+</style>

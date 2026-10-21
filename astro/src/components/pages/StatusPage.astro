@@ -1,0 +1,44 @@
+---
+import ArrowText from '../ArrowText.astro';
+import Layout from '../../layouts/Layout.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const s = site[locale];
+const st = s.status;
+---
+<Layout title={s.meta.status.title} description={s.meta.status.desc} locale={locale} path="/status" noindex>
+  <section class="wrap status">
+    <p class="eyebrow legend"><span class="beacon" aria-hidden="true"></span>{st.eyebrow}</p>
+    <h1>{st.title}</h1>
+    <p class="lead status__lead">{st.desc}</p>
+
+    <div class="plate status__plate">
+      <div class="plate__hdr">
+        <span class="legend">{st.stateLabel}</span>
+        <span class="mono">{st.stateValue}</span>
+      </div>
+      <dl>
+        <dt>{locale === 'pl' ? 'Płaszczyzna kontrolna' : 'Control plane'}</dt>
+        <dd>{st.stateValue}</dd>
+        <dt>{locale === 'pl' ? 'Strona WWW' : 'Website'}</dt>
+        <dd>{st.stateValue}</dd>
+      </dl>
+    </div>
+
+    <p class="status__note muted">{st.note}</p>
+    <p class="status__links">
+      <a class="link-arrow" href={localizePath('/company', locale) + '#contact'}>{locale === 'pl' ? 'Kontakt' : 'Contact'}</a>
+      <a class="link-arrow" href={localizePath('/', locale)}><ArrowText text={st.back} /></a>
+    </p>
+  </section>
+</Layout>
+<style>
+  .status { padding-block: clamp(56px, 7vw, 96px) var(--band-y); display: grid; justify-items: start; gap: 0; }
+  .status h1 { margin: 20px 0 0; }
+  .status__lead { margin-top: 20px; }
+  .status__plate { margin-top: 36px; width: 100%; max-width: 460px; }
+  .status__note { margin-top: 28px; max-width: 42em; }
+  .status__links { margin-top: 28px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+</style>

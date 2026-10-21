@@ -1,0 +1,43 @@
+---
+/*
+  HurricaneOS pillar glyphs — Lucide (lucide-static 1.59.0, ISC), vendored.
+  Open-licence stock icons replace the earlier hand-made set (no generated art,
+  no commercial-licence risk). Source SVGs are unmodified copies in
+  src/assets/icons/lucide/; the full LICENSE (ISC + the Feather-derived MIT
+  notice) ships at /icons/LICENSE-lucide-static.txt. No runtime fetch, no CDN.
+
+    0 Survival    database-backup  storage + restore arrow: falls back to known-good
+    1 Security    shield-check     identity / locked down
+    2 Operated    server-cog       a device someone else maintains
+    3 Sovereignty earth-lock       EU-hosted, data stays yours
+
+  Strictly MONOCHROME currentColor — no amber (keeps the ≤5 % amber rule).
+  Hairline holds at every size by tuning stroke-width per render size
+  (Lucide 24-unit grid): nav 1.5 → ~1.75 px @28, card 1.0 → 2 px @48,
+  feature 0.75 → 3 px @96.
+*/
+import survival from '../../assets/icons/lucide/database-backup.svg?raw';
+import security from '../../assets/icons/lucide/shield-check.svg?raw';
+import operated from '../../assets/icons/lucide/server-cog.svg?raw';
+import sovereignty from '../../assets/icons/lucide/earth-lock.svg?raw';
+
+interface Props { i: number; size?: 'nav' | 'card' | 'feature'; class?: string }
+const { i, size = 'card', class: cls = '' } = Astro.props;
+
+const SOURCES = [survival, security, operated, sovereignty];
+// Keep only the shapes; the wrapper <svg> is rebuilt below so size, stroke and
+// colour are controlled by CSS (currentColor) rather than baked attributes.
+const inner = (SOURCES[i] ?? '').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').trim();
+---
+<span class:list={['picon', `picon--${size}`, cls]} aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" focusable="false" set:html={inner} />
+</span>
+
+<style>
+  .picon { display: inline-block; line-height: 0; color: var(--ink); --icon-stroke: 1; }
+  .picon--nav { --icon-stroke: 1.5; }
+  .picon--card { --icon-stroke: 1; }
+  .picon--feature { --icon-stroke: 0.75; }
+  .picon :global(svg) { width: 100%; height: 100%; display: block; overflow: visible; stroke-width: var(--icon-stroke); }
+  .dark .picon { color: var(--paper); }
+</style>

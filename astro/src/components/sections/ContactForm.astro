@@ -1,0 +1,156 @@
+---
+import Arrow from '../Arrow.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+import { engCopy, SECURITY_EMAIL } from '../../data/engineering-copy';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const s = site[locale];
+const f = c.contact;
+const ec = engCopy[locale].form;
+// The SAME Google Apps Script endpoint the current Jekyll site's form posts to (main:_includes/cta.html,
+// identical on the live site) — requests land in the same Sheet, tab "demo-requests".
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwYfg6kxvduAZ4vsNsrymGteEi8uPcexuvDI9Sfq_7yFCpSn7LOj5LLO0dlY1pHDk4cTQ/exec';
+const SHEET = 'demo-requests';
+const [failBefore, failAfter = ''] = ec.failure.split(SECURITY_EMAIL);
+---
+<section class="band dark" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact">
+    <div>
+      <p class="index">{s.sections.contact}</p>
+      <h2 id="contact-h">{f.title}</h2>
+      <p class="lead contact__lead">{f.desc}</p>
+      <p class="mono contact__mail"><a href="mailto:contact@globalstorm.cloud">contact@globalstorm.cloud</a></p>
+      <div class="next">
+        <p class="index">{s.contactSteps.title}</p>
+        <ol role="list" class="next__list">
+          {s.contactSteps.items.map((it, i) => (<li><span class="mono next__n">{String(i + 1).padStart(2, '0')}</span><span>{it}</span></li>))}
+        </ol>
+      </div>
+    </div>
+    <form class="form" method="post" action={ENDPOINT} data-sheet={SHEET}>
+      <div class="form__hp" aria-hidden="true">
+        <label for="f-hp">Leave this field empty</label>
+        <input id="f-hp" type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="form__row">
+        <label for="f-name">{f.name}</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div class="form__row">
+        <label for="f-email">{f.email}</label>
+        <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required />
+      </div>
+      <div class="form__row">
+        <label for="f-company">{f.company}</label>
+        <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="f-b2b" />
+      </div>
+      <div class="form__row">
+        <label for="f-interest">{f.interest}</label>
+        <select id="f-interest" name="interest" aria-describedby="f-b2b">{f.interestOptions.map((o) => <option>{o}</option>)}</select>
+        <p id="f-b2b" class="form__note">{ec.b2b}</p>
+      </div>
+      <div class="form__row">
+        <label for="f-message">{f.message}</label>
+        <textarea id="f-message" name="message" rows="4"></textarea>
+      </div>
+      <p class="form__privacy">{f.privacyNote} <a href={localizePath('/legal', locale)}>{f.privacyNoteLink}</a>.</p>
+      <button class="btn btn--primary" type="submit" data-sending={ec.sending}>{f.submit}<Arrow /></button>
+      <p class="form__status mono" role="status" aria-live="polite" tabindex="-1" data-form-ok hidden>{f.success}</p>
+      <p class="form__status form__status--err mono" role="alert" tabindex="-1" data-form-fail hidden>{failBefore}<a href={`mailto:${SECURITY_EMAIL}`}>{SECURITY_EMAIL}</a>{failAfter}</p>
+    </form>
+  </div>
+</section>
+<script is:inline>
+  (function () {
+    var form = document.querySelector('#contact form');
+    if (!form) return;
+    var btn = form.querySelector('button[type="submit"]');
+    var ok = form.querySelector('[data-form-ok]');
+    var fail = form.querySelector('[data-form-fail]');
+    var label = btn.firstChild;                 // the button's text node
+    var idle = label.textContent;
+    // Same fields, same order and same service keys as the Jekyll form, so the Sheet columns line up.
+    var NAMES = ['name', 'email', 'company', 'interest', 'message'];
+    var busy = false;
+
+    function setBusy(on) {
+      busy = on; btn.disabled = on;
+      btn.setAttribute('aria-busy', on ? 'true' : 'false');
+      label.textContent = on ? btn.getAttribute('data-sending') + ' ' : idle;
+    }
+    function succeed() {
+      setBusy(false);
+      fail.hidden = true; ok.hidden = false;
+      btn.hidden = true; form.reset();
+      ok.focus();
+    }
+    function failed() {
+      setBusy(false);
+      ok.hidden = true; fail.hidden = false;   // the visitor's input is kept so they can retry
+      fail.focus();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (busy) return;
+      // Spam trap: bots fill the hidden field. Do nothing and show nothing (as the Jekyll form did).
+      if (form.elements.honeypot && form.elements.honeypot.value) return;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var data = {};
+      NAMES.forEach(function (n) { data[n] = form.elements[n].value; });
+      data.formDataNameOrder = JSON.stringify(NAMES);
+      data.formGoogleSheetName = form.getAttribute('data-sheet') || 'responses';
+      data.formGoogleSendEmail = '';
+      var body = Object.keys(data).map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); }).join('&');
+
+      setBusy(true); ok.hidden = true; fail.hidden = true;
+      var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 20000);
+      fetch(form.getAttribute('action'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body,
+        signal: ctl ? ctl.signal : undefined
+      }).then(function (r) {
+        clearTimeout(timer);
+        if (!r.ok) return failed();
+        // The script answers 200 even for its own errors; honour a JSON {"result":"error"} if it sends one.
+        return r.text().then(function (t) {
+          try { var j = JSON.parse(t); if (j && j.result === 'error') return failed(); } catch (_) { /* not JSON: a 2xx is enough */ }
+          succeed();
+        });
+      }).catch(function () { clearTimeout(timer); failed(); });
+    });
+  })();
+</script>
+<style>
+  .contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px 56px; align-items: start; }
+  .contact h2 { margin-top: 18px; }
+  .contact__lead { margin-top: 18px; }
+  .contact__mail { margin-top: 22px; }
+  .contact__mail a { color: var(--paper); }
+  .next { margin-top: 48px; }
+  .next__list { margin-top: 18px; border-top: 1px solid var(--rule-dark); }
+  .next__list li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--rule-dark); color: var(--mist); font-size: 16px; line-height: 1.55; }
+  .next__n { color: var(--paper); padding-top: 2px; }
+  .form { display: grid; gap: 18px; padding: 28px; border: 1px solid var(--rule-dark); border-radius: var(--r-2); background: rgba(244, 244, 241, 0.03); }
+  .form__row { display: grid; gap: 8px; }
+  .form label { font-family: var(--f-display); font-stretch: 125%; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist); }
+  .form input, .form select, .form textarea { width: 100%; min-height: 48px; padding: 12px 14px; background: var(--ink); border: 1px solid rgba(244, 244, 241, 0.62); border-radius: var(--r-1); color: var(--paper); font: 400 16px var(--f-body); }
+  .form textarea { min-height: 120px; resize: vertical; }
+  .form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber); }
+  .form__privacy { font-size: 14px; color: var(--mist); }
+  .form__privacy a { color: var(--paper); }
+  .form .btn { justify-self: start; }
+  .form__note { font-size: 14px; color: var(--mist); }
+  .form__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .form__status { color: var(--paper); }
+  .form__status--err { padding: 12px 14px; border: 1px solid var(--amber); border-radius: var(--r-1); }
+  .form__status a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+  .form [hidden] { display: none !important; }
+  .form .btn[disabled] { opacity: 0.65; cursor: progress; }
+  @media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .form { padding: 20px; } .form .btn { justify-self: stretch; } }
+</style>

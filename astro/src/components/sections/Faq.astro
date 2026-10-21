@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { c: Content; locale: Locale; /** Show only these entries (indexes into c.faq.items); default all. */ pick?: number[]; }
+const { c, locale, pick } = Astro.props;
+const s = site[locale];
+const f = c.faq;
+const items = pick ? pick.map((i) => f.items[i]).filter(Boolean) : f.items;
+---
+<section class="band wrap" id="faq" aria-labelledby="faq-h">
+  <div class="head">
+    <div>
+      <p class="index">{s.sections.faq}</p>
+      <h2 id="faq-h">{f.title}</h2>
+    </div>
+    <p class="lead">{f.desc}</p>
+  </div>
+  <div class="faq">
+    {items.map((it) => (
+      <details class="q">
+        <summary><span class="q__t">{it.q}</span><span class="q__i" aria-hidden="true"></span></summary>
+        <p class="muted q__a">{it.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<style>
+  .faq { border-top: 1px solid var(--ink); max-width: 64rem; }
+  .q { border-bottom: 1px solid var(--alloy); }
+  .q summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 64px; padding: 16px 0; cursor: pointer; list-style: none; }
+  .q summary::-webkit-details-marker { display: none; }
+  .q__t { font-family: var(--f-display); font-stretch: 110%; font-weight: 620; font-size: 19px; line-height: 1.3; }
+  .q__i { position: relative; width: 14px; height: 14px; flex: none; }
+  .q__i::before, .q__i::after { content: ""; position: absolute; left: 0; top: 6.5px; width: 14px; height: 1.5px; background: var(--ink); transition: transform var(--dur) var(--ease); }
+  .q__i::after { transform: rotate(90deg); }
+  .q[open] .q__i::after { transform: rotate(0deg); }
+  .q__a { padding: 0 0 22px; max-width: 46em; font-size: 16px; }
+  /* Hover cue: the title is underlined and the plus turns amber-deep (5.1:1 on paper). */
+  .q summary:hover .q__t { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+  .q summary:hover .q__i::before, .q summary:hover .q__i::after { background: var(--amber-deep); }
+</style>

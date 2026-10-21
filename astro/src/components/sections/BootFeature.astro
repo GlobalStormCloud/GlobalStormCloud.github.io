@@ -1,0 +1,32 @@
+---
+import BootVideo from './BootVideo.astro';
+import type { Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const b = site[locale].boot;
+---
+<section class="band dark" id="boot" aria-labelledby="boot-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="index">{b.index}</p>
+        <h2 id="boot-h">{b.title}</h2>
+      </div>
+      <p class="lead">{b.desc}</p>
+    </div>
+    <figure class="boot">
+      <BootVideo locale={locale} variant="feature" />
+      <figcaption class="caption">{b.caption}</figcaption>
+    </figure>
+    <dl class="points">
+      {b.points.map((p) => (<div><dt class="h3">{p.term}</dt><dd>{p.text}</dd></div>))}
+    </dl>
+  </div>
+</section>
+<style>
+  .boot { margin: 0; }
+  .points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 32px; margin-top: 48px; border-top: 1px solid var(--rule-dark); padding-top: 28px; }
+  .points dd { margin-top: 10px; color: var(--mist); font-size: 16px; }
+  @media (max-width: 860px) { .points { grid-template-columns: minmax(0, 1fr); } }
+</style>

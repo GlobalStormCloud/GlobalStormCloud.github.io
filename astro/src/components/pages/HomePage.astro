@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HomeHero from '../sections/HomeHero.astro';
+import HomeStrip from '../sections/HomeStrip.astro';
+import Pillars from '../sections/Pillars.astro';
+import DiagramSection from '../sections/DiagramSection.astro';
+import FieldReport from '../sections/FieldReport.astro';
+import Hardware from '../sections/Hardware.astro';
+import PricingTeaser from '../sections/PricingTeaser.astro';
+import TrustRow from '../sections/TrustRow.astro';
+import CtaBand from '../sections/CtaBand.astro';
+import type { Locale } from '../../i18n/ui';
+import { content } from '../../data/content';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const c = content[locale];
+const m = site[locale].meta.home;
+---
+<Layout title={m.title} description={m.desc} locale={locale} path="/">
+  <HomeHero c={c} locale={locale} />
+  <HomeStrip c={c} locale={locale} />
+  <Pillars c={c} locale={locale} />
+  <DiagramSection c={c} locale={locale} kind="anatomy-teaser" />
+  <FieldReport c={c} locale={locale} />
+  <Hardware c={c} locale={locale} />
+  <PricingTeaser c={c} locale={locale} />
+  <TrustRow locale={locale} />
+  <CtaBand c={c} locale={locale} />
+  {locale === 'en' && (
+    <script is:inline>
+      (function () {
+        var map = { '#pricing': '/pricing', '#platform': '/platform', '#architecture': '/platform#architecture', '#hardware': '/platform#hardware', '#team': '/company', '#contact': '/company#contact' };
+        var target = map[window.location.hash];
+        if (target) window.location.replace(target);
+      })();
+    </script>
+  )}
+</Layout>

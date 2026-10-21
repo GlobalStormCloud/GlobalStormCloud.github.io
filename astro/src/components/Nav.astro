@@ -1,0 +1,117 @@
+---
+import Arrow from './Arrow.astro';
+import Logo from './Logo.astro';
+import { strings, localizePath, alternatePath, type Locale } from '../i18n/ui';
+import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+  /** Canonical (en) path of the current page, e.g. "/pricing" or "/". */
+  path: string;
+}
+const { locale, path } = Astro.props;
+const t = strings[locale];
+const s = site[locale];
+const home = localizePath('/', locale);
+const other = locale === 'en' ? 'pl' : 'en';
+// The 404 has no Polish twin (Pages serves one /404.html for every miss): switch to the other home page.
+const alt = path === '/404' ? localizePath('/', other) : alternatePath(path, locale);
+const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '/';
+---
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="nav__brand" href={home} aria-label={s.nav.home}><Logo variant="lockup" class="nav__lockup" /></a>
+
+    <nav class="nav__primary" aria-label={locale === 'pl' ? 'Główna' : 'Primary'}>
+      <ul role="list" class="nav__links legend">
+        {t.nav.map((item) => {
+          const active = canonical === item.path;
+          return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}>{item.label}</a></li>;
+        })}
+      </ul>
+    </nav>
+
+    <div class="nav__actions">
+      <p class="nav__lang mono">
+        <span class="sr-only">{s.nav.lang}: </span>
+        <span aria-current="true" class="nav__lang-cur">{locale.toUpperCase()}</span>
+        <span aria-hidden="true">/</span>
+        <a href={alt} hreflang={other} lang={other}>{other.toUpperCase()}<span class="sr-only"> — {t.localeSwitch}</span></a>
+      </p>
+      <a class="btn btn--primary btn--sm nav__cta" href={localizePath('/company', locale) + '#contact'}>{t.navCta}<Arrow /></a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-sheet" data-open={s.nav.menu} data-close={s.nav.close}>
+        <span class="nav__burger" aria-hidden="true"></span><span class="nav__toggle-label">{s.nav.menu}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__sheet" id="nav-sheet" hidden>
+    <div class="wrap">
+      <ul role="list" class="nav__sheet-links">
+        {t.nav.map((item) => {
+          const active = canonical === item.path;
+          return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}><span class="h3">{item.label}</span>{active && <span class="beacon" aria-hidden="true"></span>}</a></li>;
+        })}
+      </ul>
+      <div class="nav__sheet-foot">
+        <a class="btn btn--primary" href={localizePath('/company', locale) + '#contact'}>{t.navCta}<Arrow /></a>
+        <a class="btn btn--ghost" href={alt} hreflang={other} lang={other}>{t.localeSwitch}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: saturate(1.2) blur(10px); -webkit-backdrop-filter: saturate(1.2) blur(10px); }
+  .nav__bar { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; }
+  .nav__bar::after { content: ""; position: absolute; left: var(--gut); right: var(--gut); bottom: 0; height: 1px; background: var(--alloy); }
+  .nav__brand { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); }
+  .nav__brand :global(.nav__lockup) { height: 30px; }
+  /* The label plates add 10 px of padding per side, so the gap shrinks by 20 px: text-to-text spacing is unchanged. */
+  .nav__links { display: flex; gap: calc(clamp(20px, 2.8vw, 40px) - 20px); }
+  .nav__links a { position: relative; isolation: isolate; display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; text-decoration: none; color: var(--ink); }
+  .nav__links a:hover { color: var(--steel); }
+  /* Current page = a machined ink label plate with the amber lamp lit under the text (ink/paper 17:1). It is a
+     fill, not a hairline, so it reads at a glance; aria-current stays the semantic source. */
+  .nav__links a[aria-current='page'] { color: var(--paper); }
+  .nav__links a[aria-current='page']::before { content: ""; position: absolute; z-index: -1; inset: 3px 0; border-radius: var(--r-1); background: var(--ink); }
+  .nav__links a[aria-current='page']::after { content: ""; position: absolute; left: 50%; bottom: 8px; width: 7px; height: 5px; margin-left: -3.5px; border-radius: 50%; background: var(--amber); }
+  .nav__actions { display: flex; align-items: center; gap: 20px; }
+  .nav__lang { display: flex; gap: 8px; align-items: center; color: var(--steel); }
+  .nav__lang-cur { color: var(--ink); font-weight: 500; }
+  .nav__lang a { display: inline-flex; align-items: center; min-height: 44px; min-width: 28px; justify-content: center; text-decoration: none; color: var(--steel); }
+  .nav__lang a:hover { color: var(--ink); text-decoration: underline; }
+  .nav__toggle { display: none; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid var(--ink); border-radius: var(--r-1); background: none; font-weight: 600; font-size: 14px; cursor: pointer; }
+  .nav__burger { position: relative; width: 16px; height: 1.5px; background: var(--ink); box-shadow: 0 5px 0 var(--ink); top: -2.5px; }
+  .nav__toggle[aria-expanded='true'] .nav__burger { background: transparent; box-shadow: none; top: 0; }
+  .nav__toggle[aria-expanded='true'] .nav__burger::before, .nav__toggle[aria-expanded='true'] .nav__burger::after { content: ""; position: absolute; left: 0; top: 0; width: 16px; height: 1.5px; background: var(--ink); transform: rotate(45deg); }
+  .nav__toggle[aria-expanded='true'] .nav__burger::after { transform: rotate(-45deg); }
+  .nav__sheet { border-top: 1px solid var(--alloy); background: var(--paper); padding-block: 12px 28px; box-shadow: 0 24px 40px -32px rgba(13, 15, 18, 0.5); }
+  .nav__sheet-links a { display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid var(--alloy); text-decoration: none; }
+  .nav__sheet-links a[aria-current='page'] { background: var(--ink); color: var(--paper); padding-inline: 16px; border-bottom-color: var(--ink); border-radius: var(--r-1); }
+  .nav__sheet-foot { display: grid; gap: 12px; margin-top: 24px; }
+  @media (max-width: 960px) {
+    .nav__primary, .nav__lang, .nav__cta { display: none; }
+    .nav__toggle { display: inline-flex; }
+  }
+  @media (min-width: 961px) { .nav__sheet { display: none !important; } }
+  @media (max-width: 600px) { .nav__brand :global(.nav__lockup) { height: 22px; } }
+</style>
+
+<script is:inline>
+  (function () {
+    var btn = document.querySelector('.nav__toggle');
+    var sheet = document.getElementById('nav-sheet');
+    if (!btn || !sheet) return;
+    var label = btn.querySelector('.nav__toggle-label');
+    function set(open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      sheet.hidden = !open;
+      if (label) label.textContent = open ? btn.getAttribute('data-close') : btn.getAttribute('data-open');
+    }
+    btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { set(false); btn.focus(); }
+    });
+  })();
+</script>

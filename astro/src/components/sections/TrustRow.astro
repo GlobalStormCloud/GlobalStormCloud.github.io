@@ -1,0 +1,29 @@
+---
+import ArrowText from '../ArrowText.astro';
+// Thin buyer-trust row above the final CTA: what evidence is available to buyers,
+// with a link to the Compliance page.
+import { localizePath, type Locale } from '../../i18n/ui';
+import { site } from '../../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = site[locale].trust2;
+---
+<section class="band--tight wrap trust2" aria-labelledby="trust2-h">
+  <p class="index" id="trust2-h"><span class="beacon beacon--sm" aria-hidden="true"></span>{t.eyebrow}</p>
+  <ul role="list" class="trust2__list mono">
+    {t.items.map((it) => <li>{it}</li>)}
+  </ul>
+  <a class="link-arrow trust2__link" href={localizePath('/compliance', locale)}><ArrowText text={t.link} /></a>
+</section>
+<style>
+  .trust2 { display: grid; gap: 20px; }
+  .trust2__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--alloy); }
+  .trust2__link { justify-self: start; }
+  .trust2__list li { padding: 18px 24px 18px 0; color: var(--steel); line-height: 1.6; }
+  .trust2__list li + li { padding-left: 24px; border-left: 1px solid var(--alloy); }
+  @media (max-width: 860px) {
+    .trust2__list { grid-template-columns: minmax(0, 1fr); }
+    .trust2__list li, .trust2__list li + li { padding: 14px 0; border-left: 0; }
+    .trust2__list li + li { border-top: 1px solid var(--alloy); }
+  }
+</style>

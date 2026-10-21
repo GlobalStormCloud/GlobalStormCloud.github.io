@@ -1,0 +1,26 @@
+---
+// Contextual "Book a demo" at a natural decision point on a long page (after the pillars, after the rate tables,
+// after the obligations table). In the page flow only: no pop-up, no sticky banner, nothing covers content.
+// Copy is the existing closing-band copy (content.ts teasers.closing) and the existing hero CTA label.
+import Arrow from '../Arrow.astro';
+import { localizePath, type Locale } from '../../i18n/ui';
+import type { Content } from '../../data/content';
+interface Props { c: Content; locale: Locale; }
+const { c, locale } = Astro.props;
+const cl = c.teasers.closing;
+---
+<div class="icta">
+  <div class="icta__txt">
+    <p class="legend icta__k"><span class="beacon beacon--sm" aria-hidden="true"></span>{cl.eyebrow}</p>
+    <p class="icta__t h3">{cl.title}</p>
+    <p class="icta__d">{cl.desc}</p>
+  </div>
+  <a class="btn btn--primary icta__btn" href={localizePath('/company', locale) + '#contact'}>{c.hero.cta}<Arrow /></a>
+</div>
+<style>
+  .icta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: center; margin-top: clamp(40px, 5vw, 64px); padding-block: 28px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--alloy); }
+  .icta__k { display: flex; align-items: center; gap: 10px; color: var(--steel-deep); }
+  .icta__t { margin-top: 8px; }
+  .icta__d { margin-top: 6px; max-width: 46em; color: var(--steel); font-size: 16px; }
+  @media (max-width: 700px) { .icta { grid-template-columns: minmax(0, 1fr); } .icta__btn { justify-self: start; } }
+</style>
