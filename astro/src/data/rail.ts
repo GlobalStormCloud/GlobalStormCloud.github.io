@@ -2,7 +2,7 @@
 // Platform reuses the section names the page already prints (site.ts `sections` / `boot.index`) with the
 // "NN / " counter removed, so the rail says exactly what the section label says.
 // Pricing has no short section names yet, so the five labels below are NEW UI strings (navigation only,
-// no claims).
+// no claims) — flagged for Marketing / Support wording review in reviews/2026-10-20-design-critique/FINDINGS.md.
 import type { Locale } from '../i18n/ui';
 import { site } from './site';
 

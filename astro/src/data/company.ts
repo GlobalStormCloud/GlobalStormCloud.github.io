@@ -34,7 +34,7 @@ export const company = {
     place: 'Warszawa',
     address: 'ul. Trele 2, 02-842 Warszawa',
     country: 'Polska',
-    court: 'Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego',
+    court: 'Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy KRS',
     capital: '6\u00a0000\u00a0zł',
     capitalLabel: 'kapitał zakładowy',
   },

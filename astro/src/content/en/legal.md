@@ -5,15 +5,14 @@ route: legal
 
 # Privacy Policy
 
-Last updated: 21 October 2026
+Last updated: [GO-LIVE DATE]
 
 ## Who is responsible for your data
 
 The controller of personal data collected through this website is:
 
-**{{company.name}}**\
-{{company.address}}, {{company.country}}\
-Registered by the {{company.court}}\
+**{{company.name}}**, {{company.address}}, {{company.country}}
+Registered by the {{company.court}}
 KRS {{company.krs}} · NIP {{company.nip}} · REGON {{company.regon}} · {{company.capitalLabel}} {{company.capital}}
 
 For any question about this policy or your data, write to
@@ -37,13 +36,11 @@ Google Sheet in our Google Workspace account, which only we can access. Google
 acts as our processor and may process the data in the United States. We use the
 submission to reply to you and to prepare a quote.
 
-- **Legal basis:** Article 6(1)(f) GDPR — our legitimate interest in responding to
-  business enquiries; and Article 6(1)(b) where you contact us on your own behalf,
-  for example as a sole trader — steps taken at your request prior to a contract.
+- **Legal basis:** Article 6(1)(b) GDPR — steps taken at your request prior to a
+  contract; and Article 6(1)(f) — our legitimate interest in responding to
+  business enquiries.
 - **Retention:** kept while we are in contact and for up to 24 months after our
   last exchange, then deleted. If you ask us to delete it sooner, we will.
-- **Providing your details:** voluntary, but we need them to answer your
-  enquiry; without them we cannot reply.
 
 ### Email
 
@@ -96,9 +93,6 @@ Under the GDPR you may ask us to:
 - restrict how we use it (Article 18);
 - provide it in a portable format (Article 20);
 - stop processing based on legitimate interest (Article 21).
-
-We do not make decisions about you based solely on automated processing, and we
-do not profile you (Article 22 GDPR).
 
 Write to [contact@globalstorm.cloud](mailto:contact@globalstorm.cloud) and we
 will respond within one month.

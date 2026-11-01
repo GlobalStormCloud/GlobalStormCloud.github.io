@@ -2,7 +2,8 @@
 // Diagram 1 — what is on a HurricaneOS device.
 // Source: user manual §1 (how-it-works: secure by default), §2.1–2.3 (partitions, TPM 2.0,
 // storage, disk expansion), §6 (first boot: key generated inside the TPM, never leaves),
-// §9 (x-hurricane.capabilities, deny-by-default).
+// §9 (x-hurricane.capabilities, deny-by-default). Not drawn because the manual does not
+// state it: read-only root filesystem, measured-boot details, encryption scheme.
 import type { Locale } from '../../i18n/ui';
 import { site } from '../../data/site';
 interface Props { locale: Locale; dark?: boolean; }

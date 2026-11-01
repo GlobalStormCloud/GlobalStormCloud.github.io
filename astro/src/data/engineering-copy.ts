@@ -1,6 +1,7 @@
-// Copy for behaviour-driven blocks (form feedback, vulnerability reporting), kept apart from
-// content.ts/site.ts. English uses an em dash like the rest of the site. If the B2B note moves
-// into site.ts, point ContactForm at that key and drop it here.
+// Copy for behaviour and blocks wired up in code (form feedback, vulnerability reporting).
+// Kept out of content.ts/site.ts, which hold the main page copy. English uses an em dash like the rest of the
+// site. The form error and B2B-note wording lives here;
+// if the B2B note later moves into site.ts, point ContactForm at that key and drop it here.
 import type { Locale } from '../i18n/ui';
 
 export const SECURITY_EMAIL = 'contact@globalstorm.cloud';

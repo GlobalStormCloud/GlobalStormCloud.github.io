@@ -1,5 +1,5 @@
 // Anodised-build chrome copy: section indexes, captions, diagram labels, page meta.
-// Kept SEPARATE from ./content.ts so the migrated copy and the
+// Kept SEPARATE from ./content.ts so the migrated (Legal/Finance-cleared) copy and the
 // pricing data there stay byte-identical. Region wording: "EU-hosted (within the EEA)" /
 // "hostowane w UE (w ramach EOG)" — never a named AWS region.
 //
@@ -73,17 +73,17 @@ const en: Site = {
     capTitle: 'GSE-3 · bespoke enclosure for special projects (MVP-stage)',
     capLine: 'HurricaneOS also runs on x86-64 and supported ARM boards with TPM 2.0',
     fromPrice: 'From {price} / active device / month · €300/mo minimum · EUR, excl. VAT · B2B',
-    posterAlt: 'HurricaneOS console at the login prompt after a complete boot',
+    posterAlt: 'HurricaneOS console at the login prompt after a complete, verified boot',
     lamp: 'online',
     watch: 'Watch it boot · 14s',
-    metaFlow: 'boot → login → online',
+    metaFlow: 'boot → verified → online',
     metaUnedited: 'unedited',
     metaReal: 'real recording',
     metaVm: 'recorded in a VM',
     consoleCap: 'A complete HurricaneOS start-up — bootloader to login prompt. After enrolment the fleet is operated: no SSH, no console, no site visit. Local console of the recording VM; production devices expose no management interface.',
   },
   boot: {
-    homeIndex: 'Console', homeTitle: 'A real boot, start to login.', homeCaption: 'boot → login → online',
+    homeIndex: 'Console', homeTitle: 'A real boot, start to login.', homeCaption: 'boot → verified → online',
     homeLink: 'Watch the full boot on Platform →',
     index: '01 / Boot', title: 'Watch it boot.',
     desc: 'The console output of a complete HurricaneOS start-up, from the bootloader to the login prompt. Unedited, 14 seconds.',
@@ -198,7 +198,7 @@ const en: Site = {
   footerLinks: { docs: 'Documentation', status: 'Status' },
   trust2: {
     eyebrow: 'Evidence for buyers',
-    items: ['CRA & RED mapping — technical pack under NDA', 'CVE scan results for every build — in your dashboard'],
+    items: ['CRA & RED mapping — technical pack under NDA', 'SBOM and signed-image attestation — on request'],
     link: 'See the compliance mapping →',
   },
   contactSteps: {
@@ -228,17 +228,17 @@ const pl: Site = {
     capTitle: 'GSE-3 · dedykowana obudowa do specjalnych projektów (faza MVP)',
     capLine: 'HurricaneOS działa też na x86-64 i wspieranych płytach ARM z TPM 2.0',
     fromPrice: 'Od {price} / aktywne urządzenie / miesiąc · minimum 300 €/mies. · EUR, bez VAT · B2B',
-    posterAlt: 'Konsola HurricaneOS na ekranie logowania po pełnym rozruchu',
+    posterAlt: 'Konsola HurricaneOS na ekranie logowania po pełnym, zweryfikowanym rozruchu',
     lamp: 'online',
     watch: 'Zobacz rozruch · 14 s',
-    metaFlow: 'rozruch → logowanie → online',
+    metaFlow: 'rozruch → weryfikacja → online',
     metaUnedited: 'bez edycji',
     metaReal: 'prawdziwy zapis',
     metaVm: 'nagrane w maszynie wirtualnej',
     consoleCap: 'Pełne uruchomienie HurricaneOS — od bootloadera do ekranu logowania. Po wdrożeniu flotę prowadzimy my: bez SSH, bez konsoli, bez wyjazdu w teren. Lokalna konsola maszyny wirtualnej z nagrania; urządzenia produkcyjne nie udostępniają interfejsu zarządzania.',
   },
   boot: {
-    homeIndex: 'Konsola', homeTitle: 'Prawdziwy rozruch, aż do logowania.', homeCaption: 'rozruch → logowanie → online',
+    homeIndex: 'Konsola', homeTitle: 'Prawdziwy rozruch, aż do logowania.', homeCaption: 'rozruch → weryfikacja → online',
     homeLink: 'Zobacz pełny rozruch na stronie Platforma →',
     index: '01 / Rozruch', title: 'Zobacz, jak startuje.',
     desc: 'Zapis konsoli pełnego uruchomienia HurricaneOS — od bootloadera do ekranu logowania. Bez edycji, 14 sekund.',
@@ -353,7 +353,7 @@ const pl: Site = {
   footerLinks: { docs: 'Dokumentacja', status: 'Status' },
   trust2: {
     eyebrow: 'Dowody dla kupujących',
-    items: ['Odwzorowanie CRA i RED — pakiet techniczny pod NDA', 'Wyniki skanu CVE każdego buildu — w Twoim dashboardzie'],
+    items: ['Odwzorowanie CRA i RED — pakiet techniczny pod NDA', 'SBOM i atestacja podpisanych obrazów — na żądanie'],
     link: 'Zobacz odwzorowanie zgodności →',
   },
   contactSteps: {

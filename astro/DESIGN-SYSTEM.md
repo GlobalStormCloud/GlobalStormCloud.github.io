@@ -1,16 +1,16 @@
 # Global Storm — "Anodised" design system
 
-Palette A: graphite + signal amber, Saira display. This file is the build reference for the site. Tokens live in `src/styles/tokens.css`; shared primitives and motifs live in `src/styles/global.css`.
+Palette A (graphite + signal amber, Saira display). This file is the build reference. Tokens live in `src/styles/tokens.css`; shared primitives and motifs live in `src/styles/global.css`.
 
 ## Logo
-- Source of truth: the original vectors in `src/assets/logo/source/`. They are kept unmodified.
+- Source of truth: the supplied vectors, in `src/assets/logo/source/`. They are kept unmodified.
 - `src/assets/logo/{mark,lockup}.svg` are the SVGO-optimised copies. Each is one path with `fill="currentColor"`.
 - Render them through `src/components/Logo.astro` (`variant="lockup" | "mark"`). Colour comes from CSS: ink on light, paper on dark. **Monochrome only.** Never colour, outline, rotate, or animate the mark.
 - Module **E** = eye height = 0.326 × mark height, measured on the supplied vector: the eye is 1.372 : 1, 44.8 % of mark width, centred, and the mark has 180° rotational symmetry. The lockup gap between mark and wordmark is already 1 E, and the wordmark baseline sits on the eye's lower edge.
   - Clear space = 1 E on every side.
   - Minimum size: mark 16 px; lockup 140 px wide.
 - Favicons: `public/favicon.svg` (switches with dark mode), `favicon.ico` (16/32/48), `apple-touch-icon.png`.
-- Social preview: one static `public/og.png` (1200×630), image-preview only — no share buttons or share UI.
+- Social preview: one static `public/og.png` (1200×630), image-preview only — no share buttons or share UI. (The earlier "no Open Graph image" decision was reversed on 2026-10-18; see the comment in `src/layouts/Layout.astro`.)
 
 ## Colour (WCAG ratios measured)
 | Token | Hex | Use |
@@ -69,17 +69,26 @@ Motion: 220 ms ease-out reveals only. Nothing loops or bounces. Everything is di
 - The recording was made in a VirtualBox VM, and the caption says so.
 
 ## Diagrams (`src/components/diagrams/`)
-The diagrams are built in HTML with inline-SVG glyphs, so the text is real, reflows on mobile and fits longer Polish strings. They are drawn from the user manual (docs-site, Starlight); each file's header names its sections.
+The diagrams are built in HTML with inline-SVG glyphs, so the text is real, reflows on mobile and fits longer Polish strings. They are drawn **only** from the user manual (docs-site, Starlight); each file's header names its sections.
+
+Gaps — not drawn because the manual does not state them (to be confirmed, then added to the docs first):
+- a read-only root filesystem
+- measured-boot and encryption details
+- image signing in the build pipeline
+- health-probe criteria beyond "fails to boot"
+- staged rollouts
+
+The marketing copy in `content.ts` claims several of these. The pipeline steps in `content.ts` also say containers write to "the inactive bank"; in the manual, A/B applies to the OS only. That text is therefore not rendered.
 
 ## Wayfinding
 
-- **Current page in the nav** = an ink label plate with the amber lamp lit under the text (ink/paper 17:1), not a hairline tick. `aria-current="page"` stays the source.
+- **Current page in the nav** = an ink label plate (ink/paper 17:1), no dot, not a hairline tick. `aria-current="page"` stays the source.
 - **Page rail** (`components/PageRail.astro`): one component for Platform, Pricing and Compliance. `layout="bar"` = a 48 px sticky strip under the nav (full-bleed pages); `layout="side"` = the sticky column beside a narrow body (Compliance). Below 1180 px (bar) / 1040 px (side) both collapse to one compact control, "On this page <current section>", that opens a list. The current section has `aria-current="location"` and a lit lamp; the last item is always "Book a demo". Section ids must exist before you add the item; labels for Platform come from `data/rail.ts` (existing section names), never from new copy. It is in the page flow, so it adds no CLS; anchors land below nav + rail (`--rail-h`).
 - **Contextual CTA** (`sections/InlineCta.astro`): in-flow strip at a decision point (after the pillars, the rate tables, the obligations table). No pop-up, nothing sticky over content.
 - **Stacked tables** (`.tbl--stack`, <= 900 px): rows become cards; every cell prints its column name from `data-label`; `td.long` = label above text, `td.chip` = label + status chip; the header row stays in the DOM, visually hidden.
 - **Small text floor**: mono captions and table text are 14-16 px; `--steel-deep` (8.6:1) replaces `--steel` for mono captions and secondary labels on light, `--mist-lt` (10.0:1) on dark.
 
 ## Content
-- `src/data/content.ts` holds the migrated copy and the pricing data. **Do not edit it in design work.**
+- `src/data/content.ts` holds the migrated, Legal/Finance-cleared copy and the pricing data. **Do not edit it in design work.**
 - `src/data/site.ts` holds the copy this build adds.
 - `src/data/pricing-format.ts` only re-formats figures from `content.ts`. The worked example is recomputed at build time and checked against the published example.

@@ -1,7 +1,9 @@
 ---
 import ArrowText from '../ArrowText.astro';
-// Thin buyer-trust row above the final CTA: what evidence is available to buyers,
-// with a link to the Compliance page.
+// Thin buyer-trust row above the final CTA. Addresses the Sales review's "proof is
+// asserted, not evidenced" gap WITHOUT breaching the public-IP rule: it states only
+// that evidence EXISTS and is available under NDA / on request, and links to the
+// Compliance page. No signing scheme, PCR policy or key-sealing mechanism is shown.
 import { localizePath, type Locale } from '../../i18n/ui';
 import { site } from '../../data/site';
 interface Props { locale: Locale; }
