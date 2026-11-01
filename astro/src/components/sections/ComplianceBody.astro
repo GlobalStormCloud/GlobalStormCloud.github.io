@@ -157,7 +157,7 @@ const withLead = (li: string) => li.replace(LEAD, '<b>$1</b>');
     .cmp { display: block; }
     .cmp__body { margin-top: 28px; }
   }
-  @media (max-width: 900px) { .art21 { min-width: 0; } }
+  @media (max-width: 900px) { .art21 { min-width: 0; } .art21 th[scope='row'] { width: auto; } }
   @media (max-width: 640px) {
     .key__list > div, .list li.list__row { grid-template-columns: minmax(0, 1fr); }
     .key { padding-inline: 16px; }
