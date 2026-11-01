@@ -90,6 +90,10 @@ if (Math.abs(total - published) > 0.001) throw new Error(`Worked example ${total
   <InlineCta c={c} locale={locale} />
 
   <section class="ex" id="examples" aria-labelledby="ex-h">
+    <div class="ex__head">
+      <h3 class="h3">{p.examplesTitle}</h3>
+      <p class="muted ex__intro">{p.examplesNote}</p>
+    </div>
     <div class="plate ex__calc">
       <div class="plate__hdr"><h2 id="ex-h" class="legend">{s.exampleTitle}</h2></div>
       <div class="ex__body mono num">
@@ -99,8 +103,6 @@ if (Math.abs(total - published) > 0.001) throw new Error(`Worked example ${total
       </div>
     </div>
     <div class="ex__table">
-      <h3 class="h3">{p.examplesTitle}</h3>
-      <p class="muted ex__intro">{p.examplesNote}</p>
       <div class="tbl-wrap" tabindex="0" role="region" aria-label={p.examplesTitle}>
         <table class="tbl tbl--mono tbl--stack num">
           <thead><tr><th scope="col">{p.colProfile}</th><th scope="col" class="r">{p.colDevices}</th><th scope="col" class="r">{p.colOwn}</th><th scope="col" class="r">{p.colOurs}</th><th scope="col">{p.colBasis}</th></tr></thead>
@@ -179,7 +181,9 @@ if (Math.abs(total - published) > 0.001) throw new Error(`Worked example ${total
   /* Balance the title lines so "250" is not left hanging at the end of the first line. */
   .ex__calc .plate__hdr h2 { text-wrap: balance; }
   .ex__note { margin-top: 12px; color: var(--steel-deep); font-size: 14px; line-height: 1.6; }
-  .ex__intro { margin: 10px 0 18px; font-size: 16px; }
+  /* Heading and intro span both columns, so the worked-example plate and the table start on the same line. */
+  .ex__head { grid-column: 1 / -1; }
+  .ex__intro { margin: 10px 0 0; font-size: 16px; max-width: 60em; }
   .extras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: clamp(56px, 6vw, 88px); align-items: start; }
   .plate__foot { padding: 14px 18px 18px; border-top: 1px solid var(--alloy); font-size: 15px; }
   /* Extras plates: label above value, so a price never breaks mid-figure ("+€200–/500…"). */
