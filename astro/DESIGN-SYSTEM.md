@@ -73,7 +73,7 @@ The diagrams are built in HTML with inline-SVG glyphs, so the text is real, refl
 
 ## Wayfinding
 
-- **Current page in the nav** = an ink label plate with the amber lamp lit under the text (ink/paper 17:1), not a hairline tick. `aria-current="page"` stays the source.
+- **Current page in the nav** = an ink label plate (ink/paper 17:1), no dot, not a hairline tick. `aria-current="page"` stays the source.
 - **Page rail** (`components/PageRail.astro`): one component for Platform, Pricing and Compliance. `layout="bar"` = a 48 px sticky strip under the nav (full-bleed pages); `layout="side"` = the sticky column beside a narrow body (Compliance). Below 1180 px (bar) / 1040 px (side) both collapse to one compact control, "On this page <current section>", that opens a list. The current section has `aria-current="location"` and a lit lamp; the last item is always "Book a demo". Section ids must exist before you add the item; labels for Platform come from `data/rail.ts` (existing section names), never from new copy. It is in the page flow, so it adds no CLS; anchors land below nav + rail (`--rail-h`).
 - **Contextual CTA** (`sections/InlineCta.astro`): in-flow strip at a decision point (after the pillars, the rate tables, the obligations table). No pop-up, nothing sticky over content.
 - **Stacked tables** (`.tbl--stack`, <= 900 px): rows become cards; every cell prints its column name from `data-label`; `td.long` = label above text, `td.chip` = label + status chip; the header row stays in the DOM, visually hidden.

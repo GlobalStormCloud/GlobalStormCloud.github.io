@@ -50,7 +50,7 @@ const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '
       <ul role="list" class="nav__sheet-links">
         {t.nav.map((item) => {
           const active = canonical === item.path;
-          return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}><span class="h3">{item.label}</span>{active && <span class="beacon" aria-hidden="true"></span>}</a></li>;
+          return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}><span class="h3">{item.label}</span></a></li>;
         })}
       </ul>
       <div class="nav__sheet-foot">
@@ -71,11 +71,10 @@ const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '
   .nav__links { display: flex; gap: calc(clamp(20px, 2.8vw, 40px) - 20px); }
   .nav__links a { position: relative; isolation: isolate; display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; text-decoration: none; color: var(--ink); }
   .nav__links a:hover { color: var(--steel); }
-  /* Current page = a machined ink label plate with the amber lamp lit under the text (ink/paper 17:1). It is a
+  /* Current page = a machined ink label plate (ink/paper 17:1), no dot. It is a
      fill, not a hairline, so it reads at a glance; aria-current stays the semantic source. */
   .nav__links a[aria-current='page'] { color: var(--paper); }
   .nav__links a[aria-current='page']::before { content: ""; position: absolute; z-index: -1; inset: 3px 0; border-radius: var(--r-1); background: var(--ink); }
-  .nav__links a[aria-current='page']::after { content: ""; position: absolute; left: 50%; bottom: 8px; width: 7px; height: 5px; margin-left: -3.5px; border-radius: 50%; background: var(--amber); }
   .nav__actions { display: flex; align-items: center; gap: 20px; }
   .nav__lang { display: flex; gap: 8px; align-items: center; color: var(--steel); }
   .nav__lang-cur { color: var(--ink); font-weight: 500; }
