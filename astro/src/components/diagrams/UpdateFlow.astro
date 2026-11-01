@@ -3,8 +3,7 @@
 // Source: user manual §1 key principles (A/B updates, automatic rollback), §2.2 (EFI
 // bootloader selects between two OS slots and falls back if a new OS fails to boot),
 // §15 day-2 (OS updates OTA by Global Storm only; app data never touched), glossary
-// "A/B update". Not drawn because the manual does not state it: image signature check
-// before the switch, health-probe criteria beyond "fails to boot".
+// "A/B update".
 import type { Locale } from '../../i18n/ui';
 import { site } from '../../data/site';
 interface Props { locale: Locale; }

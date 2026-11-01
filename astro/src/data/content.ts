@@ -1,5 +1,5 @@
 // Structured site content, migrated VERBATIM from the Jekyll _i18n/en.yml + pl.yml.
-// Pricing numbers are the Finance-verified source of truth (Pricing-Final-2026-10.md).
+// Pricing numbers here are the source of truth for every figure on the site.
 // Region wording is "EU-hosted (within the EEA)" / "hostowane w UE (w ramach EOG)" — no AWS region.
 import type { Locale } from '../i18n/ui';
 import { company } from './company';
@@ -22,7 +22,6 @@ export interface Content {
   faq: { eyebrow: string; title: string; desc: string; items: { q: string; a: string }[] };
   team: { eyebrow: string; title: string; desc: string; facts: { label: string; value: string }[]; people: { name: string; role: string; bio: string; linkedin: string }[] };
   contact: { eyebrow: string; title: string; desc: string; name: string; email: string; company: string; interest: string; interestOptions: string[]; message: string; submit: string; privacyNote: string; privacyNoteLink: string; success: string };
-  consent: { label: string; text: string; link: string; accept: string; decline: string };
   registry: { title: string; rows: { label: string; value: string }[] };
   footer: { place: string; krsLabel: string; detailsLabel: string; desc: string; colPlatform: string; colCompany: string; colConnect: string; privacy: string; euHosted: string };
   compliance: { eyebrow: string; title: string; desc: string; cta: string };
@@ -73,7 +72,7 @@ const en: Content = {
     note: 'Separately: for teams who need more than running their own code at the edge, we also take on data collection and processing engagements. That is a distinct offering, contracted on its own — it is not part of the OS subscription.',
     items: [
       { label: 'Survival', title: 'Built so an unclean shutdown has nothing to corrupt', desc: 'The system volume is mounted read-only, so an unclean shutdown has nothing to damage. Updates write to the idle bank and switch only after a health probe passes; if it fails, the bootloader returns to the bank that was working. No operator, no site visit.' },
-      { label: 'Security', title: 'Verified boot, keys sealed to the device', desc: 'Measured boot rejects unsigned or modified images. Full-disk encryption keys are sealed to a TPM 2.0 — which we require to certify any hardware profile — so a removed disk reads as noise and a key cannot be replayed on different hardware. Only signed containers execute. These are table stakes for edge Linux and we treat them that way; where they matter is that they map directly onto RED Article 3.3 and the Cyber Resilience Act essential requirements, set out on the compliance page.' },
+      { label: 'Security', title: 'Hardware-backed identity, locked down by default', desc: 'Every device holds its own identity key in a TPM 2.0 — which we require to certify any hardware profile — and the identity is designed so it cannot be copied to another device. Device and cloud authenticate each other with mutual TLS, the firewall denies by default, applications run isolated in containers, and communication ports and other I/O interfaces stay closed until they are explicitly approved. These are table stakes for edge Linux and we treat them that way; where they matter is that they map directly onto RED Article 3.3 and the Cyber Resilience Act essential requirements, set out on the compliance page.' },
       { label: 'Operated', title: 'We run the platform. You write the application.', desc: 'OS patching, rollout scheduling, health monitoring and failure response are ours, not a console we hand you. Your team pushes code to a repository, every build is CVE-scanned and stored in your own private registry — never public — and it reaches the fleet. Most comparable platforms maintain their OS but leave you to operate it — which means hiring someone who knows embedded Linux, or discovering you needed one.' },
       { label: 'Sovereignty', title: 'An EU vendor, for buyers who have to care', desc: 'The OS, the control plane and the engineering are ours — built and operated from Poland, hosted within the EEA. For defence, critical infrastructure and NIS2-scoped operators, the jurisdiction of the vendor maintaining your boot chain is a procurement question — and every comparable platform we evaluated answers it from outside the EU. EU rules have teeth now: cybersecurity has been mandatory for new wireless connected products since August 2025, and Cyber Resilience Act reporting since September 2026.' },
     ],
@@ -82,25 +81,25 @@ const en: Content = {
     title: "What's actually on the device",
     desc: 'Four partitions, one of them writable. The system volume is mounted read-only, so a power cut during a write is not a failure mode — there is nothing to corrupt.',
     nodes: [
-      { label: 'Cloud control plane', sub: 'fleet state · image signing · rollout policy', tag: 'mTLS' },
+      { label: 'Cloud control plane', sub: 'fleet state · builds · deployments', tag: 'mTLS' },
       { label: 'OS bank A — read-only system volume', sub: 'currently booted', tag: 'active', state: 'active' },
       { label: 'OS bank B — receives the next image', sub: 'verified before switch', tag: 'staging', state: 'staging' },
       { label: 'Data partition', sub: 'the only writable volume', tag: 'rw' },
-      { label: 'Hardware root of trust', sub: 'measured boot · keys sealed to device', tag: 'TPM 2.0' },
+      { label: 'Hardware root of trust', sub: 'hardware-backed device identity', tag: 'TPM 2.0' },
     ],
     notes: [
       { term: 'Why two banks.', text: 'An update never touches the running system. It is written to the idle bank, verified, then booted. If the health probe fails, the bootloader falls back to the bank that was working.' },
       { term: 'Why read-only.', text: 'Field failures in unattended hardware are dominated by filesystem corruption after unclean shutdowns. Removing write access to the system volume removes the class of failure.' },
-      { term: 'Why keys in hardware.', text: 'Disk encryption sealed to the device means a stolen unit yields no data, and an unsigned image will not boot even with physical access.' },
+      { term: 'Why keys in hardware.', text: 'The device generates its identity key inside the TPM 2.0 chip and the key never leaves it, so the identity is designed not to be copied to another device.' },
     ],
   },
   pipeline: {
     eyebrow: 'Developer Experience',
     title: 'From commit to edge in one pipeline',
-    desc: 'Your team pushes code. The platform builds it, scans it, signs it, and delivers it to your fleet — the Git workflow they already know.',
+    desc: 'Your team pushes code. The platform builds it, scans it, and delivers it to your fleet — the Git workflow they already know.',
     steps: [
       { label: 'Push', title: 'Commit to Git', desc: 'Push to the branch you connected. Standard Git, no custom tooling — the build starts on its own.', meta: 'git push' },
-      { label: 'Build', title: 'Multi-arch image', desc: 'Each service builds into a signed container image for Intel and ARM at once, stored in your own private registry — never public.', meta: 'intel + arm' },
+      { label: 'Build', title: 'Multi-arch image', desc: 'Each service builds into a container image for Intel and ARM at once, stored in your own private registry — never public.', meta: 'intel + arm' },
       { label: 'Scan', title: 'CVE scan before it ships', desc: 'Every image is scanned for known vulnerabilities, with findings per service by severity and a link to each advisory. Caught at build time, not after an incident.', meta: 'per-build' },
       { label: 'Deploy', title: 'You choose the build', desc: 'Deployment is manual and deliberate — a new build never auto-ships. Pick a known-good build and roll it to one device or the whole fleet in one action.', meta: 'manual · reversible' },
       { label: 'Run', title: 'Devices converge', desc: 'Each device pulls the image for its own CPU, runs it in an isolated container, and streams health back. The previous OS slot stays for rollback.', meta: 'atomic · rollback' },
@@ -137,12 +136,11 @@ const en: Content = {
     rows: [
       { axis: 'Immutable system volume', cells: [{ mark: 'yes', text: 'Read-only by design' }, { mark: 'yes', text: 'Snap-based' }, { mark: 'yes', text: 'Read-only' }, { mark: 'yes', text: 'OSTree-based' }] },
       { axis: 'Automatic rollback on a failed update', cells: [{ mark: 'yes', text: 'Bootloader-level, no operator' }, { mark: 'no', text: 'Per-snap revert, not whole-image' }, { mark: 'yes', text: 'Host OS updates' }, { mark: 'yes', text: 'OSTree rollback' }] },
-      { axis: 'Verified boot with keys sealed to hardware', cells: [{ mark: 'yes', text: 'Measured boot, keys sealed' }, { mark: 'yes', text: 'TPM 2.0, sealed to EFI state' }, { mark: 'no', text: 'Varies by device type' }, { mark: 'yes', text: 'Supported' }] },
       { axis: 'Runs on hardware you already ship', cells: [{ mark: 'yes', text: 'x86-64 or supported ARM boards with TPM 2.0 — image built and certified per board' }, { mark: 'yes', text: 'Certified boards; enablement fee otherwise' }, { mark: 'yes', text: 'Supported device-type list' }, { mark: 'no', text: "Built around the vendor's own modules" }] },
       { axis: 'Who operates the fleet day to day', cells: [{ mark: 'yes', text: 'We do — patching, rollouts, monitoring, response' }, { mark: 'no', text: 'You do, in your own store and tooling' }, { mark: 'no', text: 'You do, in their dashboard' }, { mark: 'no', text: 'You do, in their cloud' }] },
       { axis: 'Vendor jurisdiction', cells: [{ mark: 'yes', text: 'Poland — EU' }, { mark: 'no', text: 'Non-EU' }, { mark: 'no', text: 'Non-EU' }, { mark: 'no', text: 'Non-EU' }] },
     ],
-    note: "Compiled from each platform's published documentation as of October 2026. All are capable; every one does immutability properly, and verified boot with hardware-sealed keys varies by device type — those are table stakes, not differentiators; some can be cheaper per device at volume. The distinctions that survive scrutiny are hardware independence and where the vendor sits.",
+    note: "Compiled from each platform's published documentation as of October 2026. All are capable; every one does immutability properly — that is table stakes, not a differentiator; some can be cheaper per device at volume. The distinctions that survive scrutiny are hardware independence and where the vendor sits.",
   },
   field: {
     eyebrow: 'Field Report',
@@ -163,7 +161,7 @@ const en: Content = {
   },
   hardware: {
     eyebrow: 'Hardware',
-    // Requirements & onboarding block Rendered under the Platform hardware section.
+    // Requirements & onboarding block, rendered under the Platform hardware section.
     onboarding: {
       title: 'Requirements and onboarding',
       requirementsLabel: 'Requirements',
@@ -176,14 +174,14 @@ const en: Content = {
     desc: 'Start on certified, off-the-shelf hardware from our hardware partner — the recommended route and already validated against the OS. Or bring your own x86 or ARM platform that meets the requirements. For a few genuinely punishing projects, we build bespoke hardware ourselves.',
     routes: [
       { label: 'Hardware partner', title: 'Start on HurricaneOS-ready hardware from our hardware partner', desc: "The recommended way to start. Industrial gateways, vision nodes, DIN-rail compute and vehicle units from our hardware partner's catalogue — certified off-the-shelf hardware, already validated against the OS. It covers most commercial requirements.", examples: 'Industrial PCs and edge gateways from our hardware partner' },
-      { label: 'Your own', title: 'Bring the hardware you already ship', desc: '64-bit Intel or AMD with UEFI, or a supported ARM board (for example NVIDIA Jetson), in each case with a TPM 2.0 that meets the requirements. The TPM is a requirement, not a preference — without one we cannot seal a key to platform state, so we do not certify the profile. We certify it and maintain it from there.', examples: 'Intel · AMD · ARM (e.g. NVIDIA Jetson) · TPM 2.0 required' },
+      { label: 'Your own', title: 'Bring the hardware you already ship', desc: '64-bit Intel or AMD with UEFI, or a supported ARM board (for example NVIDIA Jetson), in each case with a TPM 2.0 that meets the requirements. The TPM is a requirement, not a preference. We certify it and maintain it from there.', examples: 'Intel · AMD · ARM (e.g. NVIDIA Jetson) · TPM 2.0 required' },
       { label: 'In-house', title: 'Bespoke builds for special, demanding projects', desc: 'For a few genuinely punishing projects — salt spray, sustained vibration, shock and thermal extremes — we design and build the hardware ourselves, because nothing off the shelf survives it. These are MVP-stage, special-project builds, specified per project, not a certified catalogue product. Physical tamper-response options can be specified per project on these builds — scoped to your security requirements, not a catalogue option.', examples: 'Sealed aluminium enclosure · designed for shock and vibration · tamper-evident · special projects only' },
     ],
   },
   pricing: {
     eyebrow: 'Pricing',
     title: 'Published prices, per active device.',
-    desc: 'A maintained, signed OS update lane with CVE patching, billed per active device per month. Every standard rate is on this page.',
+    desc: 'A maintained OS update lane with CVE patching, billed per active device per month. Every standard rate is on this page.',
     terms: 'Prices in EUR, excluding VAT. For businesses only; a valid VAT ID is required. Published rates are indicative; binding terms are set in your contract.',
     // TRIAL MODEL — free and paid trial.
     // Free: €0 / 1 mo / ≤3 devices / eval-only / supported-profile-only / B2B / no shipped hardware.
@@ -197,7 +195,7 @@ const en: Content = {
     paidTrialDesc: 'A hands-on pilot with an evaluation unit from our hardware partner on a returnable lease. The €600 fee is credited against your first-year fees if you convert within 30 days of trial end; it is not paid out in cash, and the lease is not credited. It does not auto-renew, and the unit is returned at trial end.',
     paidTrialLines: [
       { label: 'Hardware lease', value: '€55/device/mo (€165 over the 3 months)' },
-      { label: 'Deposit', value: "€950 return undertaking — signed, nothing charged unless the unit isn't returned" },
+      { label: 'Return undertaking', value: "€950 return undertaking — signed, nothing charged unless the unit isn't returned" },
     ],
     tiersTitle: 'Per active device, per month, per hardware profile',
     tiersNote: "Graduated tiers — each band's rate applies only to the devices inside it. Choose your telemetry (ours or your own) and your profile (supported or custom).",
@@ -209,7 +207,7 @@ const en: Content = {
         { tier: 'Scale', devices: '251–1,000', own: '€1.20', ours: '€1.90' },
         { tier: 'Fleet', devices: '1,001+', own: '€0.95', ours: '€1.40' },
       ], minLabel: 'Monthly minimum per profile', minValue: '€300' },
-      { name: 'Custom profile', note: 'Your own board, brought up and maintained as a dedicated profile — kernel, CVE backports, signed builds.', rows: [
+      { name: 'Custom profile', note: 'Your own board, brought up and maintained as a dedicated profile — kernel and CVE backports.', rows: [
         { tier: 'Launch', devices: '1–50', own: '€3.70', ours: '€4.60' },
         { tier: 'Production', devices: '51–250', own: '€2.80', ours: '€3.70' },
         { tier: 'Scale', devices: '251–1,000', own: '€2.30', ours: '€3.25' },
@@ -227,7 +225,7 @@ const en: Content = {
     ],
     bringupNote: 'A one-time engineering project to certify and maintain your board as its own profile. Pay up front, or spread it over a 12-month commitment.',
     sameTitle: 'Every paid plan includes',
-    same: ['Container build + deploy pipeline', 'OTA for containers and OS images', 'Monthly OS update package', 'CVE and kernel maintenance', 'Signed update bundles', 'Automatic rollback', '30 container builds/mo', '200 MB container logs/device/mo', 'No device-count cap — you add devices as you grow'],
+    same: ['Container build + deploy pipeline', 'OTA for containers and OS images', 'Monthly OS update package', 'CVE and kernel maintenance', 'Automatic rollback', '30 container builds/mo', '200 MB container logs/device/mo', 'No device-count cap — you add devices as you grow'],
     addonsTitle: 'Add any time',
     addons: [
       { label: 'Priority security response', price: '+€200–500/profile/mo' },
@@ -259,7 +257,7 @@ const en: Content = {
       { q: 'What does the trial include?', a: "Two ways in. A free 1-month trial runs the real OS on a board we already certify — up to 3 devices, business customers, evaluation only, not for production. For a hands-on pilot with a unit in place, a 3-month paid trial is €600 and ships an evaluation unit from our hardware partner on a returnable lease (€55/device/mo), secured by a €950 return undertaking — a signed commitment to return the unit, with nothing charged unless it isn't returned. The €600 fee is credited against your first-year fees if you convert within 30 days of trial end; it is not paid out in cash, and the lease is not credited. The trial does not auto-renew, and the unit is returned at trial end. Either way you evaluate on real hardware, not a sandbox." },
       { q: '"Our telemetry" versus your own — what\'s the difference?', a: "With our telemetry we collect and process device health data for you through our EU pipeline. With your own telemetry you run your own data pipeline instead — but your container logs still pass through our EU log pipeline, because that's how we operate and repair the fleet. Either way the OS is fully operated by us." },
       { q: 'What happens after I book a demo?', a: 'A human onboarding, not instant self-serve. We talk through your hardware and fleet, then our engineers build and certify the OS image for your board. Bring-up is a deliberate, human-gated project — updates after that are zero-touch, but the initial image is something we build with you.' },
-      { q: 'Can I run HurricaneOS on hardware I already ship?', a: "Usually yes. A 64-bit Intel or AMD platform with UEFI, or a supported ARM board, in each case with a TPM 2.0, can be certified as a supported profile. Where your board isn't already supported, a custom-profile bring-up certifies and maintains it as its own profile. The TPM is a hard requirement — without it we can't seal keys to the device." },
+      { q: 'Can I run HurricaneOS on hardware I already ship?', a: "Usually yes. A 64-bit Intel or AMD platform with UEFI, or a supported ARM board, in each case with a TPM 2.0, can be certified as a supported profile. Where your board isn't already supported, a custom-profile bring-up certifies and maintains it as its own profile. The TPM is a hard requirement." },
       { q: 'Where do I get the golden image?', a: "Global Storm builds and supplies it. The image is specific to your hardware type — CPU architecture and boot storage (for example Intel with NVMe/SSD, or eMMC) — so it is not a public download. Request it through the contact form or from your account manager. Before first boot, your devices must be pre-registered with us: a device that is not registered will boot but will not be allowed to provision. The step-by-step flashing procedure comes with the user manual supplied with your device program." },
     ],
   },
@@ -288,7 +286,6 @@ const en: Content = {
     privacyNote: 'Global Storm sp. z o.o. uses these details to reply to your enquiry and prepare a quote. Submissions are stored in Google Workspace, which may process them in the US. See our', privacyNoteLink: 'Privacy policy',
     success: "Thanks — we'll be in touch within one business day.",
   },
-  consent: { label: 'Cookie consent', text: 'We would like to measure how this page is used. Nothing is stored and no analytics run unless you agree.', link: 'Privacy policy', accept: 'Allow', decline: 'No thanks' },
   // Full Art. 206 §1 KSH entry, rendered by sections/Registry.astro at /company/#registry (anchor id is frozen).
   // Values come from data/company.ts: the same source as the footer line and the privacy-policy controller block.
   registry: {
@@ -341,7 +338,7 @@ const pl: Content = {
     note: 'Osobno: dla zespołów, które potrzebują czegoś więcej niż uruchamiania własnego kodu na brzegu sieci, prowadzimy też projekty zbierania i przetwarzania danych. To odrębna usługa, kontraktowana niezależnie — nie jest częścią subskrypcji systemu.',
     items: [
       { label: 'Przetrwanie', title: 'Zbudowany tak, by nagłe wyłączenie nie miało czego uszkodzić', desc: 'Wolumen systemowy montowany jest tylko do odczytu, więc nieczyste wyłączenie nie ma czego zepsuć. Aktualizacje zapisywane są na bezczynnym banku i przełączane dopiero po pomyślnej sondzie zdrowia; jeśli zawiedzie, bootloader wraca do banku, który działał. Bez operatora, bez wyjazdu w terenie.' },
-      { label: 'Bezpieczeństwo', title: 'Weryfikowany rozruch, klucze zapieczętowane w urządzeniu', desc: 'Measured boot odrzuca niepodpisane i zmodyfikowane obrazy. Klucze szyfrowania dysku są zapieczętowane w TPM 2.0 — którego wymagamy do certyfikacji każdego profilu sprzętowego — więc wyjęty dysk to szum, a klucza nie da się odtworzyć na innym sprzęcie. Uruchamiają się wyłącznie podpisane kontenery. To standard w Linuksie na brzegu sieci i tak go traktujemy; znaczenie ma to, że odwzorowuje się bezpośrednio na artykuł 3.3 RED i wymogi zasadnicze Cyber Resilience Act, opisane na stronie zgodności.' },
+      { label: 'Bezpieczeństwo', title: 'Tożsamość oparta na sprzęcie, domyślnie zablokowany dostęp', desc: 'Każde urządzenie trzyma własny klucz tożsamości w TPM 2.0 — którego wymagamy do certyfikacji każdego profilu sprzętowego — a tożsamość jest zaprojektowana tak, by nie dało się jej skopiować na inne urządzenie. Urządzenie i chmura uwierzytelniają się wzajemnie przez mTLS, zapora domyślnie blokuje ruch, aplikacje działają odizolowane w kontenerach, a porty komunikacyjne i inne interfejsy I/O pozostają zamknięte, dopóki nie zostaną jawnie zatwierdzone. To standard w Linuksie na brzegu sieci i tak go traktujemy; znaczenie ma to, że odwzorowuje się bezpośrednio na artykuł 3.3 RED i wymogi zasadnicze Cyber Resilience Act, opisane na stronie zgodności.' },
       { label: 'Obsługiwane', title: 'My prowadzimy platformę. Ty piszesz aplikację.', desc: 'Łatanie systemu, harmonogram wdrożeń, monitoring stanu i reakcja na awarie są po naszej stronie, a nie w konsoli, którą Ci wręczamy. Twój zespół wypycha kod do repozytorium, każdy build jest skanowany pod kątem CVE i przechowywany w Twoim prywatnym rejestrze — nigdy publicznym — a kod trafia na flotę. Większość porównywalnych platform utrzymuje swój system, ale prowadzenie floty zostawia Tobie — co oznacza zatrudnienie kogoś, kto zna Linuksa wbudowanego, albo odkrycie, że był potrzebny.' },
       { label: 'Suwerenność', title: 'Dostawca z UE, dla tych, którzy muszą o to pytać', desc: 'System, płaszczyzna kontrolna i inżynieria są nasze — tworzone i prowadzone z Polski, hostowane w ramach EOG. Dla obronności, infrastruktury krytycznej i podmiotów objętych NIS2 jurysdykcja dostawcy utrzymującego Twój łańcuch rozruchu to pytanie przetargowe — a każda porównywalna platforma, którą analizowaliśmy, odpowiada na nie spoza UE. Przepisy UE mają teraz zęby: cyberbezpieczeństwo jest obowiązkowe dla nowych bezprzewodowych produktów podłączonych do sieci od sierpnia 2025, a raportowanie z Cyber Resilience Act od września 2026.' },
     ],
@@ -350,25 +347,25 @@ const pl: Content = {
     title: 'Co naprawdę znajduje się na urządzeniu',
     desc: 'Cztery partycje, jedna zapisywalna. Wolumen systemowy jest montowany tylko do odczytu, więc zanik zasilania w trakcie zapisu nie jest scenariuszem awarii — nie ma czego uszkodzić.',
     nodes: [
-      { label: 'Chmurowa płaszczyzna kontrolna', sub: 'stan floty · podpisywanie obrazów · polityka wdrożeń', tag: 'mTLS' },
+      { label: 'Chmurowa płaszczyzna kontrolna', sub: 'stan floty · buildy · wdrożenia', tag: 'mTLS' },
       { label: 'Bank systemu A — wolumen tylko do odczytu', sub: 'aktualnie uruchomiony', tag: 'aktywny', state: 'active' },
       { label: 'Bank systemu B — przyjmuje kolejny obraz', sub: 'weryfikowany przed przełączeniem', tag: 'przygotowanie', state: 'staging' },
       { label: 'Partycja danych', sub: 'jedyny zapisywalny wolumen', tag: 'rw' },
-      { label: 'Sprzętowy korzeń zaufania', sub: 'measured boot · klucze zapieczętowane w urządzeniu', tag: 'TPM 2.0' },
+      { label: 'Sprzętowy korzeń zaufania', sub: 'tożsamość urządzenia oparta na sprzęcie', tag: 'TPM 2.0' },
     ],
     notes: [
       { term: 'Dlaczego dwa banki.', text: 'Aktualizacja nigdy nie dotyka działającego systemu. Zapisywana jest na bezczynnym banku, weryfikowana, a potem uruchamiana. Jeśli sonda zdrowia zawiedzie, bootloader wraca do banku, który działał.' },
       { term: 'Dlaczego tylko do odczytu.', text: 'Awarie w terenie w sprzęcie bez nadzoru zdominowane są przez uszkodzenia systemu plików po nieczystym wyłączeniu. Odebranie prawa zapisu do wolumenu systemowego usuwa całą tę klasę awarii.' },
-      { term: 'Dlaczego klucze w sprzęcie.', text: 'Szyfrowanie dysku zapieczętowane w urządzeniu oznacza, że skradziona jednostka nie wyda danych, a niepodpisany obraz nie uruchomi się nawet przy fizycznym dostępie.' },
+      { term: 'Dlaczego klucze w sprzęcie.', text: 'Urządzenie generuje swój klucz tożsamości wewnątrz układu TPM 2.0, a klucz nigdy go nie opuszcza, więc tożsamość jest zaprojektowana tak, by nie dało się jej skopiować na inne urządzenie.' },
     ],
   },
   pipeline: {
     eyebrow: 'Doświadczenie dewelopera',
     title: 'Od commitu do brzegu w jednym pipelinie',
-    desc: 'Twój zespół wypycha kod. Platforma buduje go, skanuje, podpisuje i dostarcza na flotę — w znanym już przepływie Git.',
+    desc: 'Twój zespół wypycha kod. Platforma buduje go, skanuje i dostarcza na flotę — w znanym już przepływie Git.',
     steps: [
       { label: 'Push', title: 'Commit do Git', desc: 'Wypchnij do podłączonej gałęzi. Standardowy Git, bez własnych narzędzi — build startuje sam.', meta: 'git push' },
-      { label: 'Build', title: 'Obraz wieloarchitekturowy', desc: 'Każda usługa buduje się w podpisany obraz kontenera dla Intela i ARM naraz, w Twoim prywatnym rejestrze — nigdy publicznym.', meta: 'intel + arm' },
+      { label: 'Build', title: 'Obraz wieloarchitekturowy', desc: 'Każda usługa buduje się w obraz kontenera dla Intela i ARM naraz, w Twoim prywatnym rejestrze — nigdy publicznym.', meta: 'intel + arm' },
       { label: 'Skan', title: 'Skan CVE przed wysyłką', desc: 'Każdy obraz jest skanowany pod kątem znanych podatności, z wynikami per usługa według wagi i linkiem do każdego zalecenia. Wychwycone przy buildzie, nie po incydencie.', meta: 'przy buildzie' },
       { label: 'Deploy', title: 'Ty wybierasz build', desc: 'Wdrożenie jest ręczne i świadome — nowy build nigdy nie wysyła się sam. Wybierz sprawdzony build i wdróż go na jedno urządzenie lub całą flotę jednym działaniem.', meta: 'ręcznie · odwracalne' },
       { label: 'Run', title: 'Urządzenia zbiegają się', desc: 'Każde urządzenie pobiera obraz dla swojego CPU, uruchamia go w izolowanym kontenerze i odsyła stan. Poprzedni slot systemu zostaje do wycofania.', meta: 'atomowo · wycofanie' },
@@ -405,12 +402,11 @@ const pl: Content = {
     rows: [
       { axis: 'Niezmienny wolumen systemowy', cells: [{ mark: 'yes', text: 'Tylko do odczytu z założenia' }, { mark: 'yes', text: 'Oparty na snapach' }, { mark: 'yes', text: 'Tylko do odczytu' }, { mark: 'yes', text: 'Oparty na OSTree' }] },
       { axis: 'Automatyczny powrót po nieudanej aktualizacji', cells: [{ mark: 'yes', text: 'Na poziomie bootloadera, bez operatora' }, { mark: 'no', text: 'Wycofanie snapa, nie całego obrazu' }, { mark: 'yes', text: 'Aktualizacje systemu hosta' }, { mark: 'yes', text: 'Rollback OSTree' }] },
-      { axis: 'Weryfikowany rozruch z kluczami w sprzęcie', cells: [{ mark: 'yes', text: 'Measured boot, klucze zapieczętowane' }, { mark: 'yes', text: 'TPM 2.0, powiązany ze stanem EFI' }, { mark: 'no', text: 'Zależnie od typu urządzenia' }, { mark: 'yes', text: 'Wspierany' }] },
       { axis: 'Działa na sprzęcie, który już wysyłasz', cells: [{ mark: 'yes', text: 'x86-64 lub wspierane płyty ARM z TPM 2.0 — obraz budowany i certyfikowany dla każdej płyty' }, { mark: 'yes', text: 'Płyty certyfikowane; poza nimi opłata' }, { mark: 'yes', text: 'Lista wspieranych typów urządzeń' }, { mark: 'no', text: 'Zbudowany wokół własnych modułów dostawcy' }] },
       { axis: 'Kto prowadzi flotę na co dzień', cells: [{ mark: 'yes', text: 'My — łatanie, wdrożenia, monitoring, reakcja' }, { mark: 'no', text: 'Ty, we własnym store i narzędziach' }, { mark: 'no', text: 'Ty, w ich dashboardzie' }, { mark: 'no', text: 'Ty, w ich chmurze' }] },
       { axis: 'Jurysdykcja dostawcy', cells: [{ mark: 'yes', text: 'Polska — UE' }, { mark: 'no', text: 'Poza UE' }, { mark: 'no', text: 'Poza UE' }, { mark: 'no', text: 'Poza UE' }] },
     ],
-    note: 'Opracowane na podstawie publicznej dokumentacji każdej platformy, stan na październik 2026. Wszystkie są solidne; każda poprawnie realizuje niezmienność, a weryfikowany rozruch z kluczami w sprzęcie zależy od typu urządzenia — to standard, nie wyróżnik; część może być tańsza za urządzenie przy wolumenie. Różnice, które wytrzymują analizę, to niezależność sprzętowa i to, gdzie siedzi dostawca.',
+    note: 'Opracowane na podstawie publicznej dokumentacji każdej platformy, stan na październik 2026. Wszystkie są solidne; każda poprawnie realizuje niezmienność — to standard, nie wyróżnik; część może być tańsza za urządzenie przy wolumenie. Różnice, które wytrzymują analizę, to niezależność sprzętowa i to, gdzie siedzi dostawca.',
   },
   field: {
     eyebrow: 'Raport z terenu',
@@ -443,14 +439,14 @@ const pl: Content = {
     desc: 'Zacznij na certyfikowanym, gotowym sprzęcie naszego partnera sprzętowego — to zalecana droga, już zwalidowana z systemem. Albo wykorzystaj własną platformę x86 lub ARM, która spełnia wymagania. Dla kilku naprawdę brutalnych projektów budujemy dedykowany sprzęt sami.',
     routes: [
       { label: 'Partner sprzętowy', title: 'Zacznij na sprzęcie HurricaneOS-ready od naszego partnera sprzętowego', desc: 'Zalecany sposób na start. Bramy przemysłowe, węzły wizyjne, komputery na szynę DIN i jednostki pojazdowe z katalogu naszego partnera sprzętowego — certyfikowany sprzęt z półki, już zwalidowany z systemem. Pokrywa większość komercyjnych wymagań.', examples: 'Komputery przemysłowe i bramy edge od naszego partnera sprzętowego' },
-      { label: 'Twój', title: 'Wykorzystaj sprzęt, który już wysyłasz', desc: '64-bitowa platforma Intel lub AMD z UEFI albo wspierana płyta ARM (na przykład NVIDIA Jetson), w każdym przypadku z TPM 2.0 spełniającym wymagania. TPM to wymóg, nie preferencja — bez niego nie zapieczętujemy klucza wobec stanu platformy, więc nie certyfikujemy profilu. Certyfikujemy ją i od tego momentu utrzymujemy.', examples: 'Intel · AMD · ARM (np. NVIDIA Jetson) · wymagany TPM 2.0' },
+      { label: 'Twój', title: 'Wykorzystaj sprzęt, który już wysyłasz', desc: '64-bitowa platforma Intel lub AMD z UEFI albo wspierana płyta ARM (na przykład NVIDIA Jetson), w każdym przypadku z TPM 2.0 spełniającym wymagania. TPM to wymóg, nie preferencja. Certyfikujemy ją i od tego momentu utrzymujemy.', examples: 'Intel · AMD · ARM (np. NVIDIA Jetson) · wymagany TPM 2.0' },
       { label: 'Nasz', title: 'Dedykowane konstrukcje do specjalnych, wymagających projektów', desc: 'Dla kilku naprawdę brutalnych projektów — zasolenie, długotrwałe wibracje, udary i skrajne temperatury — projektujemy i budujemy sprzęt sami, bo nic z półki tego nie wytrzyma. To konstrukcje w fazie MVP, pod specjalne projekty, specyfikowane per projekt, nie certyfikowany produkt katalogowy. Opcje reakcji na naruszenie fizyczne specyfikujemy per projekt w tych konstrukcjach — pod Twoje wymagania bezpieczeństwa, nie z katalogu.', examples: 'Szczelna obudowa aluminiowa · projektowana pod udary i wibracje · z detekcją naruszenia · tylko specjalne projekty' },
     ],
   },
   pricing: {
     eyebrow: 'Cennik',
     title: 'Jawne ceny, za aktywne urządzenie.',
-    desc: 'Utrzymywana, podpisana ścieżka aktualizacji OS z łataniem CVE, rozliczana za aktywne urządzenie miesięcznie. Każda standardowa stawka jest na tej stronie.',
+    desc: 'Utrzymywana ścieżka aktualizacji OS z łataniem CVE, rozliczana za aktywne urządzenie miesięcznie. Każda standardowa stawka jest na tej stronie.',
     terms: 'Ceny w EUR, bez VAT. Tylko dla firm; wymagany ważny numer VAT. Opublikowane stawki mają charakter informacyjny; wiążące warunki określa umowa.',
     trialName: 'Darmowy trial', trialPrice: '0 €', trialUnit: '1 miesiąc · do 3 urządzeń · tylko do ewaluacji',
     trialDesc: 'Prawdziwy system przez miesiąc na płycie, którą już certyfikujemy — do 3 urządzeń, dla firm, wyłącznie do oceny, nie do produkcji. Rejestrujemy i konfigurujemy urządzenia razem z Tobą; to nie jest natychmiastowy self-service. Płyta, której jeszcze nie certyfikowaliśmy, wymaga najpierw uruchomienia profilu własnego.',
@@ -459,7 +455,7 @@ const pl: Content = {
     paidTrialDesc: 'Pilotaż z jednostką ewaluacyjną od naszego partnera sprzętowego w najmie, do zwrotu po trialu. Opłata 600 € jest zaliczana na poczet opłat pierwszego roku, jeśli przejdziesz na plan w ciągu 30 dni od końca trialu; nie jest wypłacana gotówką, a najem nie jest zaliczany. Trial nie odnawia się sam, a jednostka wraca po jego zakończeniu.',
     paidTrialLines: [
       { label: 'Najem sprzętu', value: '55 €/urządzenie/mies. (165 € przez 3 miesiące)' },
-      { label: 'Depozyt', value: '950 € — podpisane zobowiązanie do zwrotu, nic nie pobieramy, jeśli jednostka wróci' },
+      { label: 'Zobowiązanie do zwrotu', value: '950 € — podpisane zobowiązanie do zwrotu, nic nie pobieramy, jeśli jednostka wróci' },
     ],
     tiersTitle: 'Za aktywne urządzenie, miesięcznie, na profil sprzętowy',
     tiersNote: 'Progi stopniowane — stawka każdego progu dotyczy tylko urządzeń w nim. Wybierz telemetrię (naszą lub własną) oraz profil (wspierany lub własny).',
@@ -471,7 +467,7 @@ const pl: Content = {
         { tier: 'Scale', devices: '251–1 000', own: '1,20 €', ours: '1,90 €' },
         { tier: 'Fleet', devices: '1 001+', own: '0,95 €', ours: '1,40 €' },
       ], minLabel: 'Minimum miesięczne na profil', minValue: '300 €' },
-      { name: 'Profil własny', note: 'Twoja własna płyta, uruchomiona i utrzymywana jako dedykowany profil — kernel, backporty CVE, podpisane buildy.', rows: [
+      { name: 'Profil własny', note: 'Twoja własna płyta, uruchomiona i utrzymywana jako dedykowany profil — kernel i backporty CVE.', rows: [
         { tier: 'Launch', devices: '1–50', own: '3,70 €', ours: '4,60 €' },
         { tier: 'Production', devices: '51–250', own: '2,80 €', ours: '3,70 €' },
         { tier: 'Scale', devices: '251–1 000', own: '2,30 €', ours: '3,25 €' },
@@ -489,7 +485,7 @@ const pl: Content = {
     ],
     bringupNote: 'Jednorazowy projekt inżynierski, który certyfikuje i utrzymuje Twoją płytę jako osobny profil. Zapłać z góry lub rozłóż na zobowiązanie 12-miesięczne.',
     sameTitle: 'Każdy płatny plan zawiera',
-    same: ['Potok budowania i wdrażania kontenerów', 'OTA dla kontenerów i obrazów OS', 'Comiesięczny pakiet aktualizacji OS', 'Utrzymanie CVE i kernela', 'Podpisane paczki aktualizacji', 'Automatyczne wycofanie', '30 buildów kontenerów/mies.', '200 MB logów kontenerów/urządzenie/mies.', 'Bez limitu liczby urządzeń — dodajesz je w miarę wzrostu'],
+    same: ['Potok budowania i wdrażania kontenerów', 'OTA dla kontenerów i obrazów OS', 'Comiesięczny pakiet aktualizacji OS', 'Utrzymanie CVE i kernela', 'Automatyczne wycofanie', '30 buildów kontenerów/mies.', '200 MB logów kontenerów/urządzenie/mies.', 'Bez limitu liczby urządzeń — dodajesz je w miarę wzrostu'],
     addonsTitle: 'Dodaj w każdej chwili',
     addons: [
       { label: 'Priorytetowa reakcja bezpieczeństwa', price: '+200–500 €/profil/mies.' },
@@ -521,7 +517,7 @@ const pl: Content = {
       { q: 'Co obejmuje trial?', a: 'Dwie drogi wejścia. Darmowy 1-miesięczny trial uruchamia prawdziwy system na płycie, którą już certyfikujemy — do 3 urządzeń, dla firm, wyłącznie do oceny, nie do produkcji. Na pilotaż z jednostką na miejscu 3-miesięczny trial płatny to 600 € i obejmuje jednostkę ewaluacyjną od naszego partnera sprzętowego w najmie, do zwrotu po trialu (55 €/urządzenie/mies.), z zabezpieczeniem w postaci zobowiązania do zwrotu na 950 € — podpisanego, bez pobierania środków, chyba że jednostka nie wróci. Opłata 600 € jest zaliczana na poczet opłat pierwszego roku, jeśli przejdziesz na plan w ciągu 30 dni od końca trialu; nie jest wypłacana gotówką, a najem nie jest zaliczany. Trial nie odnawia się sam, a jednostka wraca po jego zakończeniu. Tak czy inaczej oceniasz na realnym sprzęcie, nie w piaskownicy.' },
       { q: '„Nasza telemetria” a Twoja własna — jaka różnica?', a: 'Przy naszej telemetrii zbieramy i przetwarzamy dane o stanie urządzeń przez nasz unijny potok. Przy własnej telemetrii prowadzisz własny potok danych — ale logi kontenerów nadal przechodzą przez nasz unijny potok logów, bo tak prowadzimy i naprawiamy flotę. Tak czy inaczej OS jest w pełni prowadzony przez nas.' },
       { q: 'Co się dzieje po zamówieniu demo?', a: 'Wdrożenie z udziałem człowieka, a nie natychmiastowe self-serve. Omawiamy Twój sprzęt i flotę, a potem nasi inżynierowie budują i certyfikują obraz OS dla Twojej płyty. Uruchomienie to świadomy projekt z udziałem człowieka — późniejsze aktualizacje są zero-touch, ale pierwszy obraz budujemy wspólnie z Tobą.' },
-      { q: 'Czy mogę uruchomić HurricaneOS na sprzęcie, który już wysyłam?', a: 'Zwykle tak. 64-bitowa platforma Intel lub AMD z UEFI albo wspierana płyta ARM, w każdym przypadku z TPM 2.0, może zostać certyfikowana jako profil wspierany. Gdy Twoja płyta nie jest jeszcze wspierana, uruchomienie profilu własnego certyfikuje ją i utrzymuje jako osobny profil. TPM to twardy wymóg — bez niego nie zapieczętujemy kluczy wobec urządzenia.' },
+      { q: 'Czy mogę uruchomić HurricaneOS na sprzęcie, który już wysyłam?', a: 'Zwykle tak. 64-bitowa platforma Intel lub AMD z UEFI albo wspierana płyta ARM, w każdym przypadku z TPM 2.0, może zostać certyfikowana jako profil wspierany. Gdy Twoja płyta nie jest jeszcze wspierana, uruchomienie profilu własnego certyfikuje ją i utrzymuje jako osobny profil. TPM to twardy wymóg.' },
       { q: 'Skąd wziąć obraz golden image?', a: 'Buduje go i dostarcza Global Storm. Obraz jest specyficzny dla Twojego typu sprzętu — architektury CPU i nośnika rozruchowego (na przykład Intel z NVMe/SSD albo eMMC) — więc nie jest publicznie do pobrania. Poproś o niego przez formularz kontaktowy lub opiekuna konta. Przed pierwszym uruchomieniem urządzenie musi być u nas wstępnie zarejestrowane: niezarejestrowane urządzenie wystartuje, ale nie zostanie dopuszczone do konfiguracji. Procedura wgrywania krok po kroku znajduje się w instrukcji użytkownika dostarczanej z programem urządzeń.' },
     ],
   },
@@ -550,7 +546,6 @@ const pl: Content = {
     privacyNote: 'Global Storm sp. z o.o. wykorzysta te dane, aby odpowiedzieć na zapytanie i przygotować wycenę. Zgłoszenia są przechowywane w Google Workspace, który może je przetwarzać w USA. Zobacz naszą', privacyNoteLink: 'Politykę prywatności',
     success: 'Dziękujemy — odezwiemy się w ciągu jednego dnia roboczego.',
   },
-  consent: { label: 'Zgoda na pliki cookie', text: 'Chcielibyśmy mierzyć, jak korzystasz z tej strony. Nic nie jest zapisywane i żadna analityka nie działa bez Twojej zgody.', link: 'Polityka prywatności', accept: 'Zezwalam', decline: 'Nie, dziękuję' },
   registry: {
     title: 'Dane rejestrowe spółki',
     rows: [

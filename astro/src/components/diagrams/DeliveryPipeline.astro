@@ -4,8 +4,6 @@
 // private registry, never public), §14 security scan (per service, by severity),
 // §12 deploying a build (manual, succeeded builds only, CPU variant per device,
 // not installed → installing → running, 1 device or 10,000), §2.2 mutual TLS.
-// Not drawn because the manual does not state it: image signing in the pipeline,
-// a build-time SBOM, staged/percentage rollouts.
 import type { Locale } from '../../i18n/ui';
 import { site } from '../../data/site';
 interface Props { locale: Locale; }

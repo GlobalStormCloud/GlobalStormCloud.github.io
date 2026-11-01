@@ -1,4 +1,4 @@
-// Pricing helpers. Every figure shown is read from ./content.ts (Finance-verified source
+// Pricing helpers. Every figure shown is read from ./content.ts (the source
 // of truth, kept byte-identical); this file only parses and re-formats those strings.
 import type { Locale } from '../i18n/ui';
 

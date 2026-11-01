@@ -11,7 +11,7 @@ const t = c.team;
 // value ("PwC — …") and split at the dash so the name gets display type and the description stays as written.
 const isPartner = (v: string) => v.startsWith('PwC');
 const facts = [...t.facts].sort((a, b) => Number(isPartner(b.value)) - Number(isPartner(a.value)));
-// Existing founder portraits, used unchanged (256 × 256 source files, shown at ≤ 160 CSS px).
+// Existing team portraits, used unchanged (256 × 256 source files, shown at ≤ 160 CSS px).
 const photos: Record<string, string> = { Wojtek: '/img/team/wojtek.jpg', Mohsen: '/img/team/mohsen.jpg' };
 ---
 <section class="wrap team" aria-labelledby="facts-h">

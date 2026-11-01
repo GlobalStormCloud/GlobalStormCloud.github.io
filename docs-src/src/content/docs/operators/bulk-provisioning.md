@@ -1,6 +1,6 @@
 ---
 title: 4. Bulk provisioning at manufacturing scale
-description: The manufacture-once, register-in-bulk workflow — one golden image per hardware type, MAC-address pre-registration, and zero-touch first boot in the field.
+description: The manufacture-once, register-in-bulk workflow — one golden image per hardware type, device pre-registration, and zero-touch first boot in the field.
 ---
 
 Flashing devices one at a time (section 3) is fine for a handful of units. For production
@@ -60,9 +60,9 @@ As units are built, collect their identifying information and provide the list t
 
 ```bash
 device_identifier,device_name
-52:54:00:aa:bb:01,warehouse-sensor-0001
-52:54:00:aa:bb:02,warehouse-sensor-0002
-52:54:00:aa:bb:03,warehouse-sensor-0003
+GS-DEV-0001,warehouse-sensor-0001
+GS-DEV-0002,warehouse-sensor-0002
+GS-DEV-0003,warehouse-sensor-0003
 ```
 
 - The device identifier is a unique code that will be used to register it with the platform.

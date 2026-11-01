@@ -1,16 +1,16 @@
 # Global Storm — "Anodised" design system
 
-Palette A (graphite + signal amber, Saira display). This file is the build reference. Tokens live in `src/styles/tokens.css`; shared primitives and motifs live in `src/styles/global.css`.
+Palette A: graphite + signal amber, Saira display. This file is the build reference for the site. Tokens live in `src/styles/tokens.css`; shared primitives and motifs live in `src/styles/global.css`.
 
 ## Logo
-- Source of truth: the supplied vectors, in `src/assets/logo/source/`. They are kept unmodified.
+- Source of truth: the original vectors in `src/assets/logo/source/`. They are kept unmodified.
 - `src/assets/logo/{mark,lockup}.svg` are the SVGO-optimised copies. Each is one path with `fill="currentColor"`.
 - Render them through `src/components/Logo.astro` (`variant="lockup" | "mark"`). Colour comes from CSS: ink on light, paper on dark. **Monochrome only.** Never colour, outline, rotate, or animate the mark.
 - Module **E** = eye height = 0.326 × mark height, measured on the supplied vector: the eye is 1.372 : 1, 44.8 % of mark width, centred, and the mark has 180° rotational symmetry. The lockup gap between mark and wordmark is already 1 E, and the wordmark baseline sits on the eye's lower edge.
   - Clear space = 1 E on every side.
   - Minimum size: mark 16 px; lockup 140 px wide.
 - Favicons: `public/favicon.svg` (switches with dark mode), `favicon.ico` (16/32/48), `apple-touch-icon.png`.
-- Social preview: one static `public/og.png` (1200×630), image-preview only — no share buttons or share UI. (The earlier "no Open Graph image" decision was reversed on 2026-10-18; see the comment in `src/layouts/Layout.astro`.)
+- Social preview: one static `public/og.png` (1200×630), image-preview only — no share buttons or share UI.
 
 ## Colour (WCAG ratios measured)
 | Token | Hex | Use |
@@ -69,16 +69,7 @@ Motion: 220 ms ease-out reveals only. Nothing loops or bounces. Everything is di
 - The recording was made in a VirtualBox VM, and the caption says so.
 
 ## Diagrams (`src/components/diagrams/`)
-The diagrams are built in HTML with inline-SVG glyphs, so the text is real, reflows on mobile and fits longer Polish strings. They are drawn **only** from the user manual (docs-site, Starlight); each file's header names its sections.
-
-Gaps — not drawn because the manual does not state them (to be confirmed, then added to the docs first):
-- a read-only root filesystem
-- measured-boot and encryption details
-- image signing in the build pipeline
-- health-probe criteria beyond "fails to boot"
-- staged rollouts
-
-The marketing copy in `content.ts` claims several of these. The pipeline steps in `content.ts` also say containers write to "the inactive bank"; in the manual, A/B applies to the OS only. That text is therefore not rendered.
+The diagrams are built in HTML with inline-SVG glyphs, so the text is real, reflows on mobile and fits longer Polish strings. They are drawn from the user manual (docs-site, Starlight); each file's header names its sections.
 
 ## Wayfinding
 
@@ -89,6 +80,6 @@ The marketing copy in `content.ts` claims several of these. The pipeline steps i
 - **Small text floor**: mono captions and table text are 14-16 px; `--steel-deep` (8.6:1) replaces `--steel` for mono captions and secondary labels on light, `--mist-lt` (10.0:1) on dark.
 
 ## Content
-- `src/data/content.ts` holds the migrated, Legal/Finance-cleared copy and the pricing data. **Do not edit it in design work.**
+- `src/data/content.ts` holds the migrated copy and the pricing data. **Do not edit it in design work.**
 - `src/data/site.ts` holds the copy this build adds.
 - `src/data/pricing-format.ts` only re-formats figures from `content.ts`. The worked example is recomputed at build time and checked against the published example.

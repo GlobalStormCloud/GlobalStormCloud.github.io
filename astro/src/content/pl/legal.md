@@ -5,14 +5,15 @@ route: legal
 
 # Polityka Prywatności
 
-Ostatnia aktualizacja: [GO-LIVE DATE]
+Ostatnia aktualizacja: 21 października 2026
 
 ## Kto odpowiada za Twoje dane
 
 Administratorem danych osobowych zbieranych przez tę stronę jest:
 
-**{{company.name}}**, {{company.address}}, {{company.country}}
-{{company.court}}
+**{{company.name}}**\
+{{company.address}}, {{company.country}}\
+Sąd rejestrowy: {{company.court}}\
 KRS {{company.krs}} · NIP {{company.nip}} · REGON {{company.regon}} · {{company.capitalLabel}} {{company.capital}}
 
 W sprawach dotyczących tej polityki lub Twoich danych napisz na
@@ -37,12 +38,15 @@ my. Google działa jako nasz podmiot przetwarzający i może przetwarzać dane
 w Stanach Zjednoczonych. Używamy zgłoszenia, aby Ci odpowiedzieć i przygotować
 wycenę.
 
-- **Podstawa prawna:** art. 6 ust. 1 lit. b RODO — działania podejmowane na Twoje
-  żądanie przed zawarciem umowy; oraz art. 6 ust. 1 lit. f — nasz prawnie
-  uzasadniony interes w odpowiadaniu na zapytania biznesowe.
+- **Podstawa prawna:** art. 6 ust. 1 lit. f RODO — nasz prawnie uzasadniony
+  interes w odpowiadaniu na zapytania biznesowe; oraz art. 6 ust. 1 lit. b, gdy
+  kontaktujesz się z nami we własnym imieniu, np. jako jednoosobowa działalność
+  gospodarcza — działania podejmowane na Twoje żądanie przed zawarciem umowy.
 - **Okres przechowywania:** przez czas kontaktu i do 24 miesięcy po ostatniej
   wymianie wiadomości, następnie dane są usuwane. Jeśli poprosisz o wcześniejsze
   usunięcie, zrobimy to.
+- **Podanie danych:** jest dobrowolne, ale potrzebujemy ich, aby odpowiedzieć na
+  Twoje zapytanie; bez nich nie możemy odpowiedzieć.
 
 ### Poczta e-mail
 
@@ -97,6 +101,9 @@ Na podstawie RODO możesz żądać, abyśmy:
 - ograniczyli ich przetwarzanie (art. 18);
 - przekazali je w formacie umożliwiającym przenoszenie (art. 20);
 - zaprzestali przetwarzania opartego na prawnie uzasadnionym interesie (art. 21).
+
+Nie podejmujemy wobec Ciebie decyzji opartych wyłącznie na zautomatyzowanym
+przetwarzaniu i nie profilujemy Cię (art. 22 RODO).
 
 Napisz na [contact@globalstorm.cloud](mailto:contact@globalstorm.cloud)
 — odpowiemy w ciągu miesiąca.
