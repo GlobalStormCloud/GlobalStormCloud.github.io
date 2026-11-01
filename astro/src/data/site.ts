@@ -131,7 +131,7 @@ const en: Site = {
     featured: 'Recommended', from: 'from', perDevice: '/ device / mo', launchNoTel: 'Launch band, your own telemetry',
     minimum: 'Monthly minimum', trialCta: 'Request a free trial', paidTrialCta: 'Ask for a paid trial', supportedCta: 'Request a quote', customCta: 'Talk to us',
     bringupLabel: 'One-off bring-up',
-    exampleTitle: 'Worked example · 250 devices, your own telemetry',
+    exampleTitle: 'Worked example · 250 devices, your own telemetry',
     exampleTotalLabel: 'Device charge', perMonth: '/ mo',
     exampleNote: 'Above the {min} minimum, so the device charge is billed. Below it, you pay the minimum — a floor, not an extra charge.',
     noTel: 'Your own', tel: 'Ours', table: '€ / active device / month', bringupFrom: 'from',
