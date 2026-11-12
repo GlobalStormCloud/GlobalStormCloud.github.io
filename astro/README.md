@@ -9,8 +9,11 @@ project lives in the `astro/` subdirectory.
 - **Node:** 20.3+ (developed on v24.22.0)
 - **npm:** 10+ (developed on 12.2.1)
 - Astro **5.14.1**, Tailwind CSS **4.1.14** (versions pinned in `package.json`;
-  exact tree in `package-lock.json`). Everything is free/OSS. The site itself
-  loads no analytics and no third-party resources.
+  exact tree in `package-lock.json`). Everything is free/OSS. The site loads no
+  third-party resources, with one exception: Google Analytics, requested only
+  after the visitor accepts it in the consent banner (`public/consent.js`,
+  `src/components/ConsentBanner.astro`). The documentation under `/docs` has no
+  analytics.
 
 ## Run it
 
