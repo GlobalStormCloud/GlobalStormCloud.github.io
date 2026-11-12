@@ -35,7 +35,7 @@ Amber is a lamp, not a paint. It covers at most 5 % of a screen. Amber text is n
 - **Inter** (variable) for body and UI.
 - **IBM Plex Mono** 400/500 for readouts, captions, spec plates and tables.
 - The latin and latin-ext subsets together cover Polish ą ć ę ł ń ó ś ź ż.
-- No CDN of any kind. Any third-party runtime fetch is a defect.
+- No CDN of any kind. Any third-party runtime fetch is a defect, with one exception: Google Analytics, which is requested only after the visitor accepts it in the consent banner (see Consent banner below).
 
 ## Icons (Lucide, ISC — vendored stock, no generated art)
 - Pillar glyphs come from **lucide-static 1.59.0** (ISC; the Feather-derived icons in that package are MIT — none of ours are). Survival `database-backup`, Security `shield-check`, Operated `server-cog`, Sovereignty `earth-lock`. Unmodified source SVGs live in `src/assets/icons/lucide/`; `src/components/sections/PillarIcon.astro` inlines them.
@@ -60,6 +60,13 @@ Amber is a lamp, not a paint. It covers at most 5 % of a screen. Amber text is n
 5. **Machined geometry** — 2 px radius on controls, 4 px on plates. No pills.
 
 Motion: 220 ms ease-out reveals only. Nothing loops or bounces. Everything is disabled under `prefers-reduced-motion`.
+
+## Consent banner
+- `components/ConsentBanner.astro` (markup, copy from `data/site.ts`) + `public/consent.js` (first-party, no inline script). A compact `.dark.flat` strip fixed to the bottom of the viewport, so it moves no content; it is first in the tab order, after the skip link.
+- Accept and Decline are the same `btn--ghost btn--sm` button at the same width: neither is emphasised. No amber fill.
+- Hidden in the HTML and shown by the script only when no valid choice is stored. A footer control (`data-consent-open`, "Cookie settings") reopens it and shows the current state.
+- Consent is stored in `localStorage` key `gs-consent` as `{v, c, t}` (policy version, `granted` / `denied`, ISO time). Change `CONSENT_VERSION` in the component to re-ask every visitor. Global Privacy Control counts as a decline; blocked storage counts as a decline and hides the footer control.
+- Google Consent Mode v2 defaults are all denied. Accept updates `analytics_storage` only; Google signals and ad personalisation stay off. Withdrawing sets Google's `ga-disable-<id>` switch, updates consent to denied and deletes `_ga` / `_ga_*`.
 
 ## Boot video
 - One copy: `public/media/hurricaneos-boot.webm` (830×324, 13.7 s). Poster: `hurricaneos-boot-poster.jpg`, the final login-banner frame.

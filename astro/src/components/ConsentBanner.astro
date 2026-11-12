@@ -1,0 +1,61 @@
+---
+// Analytics consent banner. Markup only: the behaviour is the first-party file /consent.js (public/consent.js),
+// which keeps the page free of inline script for this feature.
+//
+// Nothing from Google is requested and no Google cookie is set until the visitor presses Accept. The banner
+// is hidden in the HTML and shown by the script only when no valid choice is stored, so without JavaScript
+// there is no banner and no analytics. It sits in the DOM right after the skip link so it is first in the tab
+// order, and overlays the bottom of the viewport so it moves no content.
+//
+// To re-ask every visitor after a policy change, change CONSENT_VERSION.
+import { localizePath, type Locale } from '../i18n/ui';
+import { site } from '../data/site';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const c = site[locale].consent;
+
+const GA_MEASUREMENT_ID = 'G-M2N1SW21M1';
+const CONSENT_VERSION = '1';
+---
+<section
+  class="consent dark flat"
+  id="consent"
+  role="region"
+  aria-label={c.label}
+  data-ga-id={GA_MEASUREMENT_ID}
+  data-version={CONSENT_VERSION}
+  data-state-on={c.stateOn}
+  data-state-off={c.stateOff}
+  hidden
+>
+  <div class="wrap consent__in">
+    <div class="consent__body">
+      <p class="consent__text">{c.text} <a href={localizePath('/legal', locale) + c.policyAnchor}>{c.policyLink}</a>.</p>
+      <p class="consent__state mono" data-consent-state role="status" hidden></p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost btn--sm" data-consent="granted">{c.accept}</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-consent="denied">{c.decline}</button>
+    </div>
+  </div>
+</section>
+<script is:inline src="/consent.js" defer></script>
+
+<style>
+  .consent { position: fixed; inset: auto 0 0 0; z-index: 90; border-top: 1px solid var(--rule-dark); box-shadow: 0 -8px 24px rgba(13, 15, 18, 0.25); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .consent[hidden] { display: none; }
+  .consent__in { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding-block: 16px; }
+  .consent__body { flex: 1 1 28em; min-width: 0; }
+  .consent__text { font-size: 15px; line-height: 1.5; color: var(--paper); max-width: 52em; }
+  .consent__state { margin-top: 6px; font-size: 13px; color: var(--mist-lt); }
+  .consent__actions { display: flex; gap: 12px; flex: 0 0 auto; }
+  /* Equal weight: both buttons use the same ghost style and the same width. */
+  .consent__actions .btn { min-width: 120px; }
+  @media (max-width: 600px) {
+    .consent__in { padding-block: 12px; gap: 10px; }
+    .consent__text { font-size: 14px; line-height: 1.45; }
+    .consent__actions { flex: 1 1 100%; }
+    .consent__actions .btn { flex: 1 1 0; min-width: 0; }
+  }
+</style>

@@ -45,6 +45,7 @@ const companyLinks = [
           <p class="legend foot__h">{f.colCompany}</p>
           <ul role="list">
             {companyLinks.map((l) => <li><a href={localizePath(l.path, locale)}>{l.label}</a></li>)}
+            <li hidden><button type="button" data-consent-open>{sl.consent.settings}</button></li>
             <li><a href={localizePath('/status', locale)}>{sl.footerLinks.status}</a></li>
           </ul>
         </div>
@@ -75,7 +76,8 @@ const companyLinks = [
   .foot__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .foot__h { color: var(--mist); margin-bottom: 12px; }
   .foot__cols li a { display: inline-flex; align-items: center; min-height: 36px; color: var(--paper); text-decoration: none; font-size: 15px; overflow-wrap: anywhere; }
-  .foot__cols li a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .foot__cols li a:hover, .foot__cols li button:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .foot__cols li button { display: inline-flex; align-items: center; min-height: 36px; padding: 0; border: 0; background: none; color: var(--paper); font: inherit; font-size: 15px; text-align: left; cursor: pointer; }
   .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 24px; color: var(--mist); }
   .foot__entity a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
   /* Three link columns stay side by side until 640 px, so none is orphaned on a tablet. Below that the

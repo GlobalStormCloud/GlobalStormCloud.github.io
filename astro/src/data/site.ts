@@ -52,6 +52,8 @@ export interface Site {
   notFound: { title: string; desc: string; home: string };
   status: { eyebrow: string; title: string; desc: string; stateLabel: string; stateValue: string; note: string; back: string };
   footerLinks: { docs: string; status: string };
+  /** Analytics consent banner (components/ConsentBanner.astro) and the footer link that reopens it. */
+  consent: { label: string; text: string; accept: string; decline: string; policyLink: string; policyAnchor: string; settings: string; stateOn: string; stateOff: string };
   trust2: { eyebrow: string; items: string[]; link: string };
   contactSteps: { title: string; items: string[] };
 }
@@ -196,6 +198,14 @@ const en: Site = {
     back: '← Back to home',
   },
   footerLinks: { docs: 'Documentation', status: 'Status' },
+  consent: {
+    label: 'Analytics consent',
+    text: 'We would like to use Google Analytics, which sets cookies, to see how this site is used. It runs only if you accept. You can change your mind at any time with “Cookie settings” in the footer.',
+    accept: 'Accept', decline: 'Decline',
+    policyLink: 'How we use analytics', policyAnchor: '#analytics',
+    settings: 'Cookie settings',
+    stateOn: 'Analytics is currently on.', stateOff: 'Analytics is currently off.',
+  },
   trust2: {
     eyebrow: 'Evidence for buyers',
     items: ['CRA & RED mapping — technical pack under NDA', 'CVE scan results for every build — in your dashboard'],
@@ -351,6 +361,14 @@ const pl: Site = {
     back: '← Powrót na stronę główną',
   },
   footerLinks: { docs: 'Dokumentacja', status: 'Status' },
+  consent: {
+    label: 'Zgoda na analitykę',
+    text: 'Chcielibyśmy korzystać z Google Analytics, które zapisuje pliki cookie, aby sprawdzać, jak używana jest ta strona. Działa tylko po Twojej zgodzie. Decyzję możesz zmienić w każdej chwili w stopce, w „Ustawieniach cookies”.',
+    accept: 'Akceptuję', decline: 'Odrzucam',
+    policyLink: 'Jak korzystamy z analityki', policyAnchor: '#analityka',
+    settings: 'Ustawienia cookies',
+    stateOn: 'Analityka jest obecnie włączona.', stateOff: 'Analityka jest obecnie wyłączona.',
+  },
   trust2: {
     eyebrow: 'Dowody dla kupujących',
     items: ['Odwzorowanie CRA i RED — pakiet techniczny pod NDA', 'Wyniki skanu CVE każdego buildu — w Twoim dashboardzie'],

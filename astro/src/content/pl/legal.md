@@ -5,7 +5,7 @@ route: legal
 
 # Polityka Prywatności
 
-Ostatnia aktualizacja: 21 października 2026
+Ostatnia aktualizacja: 12 listopada 2026
 
 ## Kto odpowiada za Twoje dane
 
@@ -21,11 +21,53 @@ W sprawach dotyczących tej polityki lub Twoich danych napisz na
 
 ## Co zbieramy i po co
 
-### Nic — za samo odwiedzenie strony
+### Samo odwiedzenie strony
 
-Ta strona nie zapisuje plików cookie, nie uruchamia analityki i nie ładuje
-skryptów zewnętrznych. Nie ma tu piksela śledzącego, sieci reklamowej ani
-pytania o zgodę — bo nie ma na co jej wyrażać.
+Dopóki nie zaakceptujesz analityki, ta strona nie zapisuje plików cookie i nie
+ładuje skryptów zewnętrznych. Nie ma tu sieci reklamowej ani reklamowych plików
+cookie.
+
+### Analityka
+
+Korzystamy z Google Analytics 4, aby zrozumieć, jak używana jest ta strona:
+które strony są odwiedzane, jak odwiedzający na nią trafiają oraz z jakich
+urządzeń i przeglądarek korzystają. Wyniki wykorzystujemy do ulepszania strony.
+Analityka działa tylko wtedy, gdy zaakceptujesz ją w komunikacie o plikach
+cookie. Jeśli ją odrzucisz albo jeszcze nie dokonasz wyboru, żaden skrypt
+analityczny nie jest ładowany i nie są zapisywane analityczne pliki cookie.
+Jeżeli Twoja przeglądarka wysyła sygnał Global Privacy Control, traktujemy go
+jako odmowę. Analityka nie działa w dokumentacji pod adresem /docs.
+
+- **Jakie dane są zbierane:** odwiedzane strony, przybliżona lokalizacja,
+  informacje o urządzeniu i przeglądarce oraz losowy identyfikator zapisany
+  w pliku cookie. Google Analytics nie rejestruje ani nie przechowuje adresów IP;
+  Google wykorzystuje adres IP Twojego żądania do świadczenia i zabezpieczania
+  usługi oraz do oszacowania przybliżonej lokalizacji. Nie włączamy sygnałów
+  Google ani funkcji reklamowych i nie przekazujemy do analityki treści
+  formularza zapytania o demo.
+- **Pliki cookie:** dwa własne (first-party) pliki cookie w domenie
+  globalstorm.cloud: `_ga` (odróżnia odwiedzających) i `_ga_M2N1SW21M1`
+  (przechowuje stan sesji). Domyślnie oba są ważne do dwóch lat.
+- **Podstawa prawna:** Twoja zgoda, art. 6 ust. 1 lit. a RODO; a w zakresie
+  zapisywania informacji w Twoim urządzeniu i uzyskiwania do nich dostępu —
+  Twoja zgoda na podstawie art. 399 ustawy Prawo komunikacji elektronicznej.
+- **Dostawca:** Google Ireland Limited dostarcza nam Google Analytics i działa
+  jako nasz podmiot przetwarzający. Google może przetwarzać dane w Stanach
+  Zjednoczonych i innych państwach; przy takich przekazaniach Google opiera się
+  na Ramach Ochrony Danych UE–USA, a w określonych sytuacjach na standardowych
+  klauzulach umownych (zob. „Kto jeszcze przetwarza Twoje dane” poniżej).
+- **Okres przechowywania:** Google Analytics automatycznie usuwa dane na poziomie
+  użytkownika i zdarzeń po upływie okresu przechowywania ustawionego na naszym
+  koncie analitycznym; w standardowej wersji Google Analytics Google dopuszcza
+  najwyżej 14 miesięcy.
+- **Wyrażenie zgody:** jest dobrowolne. Odmowa nie ogranicza korzystania ze
+  strony.
+- **Cofnięcie zgody:** w dowolnej chwili, przez „Ustawienia cookies” w stopce
+  każdej strony, które ponownie otwiera Twój wybór. Cofnięcie zgody zatrzymuje
+  analitykę i usuwa analityczne pliki cookie, do których mamy dostęp na tej
+  stronie; pliki cookie możesz też usunąć w ustawieniach przeglądarki. Cofnięcie
+  zgody nie wpływa na przetwarzanie dokonane wcześniej. Pozostałe prawa opisano
+  w części [Twoje prawa](#twoje-prawa).
 
 ### Formularz zapytania o demo
 
@@ -81,6 +123,9 @@ własnych zasad.
 - **Google Ireland Limited / Google LLC** — Google Workspace: przechowywanie
   zgłoszeń z formularza (Apps Script i Arkusze) oraz obsługa poczty
   contact@globalstorm.cloud. Lokalizacja: UE i Stany Zjednoczone.
+- **Google Ireland Limited / Google LLC** — Google Analytics: statystyki
+  korzystania z tej strony, tylko jeśli zaakceptujesz analitykę. Lokalizacja: UE
+  i Stany Zjednoczone.
 - **GitHub, Inc.** — hosting strony i dokumentacji (GitHub Pages), w tym logi
   żądań z adresami IP odwiedzających. Lokalizacja: Stany Zjednoczone.
 
@@ -101,6 +146,10 @@ Na podstawie RODO możesz żądać, abyśmy:
 - ograniczyli ich przetwarzanie (art. 18);
 - przekazali je w formacie umożliwiającym przenoszenie (art. 20);
 - zaprzestali przetwarzania opartego na prawnie uzasadnionym interesie (art. 21).
+
+Udzieloną zgodę możesz cofnąć w każdej chwili (art. 7 ust. 3 RODO), na przykład
+przez „Ustawienia cookies” w stopce; nie wpływa to na zgodność z prawem
+przetwarzania dokonanego przed jej cofnięciem.
 
 Nie podejmujemy wobec Ciebie decyzji opartych wyłącznie na zautomatyzowanym
 przetwarzaniu i nie profilujemy Cię (art. 22 RODO).
