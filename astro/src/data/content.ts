@@ -58,7 +58,7 @@ const en: Content = {
     desc: 'HurricaneOS is a fully operated, immutable edge platform for x86 and ARM fleets. We run the OS — patching, rollouts, CVE response — so you ship application code, not embedded-Linux hires.',
     cta: 'Book a Demo',
     secondary: 'View Pricing',
-    note: ['Survives power loss', 'Zero-touch OS updates', 'Published prices', 'x86 · ARM · UEFI'],
+    note: ['Survives power loss', 'Zero-touch OS updates', 'x86 · ARM · UEFI'],
   },
   trust: {
     partnerLabel: 'Industrial engagements with',
@@ -180,9 +180,9 @@ const en: Content = {
   },
   pricing: {
     eyebrow: 'Pricing',
-    title: 'Published prices, per active device.',
+    title: 'Priced per active device.',
     desc: 'A maintained OS update lane with CVE patching, billed per active device per month. Every standard rate is on this page.',
-    terms: 'Prices in EUR, excluding VAT. For businesses only; a valid VAT ID is required. Published rates are indicative; binding terms are set in your contract.',
+    terms: 'Prices in EUR, excluding VAT. For businesses only; a valid VAT ID is required. Rates are indicative; binding terms are set in your contract.',
     // TRIAL MODEL — free and paid trial.
     // Free: €0 / 1 mo / ≤3 devices / eval-only / supported-profile-only / B2B / no shipped hardware.
     // Paid: €600 one-off / 3 mo + partner-hardware unit on €55/device/mo returnable lease + €950 return undertaking
@@ -311,7 +311,7 @@ const en: Content = {
   teasers: {
     architecture: { title: "What's actually on the device", link: 'See the full architecture →' },
     field: { eyebrow: 'Field Report', title: 'Running in a ship\'s engine room, at sea, since June', caption: 'In service at sea since June 2026 on the STS Kapitan Głowacki.', link: 'Read the field report →' },
-    pricing: { eyebrow: 'Pricing', title: 'Published prices. Free 1-month trial.', desc: 'Start free on a board we already certify for a month, or take a 3-month paid trial on a leased unit from our hardware partner. A supported fleet of 10 devices is €300/mo; 250 devices, €375/mo (your own telemetry). Every standard rate is published.', link: 'See full pricing →' },
+    pricing: { eyebrow: 'Pricing', title: 'Free 1-month trial.', desc: 'Start free on a board we already certify for a month, or take a 3-month paid trial on a leased unit from our hardware partner. A supported fleet of 10 devices is €300/mo; 250 devices, €375/mo (your own telemetry).', link: 'See full pricing →' },
     closing: { eyebrow: 'Get Started', title: 'See HurricaneOS in action', desc: 'Book a 30-minute demo, or ask about a trial on a board we certify or a leased unit. No commitment to talk.' },
   },
 };
@@ -324,7 +324,7 @@ const pl: Content = {
     desc: 'HurricaneOS to w pełni prowadzona, niezmienna platforma edge dla flot x86 i ARM. To my prowadzimy system — łatanie, wdrożenia, reakcję na CVE — więc Ty wysyłasz kod aplikacji, a nie zatrudniasz specjalistów od Linuksa wbudowanego.',
     cta: 'Umów demo',
     secondary: 'Zobacz cennik',
-    note: ['Odporna na utratę zasilania', 'Zero-touch aktualizacje OS', 'Jawne ceny', 'x86 · ARM · UEFI'],
+    note: ['Odporna na utratę zasilania', 'Zero-touch aktualizacje OS', 'x86 · ARM · UEFI'],
   },
   trust: {
     partnerLabel: 'Projekty przemysłowe z',
@@ -445,9 +445,9 @@ const pl: Content = {
   },
   pricing: {
     eyebrow: 'Cennik',
-    title: 'Jawne ceny, za aktywne urządzenie.',
+    title: 'Cena za aktywne urządzenie.',
     desc: 'Utrzymywana ścieżka aktualizacji OS z łataniem CVE, rozliczana za aktywne urządzenie miesięcznie. Każda standardowa stawka jest na tej stronie.',
-    terms: 'Ceny w EUR, bez VAT. Tylko dla firm; wymagany ważny numer VAT. Opublikowane stawki mają charakter informacyjny; wiążące warunki określa umowa.',
+    terms: 'Ceny w EUR, bez VAT. Tylko dla firm; wymagany ważny numer VAT. Stawki mają charakter informacyjny; wiążące warunki określa umowa.',
     trialName: 'Darmowy trial', trialPrice: '0 €', trialUnit: '1 miesiąc · do 3 urządzeń · tylko do ewaluacji',
     trialDesc: 'Prawdziwy system przez miesiąc na płycie, którą już certyfikujemy — do 3 urządzeń, dla firm, wyłącznie do oceny, nie do produkcji. Rejestrujemy i konfigurujemy urządzenia razem z Tobą; to nie jest natychmiastowy self-service. Płyta, której jeszcze nie certyfikowaliśmy, wymaga najpierw uruchomienia profilu własnego.',
     startHere: 'Poproś o trial', trialCta: 'Poproś o darmowy trial →',
@@ -569,7 +569,7 @@ const pl: Content = {
   teasers: {
     architecture: { title: 'Co naprawdę znajduje się na urządzeniu', link: 'Zobacz pełną architekturę →' },
     field: { eyebrow: 'Raport z terenu', title: 'Pracuje w maszynowni żaglowca, na morzu, od czerwca', caption: 'Na morzu od czerwca 2026 na STS Kapitan Głowacki.', link: 'Przeczytaj raport z terenu →' },
-    pricing: { eyebrow: 'Cennik', title: 'Jawne ceny. Darmowy 1-miesięczny trial.', desc: 'Zacznij za darmo na płycie, którą już certyfikujemy, przez miesiąc albo weź 3-miesięczny trial płatny na wynajętej jednostce od naszego partnera sprzętowego. Wspierana flota 10 urządzeń to 300 €/mies.; 250 urządzeń — 375 €/mies. (przy własnej telemetrii). Każda standardowa stawka jest jawna.', link: 'Zobacz pełny cennik →' },
+    pricing: { eyebrow: 'Cennik', title: 'Darmowy 1-miesięczny trial.', desc: 'Zacznij za darmo na płycie, którą już certyfikujemy, przez miesiąc albo weź 3-miesięczny trial płatny na wynajętej jednostce od naszego partnera sprzętowego. Wspierana flota 10 urządzeń to 300 €/mies.; 250 urządzeń — 375 €/mies. (przy własnej telemetrii).', link: 'Zobacz pełny cennik →' },
     closing: { eyebrow: 'Rozpocznij', title: 'Zobacz HurricaneOS w akcji', desc: 'Umów 30-minutowe demo albo zapytaj o trial na płycie, którą certyfikujemy, lub na wynajętej jednostce. Rozmowa do niczego nie zobowiązuje.' },
   },
 };
