@@ -311,7 +311,7 @@ const en: Content = {
   teasers: {
     architecture: { title: "What's actually on the device", link: 'See the full architecture →' },
     field: { eyebrow: 'Field Report', title: 'Running in a ship\'s engine room, at sea, since June', caption: 'In service at sea since June 2026 on the STS Kapitan Głowacki.', link: 'Read the field report →' },
-    pricing: { eyebrow: 'Pricing', title: 'Published prices. Free 1-month trial.', desc: 'Start free on a board we already certify for a month, or take a 3-month paid trial on a leased unit from our hardware partner. A supported fleet of 10 devices is €300/mo; 250 devices, €375/mo (your own telemetry). Every standard rate is published.', link: 'See full pricing →' },
+    pricing: { eyebrow: 'Pricing', title: 'Free 1-month trial.', desc: 'Start free on a board we already certify for a month, or take a 3-month paid trial on a leased unit from our hardware partner. A supported fleet of 10 devices is €300/mo; 250 devices, €375/mo (your own telemetry). Every standard rate is published.', link: 'See full pricing →' },
     closing: { eyebrow: 'Get Started', title: 'See HurricaneOS in action', desc: 'Book a 30-minute demo, or ask about a trial on a board we certify or a leased unit. No commitment to talk.' },
   },
 };
@@ -569,7 +569,7 @@ const pl: Content = {
   teasers: {
     architecture: { title: 'Co naprawdę znajduje się na urządzeniu', link: 'Zobacz pełną architekturę →' },
     field: { eyebrow: 'Raport z terenu', title: 'Pracuje w maszynowni żaglowca, na morzu, od czerwca', caption: 'Na morzu od czerwca 2026 na STS Kapitan Głowacki.', link: 'Przeczytaj raport z terenu →' },
-    pricing: { eyebrow: 'Cennik', title: 'Jawne ceny. Darmowy 1-miesięczny trial.', desc: 'Zacznij za darmo na płycie, którą już certyfikujemy, przez miesiąc albo weź 3-miesięczny trial płatny na wynajętej jednostce od naszego partnera sprzętowego. Wspierana flota 10 urządzeń to 300 €/mies.; 250 urządzeń — 375 €/mies. (przy własnej telemetrii). Każda standardowa stawka jest jawna.', link: 'Zobacz pełny cennik →' },
+    pricing: { eyebrow: 'Cennik', title: 'Darmowy 1-miesięczny trial.', desc: 'Zacznij za darmo na płycie, którą już certyfikujemy, przez miesiąc albo weź 3-miesięczny trial płatny na wynajętej jednostce od naszego partnera sprzętowego. Wspierana flota 10 urządzeń to 300 €/mies.; 250 urządzeń — 375 €/mies. (przy własnej telemetrii). Każda standardowa stawka jest jawna.', link: 'Zobacz pełny cennik →' },
     closing: { eyebrow: 'Rozpocznij', title: 'Zobacz HurricaneOS w akcji', desc: 'Umów 30-minutowe demo albo zapytaj o trial na płycie, którą certyfikujemy, lub na wynajętej jednostce. Rozmowa do niczego nie zobowiązuje.' },
   },
 };
