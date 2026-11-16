@@ -204,9 +204,9 @@ const en: Site = {
   contactSteps: {
     title: 'What happens next',
     items: [
-      'A 30-minute call about your hardware, your fleet and where it runs.',
-      'We agree the route: a free trial on a board we already certify, or a paid trial on a leased unit from our hardware partner.',
-      'Our engineers build and certify the OS image for your board. Updates after that are zero-touch.',
+      'A 30-minute call about your machines and where they run.',
+      'We agree the route. HurricaneOS: a free trial on a board we already certify, or a paid trial on a leased unit from our hardware partner. Neritic AI: we agree the next step together.',
+      'For HurricaneOS, our engineers build and certify the OS image for your board. Updates after that are zero-touch.',
     ],
   },
 };
@@ -359,9 +359,9 @@ const pl: Site = {
   contactSteps: {
     title: 'Co dalej',
     items: [
-      '30-minutowa rozmowa o Twoim sprzęcie, flocie i miejscu, w którym działa.',
-      'Ustalamy drogę: darmowy trial na płycie, którą już certyfikujemy, albo trial płatny na wynajętej jednostce od naszego partnera sprzętowego.',
-      'Nasi inżynierowie budują i certyfikują obraz OS dla Twojej płyty. Późniejsze aktualizacje są zero-touch.',
+      '30-minutowa rozmowa o Twoich maszynach i o tym, gdzie pracują.',
+      'Ustalamy drogę. HurricaneOS: darmowy trial na płycie, którą już certyfikujemy, albo trial płatny na wynajętej jednostce od naszego partnera sprzętowego. Neritic AI: wspólnie ustalamy kolejny krok.',
+      'W przypadku HurricaneOS nasi inżynierowie budują i certyfikują obraz OS dla Twojej płyty. Późniejsze aktualizacje są zero-touch.',
     ],
   },
 };
