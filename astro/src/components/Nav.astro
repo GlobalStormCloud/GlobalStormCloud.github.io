@@ -3,6 +3,8 @@ import Arrow from './Arrow.astro';
 import Logo from './Logo.astro';
 import { strings, localizePath, alternatePath, type Locale } from '../i18n/ui';
 import { site } from '../data/site';
+import { showNeriticLink } from '../data/features';
+import { neritic } from '../data/neritic';
 
 interface Props {
   locale: Locale;
@@ -16,6 +18,7 @@ const home = localizePath('/', locale);
 const other = locale === 'en' ? 'pl' : 'en';
 // The 404 has no Polish twin (Pages serves one /404.html for every miss): switch to the other home page.
 const alt = path === '/404' ? localizePath('/', other) : alternatePath(path, locale);
+const n = neritic[locale];
 const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '/';
 ---
 <header class="nav">
@@ -27,7 +30,7 @@ const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '
         {t.nav.map((item) => {
           const active = canonical === item.path;
           return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}>{item.label}</a></li>;
-        })}
+        })}{showNeriticLink && <li><a class="neritic-link" href={n.linkHref} rel="noopener">{n.name}<span class="sr-only"> ({n.linkLabel})</span><Arrow dir="up-right" /></a></li>}
       </ul>
     </nav>
 
@@ -51,7 +54,7 @@ const canonical = path.replace(/^\/pl(?=\/|$)/, '').replace(/(.)\/$/, '$1') || '
         {t.nav.map((item) => {
           const active = canonical === item.path;
           return <li><a href={localizePath(item.path, locale)} aria-current={active ? 'page' : undefined}><span class="h3">{item.label}</span></a></li>;
-        })}
+        })}{showNeriticLink && <li><a class="neritic-link" href={n.linkHref} rel="noopener"><span class="h3">{n.name}<span class="sr-only"> ({n.linkLabel})</span></span><Arrow dir="up-right" /></a></li>}
       </ul>
       <div class="nav__sheet-foot">
         <a class="btn btn--primary" href={localizePath('/company', locale) + '#contact'}>{t.navCta}<Arrow /></a>

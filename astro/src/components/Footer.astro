@@ -1,9 +1,12 @@
 ---
+import Arrow from './Arrow.astro';
 import Logo from './Logo.astro';
 import { strings, localizePath, type Locale } from '../i18n/ui';
 import { content } from '../data/content';
 import { company } from '../data/company';
 import { site as siteData } from '../data/site';
+import { showNeriticLink } from '../data/features';
+import { neritic } from '../data/neritic';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -11,6 +14,7 @@ const t = strings[locale];
 const f = content[locale].footer;
 const sl = siteData[locale];
 const pl = locale === 'pl';
+const n = neritic[locale];
 const year = new Date().getFullYear();
 const platformLinks = [
   { label: 'HurricaneOS', path: '/platform' },
@@ -38,7 +42,7 @@ const companyLinks = [
           <p class="legend foot__h">{f.colPlatform}</p>
           <ul role="list">
             {platformLinks.map((l) => <li><a href={localizePath(l.path, locale)}>{l.label}</a></li>)}
-            <li><a href="/docs/">{sl.footerLinks.docs}</a></li>
+            <li><a href="/docs/">{sl.footerLinks.docs}</a></li>{showNeriticLink && <li><a class="neritic-link" href={n.linkHref} rel="noopener">{n.name}<span class="sr-only"> ({n.linkLabel})</span><Arrow dir="up-right" /></a></li>}
           </ul>
         </div>
         <div>

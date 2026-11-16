@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { showNeriticLink } from '../data/features';
+import neriticNavCss from '../styles/neritic-nav.css?raw';
 import { localizePath, type Locale } from '../i18n/ui';
 
 interface Props {
@@ -53,7 +55,7 @@ const metaDesc = description ?? (locale === 'pl' ? 'HurricaneOS — prowadzony, 
     <link rel="preload" href="/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />{showNeriticLink && <style is:inline set:html={neriticNavCss}></style>}
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>

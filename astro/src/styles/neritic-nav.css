@@ -1,0 +1,15 @@
+/*
+  Extra rules for the Neritic AI links in the nav and footer. Layout.astro inlines this file into <head> only when
+  showNeriticLink is true (both switches on), so with the switches off the built CSS is unchanged.
+  Imported with ?raw, so it never enters the normal CSS bundle.
+*/
+.neritic-link { white-space: nowrap; }
+.nav__links .neritic-link .arr, .foot__cols .neritic-link .arr { margin-left: 6px; }
+/* A fifth nav item does not fit beside the logo, the language switch and the demo button between 961 and ~1120 px
+   (the logo shrinks and the button wraps). Use the menu button up to 1140 px instead of 960 px. The sheet's own rule
+   (display: none !important from 961 px) is overridden only while it is open. */
+@media (min-width: 961px) and (max-width: 1140px) {
+  .nav__primary, .nav__lang, .nav__cta { display: none !important; }
+  .nav__toggle { display: inline-flex !important; }
+  header.nav .nav__sheet:not([hidden]) { display: block !important; }
+}
