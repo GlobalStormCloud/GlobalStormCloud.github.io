@@ -1,7 +1,8 @@
 ---
-// Brief Neritic AI band under the Home hero strip. Rendered by HomePage only when features.neriticAi is true.
-// One headline, one line, one link. HurricaneOS stays the headline product: this band uses h3-size type on a plain plate.
-// The link to neritic.ai is shown only when showNeriticLink is true (both switches on), so the band can run before the domain is live.
+// Short Neritic AI band under the Home hero strip. Rendered by HomePage only when features.neriticAi is true.
+// Name, headline, descriptor, three points, one link. HurricaneOS stays the headline product: h3-size type on a plain plate,
+// below the first screen at 1440 px. The link to neritic.ai is shown only when showNeriticLink is true (both switches on),
+// so the band can run before the domain is live. The full story lives on neritic.ai.
 import Arrow from '../Arrow.astro';
 import { showNeriticLink } from '../../data/features';
 import { neritic } from '../../data/neritic';
@@ -15,28 +16,33 @@ const n = neritic[locale];
     <div class="nb__id">
       <p class="legend nb__name">{n.name}</p>
       <h2 id="nb-h" class="h3 nb__h">{n.headline}</h2>
+      <p class="nb__line">{n.line}</p>
     </div>
-    <p class="nb__line">{n.line}</p>
-    {showNeriticLink && (
-      <a class="link-arrow nb__link" href={n.linkHref} rel="noopener">{n.linkLabel}<Arrow dir="up-right" /></a>
-    )}
+    <div class="nb__body">
+      <ul role="list" class="nb__pts">
+        {n.points.map((p) => <li>{p}</li>)}
+      </ul>
+      {showNeriticLink && (
+        <a class="link-arrow nb__link" href={n.linkHref} rel="noopener">{n.linkLabel}<Arrow dir="up-right" /></a>
+      )}
+    </div>
   </div>
 </section>
 <style>
   .nb { padding-top: 40px; }
-  .nb__plate { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) auto; align-items: center; gap: 16px 40px; padding: 26px 32px; }
+  .nb__plate { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; gap: 20px 56px; padding: 28px 32px; }
   .nb__name { color: var(--steel-deep); }
-  .nb__h { margin-top: 6px; }
-  .nb__line { color: var(--steel); font-size: 16px; }
-  .nb__link { justify-self: end; white-space: nowrap; }
-  @media (max-width: 960px) {
-    .nb__plate { grid-template-columns: minmax(0, 1fr) auto; }
-    .nb__line { grid-column: 1; }
-    .nb__link { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .nb__h { margin-top: 6px; max-width: 14em; }
+  .nb__line { margin-top: 12px; color: var(--steel); font-size: 16px; }
+  .nb__pts { border-top: 1px solid var(--alloy); }
+  .nb__pts li { padding: 11px 0; border-bottom: 1px solid var(--alloy); color: var(--ink); font-size: 16px; line-height: 1.5; }
+  .nb__link { margin-top: 18px; }
+  @media (max-width: 860px) {
+    .nb__plate { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .nb__h { max-width: none; }
   }
   @media (max-width: 600px) {
     .nb { padding-top: 32px; }
-    .nb__plate { grid-template-columns: minmax(0, 1fr); padding: 22px 20px; }
-    .nb__link { grid-column: 1; grid-row: auto; justify-self: start; }
+    .nb__plate { padding: 22px 20px; }
   }
 </style>

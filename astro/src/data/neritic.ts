@@ -5,20 +5,30 @@
 */
 import type { Locale } from '../i18n/ui';
 
-export interface NeriticCopy { name: string; headline: string; line: string; linkLabel: string; linkHref: string; }
+export interface NeriticCopy { name: string; headline: string; line: string; points: string[]; linkLabel: string; linkHref: string; }
 
 export const neritic: Record<Locale, NeriticCopy> = {
   en: {
     name: 'Neritic AI',
     headline: 'Make sense of your machine noise.',
-    line: 'Learns what normal looks like for each machine.',
+    line: 'Learns what normal looks like for each machine',
+    points: [
+      'It learns what normal looks like for each of your machines, from their own data.',
+      'Nothing to build or train for each machine. Setup is simple.',
+      'When one starts to drift, you hear about it early, so you can plan the maintenance.',
+    ],
     linkLabel: 'neritic.ai',
     linkHref: 'https://neritic.ai/',
   },
   pl: {
     name: 'Neritic AI',
     headline: 'Zrozum szum swoich maszyn.',
-    line: 'Uczy się, jak wygląda norma dla każdej maszyny.',
+    line: 'Uczy się, jak wygląda norma dla każdej maszyny',
+    points: [
+      'Uczy się, jak wygląda norma dla każdej z Twoich maszyn, na podstawie jej własnych danych.',
+      'Nic nie trzeba budować ani trenować osobno dla każdej maszyny. Konfiguracja jest prosta.',
+      'Gdy któraś zaczyna odbiegać od normy, dowiadujesz się o tym wcześnie i możesz zaplanować konserwację.',
+    ],
     linkLabel: 'neritic.ai',
     linkHref: 'https://neritic.ai/',
   },
