@@ -60,7 +60,7 @@ const en: Site = {
   meta: {
     home: { title: 'Operated immutable edge OS', desc: 'HurricaneOS is a fully operated, immutable edge operating system for x86 and ARM fleets. EU vendor, EU-hosted (within the EEA).' },
     platform: { title: 'HurricaneOS Platform — Immutable OS for Edge Fleets', desc: 'How HurricaneOS works: A/B operating-system slots with automatic fallback, TPM 2.0 hardware identity, and a Git-to-fleet pipeline with CVE scanning.' },
-    pricing: { title: 'Pricing', desc: 'Published HurricaneOS prices per active device per month, per hardware profile. Free 1-month trial. EUR, excluding VAT, for businesses.' },
+    pricing: { title: 'Pricing', desc: 'HurricaneOS prices per active device per month, per hardware profile. Free 1-month trial. EUR, excluding VAT, for businesses.' },
     compliance: { title: 'Compliance', desc: 'A good-faith technical mapping of HurricaneOS against NIS2, the RED cybersecurity delegated act and the Cyber Resilience Act.' },
     company: { title: 'HurricaneOS edge OS, built in Poland', desc: 'Global Storm sp. z o.o., Warsaw — the engineers behind HurricaneOS. Book a demo.' },
     legal: { title: 'Privacy Policy', desc: 'How Global Storm handles personal data collected through this website.' },
@@ -215,7 +215,7 @@ const pl: Site = {
   meta: {
     home: { title: 'Prowadzony, niezmienny system edge', desc: 'HurricaneOS to w pełni prowadzony, niezmienny system operacyjny edge dla flot x86 i ARM. Dostawca z UE, hostowane w UE (w ramach EOG).' },
     platform: { title: 'Platforma HurricaneOS — niezmienny system dla flot edge', desc: 'Jak działa HurricaneOS: sloty A/B systemu z automatycznym powrotem, tożsamość sprzętowa w TPM 2.0 i potok od Git do floty ze skanem CVE.' },
-    pricing: { title: 'Cennik', desc: 'Jawne ceny HurricaneOS za aktywne urządzenie miesięcznie, na profil sprzętowy. Darmowy 1-miesięczny trial. EUR bez VAT, dla firm.' },
+    pricing: { title: 'Cennik', desc: 'Ceny HurricaneOS za aktywne urządzenie miesięcznie, na profil sprzętowy. Darmowy 1-miesięczny trial. EUR bez VAT, dla firm.' },
     compliance: { title: 'Zgodność', desc: 'Techniczne odwzorowanie HurricaneOS wobec NIS2, aktu delegowanego RED i Cyber Resilience Act, w dobrej wierze.' },
     company: { title: 'Twórca HurricaneOS z Polski', desc: 'Global Storm sp. z o.o., Warszawa — inżynierowie stojący za HurricaneOS. Umów demo.' },
     legal: { title: 'Polityka prywatności', desc: 'Jak Global Storm przetwarza dane osobowe zbierane przez tę stronę.' },
