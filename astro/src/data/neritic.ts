@@ -11,7 +11,7 @@ export const neritic: Record<Locale, NeriticCopy> = {
   en: {
     name: 'Neritic AI',
     headline: 'Make sense of your machine noise.',
-    line: 'Learns what normal looks like for each machine',
+    line: 'Your machines already show when something’s changing. Neritic AI helps you see it.',
     points: [
       'It learns what normal looks like for each of your machines, from their own data.',
       'Nothing to build or train for each machine. Setup is simple.',
@@ -23,7 +23,7 @@ export const neritic: Record<Locale, NeriticCopy> = {
   pl: {
     name: 'Neritic AI',
     headline: 'Zrozum szum swoich maszyn.',
-    line: 'Uczy się, jak wygląda norma dla każdej maszyny',
+    line: 'Twoje maszyny już pokazują, kiedy coś się zmienia. Neritic AI pomaga to zobaczyć.',
     points: [
       'Uczy się, jak wygląda norma dla każdej z Twoich maszyn, na podstawie jej własnych danych.',
       'Nic nie trzeba budować ani trenować osobno dla każdej maszyny. Konfiguracja jest prosta.',
