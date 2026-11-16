@@ -180,7 +180,7 @@ const en: Content = {
   },
   pricing: {
     eyebrow: 'Pricing',
-    title: 'Published prices, per active device.',
+    title: 'Priced per active device.',
     desc: 'A maintained OS update lane with CVE patching, billed per active device per month. Every standard rate is on this page.',
     terms: 'Prices in EUR, excluding VAT. For businesses only; a valid VAT ID is required. Published rates are indicative; binding terms are set in your contract.',
     // TRIAL MODEL — free and paid trial.
@@ -445,7 +445,7 @@ const pl: Content = {
   },
   pricing: {
     eyebrow: 'Cennik',
-    title: 'Jawne ceny, za aktywne urządzenie.',
+    title: 'Cena za aktywne urządzenie.',
     desc: 'Utrzymywana ścieżka aktualizacji OS z łataniem CVE, rozliczana za aktywne urządzenie miesięcznie. Każda standardowa stawka jest na tej stronie.',
     terms: 'Ceny w EUR, bez VAT. Tylko dla firm; wymagany ważny numer VAT. Opublikowane stawki mają charakter informacyjny; wiążące warunki określa umowa.',
     trialName: 'Darmowy trial', trialPrice: '0 €', trialUnit: '1 miesiąc · do 3 urządzeń · tylko do ewaluacji',
