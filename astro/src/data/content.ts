@@ -278,8 +278,8 @@ const en: Content = {
   },
   contact: {
     eyebrow: 'Get Started',
-    title: 'See HurricaneOS in action',
-    desc: 'Book a 30-minute demo, or ask about a trial on a board we certify or a leased unit. No commitment to talk.',
+    title: 'Book a demo',
+    desc: 'Book a 30-minute demo of HurricaneOS or Neritic AI, or ask about a HurricaneOS trial. No commitment to talk.',
     name: 'Name', email: 'Work Email', company: 'Company', interest: "I'm interested in...",
     interestOptions: ['Platform demo', 'Free trial (supported board)', 'Paid trial (partner hardware unit)', 'Custom hardware', 'Data collection & processing', 'Neritic AI', 'Technical partnership', 'Just exploring'],
     message: 'Tell us about your use case', submit: 'Book my demo',
@@ -538,8 +538,8 @@ const pl: Content = {
   },
   contact: {
     eyebrow: 'Rozpocznij',
-    title: 'Zobacz HurricaneOS w akcji',
-    desc: 'Umów 30-minutowe demo albo zapytaj o trial na płycie, którą certyfikujemy, lub na wynajętej jednostce. Rozmowa do niczego nie zobowiązuje.',
+    title: 'Umów demo',
+    desc: 'Umów 30-minutowe demo HurricaneOS lub Neritic AI albo zapytaj o trial HurricaneOS. Rozmowa do niczego nie zobowiązuje.',
     name: 'Imię', email: 'E-mail służbowy', company: 'Firma', interest: 'Interesuje mnie...',
     interestOptions: ['Demo platformy', 'Darmowy trial (wspierana płyta)', 'Trial płatny (jednostka sprzętu partnera)', 'Dedykowany sprzęt', 'Zbieranie i przetwarzanie danych', 'Neritic AI', 'Partnerstwo techniczne', 'Na razie się rozglądam'],
     message: 'Opisz swój przypadek użycia', submit: 'Zamów moje demo',
