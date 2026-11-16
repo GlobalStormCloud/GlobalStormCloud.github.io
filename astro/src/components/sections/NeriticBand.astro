@@ -1,9 +1,9 @@
 ---
 // Brief Neritic AI band under the Home hero strip. Rendered by HomePage only when features.neriticAi is true.
 // One headline, one line, one link. HurricaneOS stays the headline product: this band uses h3-size type on a plain plate.
-// The link to neritic.ai is shown only when features.neriticAiLink is true (so the band can run before the domain is live).
+// The link to neritic.ai is shown only when showNeriticLink is true (both switches on), so the band can run before the domain is live.
 import Arrow from '../Arrow.astro';
-import { features } from '../../data/features';
+import { showNeriticLink } from '../../data/features';
 import { neritic } from '../../data/neritic';
 import type { Locale } from '../../i18n/ui';
 interface Props { locale: Locale; }
@@ -17,7 +17,7 @@ const n = neritic[locale];
       <h2 id="nb-h" class="h3 nb__h">{n.headline}</h2>
     </div>
     <p class="nb__line">{n.line}</p>
-    {features.neriticAiLink && (
+    {showNeriticLink && (
       <a class="link-arrow nb__link" href={n.linkHref} rel="noopener">{n.linkLabel}<Arrow dir="up-right" /></a>
     )}
   </div>

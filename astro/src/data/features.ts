@@ -6,6 +6,9 @@
 export const features = {
   /** Show the brief Neritic AI band on the Home page (EN + PL). */
   neriticAi: false,
-  /** Show the outgoing link to neritic.ai inside the band. Leave false until neritic.ai is live. Has no effect while neriticAi is false. */
+  /** Show every outgoing link to neritic.ai: in the band, in the nav (desktop and mobile menu) and in the footer. Leave false until neritic.ai is live. Has no effect while neriticAi is false. */
   neriticAiLink: false,
 } as const;
+
+/** The one test every outgoing neritic.ai link uses: the link switch counts only while the band switch is on. */
+export const showNeriticLink: boolean = features.neriticAi && features.neriticAiLink;
