@@ -58,7 +58,7 @@ const en: Content = {
     desc: 'HurricaneOS is a fully operated, immutable edge platform for x86 and ARM fleets. We run the OS — patching, rollouts, CVE response — so you ship application code, not embedded-Linux hires.',
     cta: 'Book a Demo',
     secondary: 'View Pricing',
-    note: ['Survives power loss', 'Zero-touch OS updates', 'Published prices', 'x86 · ARM · UEFI'],
+    note: ['Survives power loss', 'Zero-touch OS updates', 'x86 · ARM · UEFI'],
   },
   trust: {
     partnerLabel: 'Industrial engagements with',
@@ -324,7 +324,7 @@ const pl: Content = {
     desc: 'HurricaneOS to w pełni prowadzona, niezmienna platforma edge dla flot x86 i ARM. To my prowadzimy system — łatanie, wdrożenia, reakcję na CVE — więc Ty wysyłasz kod aplikacji, a nie zatrudniasz specjalistów od Linuksa wbudowanego.',
     cta: 'Umów demo',
     secondary: 'Zobacz cennik',
-    note: ['Odporna na utratę zasilania', 'Zero-touch aktualizacje OS', 'Jawne ceny', 'x86 · ARM · UEFI'],
+    note: ['Odporna na utratę zasilania', 'Zero-touch aktualizacje OS', 'x86 · ARM · UEFI'],
   },
   trust: {
     partnerLabel: 'Projekty przemysłowe z',
