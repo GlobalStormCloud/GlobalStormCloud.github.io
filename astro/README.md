@@ -64,6 +64,33 @@ reaches the server, so this must be JS.
 - **Layout / components:** `src/layouts/Layout.astro`, `src/components/`.
 - **Pages (routes):** `src/pages/` (EN at root, PL under `src/pages/pl/`).
 
+## Feature switches
+
+`src/data/features.ts` holds two switches for the Neritic AI feature. Both are
+`false`, and with both `false` the build output is identical to a build without
+the feature.
+
+| `neriticAi` | `neriticAiLink` | Result |
+|---|---|---|
+| `false` | `false` | Nothing shown (default). |
+| `true` | `false` | The band on Home (EN and PL), with no link anywhere. |
+| `true` | `true` | The band plus the link in the band, the nav, the mobile menu and the footer, all to `https://neritic.ai/`. |
+| `false` | `true` | Nothing shown: the link switch counts only while the band is on. |
+
+With the link on, the menu button replaces the desktop nav from 961 to 1140 px,
+because a fifth item does not fit there.
+
+**Switch on:** set `neriticAi: true` (and `neriticAiLink: true` for the links) in
+`src/data/features.ts`, then `cd astro && npm run build:site`. Wording lives only
+in `src/data/neritic.ts`; change text there, never in the components. Re-run
+after switching on: `npm run check`; axe and horizontal overflow at 1440, 768,
+390 and 320 px; the nav at 961, 1024, 1100, 1140, 1141 and 1180 px and the mobile
+menu, EN and PL; no third-party requests; Lighthouse on Home as a median of 3
+runs.
+
+**Switch off:** set both values back to `false` and rebuild. To hide only the
+links, set `neriticAiLink` to `false`.
+
 ## Deploy
 
 The site and the docs deploy as one GitHub Pages artifact from
