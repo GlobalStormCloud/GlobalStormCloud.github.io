@@ -83,3 +83,8 @@ The diagrams are built in HTML with inline-SVG glyphs, so the text is real, refl
 - `src/data/content.ts` holds the migrated copy and the pricing data. **Do not edit it in design work.**
 - `src/data/site.ts` holds the copy this build adds.
 - `src/data/pricing-format.ts` only re-formats figures from `content.ts`. The worked example is recomputed at build time and checked against the published example.
+
+## Neritic AI band (prepared, switched off)
+- `sections/NeriticBand.astro`: one plate under the Home hero strip. Name legend + h3-size headline, one line, one outgoing link. HurricaneOS keeps the h1/h2 scale; nothing new in the type, colour or icon sets (the link arrow is the existing `arrow-up-right`).
+- Two switches in `src/data/features.ts`, both `false`: `neriticAi` (shows the band, EN + PL) and `neriticAiLink` (shows the link to neritic.ai inside it). With both off the built `dist/` is byte-identical to a build without this feature.
+- Copy is in `src/data/neritic.ts`; change wording there only. Steps to switch on and off: "Feature switches" in `astro/README.md`.

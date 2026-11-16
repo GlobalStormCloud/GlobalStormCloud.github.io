@@ -9,9 +9,11 @@ import Hardware from '../sections/Hardware.astro';
 import PricingTeaser from '../sections/PricingTeaser.astro';
 import TrustRow from '../sections/TrustRow.astro';
 import CtaBand from '../sections/CtaBand.astro';
+import NeriticBand from '../sections/NeriticBand.astro';
 import type { Locale } from '../../i18n/ui';
 import { content } from '../../data/content';
 import { site } from '../../data/site';
+import { features } from '../../data/features';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const c = content[locale];
@@ -20,6 +22,7 @@ const m = site[locale].meta.home;
 <Layout title={m.title} description={m.desc} locale={locale} path="/">
   <HomeHero c={c} locale={locale} />
   <HomeStrip c={c} locale={locale} />
+  {features.neriticAi && <NeriticBand locale={locale} />}
   <Pillars c={c} locale={locale} />
   <DiagramSection c={c} locale={locale} kind="anatomy-teaser" />
   <FieldReport c={c} locale={locale} />
