@@ -25,9 +25,9 @@ export const neritic: Record<Locale, NeriticCopy> = {
     headline: 'Zrozum szum swoich maszyn.',
     line: 'Twoje maszyny już pokazują, kiedy coś się zmienia. Neritic AI pomaga to zobaczyć.',
     points: [
-      'Uczy się, jak wygląda norma dla każdej z Twoich maszyn, na podstawie jej własnych danych.',
+      'Uczy się, jak wygląda normalna praca każdej z Twoich maszyn, na podstawie jej własnych danych.',
       'Nic nie trzeba budować ani trenować osobno dla każdej maszyny. Konfiguracja jest prosta.',
-      'Gdy któraś zaczyna odbiegać od normy, dowiadujesz się o tym wcześnie i możesz zaplanować konserwację.',
+      'Gdy któraś zaczyna pracować inaczej niż zwykle, dowiadujesz się o tym wcześnie i możesz zaplanować konserwację.',
     ],
     linkLabel: 'neritic.ai',
     linkHref: 'https://neritic.ai/',
